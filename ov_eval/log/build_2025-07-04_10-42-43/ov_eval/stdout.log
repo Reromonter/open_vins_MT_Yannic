@@ -1,0 +1,119 @@
+-- The C compiler identification is GNU 11.4.0
+-- The CXX compiler identification is GNU 11.4.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Found Boost: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.74.0/BoostConfig.cmake (found version "1.74.0") found components: system filesystem thread date_time 
+-- PYTHON VERSION: 3.10.12
+-- PYTHON INCLUDE: /usr/include/python3.10
+-- PYTHON LIBRARIES: /usr/lib/x86_64-linux-gnu/libpython3.10.so
+-- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter 
+-- Override CMake install command with custom implementation using symlinks instead of copying resources
+-- ROS *2* version found, building ROS2.cmake
+-- Found rclcpp: 16.0.12 (/opt/ros/humble/share/rclcpp/cmake)
+-- Found rosidl_generator_c: 3.1.6 (/opt/ros/humble/share/rosidl_generator_c/cmake)
+-- Found rosidl_adapter: 3.1.6 (/opt/ros/humble/share/rosidl_adapter/cmake)
+-- Found rosidl_generator_cpp: 3.1.6 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
+-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+-- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)
+-- Found rmw_fastrtps_cpp: 6.2.7 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)
+-- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "3.0.2")  
+-- Found FastRTPS: /opt/ros/humble/include  
+-- Using RMW implementation 'rmw_fastrtps_cpp' as default
+-- Found Threads: TRUE  
+-- Found ov_core: 2.7.0 (/catkin_ws/install/ov_core/share/ov_core/cmake)
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /catkin_ws/src/open_vins/ov_eval/build/ov_eval
+[ 22%] [32mBuilding CXX object CMakeFiles/ov_eval_lib.dir/src/alignment/AlignTrajectory.cpp.o[0m
+[ 22%] [32mBuilding CXX object CMakeFiles/ov_eval_lib.dir/src/alignment/AlignUtils.cpp.o[0m
+[ 22%] [32mBuilding CXX object CMakeFiles/ov_eval_lib.dir/src/calc/ResultTrajectory.cpp.o[0m
+[ 22%] [32mBuilding CXX object CMakeFiles/ov_eval_lib.dir/src/calc/ResultSimulation.cpp.o[0m
+[ 22%] [32mBuilding CXX object CMakeFiles/ov_eval_lib.dir/src/dummy.cpp.o[0m
+[ 22%] [32mBuilding CXX object CMakeFiles/ov_eval_lib.dir/src/utils/Loader.cpp.o[0m
+[ 25%] [32m[1mLinking CXX shared library libov_eval_lib.so[0m
+[ 25%] Built target ov_eval_lib
+[ 62%] [32mBuilding CXX object CMakeFiles/timing_comparison.dir/src/timing_comparison.cpp.o[0m
+[ 62%] [32mBuilding CXX object CMakeFiles/error_simulation.dir/src/error_simulation.cpp.o[0m
+[ 62%] [32mBuilding CXX object CMakeFiles/error_dataset.dir/src/error_dataset.cpp.o[0m
+[ 62%] [32mBuilding CXX object CMakeFiles/timing_flamegraph.dir/src/timing_flamegraph.cpp.o[0m
+[ 62%] [32mBuilding CXX object CMakeFiles/format_converter.dir/src/format_converter.cpp.o[0m
+[ 62%] [32mBuilding CXX object CMakeFiles/timing_percentages.dir/src/timing_percentages.cpp.o[0m
+[ 62%] [32mBuilding CXX object CMakeFiles/error_comparison.dir/src/error_comparison.cpp.o[0m
+[ 62%] [32mBuilding CXX object CMakeFiles/timing_histogram.dir/src/timing_histogram.cpp.o[0m
+[ 62%] [32mBuilding CXX object CMakeFiles/error_singlerun.dir/src/error_singlerun.cpp.o[0m
+[ 62%] [32mBuilding CXX object CMakeFiles/plot_trajectories.dir/src/plot_trajectories.cpp.o[0m
+[ 66%] [32m[1mLinking CXX executable format_converter[0m
+[ 70%] [32m[1mLinking CXX executable timing_flamegraph[0m
+[ 74%] [32m[1mLinking CXX executable timing_histogram[0m
+[ 74%] Built target format_converter
+[ 77%] [32m[1mLinking CXX executable timing_comparison[0m
+[ 77%] Built target timing_flamegraph
+[ 77%] Built target timing_histogram
+[ 77%] Built target timing_comparison
+[ 81%] [32m[1mLinking CXX executable timing_percentages[0m
+[ 81%] Built target timing_percentages
+[ 85%] [32m[1mLinking CXX executable error_simulation[0m
+[ 88%] [32m[1mLinking CXX executable error_singlerun[0m
+[ 88%] Built target error_simulation
+[ 92%] [32m[1mLinking CXX executable plot_trajectories[0m
+[ 92%] Built target error_singlerun
+[ 92%] Built target plot_trajectories
+[ 96%] [32m[1mLinking CXX executable error_dataset[0m
+[100%] [32m[1mLinking CXX executable error_comparison[0m
+[100%] Built target error_dataset
+[100%] Built target error_comparison
+-- Install configuration: ""
+-- Execute custom install script
+-- Symlinking: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/share/ov_eval/environment/library_path.sh
+-- Symlinking: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/share/ov_eval/environment/library_path.dsv
+-- Symlinking: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/lib/ov_eval/format_converter
+-- Symlinking: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/lib/ov_eval/error_comparison
+-- Symlinking: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/lib/ov_eval/error_dataset
+-- Symlinking: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/lib/ov_eval/error_singlerun
+-- Symlinking: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/lib/ov_eval/error_simulation
+-- Symlinking: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/lib/ov_eval/timing_comparison
+-- Symlinking: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/lib/ov_eval/timing_flamegraph
+-- Symlinking: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/lib/ov_eval/timing_histogram
+-- Symlinking: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/lib/ov_eval/timing_percentages
+-- Symlinking: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/lib/ov_eval/plot_trajectories
+-- Symlinking: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/lib/ov_eval/pid_ros.py
+-- Symlinking: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/lib/ov_eval/pid_sys.py
+-- Symlinking: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/share/ament_index/resource_index/package_run_dependencies/ov_eval
+-- Symlinking: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/share/ament_index/resource_index/parent_prefix_path/ov_eval
+-- Symlinking: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/share/ov_eval/environment/ament_prefix_path.sh
+-- Symlinking: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/share/ov_eval/environment/ament_prefix_path.dsv
+-- Symlinking: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/share/ov_eval/environment/path.sh
+-- Symlinking: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/share/ov_eval/environment/path.dsv
+-- Symlinking: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/share/ov_eval/local_setup.bash
+-- Symlinking: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/share/ov_eval/local_setup.sh
+-- Symlinking: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/share/ov_eval/local_setup.zsh
+-- Symlinking: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/share/ov_eval/local_setup.dsv
+-- Symlinking: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/share/ov_eval/package.dsv
+-- Symlinking: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/share/ament_index/resource_index/packages/ov_eval
+-- Symlinking: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/share/ov_eval/cmake/ament_cmake_export_include_directories-extras.cmake
+-- Symlinking: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/share/ov_eval/cmake/ament_cmake_export_libraries-extras.cmake
+-- Symlinking: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/share/ov_eval/cmake/ov_evalConfig.cmake
+-- Symlinking: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/share/ov_eval/cmake/ov_evalConfig-version.cmake
+-- Symlinking: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/share/ov_eval/package.xml
+-- Installing: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/lib/libov_eval_lib.so
+-- Set runtime path of "/catkin_ws/src/open_vins/ov_eval/install/ov_eval/lib/libov_eval_lib.so" to ""
+-- Installing: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/include
+-- Installing: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/include/calc
+-- Installing: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/include/calc/ResultTrajectory.h
+-- Installing: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/include/calc/ResultSimulation.h
+-- Installing: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/include/utils
+-- Installing: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/include/utils/Statistics.h
+-- Installing: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/include/utils/Loader.h
+-- Installing: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/include/utils/Recorder.h
+-- Installing: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/include/alignment
+-- Installing: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/include/alignment/AlignTrajectory.h
+-- Installing: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/include/alignment/AlignUtils.h

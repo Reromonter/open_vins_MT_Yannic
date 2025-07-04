@@ -10,6 +10,9 @@ if (NOT OpenCV_FOUND)
 endif ()
 find_package(Boost REQUIRED COMPONENTS system filesystem thread date_time)
 find_package(Ceres REQUIRED)
+find_package(tf2_ros REQUIRED) 
+find_package(tf2_geometry_msgs REQUIRED)
+find_package(nav_msgs REQUIRED) 
 message(STATUS "OPENCV: " ${OpenCV_VERSION} " | BOOST: " ${Boost_VERSION} " | CERES: " ${Ceres_VERSION})
 
 # By default we build with ROS, but you can disable this and just build as a library

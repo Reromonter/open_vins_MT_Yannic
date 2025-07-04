@@ -1,0 +1,11 @@
+source;share/ov_eval/hook/cmake_prefix_path.ps1
+source;share/ov_eval/hook/cmake_prefix_path.dsv
+source;share/ov_eval/hook/cmake_prefix_path.sh
+source;share/ov_eval/hook/ld_library_path_lib.ps1
+source;share/ov_eval/hook/ld_library_path_lib.dsv
+source;share/ov_eval/hook/ld_library_path_lib.sh
+source;share/ov_eval/local_setup.bash
+source;share/ov_eval/local_setup.dsv
+source;share/ov_eval/local_setup.ps1
+source;share/ov_eval/local_setup.sh
+source;share/ov_eval/local_setup.zsh

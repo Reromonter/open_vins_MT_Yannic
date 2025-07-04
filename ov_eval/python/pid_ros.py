@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 # OpenVINS: An Open Platform for Visual-Inertial Research
 # Copyright (C) 2019 Patrick Geneva

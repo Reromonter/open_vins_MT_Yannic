@@ -17,7 +17,7 @@ launch_args = [
     ),
     DeclareLaunchArgument(
         name="config",
-        default_value="euroc_mav",
+        default_value="lunar_leaper",
         description="euroc_mav, tum_vi, rpng_aruco...",
     ),
     DeclareLaunchArgument(
@@ -88,7 +88,6 @@ def launch_setup(context):
             {"config_path": config_path},
         ],
     )
-
     node2 = Node(
         package="rviz2",
         executable="rviz2",
@@ -103,8 +102,20 @@ def launch_setup(context):
             "warn",
             ],
     )
-
-    return [node1, node2]
+    '''
+    #does not work with ros2
+    recorder = Node(
+        package="ov_eval",
+        executable="pid_ros.py",        # installed by ov_eval
+        name="recorder_timing",
+        output="screen",
+        parameters=[
+            {"nodes": "/run_subscribe_msckf"},          # comma-separate for multi-node setups
+            {"output": "/catkin_ws/results_logs_lunarLeaper/psutil_log.txt"}
+        ]
+    )
+    '''
+    return [node1, node2]#, recorder]
 
 
 def generate_launch_description():

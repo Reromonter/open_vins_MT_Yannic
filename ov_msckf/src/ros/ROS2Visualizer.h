@@ -44,6 +44,9 @@
 #include <tf2/transform_datatypes.h>
 #include <tf2_geometry_msgs/tf2_geometry_msgs.h>
 #include <tf2_ros/transform_broadcaster.h>
+#include <tf2_ros/buffer.h>
+#include <tf2_ros/transform_listener.h>
+#include <tf2_ros/static_transform_broadcaster.h>
 
 #include <atomic>
 #include <fstream>
@@ -75,6 +78,8 @@ class Simulator;
  * - Our different features (SLAM, MSCKF, ARUCO)
  * - Groundtruth trajectory if we have it
  */
+
+
 class ROS2Visualizer {
 
 public:
@@ -154,6 +159,7 @@ protected:
   rclcpp::Publisher<sensor_msgs::msg::PointCloud>::SharedPtr pub_loop_point;
   rclcpp::Publisher<sensor_msgs::msg::CameraInfo>::SharedPtr pub_loop_intrinsics;
   std::shared_ptr<tf2_ros::TransformBroadcaster> mTfBr;
+  std::shared_ptr<tf2_ros::StaticTransformBroadcaster> mStaticTfBr;
 
   // Our subscribers and camera synchronizers
   rclcpp::Subscription<sensor_msgs::msg::Imu>::SharedPtr sub_imu;
@@ -173,6 +179,14 @@ protected:
   double summed_nees_ori = 0.0;
   double summed_nees_pos = 0.0;
   size_t summed_number = 0;
+
+  // --- TF-to-Path ground-truth helper --------------------------------
+  std::shared_ptr<tf2_ros::Buffer>            tf_buffer_;
+  std::shared_ptr<tf2_ros::TransformListener> tf_listener_;
+  rclcpp::Publisher<nav_msgs::msg::Path>::SharedPtr pub_path_imu_gt_;
+  nav_msgs::msg::Path  path_imu_gt_;
+  std::string world_frame_ {"world"};
+  std::string imu_frame_   {"imu_link"};
 
   // Start and end timestamps
   bool start_time_set = false;
@@ -197,6 +211,10 @@ protected:
 
   // Our groundtruth states
   std::map<double, Eigen::Matrix<double, 17, 1>> gt_states;
+
+  //for imu ground truth
+  void publish_imu_gt_path();
+
 
   // For path viz
   std::vector<geometry_msgs::msg::PoseStamped> poses_gt;

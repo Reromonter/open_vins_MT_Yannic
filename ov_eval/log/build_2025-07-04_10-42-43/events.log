@@ -1,0 +1,461 @@
+[0.000000] (-) TimerEvent: {}
+[0.000112] (ov_eval) JobQueued: {'identifier': 'ov_eval', 'dependencies': OrderedDict()}
+[0.000137] (ov_eval) JobStarted: {'identifier': 'ov_eval'}
+[0.043768] (ov_eval) JobProgress: {'identifier': 'ov_eval', 'progress': 'cmake'}
+[0.064528] (ov_eval) Command: {'cmd': ['/usr/bin/cmake', '/catkin_ws/src/open_vins/ov_eval', '-DAMENT_CMAKE_SYMLINK_INSTALL=1', '-DCMAKE_INSTALL_PREFIX=/catkin_ws/src/open_vins/ov_eval/install/ov_eval'], 'cwd': '/catkin_ws/src/open_vins/ov_eval/build/ov_eval', 'env': OrderedDict([('HOSTNAME', 'leo-c15-12'), ('GIT_ASKPASS', '/root/.vscode-server/bin/17baf841131aa23349f217ca7c570c76ee87b957/extensions/git/dist/askpass.sh'), ('SHLVL', '2'), ('LD_LIBRARY_PATH', '/catkin_ws/install/ov_msckf/lib:/catkin_ws/install/ov_init/lib:/catkin_ws/install/ov_eval/lib:/catkin_ws/install/ov_core/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('BROWSER', '/root/.vscode-server/bin/17baf841131aa23349f217ca7c570c76ee87b957/bin/helpers/browser.sh'), ('HOME', '/root'), ('OLDPWD', '/catkin_ws'), ('TERM_PROGRAM_VERSION', '1.99.3'), ('VSCODE_IPC_HOOK_CLI', '/tmp/vscode-ipc-f5175849-e0a4-4736-8722-ef29ed3b7974.sock'), ('ROS_PYTHON_VERSION', '3'), ('VSCODE_GIT_ASKPASS_MAIN', '/root/.vscode-server/bin/17baf841131aa23349f217ca7c570c76ee87b957/extensions/git/dist/askpass-main.js'), ('VSCODE_GIT_ASKPASS_NODE', '/root/.vscode-server/bin/17baf841131aa23349f217ca7c570c76ee87b957/node'), ('COLORTERM', 'truecolor'), ('REMOTE_CONTAINERS', 'true'), ('DEBUGINFOD_URLS', ''), ('COLCON_PREFIX_PATH', '/catkin_ws/install'), ('ROS_DISTRO', 'humble'), ('REMOTE_CONTAINERS_IPC', '/tmp/vscode-remote-containers-ipc-a69b6420-fdb8-4384-ab98-c44c8af3b4d6.sock'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('NVIDIA_DRIVER_CAPABILITIES', 'all'), ('TERM', 'xterm-256color'), ('ROS_LOCALHOST_ONLY', '0'), ('QT_X11_NO_MITSHM', '1'), ('PATH', '/opt/ros/humble/bin:/root/.vscode-server/bin/17baf841131aa23349f217ca7c570c76ee87b957/bin/remote-cli:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/root/.vscode-server/data/User/globalStorage/github.copilot-chat/debugCommand'), ('REMOTE_CONTAINERS_SOCKETS', '["/tmp/vscode-ssh-auth-a69b6420-fdb8-4384-ab98-c44c8af3b4d6.sock","/root/.gnupg/S.gpg-agent"]'), ('DISPLAY', ':1'), ('LANG', 'C.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('VSCODE_GIT_IPC_HANDLE', '/tmp/vscode-git-8b41c6f63d.sock'), ('TERM_PROGRAM', 'vscode'), ('SSH_AUTH_SOCK', '/tmp/vscode-ssh-auth-a69b6420-fdb8-4384-ab98-c44c8af3b4d6.sock'), ('AMENT_PREFIX_PATH', '/catkin_ws/install/ov_msckf:/catkin_ws/install/ov_init:/catkin_ws/install/ov_eval:/catkin_ws/install/ov_data:/catkin_ws/install/ov_core:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('VSCODE_GIT_ASKPASS_EXTRA_ARGS', ''), ('PWD', '/catkin_ws/src/open_vins/ov_eval/build/ov_eval'), ('LC_ALL', 'C.UTF-8'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/catkin_ws/install/ov_msckf:/catkin_ws/install/ov_init:/catkin_ws/install/ov_eval:/catkin_ws/install/ov_data:/catkin_ws/install/ov_core:/opt/ros/humble')]), 'shell': False}
+[0.100461] (-) TimerEvent: {}
+[0.200652] (-) TimerEvent: {}
+[0.300914] (-) TimerEvent: {}
+[0.324428] (ov_eval) StdoutLine: {'line': b'-- The C compiler identification is GNU 11.4.0\n'}
+[0.401016] (-) TimerEvent: {}
+[0.438871] (ov_eval) StdoutLine: {'line': b'-- The CXX compiler identification is GNU 11.4.0\n'}
+[0.465886] (ov_eval) StdoutLine: {'line': b'-- Detecting C compiler ABI info\n'}
+[0.501109] (-) TimerEvent: {}
+[0.601371] (-) TimerEvent: {}
+[0.701628] (-) TimerEvent: {}
+[0.778515] (ov_eval) StdoutLine: {'line': b'-- Detecting C compiler ABI info - done\n'}
+[0.795206] (ov_eval) StdoutLine: {'line': b'-- Check for working C compiler: /usr/bin/cc - skipped\n'}
+[0.796285] (ov_eval) StdoutLine: {'line': b'-- Detecting C compile features\n'}
+[0.796836] (ov_eval) StdoutLine: {'line': b'-- Detecting C compile features - done\n'}
+[0.801690] (-) TimerEvent: {}
+[0.815135] (ov_eval) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info\n'}
+[0.901825] (-) TimerEvent: {}
+[1.002092] (-) TimerEvent: {}
+[1.087582] (ov_eval) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info - done\n'}
+[1.102176] (-) TimerEvent: {}
+[1.137635] (ov_eval) StdoutLine: {'line': b'-- Check for working CXX compiler: /usr/bin/c++ - skipped\n'}
+[1.137855] (ov_eval) StdoutLine: {'line': b'-- Detecting CXX compile features\n'}
+[1.138830] (ov_eval) StdoutLine: {'line': b'-- Detecting CXX compile features - done\n'}
+[1.202277] (-) TimerEvent: {}
+[1.302536] (-) TimerEvent: {}
+[1.402798] (-) TimerEvent: {}
+[1.503064] (-) TimerEvent: {}
+[1.603299] (-) TimerEvent: {}
+[1.703676] (-) TimerEvent: {}
+[1.803954] (-) TimerEvent: {}
+[1.904194] (-) TimerEvent: {}
+[2.004460] (-) TimerEvent: {}
+[2.075942] (ov_eval) StdoutLine: {'line': b'-- Found Boost: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.74.0/BoostConfig.cmake (found version "1.74.0") found components: system filesystem thread date_time \n'}
+[2.104540] (-) TimerEvent: {}
+[2.125970] (ov_eval) StdoutLine: {'line': b'-- PYTHON VERSION: 3.10.12\n'}
+[2.126148] (ov_eval) StdoutLine: {'line': b'-- PYTHON INCLUDE: /usr/include/python3.10\n'}
+[2.128203] (ov_eval) StdoutLine: {'line': b'-- PYTHON LIBRARIES: /usr/lib/x86_64-linux-gnu/libpython3.10.so\n'}
+[2.204639] (-) TimerEvent: {}
+[2.304895] (-) TimerEvent: {}
+[2.402965] (ov_eval) StdoutLine: {'line': b'-- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter \n'}
+[2.404978] (-) TimerEvent: {}
+[2.491793] (ov_eval) StdoutLine: {'line': b'-- Override CMake install command with custom implementation using symlinks instead of copying resources\n'}
+[2.505061] (-) TimerEvent: {}
+[2.605297] (-) TimerEvent: {}
+[2.705552] (-) TimerEvent: {}
+[2.805800] (-) TimerEvent: {}
+[2.906049] (-) TimerEvent: {}
+[3.006297] (-) TimerEvent: {}
+[3.106548] (-) TimerEvent: {}
+[3.129747] (ov_eval) StdoutLine: {'line': b'-- ROS *2* version found, building ROS2.cmake\n'}
+[3.201098] (ov_eval) StdoutLine: {'line': b'-- Found rclcpp: 16.0.12 (/opt/ros/humble/share/rclcpp/cmake)\n'}
+[3.206629] (-) TimerEvent: {}
+[3.306873] (-) TimerEvent: {}
+[3.407123] (-) TimerEvent: {}
+[3.507392] (-) TimerEvent: {}
+[3.607658] (-) TimerEvent: {}
+[3.707930] (-) TimerEvent: {}
+[3.808187] (-) TimerEvent: {}
+[3.908459] (-) TimerEvent: {}
+[4.008717] (-) TimerEvent: {}
+[4.108970] (-) TimerEvent: {}
+[4.209275] (-) TimerEvent: {}
+[4.240928] (ov_eval) StdoutLine: {'line': b'-- Found rosidl_generator_c: 3.1.6 (/opt/ros/humble/share/rosidl_generator_c/cmake)\n'}
+[4.309359] (-) TimerEvent: {}
+[4.409596] (-) TimerEvent: {}
+[4.509844] (-) TimerEvent: {}
+[4.610112] (-) TimerEvent: {}
+[4.710399] (-) TimerEvent: {}
+[4.810676] (-) TimerEvent: {}
+[4.910946] (-) TimerEvent: {}
+[5.011214] (-) TimerEvent: {}
+[5.111485] (-) TimerEvent: {}
+[5.211764] (-) TimerEvent: {}
+[5.312020] (-) TimerEvent: {}
+[5.324608] (ov_eval) StdoutLine: {'line': b'-- Found rosidl_adapter: 3.1.6 (/opt/ros/humble/share/rosidl_adapter/cmake)\n'}
+[5.412123] (-) TimerEvent: {}
+[5.512437] (-) TimerEvent: {}
+[5.612693] (-) TimerEvent: {}
+[5.712972] (-) TimerEvent: {}
+[5.813286] (-) TimerEvent: {}
+[5.913538] (-) TimerEvent: {}
+[6.013798] (-) TimerEvent: {}
+[6.114077] (-) TimerEvent: {}
+[6.127119] (ov_eval) StdoutLine: {'line': b'-- Found rosidl_generator_cpp: 3.1.6 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)\n'}
+[6.214183] (-) TimerEvent: {}
+[6.314502] (-) TimerEvent: {}
+[6.414761] (-) TimerEvent: {}
+[6.510865] (ov_eval) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[6.514840] (-) TimerEvent: {}
+[6.615066] (-) TimerEvent: {}
+[6.714478] (ov_eval) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[6.715138] (-) TimerEvent: {}
+[6.816036] (-) TimerEvent: {}
+[6.916289] (-) TimerEvent: {}
+[7.016535] (-) TimerEvent: {}
+[7.116795] (-) TimerEvent: {}
+[7.151411] (ov_eval) StdoutLine: {'line': b'-- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)\n'}
+[7.192701] (ov_eval) StdoutLine: {'line': b'-- Found rmw_fastrtps_cpp: 6.2.7 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)\n'}
+[7.216892] (-) TimerEvent: {}
+[7.317167] (-) TimerEvent: {}
+[7.417445] (-) TimerEvent: {}
+[7.517719] (-) TimerEvent: {}
+[7.535954] (ov_eval) StdoutLine: {'line': b'-- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "3.0.2")  \n'}
+[7.599507] (ov_eval) StdoutLine: {'line': b'-- Found FastRTPS: /opt/ros/humble/include  \n'}
+[7.617800] (-) TimerEvent: {}
+[7.699632] (ov_eval) StdoutLine: {'line': b"-- Using RMW implementation 'rmw_fastrtps_cpp' as default\n"}
+[7.717889] (-) TimerEvent: {}
+[7.818130] (-) TimerEvent: {}
+[7.820913] (ov_eval) StdoutLine: {'line': b'-- Found Threads: TRUE  \n'}
+[7.918260] (-) TimerEvent: {}
+[8.018657] (-) TimerEvent: {}
+[8.089292] (ov_eval) StdoutLine: {'line': b'-- Found ov_core: 2.7.0 (/catkin_ws/install/ov_core/share/ov_core/cmake)\n'}
+[8.118736] (-) TimerEvent: {}
+[8.218959] (-) TimerEvent: {}
+[8.319205] (-) TimerEvent: {}
+[8.419462] (-) TimerEvent: {}
+[8.519709] (-) TimerEvent: {}
+[8.531193] (ov_eval) StdoutLine: {'line': b'-- Configuring done\n'}
+[8.619806] (-) TimerEvent: {}
+[8.720041] (-) TimerEvent: {}
+[8.820288] (-) TimerEvent: {}
+[8.920528] (-) TimerEvent: {}
+[9.020849] (-) TimerEvent: {}
+[9.121097] (-) TimerEvent: {}
+[9.221372] (-) TimerEvent: {}
+[9.321618] (-) TimerEvent: {}
+[9.421875] (-) TimerEvent: {}
+[9.522137] (-) TimerEvent: {}
+[9.617868] (ov_eval) StdoutLine: {'line': b'-- Generating done\n'}
+[9.622203] (-) TimerEvent: {}
+[9.722415] (-) TimerEvent: {}
+[9.822672] (-) TimerEvent: {}
+[9.917529] (ov_eval) StdoutLine: {'line': b'-- Build files have been written to: /catkin_ws/src/open_vins/ov_eval/build/ov_eval\n'}
+[9.922754] (-) TimerEvent: {}
+[9.926983] (ov_eval) CommandEnded: {'returncode': 0}
+[9.928469] (ov_eval) JobProgress: {'identifier': 'ov_eval', 'progress': 'build'}
+[9.929579] (ov_eval) Command: {'cmd': ['/usr/bin/cmake', '--build', '/catkin_ws/src/open_vins/ov_eval/build/ov_eval', '--', '-j16', '-l16'], 'cwd': '/catkin_ws/src/open_vins/ov_eval/build/ov_eval', 'env': OrderedDict([('HOSTNAME', 'leo-c15-12'), ('GIT_ASKPASS', '/root/.vscode-server/bin/17baf841131aa23349f217ca7c570c76ee87b957/extensions/git/dist/askpass.sh'), ('SHLVL', '2'), ('LD_LIBRARY_PATH', '/catkin_ws/install/ov_msckf/lib:/catkin_ws/install/ov_init/lib:/catkin_ws/install/ov_eval/lib:/catkin_ws/install/ov_core/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('BROWSER', '/root/.vscode-server/bin/17baf841131aa23349f217ca7c570c76ee87b957/bin/helpers/browser.sh'), ('HOME', '/root'), ('OLDPWD', '/catkin_ws'), ('TERM_PROGRAM_VERSION', '1.99.3'), ('VSCODE_IPC_HOOK_CLI', '/tmp/vscode-ipc-f5175849-e0a4-4736-8722-ef29ed3b7974.sock'), ('ROS_PYTHON_VERSION', '3'), ('VSCODE_GIT_ASKPASS_MAIN', '/root/.vscode-server/bin/17baf841131aa23349f217ca7c570c76ee87b957/extensions/git/dist/askpass-main.js'), ('VSCODE_GIT_ASKPASS_NODE', '/root/.vscode-server/bin/17baf841131aa23349f217ca7c570c76ee87b957/node'), ('COLORTERM', 'truecolor'), ('REMOTE_CONTAINERS', 'true'), ('DEBUGINFOD_URLS', ''), ('COLCON_PREFIX_PATH', '/catkin_ws/install'), ('ROS_DISTRO', 'humble'), ('REMOTE_CONTAINERS_IPC', '/tmp/vscode-remote-containers-ipc-a69b6420-fdb8-4384-ab98-c44c8af3b4d6.sock'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('NVIDIA_DRIVER_CAPABILITIES', 'all'), ('TERM', 'xterm-256color'), ('ROS_LOCALHOST_ONLY', '0'), ('QT_X11_NO_MITSHM', '1'), ('PATH', '/opt/ros/humble/bin:/root/.vscode-server/bin/17baf841131aa23349f217ca7c570c76ee87b957/bin/remote-cli:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/root/.vscode-server/data/User/globalStorage/github.copilot-chat/debugCommand'), ('REMOTE_CONTAINERS_SOCKETS', '["/tmp/vscode-ssh-auth-a69b6420-fdb8-4384-ab98-c44c8af3b4d6.sock","/root/.gnupg/S.gpg-agent"]'), ('DISPLAY', ':1'), ('LANG', 'C.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('VSCODE_GIT_IPC_HANDLE', '/tmp/vscode-git-8b41c6f63d.sock'), ('TERM_PROGRAM', 'vscode'), ('SSH_AUTH_SOCK', '/tmp/vscode-ssh-auth-a69b6420-fdb8-4384-ab98-c44c8af3b4d6.sock'), ('AMENT_PREFIX_PATH', '/catkin_ws/install/ov_msckf:/catkin_ws/install/ov_init:/catkin_ws/install/ov_eval:/catkin_ws/install/ov_data:/catkin_ws/install/ov_core:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('VSCODE_GIT_ASKPASS_EXTRA_ARGS', ''), ('PWD', '/catkin_ws/src/open_vins/ov_eval/build/ov_eval'), ('LC_ALL', 'C.UTF-8'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/catkin_ws/install/ov_msckf:/catkin_ws/install/ov_init:/catkin_ws/install/ov_eval:/catkin_ws/install/ov_data:/catkin_ws/install/ov_core:/opt/ros/humble')]), 'shell': False}
+[10.022862] (-) TimerEvent: {}
+[10.055055] (ov_eval) StdoutLine: {'line': b'[ 22%] \x1b[32mBuilding CXX object CMakeFiles/ov_eval_lib.dir/src/alignment/AlignTrajectory.cpp.o\x1b[0m\n'}
+[10.055240] (ov_eval) StdoutLine: {'line': b'[ 22%] \x1b[32mBuilding CXX object CMakeFiles/ov_eval_lib.dir/src/alignment/AlignUtils.cpp.o\x1b[0m\n'}
+[10.055344] (ov_eval) StdoutLine: {'line': b'[ 22%] \x1b[32mBuilding CXX object CMakeFiles/ov_eval_lib.dir/src/calc/ResultTrajectory.cpp.o\x1b[0m\n'}
+[10.055440] (ov_eval) StdoutLine: {'line': b'[ 22%] \x1b[32mBuilding CXX object CMakeFiles/ov_eval_lib.dir/src/calc/ResultSimulation.cpp.o\x1b[0m\n'}
+[10.055505] (ov_eval) StdoutLine: {'line': b'[ 22%] \x1b[32mBuilding CXX object CMakeFiles/ov_eval_lib.dir/src/dummy.cpp.o\x1b[0m\n'}
+[10.056173] (ov_eval) StdoutLine: {'line': b'[ 22%] \x1b[32mBuilding CXX object CMakeFiles/ov_eval_lib.dir/src/utils/Loader.cpp.o\x1b[0m\n'}
+[10.122974] (-) TimerEvent: {}
+[10.223280] (-) TimerEvent: {}
+[10.323576] (-) TimerEvent: {}
+[10.423867] (-) TimerEvent: {}
+[10.524222] (-) TimerEvent: {}
+[10.624534] (-) TimerEvent: {}
+[10.724838] (-) TimerEvent: {}
+[10.825181] (-) TimerEvent: {}
+[10.925500] (-) TimerEvent: {}
+[11.025842] (-) TimerEvent: {}
+[11.126160] (-) TimerEvent: {}
+[11.226509] (-) TimerEvent: {}
+[11.326801] (-) TimerEvent: {}
+[11.427101] (-) TimerEvent: {}
+[11.527408] (-) TimerEvent: {}
+[11.627739] (-) TimerEvent: {}
+[11.728051] (-) TimerEvent: {}
+[11.828388] (-) TimerEvent: {}
+[11.928753] (-) TimerEvent: {}
+[12.029123] (-) TimerEvent: {}
+[12.129438] (-) TimerEvent: {}
+[12.229766] (-) TimerEvent: {}
+[12.330031] (-) TimerEvent: {}
+[12.430406] (-) TimerEvent: {}
+[12.530702] (-) TimerEvent: {}
+[12.631000] (-) TimerEvent: {}
+[12.731307] (-) TimerEvent: {}
+[12.831626] (-) TimerEvent: {}
+[12.931965] (-) TimerEvent: {}
+[13.032306] (-) TimerEvent: {}
+[13.132684] (-) TimerEvent: {}
+[13.233000] (-) TimerEvent: {}
+[13.333301] (-) TimerEvent: {}
+[13.433591] (-) TimerEvent: {}
+[13.533905] (-) TimerEvent: {}
+[13.634210] (-) TimerEvent: {}
+[13.734497] (-) TimerEvent: {}
+[13.834809] (-) TimerEvent: {}
+[13.935099] (-) TimerEvent: {}
+[14.035383] (-) TimerEvent: {}
+[14.135666] (-) TimerEvent: {}
+[14.235963] (-) TimerEvent: {}
+[14.336268] (-) TimerEvent: {}
+[14.436582] (-) TimerEvent: {}
+[14.536919] (-) TimerEvent: {}
+[14.637274] (-) TimerEvent: {}
+[14.737592] (-) TimerEvent: {}
+[14.837895] (-) TimerEvent: {}
+[14.938180] (-) TimerEvent: {}
+[15.038472] (-) TimerEvent: {}
+[15.138748] (-) TimerEvent: {}
+[15.239004] (-) TimerEvent: {}
+[15.339316] (-) TimerEvent: {}
+[15.439590] (-) TimerEvent: {}
+[15.539869] (-) TimerEvent: {}
+[15.640140] (-) TimerEvent: {}
+[15.740451] (-) TimerEvent: {}
+[15.840724] (-) TimerEvent: {}
+[15.941003] (-) TimerEvent: {}
+[16.041316] (-) TimerEvent: {}
+[16.141597] (-) TimerEvent: {}
+[16.241904] (-) TimerEvent: {}
+[16.342205] (-) TimerEvent: {}
+[16.442547] (-) TimerEvent: {}
+[16.542825] (-) TimerEvent: {}
+[16.643104] (-) TimerEvent: {}
+[16.743393] (-) TimerEvent: {}
+[16.843682] (-) TimerEvent: {}
+[16.943983] (-) TimerEvent: {}
+[17.044270] (-) TimerEvent: {}
+[17.144563] (-) TimerEvent: {}
+[17.244864] (-) TimerEvent: {}
+[17.345158] (-) TimerEvent: {}
+[17.445479] (-) TimerEvent: {}
+[17.545768] (-) TimerEvent: {}
+[17.646036] (-) TimerEvent: {}
+[17.746318] (-) TimerEvent: {}
+[17.846631] (-) TimerEvent: {}
+[17.946917] (-) TimerEvent: {}
+[18.047194] (-) TimerEvent: {}
+[18.147486] (-) TimerEvent: {}
+[18.247796] (-) TimerEvent: {}
+[18.348134] (-) TimerEvent: {}
+[18.448457] (-) TimerEvent: {}
+[18.548755] (-) TimerEvent: {}
+[18.649018] (-) TimerEvent: {}
+[18.749291] (-) TimerEvent: {}
+[18.849564] (-) TimerEvent: {}
+[18.949845] (-) TimerEvent: {}
+[19.050119] (-) TimerEvent: {}
+[19.150400] (-) TimerEvent: {}
+[19.250673] (-) TimerEvent: {}
+[19.350944] (-) TimerEvent: {}
+[19.451215] (-) TimerEvent: {}
+[19.551483] (-) TimerEvent: {}
+[19.651728] (-) TimerEvent: {}
+[19.662774] (ov_eval) StdoutLine: {'line': b'[ 25%] \x1b[32m\x1b[1mLinking CXX shared library libov_eval_lib.so\x1b[0m\n'}
+[19.751834] (-) TimerEvent: {}
+[19.852113] (-) TimerEvent: {}
+[19.952467] (-) TimerEvent: {}
+[20.052732] (-) TimerEvent: {}
+[20.152996] (-) TimerEvent: {}
+[20.253277] (-) TimerEvent: {}
+[20.353558] (-) TimerEvent: {}
+[20.453808] (-) TimerEvent: {}
+[20.554087] (-) TimerEvent: {}
+[20.654348] (-) TimerEvent: {}
+[20.754600] (-) TimerEvent: {}
+[20.854860] (-) TimerEvent: {}
+[20.955114] (-) TimerEvent: {}
+[21.055396] (-) TimerEvent: {}
+[21.155655] (-) TimerEvent: {}
+[21.171134] (ov_eval) StdoutLine: {'line': b'[ 25%] Built target ov_eval_lib\n'}
+[21.240733] (ov_eval) StdoutLine: {'line': b'[ 62%] \x1b[32mBuilding CXX object CMakeFiles/timing_comparison.dir/src/timing_comparison.cpp.o\x1b[0m\n'}
+[21.240922] (ov_eval) StdoutLine: {'line': b'[ 62%] \x1b[32mBuilding CXX object CMakeFiles/error_simulation.dir/src/error_simulation.cpp.o\x1b[0m\n'}
+[21.240992] (ov_eval) StdoutLine: {'line': b'[ 62%] \x1b[32mBuilding CXX object CMakeFiles/error_dataset.dir/src/error_dataset.cpp.o\x1b[0m\n'}
+[21.242360] (ov_eval) StdoutLine: {'line': b'[ 62%] \x1b[32mBuilding CXX object CMakeFiles/timing_flamegraph.dir/src/timing_flamegraph.cpp.o\x1b[0m\n'}
+[21.243667] (ov_eval) StdoutLine: {'line': b'[ 62%] \x1b[32mBuilding CXX object CMakeFiles/format_converter.dir/src/format_converter.cpp.o\x1b[0m\n'}
+[21.244843] (ov_eval) StdoutLine: {'line': b'[ 62%] \x1b[32mBuilding CXX object CMakeFiles/timing_percentages.dir/src/timing_percentages.cpp.o\x1b[0m\n'}
+[21.246442] (ov_eval) StdoutLine: {'line': b'[ 62%] \x1b[32mBuilding CXX object CMakeFiles/error_comparison.dir/src/error_comparison.cpp.o\x1b[0m\n'}
+[21.246522] (ov_eval) StdoutLine: {'line': b'[ 62%] \x1b[32mBuilding CXX object CMakeFiles/timing_histogram.dir/src/timing_histogram.cpp.o\x1b[0m\n'}
+[21.247732] (ov_eval) StdoutLine: {'line': b'[ 62%] \x1b[32mBuilding CXX object CMakeFiles/error_singlerun.dir/src/error_singlerun.cpp.o\x1b[0m\n'}
+[21.248934] (ov_eval) StdoutLine: {'line': b'[ 62%] \x1b[32mBuilding CXX object CMakeFiles/plot_trajectories.dir/src/plot_trajectories.cpp.o\x1b[0m\n'}
+[21.255731] (-) TimerEvent: {}
+[21.355995] (-) TimerEvent: {}
+[21.456417] (-) TimerEvent: {}
+[21.556724] (-) TimerEvent: {}
+[21.657283] (-) TimerEvent: {}
+[21.757734] (-) TimerEvent: {}
+[21.858073] (-) TimerEvent: {}
+[21.958447] (-) TimerEvent: {}
+[22.058861] (-) TimerEvent: {}
+[22.159266] (-) TimerEvent: {}
+[22.259644] (-) TimerEvent: {}
+[22.360041] (-) TimerEvent: {}
+[22.460593] (-) TimerEvent: {}
+[22.560947] (-) TimerEvent: {}
+[22.661338] (-) TimerEvent: {}
+[22.761724] (-) TimerEvent: {}
+[22.862145] (-) TimerEvent: {}
+[22.962566] (-) TimerEvent: {}
+[23.062937] (-) TimerEvent: {}
+[23.163308] (-) TimerEvent: {}
+[23.263710] (-) TimerEvent: {}
+[23.364104] (-) TimerEvent: {}
+[23.464494] (-) TimerEvent: {}
+[23.565026] (-) TimerEvent: {}
+[23.665415] (-) TimerEvent: {}
+[23.765785] (-) TimerEvent: {}
+[23.866151] (-) TimerEvent: {}
+[23.966777] (-) TimerEvent: {}
+[24.067138] (-) TimerEvent: {}
+[24.167533] (-) TimerEvent: {}
+[24.267941] (-) TimerEvent: {}
+[24.368328] (-) TimerEvent: {}
+[24.447718] (ov_eval) StdoutLine: {'line': b'[ 66%] \x1b[32m\x1b[1mLinking CXX executable format_converter\x1b[0m\n'}
+[24.468458] (-) TimerEvent: {}
+[24.568844] (-) TimerEvent: {}
+[24.669264] (-) TimerEvent: {}
+[24.769617] (-) TimerEvent: {}
+[24.787843] (ov_eval) StdoutLine: {'line': b'[ 70%] \x1b[32m\x1b[1mLinking CXX executable timing_flamegraph\x1b[0m\n'}
+[24.869752] (-) TimerEvent: {}
+[24.905861] (ov_eval) StdoutLine: {'line': b'[ 74%] \x1b[32m\x1b[1mLinking CXX executable timing_histogram\x1b[0m\n'}
+[24.932973] (ov_eval) StdoutLine: {'line': b'[ 74%] Built target format_converter\n'}
+[24.969897] (-) TimerEvent: {}
+[25.068359] (ov_eval) StdoutLine: {'line': b'[ 77%] \x1b[32m\x1b[1mLinking CXX executable timing_comparison\x1b[0m\n'}
+[25.069984] (-) TimerEvent: {}
+[25.170303] (-) TimerEvent: {}
+[25.224494] (ov_eval) StdoutLine: {'line': b'[ 77%] Built target timing_flamegraph\n'}
+[25.270414] (ov_eval) StdoutLine: {'line': b'[ 77%] Built target timing_histogram\n'}
+[25.270688] (-) TimerEvent: {}
+[25.370972] (-) TimerEvent: {}
+[25.471311] (-) TimerEvent: {}
+[25.485008] (ov_eval) StdoutLine: {'line': b'[ 77%] Built target timing_comparison\n'}
+[25.571426] (-) TimerEvent: {}
+[25.671766] (-) TimerEvent: {}
+[25.772310] (-) TimerEvent: {}
+[25.866616] (ov_eval) StdoutLine: {'line': b'[ 81%] \x1b[32m\x1b[1mLinking CXX executable timing_percentages\x1b[0m\n'}
+[25.872420] (-) TimerEvent: {}
+[25.972736] (-) TimerEvent: {}
+[26.073076] (-) TimerEvent: {}
+[26.173398] (-) TimerEvent: {}
+[26.273675] (-) TimerEvent: {}
+[26.305975] (ov_eval) StdoutLine: {'line': b'[ 81%] Built target timing_percentages\n'}
+[26.373789] (-) TimerEvent: {}
+[26.474159] (-) TimerEvent: {}
+[26.574528] (-) TimerEvent: {}
+[26.581916] (ov_eval) StdoutLine: {'line': b'[ 85%] \x1b[32m\x1b[1mLinking CXX executable error_simulation\x1b[0m\n'}
+[26.674658] (-) TimerEvent: {}
+[26.774991] (-) TimerEvent: {}
+[26.875296] (-) TimerEvent: {}
+[26.975581] (-) TimerEvent: {}
+[27.075880] (-) TimerEvent: {}
+[27.176136] (-) TimerEvent: {}
+[27.260723] (ov_eval) StdoutLine: {'line': b'[ 88%] \x1b[32m\x1b[1mLinking CXX executable error_singlerun\x1b[0m\n'}
+[27.276229] (-) TimerEvent: {}
+[27.376490] (-) TimerEvent: {}
+[27.476762] (-) TimerEvent: {}
+[27.577031] (-) TimerEvent: {}
+[27.677306] (-) TimerEvent: {}
+[27.777577] (-) TimerEvent: {}
+[27.877843] (-) TimerEvent: {}
+[27.930782] (ov_eval) StdoutLine: {'line': b'[ 88%] Built target error_simulation\n'}
+[27.977951] (-) TimerEvent: {}
+[28.078200] (-) TimerEvent: {}
+[28.178481] (-) TimerEvent: {}
+[28.231614] (ov_eval) StdoutLine: {'line': b'[ 92%] \x1b[32m\x1b[1mLinking CXX executable plot_trajectories\x1b[0m\n'}
+[28.278600] (-) TimerEvent: {}
+[28.378902] (-) TimerEvent: {}
+[28.437311] (ov_eval) StdoutLine: {'line': b'[ 92%] Built target error_singlerun\n'}
+[28.479020] (-) TimerEvent: {}
+[28.579317] (-) TimerEvent: {}
+[28.679590] (-) TimerEvent: {}
+[28.779850] (-) TimerEvent: {}
+[28.880117] (-) TimerEvent: {}
+[28.980400] (-) TimerEvent: {}
+[29.080660] (-) TimerEvent: {}
+[29.180936] (-) TimerEvent: {}
+[29.214837] (ov_eval) StdoutLine: {'line': b'[ 92%] Built target plot_trajectories\n'}
+[29.281046] (-) TimerEvent: {}
+[29.381300] (-) TimerEvent: {}
+[29.461125] (ov_eval) StdoutLine: {'line': b'[ 96%] \x1b[32m\x1b[1mLinking CXX executable error_dataset\x1b[0m\n'}
+[29.481406] (-) TimerEvent: {}
+[29.581679] (-) TimerEvent: {}
+[29.681960] (-) TimerEvent: {}
+[29.782220] (-) TimerEvent: {}
+[29.882493] (-) TimerEvent: {}
+[29.982754] (-) TimerEvent: {}
+[30.083010] (-) TimerEvent: {}
+[30.183301] (-) TimerEvent: {}
+[30.283584] (-) TimerEvent: {}
+[30.383860] (-) TimerEvent: {}
+[30.484118] (-) TimerEvent: {}
+[30.509636] (ov_eval) StdoutLine: {'line': b'[100%] \x1b[32m\x1b[1mLinking CXX executable error_comparison\x1b[0m\n'}
+[30.584226] (-) TimerEvent: {}
+[30.684520] (-) TimerEvent: {}
+[30.692550] (ov_eval) StdoutLine: {'line': b'[100%] Built target error_dataset\n'}
+[30.784621] (-) TimerEvent: {}
+[30.884868] (-) TimerEvent: {}
+[30.985112] (-) TimerEvent: {}
+[31.085357] (-) TimerEvent: {}
+[31.185591] (-) TimerEvent: {}
+[31.285840] (-) TimerEvent: {}
+[31.386091] (-) TimerEvent: {}
+[31.424528] (ov_eval) StdoutLine: {'line': b'[100%] Built target error_comparison\n'}
+[31.476143] (ov_eval) CommandEnded: {'returncode': 0}
+[31.479632] (ov_eval) JobProgress: {'identifier': 'ov_eval', 'progress': 'install'}
+[31.486161] (-) TimerEvent: {}
+[31.491119] (ov_eval) Command: {'cmd': ['/usr/bin/cmake', '--install', '/catkin_ws/src/open_vins/ov_eval/build/ov_eval'], 'cwd': '/catkin_ws/src/open_vins/ov_eval/build/ov_eval', 'env': OrderedDict([('HOSTNAME', 'leo-c15-12'), ('GIT_ASKPASS', '/root/.vscode-server/bin/17baf841131aa23349f217ca7c570c76ee87b957/extensions/git/dist/askpass.sh'), ('SHLVL', '2'), ('LD_LIBRARY_PATH', '/catkin_ws/install/ov_msckf/lib:/catkin_ws/install/ov_init/lib:/catkin_ws/install/ov_eval/lib:/catkin_ws/install/ov_core/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('BROWSER', '/root/.vscode-server/bin/17baf841131aa23349f217ca7c570c76ee87b957/bin/helpers/browser.sh'), ('HOME', '/root'), ('OLDPWD', '/catkin_ws'), ('TERM_PROGRAM_VERSION', '1.99.3'), ('VSCODE_IPC_HOOK_CLI', '/tmp/vscode-ipc-f5175849-e0a4-4736-8722-ef29ed3b7974.sock'), ('ROS_PYTHON_VERSION', '3'), ('VSCODE_GIT_ASKPASS_MAIN', '/root/.vscode-server/bin/17baf841131aa23349f217ca7c570c76ee87b957/extensions/git/dist/askpass-main.js'), ('VSCODE_GIT_ASKPASS_NODE', '/root/.vscode-server/bin/17baf841131aa23349f217ca7c570c76ee87b957/node'), ('COLORTERM', 'truecolor'), ('REMOTE_CONTAINERS', 'true'), ('DEBUGINFOD_URLS', ''), ('COLCON_PREFIX_PATH', '/catkin_ws/install'), ('ROS_DISTRO', 'humble'), ('REMOTE_CONTAINERS_IPC', '/tmp/vscode-remote-containers-ipc-a69b6420-fdb8-4384-ab98-c44c8af3b4d6.sock'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('NVIDIA_DRIVER_CAPABILITIES', 'all'), ('TERM', 'xterm-256color'), ('ROS_LOCALHOST_ONLY', '0'), ('QT_X11_NO_MITSHM', '1'), ('PATH', '/opt/ros/humble/bin:/root/.vscode-server/bin/17baf841131aa23349f217ca7c570c76ee87b957/bin/remote-cli:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/root/.vscode-server/data/User/globalStorage/github.copilot-chat/debugCommand'), ('REMOTE_CONTAINERS_SOCKETS', '["/tmp/vscode-ssh-auth-a69b6420-fdb8-4384-ab98-c44c8af3b4d6.sock","/root/.gnupg/S.gpg-agent"]'), ('DISPLAY', ':1'), ('LANG', 'C.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('VSCODE_GIT_IPC_HANDLE', '/tmp/vscode-git-8b41c6f63d.sock'), ('TERM_PROGRAM', 'vscode'), ('SSH_AUTH_SOCK', '/tmp/vscode-ssh-auth-a69b6420-fdb8-4384-ab98-c44c8af3b4d6.sock'), ('AMENT_PREFIX_PATH', '/catkin_ws/install/ov_msckf:/catkin_ws/install/ov_init:/catkin_ws/install/ov_eval:/catkin_ws/install/ov_data:/catkin_ws/install/ov_core:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('VSCODE_GIT_ASKPASS_EXTRA_ARGS', ''), ('PWD', '/catkin_ws/src/open_vins/ov_eval/build/ov_eval'), ('LC_ALL', 'C.UTF-8'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/catkin_ws/install/ov_msckf:/catkin_ws/install/ov_init:/catkin_ws/install/ov_eval:/catkin_ws/install/ov_data:/catkin_ws/install/ov_core:/opt/ros/humble')]), 'shell': False}
+[31.498856] (ov_eval) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[31.503951] (ov_eval) StdoutLine: {'line': b'-- Execute custom install script\n'}
+[31.519916] (ov_eval) StdoutLine: {'line': b'-- Symlinking: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/share/ov_eval/environment/library_path.sh\n'}
+[31.532693] (ov_eval) StdoutLine: {'line': b'-- Symlinking: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/share/ov_eval/environment/library_path.dsv\n'}
+[31.554175] (ov_eval) StdoutLine: {'line': b'-- Symlinking: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/lib/ov_eval/format_converter\n'}
+[31.568065] (ov_eval) StdoutLine: {'line': b'-- Symlinking: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/lib/ov_eval/error_comparison\n'}
+[31.581852] (ov_eval) StdoutLine: {'line': b'-- Symlinking: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/lib/ov_eval/error_dataset\n'}
+[31.586245] (-) TimerEvent: {}
+[31.595412] (ov_eval) StdoutLine: {'line': b'-- Symlinking: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/lib/ov_eval/error_singlerun\n'}
+[31.609674] (ov_eval) StdoutLine: {'line': b'-- Symlinking: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/lib/ov_eval/error_simulation\n'}
+[31.635428] (ov_eval) StdoutLine: {'line': b'-- Symlinking: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/lib/ov_eval/timing_comparison\n'}
+[31.636681] (ov_eval) StdoutLine: {'line': b'-- Symlinking: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/lib/ov_eval/timing_flamegraph\n'}
+[31.649921] (ov_eval) StdoutLine: {'line': b'-- Symlinking: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/lib/ov_eval/timing_histogram\n'}
+[31.662622] (ov_eval) StdoutLine: {'line': b'-- Symlinking: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/lib/ov_eval/timing_percentages\n'}
+[31.676059] (ov_eval) StdoutLine: {'line': b'-- Symlinking: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/lib/ov_eval/plot_trajectories\n'}
+[31.686316] (-) TimerEvent: {}
+[31.687325] (ov_eval) StdoutLine: {'line': b'-- Symlinking: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/lib/ov_eval/pid_ros.py\n'}
+[31.698117] (ov_eval) StdoutLine: {'line': b'-- Symlinking: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/lib/ov_eval/pid_sys.py\n'}
+[31.722228] (ov_eval) StdoutLine: {'line': b'-- Symlinking: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/share/ament_index/resource_index/package_run_dependencies/ov_eval\n'}
+[31.743026] (ov_eval) StdoutLine: {'line': b'-- Symlinking: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/share/ament_index/resource_index/parent_prefix_path/ov_eval\n'}
+[31.755010] (ov_eval) StdoutLine: {'line': b'-- Symlinking: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/share/ov_eval/environment/ament_prefix_path.sh\n'}
+[31.766983] (ov_eval) StdoutLine: {'line': b'-- Symlinking: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/share/ov_eval/environment/ament_prefix_path.dsv\n'}
+[31.778810] (ov_eval) StdoutLine: {'line': b'-- Symlinking: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/share/ov_eval/environment/path.sh\n'}
+[31.786397] (-) TimerEvent: {}
+[31.790817] (ov_eval) StdoutLine: {'line': b'-- Symlinking: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/share/ov_eval/environment/path.dsv\n'}
+[31.804176] (ov_eval) StdoutLine: {'line': b'-- Symlinking: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/share/ov_eval/local_setup.bash\n'}
+[31.816988] (ov_eval) StdoutLine: {'line': b'-- Symlinking: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/share/ov_eval/local_setup.sh\n'}
+[31.828957] (ov_eval) StdoutLine: {'line': b'-- Symlinking: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/share/ov_eval/local_setup.zsh\n'}
+[31.841489] (ov_eval) StdoutLine: {'line': b'-- Symlinking: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/share/ov_eval/local_setup.dsv\n'}
+[31.852957] (ov_eval) StdoutLine: {'line': b'-- Symlinking: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/share/ov_eval/package.dsv\n'}
+[31.873415] (ov_eval) StdoutLine: {'line': b'-- Symlinking: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/share/ament_index/resource_index/packages/ov_eval\n'}
+[31.886486] (-) TimerEvent: {}
+[31.893397] (ov_eval) StdoutLine: {'line': b'-- Symlinking: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/share/ov_eval/cmake/ament_cmake_export_include_directories-extras.cmake\n'}
+[31.905764] (ov_eval) StdoutLine: {'line': b'-- Symlinking: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/share/ov_eval/cmake/ament_cmake_export_libraries-extras.cmake\n'}
+[31.917409] (ov_eval) StdoutLine: {'line': b'-- Symlinking: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/share/ov_eval/cmake/ov_evalConfig.cmake\n'}
+[31.931897] (ov_eval) StdoutLine: {'line': b'-- Symlinking: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/share/ov_eval/cmake/ov_evalConfig-version.cmake\n'}
+[31.944326] (ov_eval) StdoutLine: {'line': b'-- Symlinking: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/share/ov_eval/package.xml\n'}
+[31.954067] (ov_eval) StdoutLine: {'line': b'-- Installing: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/lib/libov_eval_lib.so\n'}
+[31.986594] (-) TimerEvent: {}
+[32.086847] (-) TimerEvent: {}
+[32.187132] (-) TimerEvent: {}
+[32.287396] (-) TimerEvent: {}
+[32.387661] (-) TimerEvent: {}
+[32.487923] (-) TimerEvent: {}
+[32.542922] (ov_eval) StdoutLine: {'line': b'-- Set runtime path of "/catkin_ws/src/open_vins/ov_eval/install/ov_eval/lib/libov_eval_lib.so" to ""\n'}
+[32.544879] (ov_eval) StdoutLine: {'line': b'-- Installing: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/include\n'}
+[32.554302] (ov_eval) StdoutLine: {'line': b'-- Installing: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/include/calc\n'}
+[32.563775] (ov_eval) StdoutLine: {'line': b'-- Installing: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/include/calc/ResultTrajectory.h\n'}
+[32.575402] (ov_eval) StdoutLine: {'line': b'-- Installing: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/include/calc/ResultSimulation.h\n'}
+[32.588037] (-) TimerEvent: {}
+[32.637560] (ov_eval) StdoutLine: {'line': b'-- Installing: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/include/utils\n'}
+[32.647081] (ov_eval) StdoutLine: {'line': b'-- Installing: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/include/utils/Statistics.h\n'}
+[32.657438] (ov_eval) StdoutLine: {'line': b'-- Installing: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/include/utils/Loader.h\n'}
+[32.668884] (ov_eval) StdoutLine: {'line': b'-- Installing: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/include/utils/Recorder.h\n'}
+[32.679787] (ov_eval) StdoutLine: {'line': b'-- Installing: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/include/alignment\n'}
+[32.688106] (-) TimerEvent: {}
+[32.689200] (ov_eval) StdoutLine: {'line': b'-- Installing: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/include/alignment/AlignTrajectory.h\n'}
+[32.700395] (ov_eval) StdoutLine: {'line': b'-- Installing: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/include/alignment/AlignUtils.h\n'}
+[32.716019] (ov_eval) CommandEnded: {'returncode': 0}
+[32.788192] (-) TimerEvent: {}
+[32.888393] (-) TimerEvent: {}
+[32.895183] (ov_eval) JobEnded: {'identifier': 'ov_eval', 'rc': 0}
+[32.898831] (-) EventReactorShutdown: {}

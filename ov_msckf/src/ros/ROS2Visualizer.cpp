@@ -30,6 +30,11 @@
 #include "utils/dataset_reader.h"
 #include "utils/print.h"
 #include "utils/sensor_data.h"
+#include <tf2_ros/buffer.h>  
+#include <tf2_ros/transform_listener.h>
+#include <tf2_ros/static_transform_broadcaster.h>
+#include <geometry_msgs/msg/pose_stamped.hpp>
+#include <nav_msgs/msg/path.hpp>
 
 using namespace ov_core;
 using namespace ov_type;
@@ -40,7 +45,21 @@ ROS2Visualizer::ROS2Visualizer(std::shared_ptr<rclcpp::Node> node, std::shared_p
 
   // Setup our transform broadcaster
   mTfBr = std::make_shared<tf2_ros::TransformBroadcaster>(node);
+  mStaticTfBr = std::make_shared<tf2_ros::StaticTransformBroadcaster>(node);
 
+  // Link the odom and global frames, as we want to see the GT path in the VIO frame
+  geometry_msgs::msg::TransformStamped static_transform_stamped;
+  static_transform_stamped.header.stamp = _node->get_clock()->now();
+  static_transform_stamped.header.frame_id = "global";
+  static_transform_stamped.child_frame_id = "odom";
+  static_transform_stamped.transform.translation.x = 0.0;
+  static_transform_stamped.transform.translation.y = 0.0;
+  static_transform_stamped.transform.translation.z = 0.0;
+  static_transform_stamped.transform.rotation.x = 0.0;
+  static_transform_stamped.transform.rotation.y = 0.0;
+  static_transform_stamped.transform.rotation.z = 0.0;
+  static_transform_stamped.transform.rotation.w = 1.0;
+  mStaticTfBr->sendTransform(static_transform_stamped);
   // Create image transport
   image_transport::ImageTransport it(node);
 
@@ -71,6 +90,15 @@ ROS2Visualizer::ROS2Visualizer(std::shared_ptr<rclcpp::Node> node, std::shared_p
   PRINT_DEBUG("Publishing: %s\n", pub_posegt->get_topic_name());
   pub_pathgt = node->create_publisher<nav_msgs::msg::Path>("pathgt", 2);
   PRINT_DEBUG("Publishing: %s\n", pub_pathgt->get_topic_name());
+
+
+  // publish imu link as a ground truth for the simulation
+  world_frame_ = _node->declare_parameter<std::string>("world_frame", "odom");
+  imu_frame_   = _node->declare_parameter<std::string>("imu_frame",  "Imu_Sensor");
+  tf_buffer_ = std::make_shared<tf2_ros::Buffer>(_node->get_clock());
+  tf_listener_ = std::make_shared<tf2_ros::TransformListener>(*tf_buffer_);
+  pub_path_imu_gt_ = _node->create_publisher<nav_msgs::msg::Path>("/ov_msckf/pathgt_from_IMU", 10);
+  path_imu_gt_.header.frame_id = world_frame_;
 
   // Loop closure publishers
   pub_loop_pose = node->create_publisher<nav_msgs::msg::Odometry>("loop_pose", 2);
@@ -251,6 +279,10 @@ void ROS2Visualizer::visualize() {
 
   // Publish gt if we have it
   publish_groundtruth();
+
+
+  // Publish the ground truth of the IMU
+  publish_imu_gt_path();
 
   // Publish keyframe information
   publish_loopclosure_information();
@@ -828,6 +860,38 @@ void ROS2Visualizer::publish_groundtruth() {
 
   //==========================================================================
   //==========================================================================
+}
+
+void ROS2Visualizer::publish_imu_gt_path()
+{
+  try {
+    auto tr = tf_buffer_->lookupTransform(
+      world_frame_, imu_frame_,
+      tf2::TimePointZero,
+      tf2::durationFromSec(0.05));     // 50 ms timeout
+
+    geometry_msgs::msg::PoseStamped pose;
+    pose.header           = tr.header;
+    pose.pose.position.x    = tr.transform.translation.x;
+    pose.pose.position.y    = tr.transform.translation.y;
+    pose.pose.position.z    = tr.transform.translation.z;
+    pose.pose.orientation = tr.transform.rotation;
+
+    path_imu_gt_.poses.push_back(pose);
+    path_imu_gt_.header.stamp = pose.header.stamp;
+
+    // Thin the message so RViz never sees >16 k poses (known crash limit)
+    constexpr std::size_t MAX_PATH = 16384;
+    if (path_imu_gt_.poses.size() > MAX_PATH) {
+      path_imu_gt_.poses.erase(path_imu_gt_.poses.begin(),
+                               path_imu_gt_.poses.begin() + (path_imu_gt_.poses.size() - MAX_PATH));
+    }
+    pub_path_imu_gt_->publish(path_imu_gt_);
+
+  } catch (const tf2::TransformException &ex) {
+    RCLCPP_WARN_THROTTLE(_node->get_logger(), *_node->get_clock(), 5000,
+                         "GT-path lookup failed: %s", ex.what());
+  }
 }
 
 void ROS2Visualizer::publish_loopclosure_information() {
