@@ -868,7 +868,7 @@ void ROS2Visualizer::publish_imu_gt_path()
     auto tr = tf_buffer_->lookupTransform(
       world_frame_, imu_frame_,
       tf2::TimePointZero,
-      tf2::durationFromSec(0.05));     // 50 ms timeout
+      tf2::durationFromSec(0.001));     // 1 ms timeout
 
     geometry_msgs::msg::PoseStamped pose;
     pose.header           = tr.header;
