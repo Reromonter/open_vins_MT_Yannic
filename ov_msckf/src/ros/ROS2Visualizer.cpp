@@ -93,7 +93,7 @@ ROS2Visualizer::ROS2Visualizer(std::shared_ptr<rclcpp::Node> node, std::shared_p
 
 
   // publish imu link as a ground truth for the simulation
-  world_frame_ = _node->declare_parameter<std::string>("world_frame", "odom");
+  world_frame_ = _node->declare_parameter<std::string>("world_frame", "global");
   imu_frame_   = _node->declare_parameter<std::string>("imu_frame",  "Imu_Sensor");
   tf_buffer_ = std::make_shared<tf2_ros::Buffer>(_node->get_clock());
   tf_listener_ = std::make_shared<tf2_ros::TransformListener>(*tf_buffer_);

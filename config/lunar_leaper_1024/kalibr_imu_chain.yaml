@@ -1,7 +1,7 @@
 %YAML:1.0
 
 imu0:
-  T_i_b: 
+  T_i_b: #assume body frame is the base link frame and then this is the transformation from base link to IMU
     - [1.0, 0.0, 0.0, 0.25  ] #- [1.0, 0.0, 0.0, 0.250]
     - [0.0, 1.0, 0.0, 0.0  ]   #- [0.0, 1.0, 0.0, 0.0  ]
     - [0.0, 0.0, 1.0, 0.215 ]    #- [0.0, 0.0, 1.0, 0.215]
@@ -13,7 +13,7 @@ imu0:
   gyroscope_random_walk: 1.9393e-05       # [ rad / s^2 / sqrt(Hz) ] ( gyro bias diffusion )
   rostopic: /imu
   time_offset: 0.0
-  update_rate: 10.3 
+  update_rate: 15.0 
   # three different modes supported:
   # "calibrated" (same as "kalibr"), "kalibr", "rpng"
   model: "kalibr"
