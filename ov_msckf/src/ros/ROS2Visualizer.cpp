@@ -48,18 +48,18 @@ ROS2Visualizer::ROS2Visualizer(std::shared_ptr<rclcpp::Node> node, std::shared_p
   mStaticTfBr = std::make_shared<tf2_ros::StaticTransformBroadcaster>(node);
 
   // Link the odom and global frames, as we want to see the GT path in the VIO frame
-  geometry_msgs::msg::TransformStamped static_transform_stamped;
-  static_transform_stamped.header.stamp = _node->get_clock()->now();
-  static_transform_stamped.header.frame_id = "global";
-  static_transform_stamped.child_frame_id = "odom";
-  static_transform_stamped.transform.translation.x = 0.0;
-  static_transform_stamped.transform.translation.y = 0.0;
-  static_transform_stamped.transform.translation.z = 0.0;
-  static_transform_stamped.transform.rotation.x = 0.0;
-  static_transform_stamped.transform.rotation.y = 0.0;
-  static_transform_stamped.transform.rotation.z = 0.0;
-  static_transform_stamped.transform.rotation.w = 1.0;
-  mStaticTfBr->sendTransform(static_transform_stamped);
+  // geometry_msgs::msg::TransformStamped static_transform_stamped;
+  // static_transform_stamped.header.stamp = _node->get_clock()->now();
+  // static_transform_stamped.header.frame_id = world_frame_;
+  // static_transform_stamped.child_frame_id = "odom";
+  // static_transform_stamped.transform.translation.x = 0.0;
+  // static_transform_stamped.transform.translation.y = 0.0;
+  // static_transform_stamped.transform.translation.z = 0.0;
+  // static_transform_stamped.transform.rotation.x = 0.0;
+  // static_transform_stamped.transform.rotation.y = 0.0;
+  // static_transform_stamped.transform.rotation.z = 0.0;
+  // static_transform_stamped.transform.rotation.w = 1.0;
+  //mStaticTfBr->sendTransform(static_transform_stamped);
   // Create image transport
   image_transport::ImageTransport it(node);
 
@@ -93,7 +93,7 @@ ROS2Visualizer::ROS2Visualizer(std::shared_ptr<rclcpp::Node> node, std::shared_p
 
 
   // publish imu link as a ground truth for the simulation
-  world_frame_ = _node->declare_parameter<std::string>("world_frame", "global");
+  world_frame_ = _node->declare_parameter<std::string>("world_frame", "global_vio");
   imu_frame_   = _node->declare_parameter<std::string>("imu_frame",  "Imu_Sensor");
   tf_buffer_ = std::make_shared<tf2_ros::Buffer>(_node->get_clock());
   tf_listener_ = std::make_shared<tf2_ros::TransformListener>(*tf_buffer_);
@@ -317,7 +317,7 @@ void ROS2Visualizer::visualize_odometry(double timestamp) {
     // Our odometry message
     nav_msgs::msg::Odometry odomIinM;
     odomIinM.header.stamp = ROSVisualizerHelper::get_time_from_seconds(timestamp);
-    odomIinM.header.frame_id = "global";
+    odomIinM.header.frame_id = world_frame_;
 
     // The POSE component (orientation and position)
     odomIinM.pose.pose.orientation.x = state_plus(0);
@@ -329,7 +329,7 @@ void ROS2Visualizer::visualize_odometry(double timestamp) {
     odomIinM.pose.pose.position.z = state_plus(6);
 
     // The TWIST component (angular and linear velocities)
-    odomIinM.child_frame_id = "imu";
+    odomIinM.child_frame_id = imu_frame_;
     odomIinM.twist.twist.linear.x = state_plus(7);   // vel in local frame
     odomIinM.twist.twist.linear.y = state_plus(8);   // vel in local frame
     odomIinM.twist.twist.linear.z = state_plus(9);   // vel in local frame
@@ -363,17 +363,39 @@ void ROS2Visualizer::visualize_odometry(double timestamp) {
   odom_pose->set_value(state_plus.block(0, 0, 7, 1));
   geometry_msgs::msg::TransformStamped trans = ROSVisualizerHelper::get_stamped_transform_from_pose(_node, odom_pose, false);
   trans.header.stamp = _node->now();
-  trans.header.frame_id = "global";
-  trans.child_frame_id = "imu";
-  if (publish_global2imu_tf) {
-    mTfBr->sendTransform(trans);
-  }
+  trans.header.frame_id = world_frame_;
+  trans.child_frame_id = imu_frame_;
+  geometry_msgs::msg::TransformStamped trans_inv;
+  trans_inv.header.stamp = trans.header.stamp; // usually same timestamp
+  trans_inv.header.frame_id = trans.child_frame_id; // swap
+  trans_inv.child_frame_id = trans.header.frame_id;
+  const auto& t = trans.transform.translation;
+  const auto& r = trans.transform.rotation;
+
+  // Convert to Eigen
+  Eigen::Quaterniond q(r.w, r.x, r.y, r.z);
+  Eigen::Vector3d p(t.x, t.y, t.z);
+
+  // Invert rotation and translation
+  Eigen::Quaterniond q_inv = q.conjugate();
+  Eigen::Vector3d p_inv = -(q_inv * p);
+  trans_inv.transform.translation.x = p_inv.x();
+  trans_inv.transform.translation.y = p_inv.y();
+  trans_inv.transform.translation.z = p_inv.z();
+  
+  trans_inv.transform.rotation.x = q_inv.x();
+  trans_inv.transform.rotation.y = q_inv.y();
+  trans_inv.transform.rotation.z = q_inv.z();
+  trans_inv.transform.rotation.w = q_inv.w();
+  
+  mTfBr->sendTransform(trans_inv);
+  
 
   // Loop through each camera calibration and publish it
   for (const auto &calib : state->_calib_IMUtoCAM) {
     geometry_msgs::msg::TransformStamped trans_calib = ROSVisualizerHelper::get_stamped_transform_from_pose(_node, calib.second, true);
     trans_calib.header.stamp = _node->now();
-    trans_calib.header.frame_id = "imu";
+    trans_calib.header.frame_id = imu_frame_;
     trans_calib.child_frame_id = "cam" + std::to_string(calib.first);
     if (publish_calibration_tf) {
       mTfBr->sendTransform(trans_calib);
@@ -633,7 +655,7 @@ void ROS2Visualizer::publish_state() {
   // Create pose of IMU (note we use the bag time)
   geometry_msgs::msg::PoseWithCovarianceStamped poseIinM;
   poseIinM.header.stamp = ROSVisualizerHelper::get_time_from_seconds(timestamp_inI);
-  poseIinM.header.frame_id = "global";
+  poseIinM.header.frame_id = world_frame_;
   poseIinM.pose.pose.orientation.x = state->_imu->quat()(0);
   poseIinM.pose.pose.orientation.y = state->_imu->quat()(1);
   poseIinM.pose.pose.orientation.z = state->_imu->quat()(2);
@@ -668,7 +690,7 @@ void ROS2Visualizer::publish_state() {
   // NOTE: https://github.com/ros-visualization/rviz/issues/1107
   nav_msgs::msg::Path arrIMU;
   arrIMU.header.stamp = _node->now();
-  arrIMU.header.frame_id = "global";
+  arrIMU.header.frame_id = world_frame_;
   for (size_t i = 0; i < poses_imu.size(); i += std::floor((double)poses_imu.size() / 16384.0) + 1) {
     arrIMU.poses.push_back(poses_imu.at(i));
   }
@@ -764,7 +786,7 @@ void ROS2Visualizer::publish_groundtruth() {
   // Create pose of IMU
   geometry_msgs::msg::PoseStamped poseIinM;
   poseIinM.header.stamp = ROSVisualizerHelper::get_time_from_seconds(timestamp_inI);
-  poseIinM.header.frame_id = "global";
+  poseIinM.header.frame_id = world_frame_;
   poseIinM.pose.orientation.x = state_gt(1, 0);
   poseIinM.pose.orientation.y = state_gt(2, 0);
   poseIinM.pose.orientation.z = state_gt(3, 0);
@@ -782,7 +804,7 @@ void ROS2Visualizer::publish_groundtruth() {
   // NOTE: https://github.com/ros-visualization/rviz/issues/1107
   nav_msgs::msg::Path arrIMU;
   arrIMU.header.stamp = _node->now();
-  arrIMU.header.frame_id = "global";
+  arrIMU.header.frame_id = world_frame_;
   for (size_t i = 0; i < poses_gt.size(); i += std::floor((double)poses_gt.size() / 16384.0) + 1) {
     arrIMU.poses.push_back(poses_gt.at(i));
   }
@@ -791,7 +813,7 @@ void ROS2Visualizer::publish_groundtruth() {
   // Publish our transform on TF
   geometry_msgs::msg::TransformStamped trans;
   trans.header.stamp = _node->now();
-  trans.header.frame_id = "global";
+  trans.header.frame_id = world_frame_;
   trans.child_frame_id = "truth";
   trans.transform.rotation.x = state_gt(1, 0);
   trans.transform.rotation.y = state_gt(2, 0);
@@ -923,7 +945,7 @@ void ROS2Visualizer::publish_loopclosure_information() {
     // PUBLISH HISTORICAL POSE ESTIMATE
     nav_msgs::msg::Odometry odometry_pose;
     odometry_pose.header = header;
-    odometry_pose.header.frame_id = "global";
+    odometry_pose.header.frame_id = world_frame_;
     odometry_pose.pose.pose.position.x = _app->get_state()->_clones_IMU.at(active_tracks_time1)->pos()(0);
     odometry_pose.pose.pose.position.y = _app->get_state()->_clones_IMU.at(active_tracks_time1)->pos()(1);
     odometry_pose.pose.pose.position.z = _app->get_state()->_clones_IMU.at(active_tracks_time1)->pos()(2);
@@ -939,7 +961,7 @@ void ROS2Visualizer::publish_loopclosure_information() {
     Eigen::Vector3d p_CinI = -_app->get_state()->_calib_IMUtoCAM.at(0)->Rot().transpose() * _app->get_state()->_calib_IMUtoCAM.at(0)->pos();
     nav_msgs::msg::Odometry odometry_calib;
     odometry_calib.header = header;
-    odometry_calib.header.frame_id = "imu";
+    odometry_calib.header.frame_id = imu_frame_;
     odometry_calib.pose.pose.position.x = p_CinI(0);
     odometry_calib.pose.pose.position.y = p_CinI(1);
     odometry_calib.pose.pose.position.z = p_CinI(2);
@@ -968,7 +990,7 @@ void ROS2Visualizer::publish_loopclosure_information() {
     // Construct the message
     sensor_msgs::msg::PointCloud point_cloud;
     point_cloud.header = header;
-    point_cloud.header.frame_id = "global";
+    point_cloud.header.frame_id = world_frame_;
     for (const auto &feattimes : active_tracks_posinG) {
 
       // Get this feature information
