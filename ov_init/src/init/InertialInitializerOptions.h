@@ -303,6 +303,13 @@ struct InertialInitializerOptions {
         cam_eigen.block(0, 0, 4, 1) = ov_core::rot_2_quat(T_CtoI.block(0, 0, 3, 3).transpose());
         cam_eigen.block(4, 0, 3, 1) = -T_CtoI.block(0, 0, 3, 3).transpose() * T_CtoI.block(0, 3, 3, 1);
 
+        PRINT_DEBUG("------------------------------------------------------------------:\n");
+        PRINT_DEBUG("Has distortion coeffiecents which are:\n");
+        PRINT_DEBUG("  - d1: %.6f\n", cam_calib(4));
+        PRINT_DEBUG("  - d2: %.6f\n", cam_calib(5));
+        PRINT_DEBUG("  - d3: %.6f\n", cam_calib(6));
+        PRINT_DEBUG("  - d4: %.6f\n", cam_calib(7));
+
         // Create intrinsics model
         if (dist_model == "equidistant") {
           camera_intrinsics.insert({i, std::make_shared<ov_core::CamEqui>(matrix_wh.at(0), matrix_wh.at(1))});
@@ -314,6 +321,8 @@ struct InertialInitializerOptions {
         camera_extrinsics.insert({i, cam_eigen});
       }
     }
+
+
     PRINT_DEBUG("STATE PARAMETERS:\n");
     PRINT_DEBUG("  - gravity_mag: %.4f\n", gravity_mag);
     PRINT_DEBUG("  - gravity: %.3f, %.3f, %.3f\n", 0.0, 0.0, gravity_mag);

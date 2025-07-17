@@ -8,8 +8,8 @@ cam0:
     - [  0.000000,  0.000000,  0.000000,  1.000000 ]
   cam_overlaps: [1]
   camera_model: pinhole
-  distortion_coeffs:[0.057225000113248825, 0.012671000324189663, 0.0, 0.0] # -0.0029780000913888216, -0.0004720000142697245]
-  distortion_model: radtan
+  distortion_coeffs: [0.057225000113248825, 0.012671000324189663, -0.0029780000913888216, -0.0004720000142697245] # looking at InertialInestialInitializerOptions.h is d1 to d4 (actually k1 to k4) which I get also from camera_info topic
+  distortion_model: equidistant #as the camera info topic gives kannalaBrandt from isaac sim (https://medium.com/@manthan2727/camera-calibration-using-opencv-abf92a4caf11) use  equidistant https://docs.openvins.com/classov__core_1_1CamEqui.html
   intrinsics: [718.1818237304688, 718.1818237304688, 512.0, 512.0]  #fu, fv, cu, cv
   resolution: [1024, 1024]
   rostopic: /cam_FL/FL_rgb
@@ -21,8 +21,8 @@ cam1:
     - [0.0, 0.0, 0.0, 1.0]
   cam_overlaps: [0]
   camera_model: pinhole
-  distortion_coeffs:[0.057225000113248825, 0.012671000324189663,-0.0, 0.0] # -0.0029780000913888216, -0.0004720000142697245]
-  distortion_model: radtan
+  distortion_coeffs: [0.057225000113248825, 0.012671000324189663, -0.0029780000913888216, -0.0004720000142697245] # looking at InertialInestialInitializerOptions.h is d1 to d4 which I get also from camera_info topic
+  distortion_model: equidistant #as the camera info topic gives kannalaBrandt from isaac sim and equidistant is the closest matching one
   intrinsics: [718.1818237304688, 718.1818237304688, 512.0, 512.0] #fu, fv, cu, cv
   resolution: [1024, 1024]
   rostopic: /cam_FR/FR_rgb

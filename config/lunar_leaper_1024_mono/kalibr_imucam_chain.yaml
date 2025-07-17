@@ -1,0 +1,15 @@
+%YAML:1.0
+
+cam0:
+  T_imu_cam: #rotation from camera to IMU R_CtoI, position of camera in IMU p_CinI
+    - [  0.000000,  0.000000, -1.000000, -0.100000 ]
+    - [ -1.000000,  0.000000,  0.000000,  0.060000 ]
+    - [  0.000000,  1.000000,  0.000000,  0.110000 ]
+    - [  0.000000,  0.000000,  0.000000,  1.000000 ]
+  cam_overlaps: [1]
+  camera_model: pinhole
+  distortion_coeffs: [0.057225000113248825, 0.012671000324189663, -0.0029780000913888216, -0.0004720000142697245] # looking at InertialInestialInitializerOptions.h is d1 to d4 which I get also from camera_info topic
+  distortion_model: equidistant #as the camera info topic gives kannalaBrandt from isaac sim and equidistant is the closest matching one
+  intrinsics: [718.1818237304688, 718.1818237304688, 512.0, 512.0]  #fu, fv, cu, cv
+  resolution: [1024, 1024]
+  rostopic: /cam_FL/FL_rgb
