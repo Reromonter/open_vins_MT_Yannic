@@ -394,6 +394,45 @@ std::vector<ov_core::ImuData> Propagator::select_imu_readings(const std::vector<
 
 void Propagator::predict_and_compute(std::shared_ptr<State> state, const ov_core::ImuData &data_minus, const ov_core::ImuData &data_plus,
                                      Eigen::MatrixXd &F, Eigen::MatrixXd &Qd) {
+    //===================================================================================
+    //===================================================================================                                  
+    // Debug imu rate calculation
+    // Time elapsed over interval
+    //double dt_debug = data_plus.timestamp - data_minus.timestamp;
+    // assert(data_plus.timestamp>data_minus.timestamp);
+    
+    // DEBUG: Print IMU data rate
+    // static double last_print_time = 0;
+    // static int msg_count = 0;
+    // static double accumulated_dt = 0;
+    // static double min_dt = std::numeric_limits<double>::max();
+    // static double max_dt = 0;
+    
+    // accumulated_dt += dt_debug;
+    // msg_count++;
+    // min_dt = std::min(min_dt, dt_debug);
+    // max_dt = std::max(max_dt, dt_debug);
+    
+    // // Print rate stats every second
+    // if (data_plus.timestamp - last_print_time > 1.0) {
+    //   double avg_dt = accumulated_dt / msg_count;
+    //   double avg_rate = 1.0 / avg_dt;
+    //   PRINT_INFO(CYAN "[IMU RATE]: Processed %d IMU messages in %.2f seconds\n" RESET, msg_count, data_plus.timestamp - last_print_time);
+    //   PRINT_INFO(CYAN "[IMU RATE]: Avg interval: %.3f ms, Avg rate: %.2f Hz\n" RESET, avg_dt * 1000, avg_rate);
+    //   PRINT_INFO(CYAN "[IMU RATE]: Min interval: %.3f ms, Max interval: %.3f ms\n" RESET, min_dt * 1000, max_dt * 1000);
+      
+    //   // Reset for next period
+    //   last_print_time = data_plus.timestamp;
+    //   accumulated_dt = 0;
+    //   msg_count = 0;
+    //   min_dt = std::numeric_limits<double>::max();
+    //   max_dt = 0;
+    // }                                   
+  // END Of DEBUG IMU RATE CALCULATION
+  //===================================================================================
+  //===================================================================================
+
+
 
   // Time elapsed over interval
   double dt = data_plus.timestamp - data_minus.timestamp;

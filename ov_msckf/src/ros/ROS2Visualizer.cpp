@@ -491,6 +491,37 @@ void ROS2Visualizer::visualize_final() {
 
 void ROS2Visualizer::callback_inertial(const sensor_msgs::msg::Imu::SharedPtr msg) {
 
+ // DEBUG CHECK RATE
+   // Debug: Calculate and print IMU data rate
+  //  static double last_imu_timestamp = 0;
+  //  static double rate_sum = 0;
+  //  static int rate_count = 0;
+  //  static auto last_print_time = _node->now();
+   
+  //  double current_timestamp = msg->header.stamp.sec + msg->header.stamp.nanosec * 1e-9;
+   
+  //  if (last_imu_timestamp > 0) {
+  //    double dt = current_timestamp - last_imu_timestamp;
+  //    double rate = 1.0 / dt;
+  //    rate_sum += rate;
+  //    rate_count++;
+     
+  //    // Print rate statistics every second to avoid flooding the console
+  //    auto current_time = _node->now();
+  //    if ((current_time - last_print_time).seconds() >= 1.0) {
+  //      double avg_rate = rate_sum / rate_count;
+  //      PRINT_INFO(CYAN "[IMU RATE]: Average rate: %.2f Hz (over %d samples)\n" RESET, avg_rate, rate_count);
+  //     // current rate is
+  //      PRINT_INFO(CYAN "[IMU RATE]: Current rate: %.2f Hz\n" RESET, rate);
+  //      rate_sum = 0;
+  //      rate_count = 0;
+  //      last_print_time = current_time;
+  //    }
+  //  }
+  //  last_imu_timestamp = current_timestamp;
+  // DEBUG CHECK RATE END
+
+
   // convert into correct format
   ov_core::ImuData message;
   message.timestamp = msg->header.stamp.sec + msg->header.stamp.nanosec * 1e-9;
