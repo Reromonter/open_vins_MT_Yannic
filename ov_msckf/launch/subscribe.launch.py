@@ -28,7 +28,7 @@ launch_args = [
     ),
     DeclareLaunchArgument(
         name="verbosity",
-        default_value="DEBUG",
+        default_value="ERROR",
         description="ALL, DEBUG, INFO, WARNING, ERROR, SILENT",
     ),
     DeclareLaunchArgument(
