@@ -1,0 +1,28 @@
+%YAML:1.0
+
+cam0:
+  T_imu_cam: #rotation from camera to IMU R_CtoI, position of camera in IMU p_CinI
+    - [  0.004275 ,-0.175012  ,0.984557 , 0.089804]
+    - [ -0.999989, -0.002422 , 0.003912,  0.037713]
+    - [ 0.0017 ,  -0.984563, -0.175021,  0.013361]
+    - [  0.000000,  0.000000,  0.000000,  1.000000 ]
+  cam_overlaps: [1]
+  camera_model: pinhole
+  distortion_coeffs: [-0.06500657463932444, 0.0331724401464621, 0.0002780243674173525, -0.0002130544788201019] # looking at InertialInestialInitializerOptions.h is d1 to d4 (actually k1 to k4) which I get also from camera_info topic
+  distortion_model: radtan #as the camera info topic gives kannalaBrandt from isaac sim (https://medium.com/@manthan2727/camera-calibration-using-opencv-abf92a4caf11) use  equidistant https://docs.openvins.com/classov__core_1_1CamEqui.html
+  intrinsics: [1066.992160463982, 964.8906181241582, 1066.617034517532, 527.1921430815046]  #fu, fv, cu, cv
+  resolution: [1920, 1080]
+  rostopic: /boxi/zed2i/left/image_raw/uncompressed
+cam1:
+  T_imu_cam: #rotation from camera to IMU R_CtoI, position of camera in IMU p_CinI
+    - [0.005693, -0.174692,  0.984607 , 0.090091]
+    - [-0.999983,  0.000086,  0.005797 ,-0.082058]
+    - [ -0.001097 ,-0.984623, -0.174688,  0.013571]
+    - [0.0, 0.0, 0.0, 1.0]
+  cam_overlaps: [0]
+  camera_model: pinhole
+  distortion_coeffs: [-0.05949100052783383, 0.02580145339341, 0.0006844742767657103, -0.0002812601174983881] # looking at InertialInestialInitializerOptions.h is d1 to d4 which I get also from camera_info topic
+  distortion_model: radtan #as the camera info topic gives kannalaBrandt from isaac sim and equidistant is the closest matching one
+  intrinsics: [1065.714590429908, 965.3962131920014, 1065.014105108313, 526.4008218581453] #fu, fv, cu, cv
+  resolution: [1920, 1080]
+  rostopic: /boxi/zed2i/right/image_raw/uncompressed
