@@ -134,9 +134,9 @@ ROS2Visualizer::ROS2Visualizer(std::shared_ptr<rclcpp::Node> node, std::shared_p
 
     // files we will open
     // was only the filename before
-    std::string filepath_est = "state_estimate.txt";
-    std::string filepath_std = "state_deviation.txt";
-    std::string filepath_gt = "state_groundtruth.txt";
+    std::string filepath_est = "/catkin_ws/logging_files/state_estimate.txt";
+    std::string filepath_std = "/catkin_ws/logging_files/state_deviation.txt";
+    std::string filepath_gt = "/catkin_ws/logging_files/state_groundtruth.txt";
     if (node->has_parameter("filepath_est")) {
       node->get_parameter<std::string>("filepath_est", filepath_est);
     }

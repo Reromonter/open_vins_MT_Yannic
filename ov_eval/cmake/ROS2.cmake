@@ -4,6 +4,8 @@ cmake_minimum_required(VERSION 3.3)
 find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
 find_package(ov_core REQUIRED)
+find_package(geometry_msgs REQUIRED)
+find_package(nav_msgs REQUIRED)
 
 # Describe ROS project
 option(ENABLE_ROS "Enable or disable building with ROS (if it is found)" ON)
@@ -65,6 +67,16 @@ ament_export_libraries(ov_eval_lib)
 #    add_executable(live_align_trajectory src/live_align_trajectory.cpp)
 #    target_link_libraries(live_align_trajectory ov_eval_lib ${thirdparty_libraries})
 #endif ()
+
+
+#ros2 try upgrade of above file
+#add_executable(pose_to_file src/pose_to_file.cpp)
+#target_compile_features(pose_to_file PRIVATE cxx_std_17)
+#ament_target_dependencies(pose_to_file rclcpp geometry_msgs nav_msgs)
+#target_link_libraries(pose_to_file ov_eval_lib ${thirdparty_libraries})
+#install(TARGETS pose_to_file DESTINATION lib/${PROJECT_NAME})
+#end of try
+
 
 add_executable(format_converter src/format_converter.cpp)
 ament_target_dependencies(format_converter rclcpp ov_core)

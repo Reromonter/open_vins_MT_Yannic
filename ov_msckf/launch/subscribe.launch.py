@@ -43,8 +43,28 @@ launch_args = [
     ),
     DeclareLaunchArgument(
         name="save_total_state",
-        default_value="false",
+        default_value="true",
         description="record the total state with calibration and features to a txt file",
+    ),
+
+
+
+# try to include the recorder, does not work at the moment
+    DeclareLaunchArgument(
+        name="recorder_enable", default_value="false",
+        description="enable ov_eval pose recorder"
+    ),
+    DeclareLaunchArgument(
+        name="recorder_topic", default_value="/ov_msckf/poseimu",
+        description="topic with estimated pose (e.g., /ov_msckf/poseimu or /ov_msckf/odom)"
+    ),
+    DeclareLaunchArgument(
+        name="recorder_topic_type", default_value="PoseWithCovarianceStamped",
+        description="PoseWithCovarianceStamped or Odometry"
+    ),
+    DeclareLaunchArgument(
+        name="recorder_output", default_value="/catkin_ws/estimated_trajectory/ov_runs/openvins_run1.txt",
+        description="output file for recorded trajectory"
     )
 ]
 
@@ -103,20 +123,30 @@ def launch_setup(context):
             "warn",
             ],
     )
-    '''
-    #does not work with ros2
-    recorder = Node(
+
+
+    # try to create the recorder part
+    recorder_output = LaunchConfiguration("recorder_output").perform(context)
+    try:
+        os.makedirs(os.path.dirname(recorder_output), exist_ok=True)
+        return [LogInfo(msg=f"Created recorder output dir: {os.path.dirname(recorder_output)}")]
+    except Exception as e:
+        return [LogInfo(msg=f"ERROR creating recorder output dir: {e}")]
+
+
+    recorder_node = Node(
         package="ov_eval",
-        executable="pid_ros.py",        # installed by ov_eval
-        name="recorder_timing",
+        executable="pose_to_file",
+        condition=IfCondition(LaunchConfiguration("recorder_enable")),
         output="screen",
         parameters=[
-            {"nodes": "/run_subscribe_msckf"},          # comma-separate for multi-node setups
-            {"output": "/catkin_ws/results_logs_lunarLeaper/psutil_log.txt"}
-        ]
+            {"topic": LaunchConfiguration("recorder_topic")},
+            {"topic_type": LaunchConfiguration("recorder_topic_type")},
+            {"output": LaunchConfiguration("recorder_output")},
+        ],
     )
-    '''
-    return [node1, node2]#, recorder]
+
+    return [node1, node2]#, recorder_node]
 
 
 def generate_launch_description():
