@@ -51,7 +51,7 @@ launch_args = [
 
 # try to include the recorder, does not work at the moment
     DeclareLaunchArgument(
-        name="recorder_enable", default_value="false",
+        name="recorder_enable", default_value="true",
         description="enable ov_eval pose recorder"
     ),
     DeclareLaunchArgument(
@@ -129,14 +129,13 @@ def launch_setup(context):
     recorder_output = LaunchConfiguration("recorder_output").perform(context)
     try:
         os.makedirs(os.path.dirname(recorder_output), exist_ok=True)
-        return [LogInfo(msg=f"Created recorder output dir: {os.path.dirname(recorder_output)}")]
     except Exception as e:
         return [LogInfo(msg=f"ERROR creating recorder output dir: {e}")]
 
 
     recorder_node = Node(
         package="ov_eval",
-        executable="pose_to_file",
+        executable="pose_to_file_ros2",
         condition=IfCondition(LaunchConfiguration("recorder_enable")),
         output="screen",
         parameters=[
@@ -146,7 +145,7 @@ def launch_setup(context):
         ],
     )
 
-    return [node1, node2]#, recorder_node]
+    return [node1, node2, recorder_node]
 
 
 def generate_launch_description():

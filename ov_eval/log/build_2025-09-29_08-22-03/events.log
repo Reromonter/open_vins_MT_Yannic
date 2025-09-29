@@ -1,0 +1,345 @@
+[0.000000] (-) TimerEvent: {}
+[0.000100] (ov_eval) JobQueued: {'identifier': 'ov_eval', 'dependencies': OrderedDict()}
+[0.000124] (ov_eval) JobStarted: {'identifier': 'ov_eval'}
+[0.067854] (ov_eval) JobProgress: {'identifier': 'ov_eval', 'progress': 'cmake'}
+[0.076821] (ov_eval) JobProgress: {'identifier': 'ov_eval', 'progress': 'build'}
+[0.077871] (ov_eval) Command: {'cmd': ['/usr/bin/cmake', '--build', '/catkin_ws/src/open_vins/ov_eval/build/ov_eval', '--', '-j16', '-l16'], 'cwd': '/catkin_ws/src/open_vins/ov_eval/build/ov_eval', 'env': OrderedDict([('HOSTNAME', 'leo-c15-12'), ('GIT_ASKPASS', '/root/.vscode-server/bin/17baf841131aa23349f217ca7c570c76ee87b957/extensions/git/dist/askpass.sh'), ('SHLVL', '2'), ('LD_LIBRARY_PATH', '/catkin_ws/install/ov_msckf/lib:/catkin_ws/install/ov_init/lib:/catkin_ws/install/ov_eval/lib:/catkin_ws/install/ov_core/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('BROWSER', '/root/.vscode-server/bin/17baf841131aa23349f217ca7c570c76ee87b957/bin/helpers/browser.sh'), ('HOME', '/root'), ('OLDPWD', '/catkin_ws'), ('TERM_PROGRAM_VERSION', '1.99.3'), ('VSCODE_IPC_HOOK_CLI', '/tmp/vscode-ipc-4ab475a5-344e-4304-89e8-4c9142176357.sock'), ('ROS_PYTHON_VERSION', '3'), ('VSCODE_GIT_ASKPASS_MAIN', '/root/.vscode-server/bin/17baf841131aa23349f217ca7c570c76ee87b957/extensions/git/dist/askpass-main.js'), ('VSCODE_GIT_ASKPASS_NODE', '/root/.vscode-server/bin/17baf841131aa23349f217ca7c570c76ee87b957/node'), ('COLORTERM', 'truecolor'), ('REMOTE_CONTAINERS', 'true'), ('DEBUGINFOD_URLS', ''), ('COLCON_PREFIX_PATH', '/catkin_ws/install'), ('ROS_DISTRO', 'humble'), ('REMOTE_CONTAINERS_IPC', '/tmp/vscode-remote-containers-ipc-756015d0-c950-458b-8c5b-914f02062b57.sock'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('NVIDIA_DRIVER_CAPABILITIES', 'all'), ('TERM', 'xterm-256color'), ('ROS_LOCALHOST_ONLY', '0'), ('QT_X11_NO_MITSHM', '1'), ('PATH', '/opt/ros/humble/bin:/root/.vscode-server/bin/17baf841131aa23349f217ca7c570c76ee87b957/bin/remote-cli:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/root/.vscode-server/data/User/globalStorage/github.copilot-chat/debugCommand'), ('REMOTE_CONTAINERS_SOCKETS', '["/tmp/vscode-ssh-auth-756015d0-c950-458b-8c5b-914f02062b57.sock","/root/.gnupg/S.gpg-agent"]'), ('DISPLAY', ':1'), ('LANG', 'C.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('VSCODE_GIT_IPC_HANDLE', '/tmp/vscode-git-02de4b1a9e.sock'), ('TERM_PROGRAM', 'vscode'), ('SSH_AUTH_SOCK', '/tmp/vscode-ssh-auth-756015d0-c950-458b-8c5b-914f02062b57.sock'), ('AMENT_PREFIX_PATH', '/catkin_ws/install/ov_msckf:/catkin_ws/install/ov_init:/catkin_ws/install/ov_eval:/catkin_ws/install/ov_data:/catkin_ws/install/ov_core:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('FASTDDS_DEFAULT_PROFILES_FILE', '/etc/fastdds/disable_shm.xml'), ('VSCODE_GIT_ASKPASS_EXTRA_ARGS', ''), ('PWD', '/catkin_ws/src/open_vins/ov_eval/build/ov_eval'), ('LC_ALL', 'C.UTF-8'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/opt/ros/humble:/catkin_ws/install/ov_msckf:/catkin_ws/install/ov_init:/catkin_ws/install/ov_eval:/catkin_ws/install/ov_data:/catkin_ws/install/ov_core')]), 'shell': False}
+[0.121114] (-) TimerEvent: {}
+[0.221304] (-) TimerEvent: {}
+[0.321594] (-) TimerEvent: {}
+[0.368576] (ov_eval) StdoutLine: {'line': b'[ 24%] Built target ov_eval_lib\n'}
+[0.389505] (ov_eval) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target pose_to_file_ros2\x1b[0m\n'}
+[0.421699] (-) TimerEvent: {}
+[0.446972] (ov_eval) StdoutLine: {'line': b'[ 93%] Built target timing_flamegraph\n'}
+[0.452273] (ov_eval) StdoutLine: {'line': b'[ 96%] Built target error_comparison\n'}
+[0.452435] (ov_eval) StdoutLine: {'line': b'[ 96%] Built target timing_percentages\n'}
+[0.453769] (ov_eval) StdoutLine: {'line': b'[ 96%] Built target timing_comparison\n'}
+[0.454831] (ov_eval) StdoutLine: {'line': b'[ 96%] Built target error_simulation\n'}
+[0.455796] (ov_eval) StdoutLine: {'line': b'[ 96%] Built target error_dataset\n'}
+[0.456683] (ov_eval) StdoutLine: {'line': b'[ 96%] Built target plot_trajectories\n'}
+[0.456744] (ov_eval) StdoutLine: {'line': b'[ 96%] Built target timing_histogram\n'}
+[0.459022] (ov_eval) StdoutLine: {'line': b'[ 96%] Built target error_singlerun\n'}
+[0.460059] (ov_eval) StdoutLine: {'line': b'[ 96%] Built target format_converter\n'}
+[0.461073] (ov_eval) StdoutLine: {'line': b'[ 96%] \x1b[32mBuilding CXX object CMakeFiles/pose_to_file_ros2.dir/src/pose_to_file_ros2.cpp.o\x1b[0m\n'}
+[0.521800] (-) TimerEvent: {}
+[0.622087] (-) TimerEvent: {}
+[0.722380] (-) TimerEvent: {}
+[0.822788] (-) TimerEvent: {}
+[0.923058] (-) TimerEvent: {}
+[1.023325] (-) TimerEvent: {}
+[1.123609] (-) TimerEvent: {}
+[1.223887] (-) TimerEvent: {}
+[1.324170] (-) TimerEvent: {}
+[1.424427] (-) TimerEvent: {}
+[1.524680] (-) TimerEvent: {}
+[1.624980] (-) TimerEvent: {}
+[1.725255] (-) TimerEvent: {}
+[1.825532] (-) TimerEvent: {}
+[1.925798] (-) TimerEvent: {}
+[2.026059] (-) TimerEvent: {}
+[2.126321] (-) TimerEvent: {}
+[2.226614] (-) TimerEvent: {}
+[2.326883] (-) TimerEvent: {}
+[2.427154] (-) TimerEvent: {}
+[2.527425] (-) TimerEvent: {}
+[2.627696] (-) TimerEvent: {}
+[2.727952] (-) TimerEvent: {}
+[2.828222] (-) TimerEvent: {}
+[2.928522] (-) TimerEvent: {}
+[3.028796] (-) TimerEvent: {}
+[3.129124] (-) TimerEvent: {}
+[3.229434] (-) TimerEvent: {}
+[3.329707] (-) TimerEvent: {}
+[3.429983] (-) TimerEvent: {}
+[3.530253] (-) TimerEvent: {}
+[3.630545] (-) TimerEvent: {}
+[3.730819] (-) TimerEvent: {}
+[3.831074] (-) TimerEvent: {}
+[3.931332] (-) TimerEvent: {}
+[4.031629] (-) TimerEvent: {}
+[4.131908] (-) TimerEvent: {}
+[4.232191] (-) TimerEvent: {}
+[4.332485] (-) TimerEvent: {}
+[4.432769] (-) TimerEvent: {}
+[4.533070] (-) TimerEvent: {}
+[4.633364] (-) TimerEvent: {}
+[4.733670] (-) TimerEvent: {}
+[4.833933] (-) TimerEvent: {}
+[4.934202] (-) TimerEvent: {}
+[5.034484] (-) TimerEvent: {}
+[5.134773] (-) TimerEvent: {}
+[5.235032] (-) TimerEvent: {}
+[5.335293] (-) TimerEvent: {}
+[5.435580] (-) TimerEvent: {}
+[5.535869] (-) TimerEvent: {}
+[5.636182] (-) TimerEvent: {}
+[5.736461] (-) TimerEvent: {}
+[5.836725] (-) TimerEvent: {}
+[5.936988] (-) TimerEvent: {}
+[6.037258] (-) TimerEvent: {}
+[6.137558] (-) TimerEvent: {}
+[6.237820] (-) TimerEvent: {}
+[6.338085] (-) TimerEvent: {}
+[6.438356] (-) TimerEvent: {}
+[6.538633] (-) TimerEvent: {}
+[6.638893] (-) TimerEvent: {}
+[6.739153] (-) TimerEvent: {}
+[6.839422] (-) TimerEvent: {}
+[6.939680] (-) TimerEvent: {}
+[7.039945] (-) TimerEvent: {}
+[7.140217] (-) TimerEvent: {}
+[7.240494] (-) TimerEvent: {}
+[7.340764] (-) TimerEvent: {}
+[7.441043] (-) TimerEvent: {}
+[7.541304] (-) TimerEvent: {}
+[7.641595] (-) TimerEvent: {}
+[7.741854] (-) TimerEvent: {}
+[7.842127] (-) TimerEvent: {}
+[7.942423] (-) TimerEvent: {}
+[8.042700] (-) TimerEvent: {}
+[8.142986] (-) TimerEvent: {}
+[8.243255] (-) TimerEvent: {}
+[8.343534] (-) TimerEvent: {}
+[8.443790] (-) TimerEvent: {}
+[8.544043] (-) TimerEvent: {}
+[8.644315] (-) TimerEvent: {}
+[8.744588] (-) TimerEvent: {}
+[8.844857] (-) TimerEvent: {}
+[8.945437] (-) TimerEvent: {}
+[9.045743] (-) TimerEvent: {}
+[9.146022] (-) TimerEvent: {}
+[9.246362] (-) TimerEvent: {}
+[9.346636] (-) TimerEvent: {}
+[9.446893] (-) TimerEvent: {}
+[9.547142] (-) TimerEvent: {}
+[9.647399] (-) TimerEvent: {}
+[9.747646] (-) TimerEvent: {}
+[9.847898] (-) TimerEvent: {}
+[9.948153] (-) TimerEvent: {}
+[10.048412] (-) TimerEvent: {}
+[10.148676] (-) TimerEvent: {}
+[10.248949] (-) TimerEvent: {}
+[10.349206] (-) TimerEvent: {}
+[10.449434] (-) TimerEvent: {}
+[10.549707] (-) TimerEvent: {}
+[10.649969] (-) TimerEvent: {}
+[10.750243] (-) TimerEvent: {}
+[10.850525] (-) TimerEvent: {}
+[10.950819] (-) TimerEvent: {}
+[11.051079] (-) TimerEvent: {}
+[11.151345] (-) TimerEvent: {}
+[11.251623] (-) TimerEvent: {}
+[11.351888] (-) TimerEvent: {}
+[11.452147] (-) TimerEvent: {}
+[11.552422] (-) TimerEvent: {}
+[11.652689] (-) TimerEvent: {}
+[11.752958] (-) TimerEvent: {}
+[11.853217] (-) TimerEvent: {}
+[11.953452] (-) TimerEvent: {}
+[12.053708] (-) TimerEvent: {}
+[12.153965] (-) TimerEvent: {}
+[12.254223] (-) TimerEvent: {}
+[12.354492] (-) TimerEvent: {}
+[12.454755] (-) TimerEvent: {}
+[12.555026] (-) TimerEvent: {}
+[12.655299] (-) TimerEvent: {}
+[12.755586] (-) TimerEvent: {}
+[12.855847] (-) TimerEvent: {}
+[12.956106] (-) TimerEvent: {}
+[13.056360] (-) TimerEvent: {}
+[13.156622] (-) TimerEvent: {}
+[13.256881] (-) TimerEvent: {}
+[13.357136] (-) TimerEvent: {}
+[13.457404] (-) TimerEvent: {}
+[13.557664] (-) TimerEvent: {}
+[13.657920] (-) TimerEvent: {}
+[13.758175] (-) TimerEvent: {}
+[13.858428] (-) TimerEvent: {}
+[13.958677] (-) TimerEvent: {}
+[14.058936] (-) TimerEvent: {}
+[14.159192] (-) TimerEvent: {}
+[14.259453] (-) TimerEvent: {}
+[14.359710] (-) TimerEvent: {}
+[14.459971] (-) TimerEvent: {}
+[14.560277] (-) TimerEvent: {}
+[14.660548] (-) TimerEvent: {}
+[14.760815] (-) TimerEvent: {}
+[14.861062] (-) TimerEvent: {}
+[14.961320] (-) TimerEvent: {}
+[15.061612] (-) TimerEvent: {}
+[15.161871] (-) TimerEvent: {}
+[15.262126] (-) TimerEvent: {}
+[15.362405] (-) TimerEvent: {}
+[15.462659] (-) TimerEvent: {}
+[15.562904] (-) TimerEvent: {}
+[15.663158] (-) TimerEvent: {}
+[15.763418] (-) TimerEvent: {}
+[15.863667] (-) TimerEvent: {}
+[15.963926] (-) TimerEvent: {}
+[16.064179] (-) TimerEvent: {}
+[16.164441] (-) TimerEvent: {}
+[16.264704] (-) TimerEvent: {}
+[16.364964] (-) TimerEvent: {}
+[16.465222] (-) TimerEvent: {}
+[16.565480] (-) TimerEvent: {}
+[16.665741] (-) TimerEvent: {}
+[16.766001] (-) TimerEvent: {}
+[16.866264] (-) TimerEvent: {}
+[16.966572] (-) TimerEvent: {}
+[17.066868] (-) TimerEvent: {}
+[17.167117] (-) TimerEvent: {}
+[17.267383] (-) TimerEvent: {}
+[17.367641] (-) TimerEvent: {}
+[17.467907] (-) TimerEvent: {}
+[17.568191] (-) TimerEvent: {}
+[17.668454] (-) TimerEvent: {}
+[17.768742] (-) TimerEvent: {}
+[17.869045] (-) TimerEvent: {}
+[17.969361] (-) TimerEvent: {}
+[18.069682] (-) TimerEvent: {}
+[18.169994] (-) TimerEvent: {}
+[18.270298] (-) TimerEvent: {}
+[18.370603] (-) TimerEvent: {}
+[18.470865] (-) TimerEvent: {}
+[18.571117] (-) TimerEvent: {}
+[18.671394] (-) TimerEvent: {}
+[18.771643] (-) TimerEvent: {}
+[18.871902] (-) TimerEvent: {}
+[18.972169] (-) TimerEvent: {}
+[19.072452] (-) TimerEvent: {}
+[19.172711] (-) TimerEvent: {}
+[19.272958] (-) TimerEvent: {}
+[19.373216] (-) TimerEvent: {}
+[19.473513] (-) TimerEvent: {}
+[19.573778] (-) TimerEvent: {}
+[19.674047] (-) TimerEvent: {}
+[19.774330] (-) TimerEvent: {}
+[19.874631] (-) TimerEvent: {}
+[19.974917] (-) TimerEvent: {}
+[20.075175] (-) TimerEvent: {}
+[20.175437] (-) TimerEvent: {}
+[20.275737] (-) TimerEvent: {}
+[20.376014] (-) TimerEvent: {}
+[20.476315] (-) TimerEvent: {}
+[20.576607] (-) TimerEvent: {}
+[20.676869] (-) TimerEvent: {}
+[20.777146] (-) TimerEvent: {}
+[20.877426] (-) TimerEvent: {}
+[20.977685] (-) TimerEvent: {}
+[21.077945] (-) TimerEvent: {}
+[21.178213] (-) TimerEvent: {}
+[21.278512] (-) TimerEvent: {}
+[21.378772] (-) TimerEvent: {}
+[21.479033] (-) TimerEvent: {}
+[21.579295] (-) TimerEvent: {}
+[21.679579] (-) TimerEvent: {}
+[21.779848] (-) TimerEvent: {}
+[21.880142] (-) TimerEvent: {}
+[21.980433] (-) TimerEvent: {}
+[22.080718] (-) TimerEvent: {}
+[22.180984] (-) TimerEvent: {}
+[22.281271] (-) TimerEvent: {}
+[22.381563] (-) TimerEvent: {}
+[22.481848] (-) TimerEvent: {}
+[22.582092] (-) TimerEvent: {}
+[22.682347] (-) TimerEvent: {}
+[22.782608] (-) TimerEvent: {}
+[22.882858] (-) TimerEvent: {}
+[22.907389] (ov_eval) StdoutLine: {'line': b'[100%] \x1b[32m\x1b[1mLinking CXX executable pose_to_file_ros2\x1b[0m\n'}
+[22.982955] (-) TimerEvent: {}
+[23.083217] (-) TimerEvent: {}
+[23.183481] (-) TimerEvent: {}
+[23.283730] (-) TimerEvent: {}
+[23.383980] (-) TimerEvent: {}
+[23.484233] (-) TimerEvent: {}
+[23.584498] (-) TimerEvent: {}
+[23.684761] (-) TimerEvent: {}
+[23.785046] (-) TimerEvent: {}
+[23.885341] (-) TimerEvent: {}
+[23.985591] (-) TimerEvent: {}
+[24.085834] (-) TimerEvent: {}
+[24.186079] (-) TimerEvent: {}
+[24.286329] (-) TimerEvent: {}
+[24.386580] (-) TimerEvent: {}
+[24.486817] (-) TimerEvent: {}
+[24.587051] (-) TimerEvent: {}
+[24.687298] (-) TimerEvent: {}
+[24.787557] (-) TimerEvent: {}
+[24.887805] (-) TimerEvent: {}
+[24.988038] (-) TimerEvent: {}
+[25.088298] (-) TimerEvent: {}
+[25.188559] (-) TimerEvent: {}
+[25.288801] (-) TimerEvent: {}
+[25.389043] (-) TimerEvent: {}
+[25.489293] (-) TimerEvent: {}
+[25.589547] (-) TimerEvent: {}
+[25.689791] (-) TimerEvent: {}
+[25.790043] (-) TimerEvent: {}
+[25.890290] (-) TimerEvent: {}
+[25.990544] (-) TimerEvent: {}
+[26.055615] (ov_eval) StdoutLine: {'line': b'[100%] Built target pose_to_file_ros2\n'}
+[26.090627] (-) TimerEvent: {}
+[26.113522] (ov_eval) CommandEnded: {'returncode': 0}
+[26.121007] (ov_eval) JobProgress: {'identifier': 'ov_eval', 'progress': 'install'}
+[26.131091] (ov_eval) Command: {'cmd': ['/usr/bin/cmake', '--install', '/catkin_ws/src/open_vins/ov_eval/build/ov_eval'], 'cwd': '/catkin_ws/src/open_vins/ov_eval/build/ov_eval', 'env': OrderedDict([('HOSTNAME', 'leo-c15-12'), ('GIT_ASKPASS', '/root/.vscode-server/bin/17baf841131aa23349f217ca7c570c76ee87b957/extensions/git/dist/askpass.sh'), ('SHLVL', '2'), ('LD_LIBRARY_PATH', '/catkin_ws/install/ov_msckf/lib:/catkin_ws/install/ov_init/lib:/catkin_ws/install/ov_eval/lib:/catkin_ws/install/ov_core/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('BROWSER', '/root/.vscode-server/bin/17baf841131aa23349f217ca7c570c76ee87b957/bin/helpers/browser.sh'), ('HOME', '/root'), ('OLDPWD', '/catkin_ws'), ('TERM_PROGRAM_VERSION', '1.99.3'), ('VSCODE_IPC_HOOK_CLI', '/tmp/vscode-ipc-4ab475a5-344e-4304-89e8-4c9142176357.sock'), ('ROS_PYTHON_VERSION', '3'), ('VSCODE_GIT_ASKPASS_MAIN', '/root/.vscode-server/bin/17baf841131aa23349f217ca7c570c76ee87b957/extensions/git/dist/askpass-main.js'), ('VSCODE_GIT_ASKPASS_NODE', '/root/.vscode-server/bin/17baf841131aa23349f217ca7c570c76ee87b957/node'), ('COLORTERM', 'truecolor'), ('REMOTE_CONTAINERS', 'true'), ('DEBUGINFOD_URLS', ''), ('COLCON_PREFIX_PATH', '/catkin_ws/install'), ('ROS_DISTRO', 'humble'), ('REMOTE_CONTAINERS_IPC', '/tmp/vscode-remote-containers-ipc-756015d0-c950-458b-8c5b-914f02062b57.sock'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('NVIDIA_DRIVER_CAPABILITIES', 'all'), ('TERM', 'xterm-256color'), ('ROS_LOCALHOST_ONLY', '0'), ('QT_X11_NO_MITSHM', '1'), ('PATH', '/opt/ros/humble/bin:/root/.vscode-server/bin/17baf841131aa23349f217ca7c570c76ee87b957/bin/remote-cli:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/root/.vscode-server/data/User/globalStorage/github.copilot-chat/debugCommand'), ('REMOTE_CONTAINERS_SOCKETS', '["/tmp/vscode-ssh-auth-756015d0-c950-458b-8c5b-914f02062b57.sock","/root/.gnupg/S.gpg-agent"]'), ('DISPLAY', ':1'), ('LANG', 'C.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('VSCODE_GIT_IPC_HANDLE', '/tmp/vscode-git-02de4b1a9e.sock'), ('TERM_PROGRAM', 'vscode'), ('SSH_AUTH_SOCK', '/tmp/vscode-ssh-auth-756015d0-c950-458b-8c5b-914f02062b57.sock'), ('AMENT_PREFIX_PATH', '/catkin_ws/install/ov_msckf:/catkin_ws/install/ov_init:/catkin_ws/install/ov_eval:/catkin_ws/install/ov_data:/catkin_ws/install/ov_core:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('FASTDDS_DEFAULT_PROFILES_FILE', '/etc/fastdds/disable_shm.xml'), ('VSCODE_GIT_ASKPASS_EXTRA_ARGS', ''), ('PWD', '/catkin_ws/src/open_vins/ov_eval/build/ov_eval'), ('LC_ALL', 'C.UTF-8'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/opt/ros/humble:/catkin_ws/install/ov_msckf:/catkin_ws/install/ov_init:/catkin_ws/install/ov_eval:/catkin_ws/install/ov_data:/catkin_ws/install/ov_core')]), 'shell': False}
+[26.141255] (ov_eval) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[26.180660] (ov_eval) StdoutLine: {'line': b'-- Execute custom install script\n'}
+[26.183450] (ov_eval) StdoutLine: {'line': b'-- Up-to-date symlink: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/share/ov_eval/environment/library_path.sh\n'}
+[26.186591] (ov_eval) StdoutLine: {'line': b'-- Up-to-date symlink: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/share/ov_eval/environment/library_path.dsv\n'}
+[26.190338] (ov_eval) StdoutLine: {'line': b'-- Symlinking: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/lib/ov_eval/pose_to_file_ros2\n'}
+[26.191247] (-) TimerEvent: {}
+[26.206448] (ov_eval) StdoutLine: {'line': b'-- Up-to-date symlink: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/lib/ov_eval/format_converter\n'}
+[26.211418] (ov_eval) StdoutLine: {'line': b'-- Up-to-date symlink: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/lib/ov_eval/error_comparison\n'}
+[26.216149] (ov_eval) StdoutLine: {'line': b'-- Up-to-date symlink: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/lib/ov_eval/error_dataset\n'}
+[26.220833] (ov_eval) StdoutLine: {'line': b'-- Up-to-date symlink: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/lib/ov_eval/error_singlerun\n'}
+[26.225570] (ov_eval) StdoutLine: {'line': b'-- Up-to-date symlink: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/lib/ov_eval/error_simulation\n'}
+[26.230289] (ov_eval) StdoutLine: {'line': b'-- Up-to-date symlink: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/lib/ov_eval/timing_comparison\n'}
+[26.235263] (ov_eval) StdoutLine: {'line': b'-- Up-to-date symlink: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/lib/ov_eval/timing_flamegraph\n'}
+[26.240455] (ov_eval) StdoutLine: {'line': b'-- Up-to-date symlink: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/lib/ov_eval/timing_histogram\n'}
+[26.245434] (ov_eval) StdoutLine: {'line': b'-- Up-to-date symlink: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/lib/ov_eval/timing_percentages\n'}
+[26.250335] (ov_eval) StdoutLine: {'line': b'-- Up-to-date symlink: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/lib/ov_eval/plot_trajectories\n'}
+[26.253868] (ov_eval) StdoutLine: {'line': b'-- Up-to-date symlink: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/lib/ov_eval/pid_ros.py\n'}
+[26.256807] (ov_eval) StdoutLine: {'line': b'-- Up-to-date symlink: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/lib/ov_eval/pid_sys.py\n'}
+[26.259379] (ov_eval) StdoutLine: {'line': b'-- Up-to-date symlink: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/share/ament_index/resource_index/package_run_dependencies/ov_eval\n'}
+[26.261783] (ov_eval) StdoutLine: {'line': b'-- Up-to-date symlink: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/share/ament_index/resource_index/parent_prefix_path/ov_eval\n'}
+[26.264322] (ov_eval) StdoutLine: {'line': b'-- Up-to-date symlink: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/share/ov_eval/environment/ament_prefix_path.sh\n'}
+[26.268048] (ov_eval) StdoutLine: {'line': b'-- Up-to-date symlink: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/share/ov_eval/environment/ament_prefix_path.dsv\n'}
+[26.270484] (ov_eval) StdoutLine: {'line': b'-- Up-to-date symlink: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/share/ov_eval/environment/path.sh\n'}
+[26.273719] (ov_eval) StdoutLine: {'line': b'-- Up-to-date symlink: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/share/ov_eval/environment/path.dsv\n'}
+[26.276326] (ov_eval) StdoutLine: {'line': b'-- Up-to-date symlink: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/share/ov_eval/local_setup.bash\n'}
+[26.278997] (ov_eval) StdoutLine: {'line': b'-- Up-to-date symlink: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/share/ov_eval/local_setup.sh\n'}
+[26.281825] (ov_eval) StdoutLine: {'line': b'-- Up-to-date symlink: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/share/ov_eval/local_setup.zsh\n'}
+[26.285377] (ov_eval) StdoutLine: {'line': b'-- Up-to-date symlink: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/share/ov_eval/local_setup.dsv\n'}
+[26.288624] (ov_eval) StdoutLine: {'line': b'-- Symlinking: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/share/ov_eval/package.dsv\n'}
+[26.291313] (-) TimerEvent: {}
+[26.303065] (ov_eval) StdoutLine: {'line': b'-- Up-to-date symlink: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/share/ament_index/resource_index/packages/ov_eval\n'}
+[26.305607] (ov_eval) StdoutLine: {'line': b'-- Up-to-date symlink: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/share/ov_eval/cmake/ament_cmake_export_include_directories-extras.cmake\n'}
+[26.308082] (ov_eval) StdoutLine: {'line': b'-- Up-to-date symlink: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/share/ov_eval/cmake/ament_cmake_export_libraries-extras.cmake\n'}
+[26.310959] (ov_eval) StdoutLine: {'line': b'-- Up-to-date symlink: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/share/ov_eval/cmake/ov_evalConfig.cmake\n'}
+[26.314249] (ov_eval) StdoutLine: {'line': b'-- Up-to-date symlink: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/share/ov_eval/cmake/ov_evalConfig-version.cmake\n'}
+[26.316335] (ov_eval) StdoutLine: {'line': b'-- Up-to-date symlink: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/share/ov_eval/package.xml\n'}
+[26.318597] (ov_eval) StdoutLine: {'line': b'-- Installing: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/lib/libov_eval_lib.so\n'}
+[26.391439] (-) TimerEvent: {}
+[26.491687] (-) TimerEvent: {}
+[26.591937] (-) TimerEvent: {}
+[26.692182] (-) TimerEvent: {}
+[26.792432] (-) TimerEvent: {}
+[26.892702] (-) TimerEvent: {}
+[26.929419] (ov_eval) StdoutLine: {'line': b'-- Set runtime path of "/catkin_ws/src/open_vins/ov_eval/install/ov_eval/lib/libov_eval_lib.so" to ""\n'}
+[26.930349] (ov_eval) StdoutLine: {'line': b'-- Up-to-date: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/include\n'}
+[26.932822] (ov_eval) StdoutLine: {'line': b'-- Up-to-date: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/include/calc\n'}
+[26.937204] (ov_eval) StdoutLine: {'line': b'-- Up-to-date: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/include/calc/ResultTrajectory.h\n'}
+[26.940153] (ov_eval) StdoutLine: {'line': b'-- Up-to-date: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/include/calc/ResultSimulation.h\n'}
+[26.945596] (ov_eval) StdoutLine: {'line': b'-- Up-to-date: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/include/utils\n'}
+[26.948820] (ov_eval) StdoutLine: {'line': b'-- Installing: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/include/utils/Recorder_ros2.h\n'}
+[26.962485] (ov_eval) StdoutLine: {'line': b'-- Up-to-date: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/include/utils/Statistics.h\n'}
+[26.964640] (ov_eval) StdoutLine: {'line': b'-- Installing: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/include/utils/Loader.h\n'}
+[26.978858] (ov_eval) StdoutLine: {'line': b'-- Up-to-date: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/include/utils/Recorder.h\n'}
+[26.982301] (ov_eval) StdoutLine: {'line': b'-- Up-to-date: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/include/alignment\n'}
+[26.985977] (ov_eval) StdoutLine: {'line': b'-- Up-to-date: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/include/alignment/AlignTrajectory.h\n'}
+[26.988485] (ov_eval) StdoutLine: {'line': b'-- Up-to-date: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/include/alignment/AlignUtils.h\n'}
+[26.992753] (-) TimerEvent: {}
+[26.999283] (ov_eval) CommandEnded: {'returncode': 0}
+[27.092842] (-) TimerEvent: {}
+[27.146315] (ov_eval) JobEnded: {'identifier': 'ov_eval', 'rc': 0}
+[27.150572] (-) EventReactorShutdown: {}

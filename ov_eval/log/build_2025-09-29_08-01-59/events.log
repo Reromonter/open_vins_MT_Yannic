@@ -1,0 +1,99 @@
+[0.000000] (-) TimerEvent: {}
+[0.000093] (ov_eval) JobQueued: {'identifier': 'ov_eval', 'dependencies': OrderedDict()}
+[0.000118] (ov_eval) JobStarted: {'identifier': 'ov_eval'}
+[0.054231] (ov_eval) JobProgress: {'identifier': 'ov_eval', 'progress': 'cmake'}
+[0.061531] (ov_eval) JobProgress: {'identifier': 'ov_eval', 'progress': 'build'}
+[0.062572] (ov_eval) Command: {'cmd': ['/usr/bin/cmake', '--build', '/catkin_ws/src/open_vins/ov_eval/build/ov_eval', '--', '-j16', '-l16'], 'cwd': '/catkin_ws/src/open_vins/ov_eval/build/ov_eval', 'env': OrderedDict([('HOSTNAME', 'leo-c15-12'), ('GIT_ASKPASS', '/root/.vscode-server/bin/17baf841131aa23349f217ca7c570c76ee87b957/extensions/git/dist/askpass.sh'), ('SHLVL', '2'), ('LD_LIBRARY_PATH', '/catkin_ws/install/ov_msckf/lib:/catkin_ws/install/ov_init/lib:/catkin_ws/install/ov_eval/lib:/catkin_ws/install/ov_core/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('BROWSER', '/root/.vscode-server/bin/17baf841131aa23349f217ca7c570c76ee87b957/bin/helpers/browser.sh'), ('HOME', '/root'), ('OLDPWD', '/catkin_ws'), ('TERM_PROGRAM_VERSION', '1.99.3'), ('VSCODE_IPC_HOOK_CLI', '/tmp/vscode-ipc-4ab475a5-344e-4304-89e8-4c9142176357.sock'), ('ROS_PYTHON_VERSION', '3'), ('VSCODE_GIT_ASKPASS_MAIN', '/root/.vscode-server/bin/17baf841131aa23349f217ca7c570c76ee87b957/extensions/git/dist/askpass-main.js'), ('VSCODE_GIT_ASKPASS_NODE', '/root/.vscode-server/bin/17baf841131aa23349f217ca7c570c76ee87b957/node'), ('COLORTERM', 'truecolor'), ('REMOTE_CONTAINERS', 'true'), ('DEBUGINFOD_URLS', ''), ('COLCON_PREFIX_PATH', '/catkin_ws/install'), ('ROS_DISTRO', 'humble'), ('REMOTE_CONTAINERS_IPC', '/tmp/vscode-remote-containers-ipc-756015d0-c950-458b-8c5b-914f02062b57.sock'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('NVIDIA_DRIVER_CAPABILITIES', 'all'), ('TERM', 'xterm-256color'), ('ROS_LOCALHOST_ONLY', '0'), ('QT_X11_NO_MITSHM', '1'), ('PATH', '/opt/ros/humble/bin:/root/.vscode-server/bin/17baf841131aa23349f217ca7c570c76ee87b957/bin/remote-cli:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/root/.vscode-server/data/User/globalStorage/github.copilot-chat/debugCommand'), ('REMOTE_CONTAINERS_SOCKETS', '["/tmp/vscode-ssh-auth-756015d0-c950-458b-8c5b-914f02062b57.sock","/root/.gnupg/S.gpg-agent"]'), ('DISPLAY', ':1'), ('LANG', 'C.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('VSCODE_GIT_IPC_HANDLE', '/tmp/vscode-git-02de4b1a9e.sock'), ('TERM_PROGRAM', 'vscode'), ('SSH_AUTH_SOCK', '/tmp/vscode-ssh-auth-756015d0-c950-458b-8c5b-914f02062b57.sock'), ('AMENT_PREFIX_PATH', '/catkin_ws/install/ov_msckf:/catkin_ws/install/ov_init:/catkin_ws/install/ov_eval:/catkin_ws/install/ov_data:/catkin_ws/install/ov_core:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('FASTDDS_DEFAULT_PROFILES_FILE', '/etc/fastdds/disable_shm.xml'), ('VSCODE_GIT_ASKPASS_EXTRA_ARGS', ''), ('PWD', '/catkin_ws/src/open_vins/ov_eval/build/ov_eval'), ('LC_ALL', 'C.UTF-8'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/opt/ros/humble:/catkin_ws/install/ov_msckf:/catkin_ws/install/ov_init:/catkin_ws/install/ov_eval:/catkin_ws/install/ov_data:/catkin_ws/install/ov_core')]), 'shell': False}
+[0.098687] (-) TimerEvent: {}
+[0.198925] (-) TimerEvent: {}
+[0.234453] (ov_eval) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target ov_eval_lib\x1b[0m\n'}
+[0.299030] (-) TimerEvent: {}
+[0.306463] (ov_eval) StdoutLine: {'line': b'[ 24%] Built target ov_eval_lib\n'}
+[0.347493] (ov_eval) StdoutLine: {'line': b'[ 27%] \x1b[32mBuilding CXX object CMakeFiles/pose_to_file_ros2.dir/src/pose_to_file_ros2.cpp.o\x1b[0m\n'}
+[0.382722] (ov_eval) StdoutLine: {'line': b'[ 96%] Built target error_simulation\n'}
+[0.383010] (ov_eval) StdoutLine: {'line': b'[ 96%] Built target timing_histogram\n'}
+[0.383120] (ov_eval) StdoutLine: {'line': b'[ 96%] Built target timing_comparison\n'}
+[0.383195] (ov_eval) StdoutLine: {'line': b'[ 96%] Built target plot_trajectories\n'}
+[0.383257] (ov_eval) StdoutLine: {'line': b'[ 96%] Built target error_comparison\n'}
+[0.383318] (ov_eval) StdoutLine: {'line': b'[ 96%] Built target timing_percentages\n'}
+[0.383378] (ov_eval) StdoutLine: {'line': b'[ 96%] Built target error_dataset\n'}
+[0.383461] (ov_eval) StdoutLine: {'line': b'[ 96%] Built target timing_flamegraph\n'}
+[0.383522] (ov_eval) StdoutLine: {'line': b'[ 96%] Built target format_converter\n'}
+[0.383580] (ov_eval) StdoutLine: {'line': b'[ 96%] Built target error_singlerun\n'}
+[0.399102] (-) TimerEvent: {}
+[0.499327] (-) TimerEvent: {}
+[0.599606] (-) TimerEvent: {}
+[0.699910] (-) TimerEvent: {}
+[0.800199] (-) TimerEvent: {}
+[0.900469] (-) TimerEvent: {}
+[1.000731] (-) TimerEvent: {}
+[1.100998] (-) TimerEvent: {}
+[1.201271] (-) TimerEvent: {}
+[1.301549] (-) TimerEvent: {}
+[1.401813] (-) TimerEvent: {}
+[1.502080] (-) TimerEvent: {}
+[1.602346] (-) TimerEvent: {}
+[1.702624] (-) TimerEvent: {}
+[1.802892] (-) TimerEvent: {}
+[1.903170] (-) TimerEvent: {}
+[2.003475] (-) TimerEvent: {}
+[2.103745] (-) TimerEvent: {}
+[2.204017] (-) TimerEvent: {}
+[2.304287] (-) TimerEvent: {}
+[2.404563] (-) TimerEvent: {}
+[2.504841] (-) TimerEvent: {}
+[2.605144] (-) TimerEvent: {}
+[2.705435] (-) TimerEvent: {}
+[2.805719] (-) TimerEvent: {}
+[2.906005] (-) TimerEvent: {}
+[3.006295] (-) TimerEvent: {}
+[3.029450] (ov_eval) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/catkin_ws/src/open_vins/ov_eval/src/pose_to_file_ros2.cpp:14\x1b[m\x1b[K:\n'}
+[3.029622] (ov_eval) StderrLine: {'line': b'\x1b[01m\x1b[K/catkin_ws/src/open_vins/ov_eval/src/utils/Recorder_ros2.h:\x1b[m\x1b[K In constructor \xe2\x80\x98\x1b[01m\x1b[Kov_eval::Recorder::Recorder(std::string)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[3.032046] (ov_eval) StderrLine: {'line': b'\x1b[01m\x1b[K/catkin_ws/src/open_vins/ov_eval/src/utils/Recorder_ros2.h:67:8:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[KPRINT_WARN\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope; did you mean \xe2\x80\x98\x1b[01m\x1b[KPRINT_WARNING\x1b[m\x1b[K\xe2\x80\x99?\n'}
+[3.033109] (ov_eval) StderrLine: {'line': b'   67 |        \x1b[01;31m\x1b[KPRINT_WARN\x1b[m\x1b[K("Output file exists, deleting old file....");\n'}
+[3.034194] (ov_eval) StderrLine: {'line': b'      |        \x1b[01;31m\x1b[K^~~~~~~~~~\x1b[m\x1b[K\n'}
+[3.034273] (ov_eval) StderrLine: {'line': b'      |        \x1b[32m\x1b[KPRINT_WARNING\x1b[m\x1b[K\n'}
+[3.106397] (-) TimerEvent: {}
+[3.206694] (-) TimerEvent: {}
+[3.306983] (-) TimerEvent: {}
+[3.407269] (-) TimerEvent: {}
+[3.507609] (-) TimerEvent: {}
+[3.607917] (-) TimerEvent: {}
+[3.708184] (-) TimerEvent: {}
+[3.808483] (-) TimerEvent: {}
+[3.908751] (-) TimerEvent: {}
+[4.009010] (-) TimerEvent: {}
+[4.109283] (-) TimerEvent: {}
+[4.209652] (-) TimerEvent: {}
+[4.309943] (-) TimerEvent: {}
+[4.410241] (-) TimerEvent: {}
+[4.510552] (-) TimerEvent: {}
+[4.610817] (-) TimerEvent: {}
+[4.711092] (-) TimerEvent: {}
+[4.811356] (-) TimerEvent: {}
+[4.911650] (-) TimerEvent: {}
+[5.011960] (-) TimerEvent: {}
+[5.112243] (-) TimerEvent: {}
+[5.212528] (-) TimerEvent: {}
+[5.312821] (-) TimerEvent: {}
+[5.413112] (-) TimerEvent: {}
+[5.513396] (-) TimerEvent: {}
+[5.613691] (-) TimerEvent: {}
+[5.713981] (-) TimerEvent: {}
+[5.814268] (-) TimerEvent: {}
+[5.914561] (-) TimerEvent: {}
+[6.014847] (-) TimerEvent: {}
+[6.115126] (-) TimerEvent: {}
+[6.215413] (-) TimerEvent: {}
+[6.315709] (-) TimerEvent: {}
+[6.415987] (-) TimerEvent: {}
+[6.516281] (-) TimerEvent: {}
+[6.616591] (-) TimerEvent: {}
+[6.716882] (-) TimerEvent: {}
+[6.771904] (ov_eval) StderrLine: {'line': b'gmake[2]: *** [CMakeFiles/pose_to_file_ros2.dir/build.make:76: CMakeFiles/pose_to_file_ros2.dir/src/pose_to_file_ros2.cpp.o] Error 1\n'}
+[6.772132] (ov_eval) StderrLine: {'line': b'gmake[1]: *** [CMakeFiles/Makefile2:185: CMakeFiles/pose_to_file_ros2.dir/all] Error 2\n'}
+[6.774454] (ov_eval) StderrLine: {'line': b'gmake: *** [Makefile:146: all] Error 2\n'}
+[6.775403] (ov_eval) CommandEnded: {'returncode': 2}
+[6.816953] (-) TimerEvent: {}
+[6.853624] (ov_eval) JobEnded: {'identifier': 'ov_eval', 'rc': 2}
+[6.864950] (-) EventReactorShutdown: {}

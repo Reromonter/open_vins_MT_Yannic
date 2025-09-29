@@ -1,0 +1,43 @@
+-- PYTHON VERSION: 3.10.12
+-- PYTHON INCLUDE: /usr/include/python3.10
+-- PYTHON LIBRARIES: /usr/lib/x86_64-linux-gnu/libpython3.10.so
+-- Override CMake install command with custom implementation using symlinks instead of copying resources
+-- ROS *2* version found, building ROS2.cmake
+-- Found rclcpp: 16.0.12 (/opt/ros/humble/share/rclcpp/cmake)
+-- Found rosidl_generator_c: 3.1.6 (/opt/ros/humble/share/rosidl_generator_c/cmake)
+-- Found rosidl_adapter: 3.1.6 (/opt/ros/humble/share/rosidl_adapter/cmake)
+-- Found rosidl_generator_cpp: 3.1.6 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
+-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+-- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)
+-- Found rmw_fastrtps_cpp: 6.2.7 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)
+-- Using RMW implementation 'rmw_fastrtps_cpp' as default
+-- Found ov_core: 2.7.0 (/catkin_ws/install/ov_core/share/ov_core/cmake)
+-- Found geometry_msgs: 4.9.0 (/opt/ros/humble/share/geometry_msgs/cmake)
+-- Found nav_msgs: 4.9.0 (/opt/ros/humble/share/nav_msgs/cmake)
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /catkin_ws/src/open_vins/ov_eval/build/ov_eval
+[35m[1mConsolidate compiler generated dependencies of target ov_eval_lib[0m
+[ 24%] Built target ov_eval_lib
+[35m[1mConsolidate compiler generated dependencies of target error_simulation[0m
+[35m[1mConsolidate compiler generated dependencies of target timing_histogram[0m
+[35m[1mConsolidate compiler generated dependencies of target format_converter[0m
+[35m[1mConsolidate compiler generated dependencies of target error_comparison[0m
+[35m[1mConsolidate compiler generated dependencies of target timing_comparison[0m
+[35m[1mConsolidate compiler generated dependencies of target error_dataset[0m
+[35m[1mConsolidate compiler generated dependencies of target timing_flamegraph[0m
+[35m[1mConsolidate compiler generated dependencies of target plot_trajectories[0m
+[ 27%] [32mBuilding CXX object CMakeFiles/pose_to_file_ros2.dir/src/pose_to_file_ros2.cpp.o[0m
+[35m[1mConsolidate compiler generated dependencies of target timing_percentages[0m
+[35m[1mConsolidate compiler generated dependencies of target error_singlerun[0m
+[ 34%] Built target error_simulation
+[ 68%] Built target timing_comparison
+[ 68%] Built target timing_histogram
+[ 68%] Built target format_converter
+[ 96%] Built target plot_trajectories
+[ 93%] Built target error_comparison
+[ 96%] Built target error_dataset
+[ 96%] Built target timing_percentages
+[ 96%] Built target error_singlerun
+[ 93%] Built target timing_flamegraph

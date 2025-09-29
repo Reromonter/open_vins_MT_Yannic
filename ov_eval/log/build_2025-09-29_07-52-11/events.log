@@ -1,0 +1,333 @@
+[0.000000] (-) TimerEvent: {}
+[0.000096] (ov_eval) JobQueued: {'identifier': 'ov_eval', 'dependencies': OrderedDict()}
+[0.000121] (ov_eval) JobStarted: {'identifier': 'ov_eval'}
+[0.098551] (-) TimerEvent: {}
+[0.131535] (ov_eval) JobProgress: {'identifier': 'ov_eval', 'progress': 'cmake'}
+[0.141505] (ov_eval) JobProgress: {'identifier': 'ov_eval', 'progress': 'build'}
+[0.142714] (ov_eval) Command: {'cmd': ['/usr/bin/cmake', '--build', '/catkin_ws/src/open_vins/ov_eval/build/ov_eval', '--', '-j16', '-l16'], 'cwd': '/catkin_ws/src/open_vins/ov_eval/build/ov_eval', 'env': OrderedDict([('HOSTNAME', 'leo-c15-12'), ('GIT_ASKPASS', '/root/.vscode-server/bin/17baf841131aa23349f217ca7c570c76ee87b957/extensions/git/dist/askpass.sh'), ('SHLVL', '2'), ('LD_LIBRARY_PATH', '/catkin_ws/install/ov_msckf/lib:/catkin_ws/install/ov_init/lib:/catkin_ws/install/ov_eval/lib:/catkin_ws/install/ov_core/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('BROWSER', '/root/.vscode-server/bin/17baf841131aa23349f217ca7c570c76ee87b957/bin/helpers/browser.sh'), ('HOME', '/root'), ('OLDPWD', '/catkin_ws'), ('TERM_PROGRAM_VERSION', '1.99.3'), ('VSCODE_IPC_HOOK_CLI', '/tmp/vscode-ipc-4ab475a5-344e-4304-89e8-4c9142176357.sock'), ('ROS_PYTHON_VERSION', '3'), ('VSCODE_GIT_ASKPASS_MAIN', '/root/.vscode-server/bin/17baf841131aa23349f217ca7c570c76ee87b957/extensions/git/dist/askpass-main.js'), ('VSCODE_GIT_ASKPASS_NODE', '/root/.vscode-server/bin/17baf841131aa23349f217ca7c570c76ee87b957/node'), ('COLORTERM', 'truecolor'), ('REMOTE_CONTAINERS', 'true'), ('DEBUGINFOD_URLS', ''), ('COLCON_PREFIX_PATH', '/catkin_ws/install'), ('ROS_DISTRO', 'humble'), ('REMOTE_CONTAINERS_IPC', '/tmp/vscode-remote-containers-ipc-756015d0-c950-458b-8c5b-914f02062b57.sock'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('NVIDIA_DRIVER_CAPABILITIES', 'all'), ('TERM', 'xterm-256color'), ('ROS_LOCALHOST_ONLY', '0'), ('QT_X11_NO_MITSHM', '1'), ('PATH', '/opt/ros/humble/bin:/root/.vscode-server/bin/17baf841131aa23349f217ca7c570c76ee87b957/bin/remote-cli:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/root/.vscode-server/data/User/globalStorage/github.copilot-chat/debugCommand'), ('REMOTE_CONTAINERS_SOCKETS', '["/tmp/vscode-ssh-auth-756015d0-c950-458b-8c5b-914f02062b57.sock","/root/.gnupg/S.gpg-agent"]'), ('DISPLAY', ':1'), ('LANG', 'C.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('VSCODE_GIT_IPC_HANDLE', '/tmp/vscode-git-02de4b1a9e.sock'), ('TERM_PROGRAM', 'vscode'), ('SSH_AUTH_SOCK', '/tmp/vscode-ssh-auth-756015d0-c950-458b-8c5b-914f02062b57.sock'), ('AMENT_PREFIX_PATH', '/catkin_ws/install/ov_msckf:/catkin_ws/install/ov_init:/catkin_ws/install/ov_eval:/catkin_ws/install/ov_data:/catkin_ws/install/ov_core:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('FASTDDS_DEFAULT_PROFILES_FILE', '/etc/fastdds/disable_shm.xml'), ('VSCODE_GIT_ASKPASS_EXTRA_ARGS', ''), ('PWD', '/catkin_ws/src/open_vins/ov_eval/build/ov_eval'), ('LC_ALL', 'C.UTF-8'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/opt/ros/humble:/catkin_ws/install/ov_msckf:/catkin_ws/install/ov_init:/catkin_ws/install/ov_eval:/catkin_ws/install/ov_data:/catkin_ws/install/ov_core')]), 'shell': False}
+[0.225747] (-) TimerEvent: {}
+[0.325939] (-) TimerEvent: {}
+[0.426228] (-) TimerEvent: {}
+[0.526617] (-) TimerEvent: {}
+[0.626890] (-) TimerEvent: {}
+[0.727155] (-) TimerEvent: {}
+[0.827438] (-) TimerEvent: {}
+[0.829759] (ov_eval) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target ov_eval_lib\x1b[0m\n'}
+[0.927533] (-) TimerEvent: {}
+[1.027856] (-) TimerEvent: {}
+[1.049079] (ov_eval) StdoutLine: {'line': b'[  6%] \x1b[32mBuilding CXX object CMakeFiles/ov_eval_lib.dir/src/calc/ResultTrajectory.cpp.o\x1b[0m\n'}
+[1.093100] (ov_eval) StdoutLine: {'line': b'[ 10%] \x1b[32mBuilding CXX object CMakeFiles/ov_eval_lib.dir/src/calc/ResultSimulation.cpp.o\x1b[0m\n'}
+[1.093920] (ov_eval) StdoutLine: {'line': b'[ 10%] \x1b[32mBuilding CXX object CMakeFiles/ov_eval_lib.dir/src/utils/Loader.cpp.o\x1b[0m\n'}
+[1.127937] (-) TimerEvent: {}
+[1.228186] (-) TimerEvent: {}
+[1.328464] (-) TimerEvent: {}
+[1.428742] (-) TimerEvent: {}
+[1.529032] (-) TimerEvent: {}
+[1.629323] (-) TimerEvent: {}
+[1.729587] (-) TimerEvent: {}
+[1.829909] (-) TimerEvent: {}
+[1.930300] (-) TimerEvent: {}
+[2.030573] (-) TimerEvent: {}
+[2.130840] (-) TimerEvent: {}
+[2.231142] (-) TimerEvent: {}
+[2.331479] (-) TimerEvent: {}
+[2.431786] (-) TimerEvent: {}
+[2.532082] (-) TimerEvent: {}
+[2.632436] (-) TimerEvent: {}
+[2.732716] (-) TimerEvent: {}
+[2.833085] (-) TimerEvent: {}
+[2.933409] (-) TimerEvent: {}
+[3.033687] (-) TimerEvent: {}
+[3.133978] (-) TimerEvent: {}
+[3.234299] (-) TimerEvent: {}
+[3.334663] (-) TimerEvent: {}
+[3.435048] (-) TimerEvent: {}
+[3.535409] (-) TimerEvent: {}
+[3.635717] (-) TimerEvent: {}
+[3.735996] (-) TimerEvent: {}
+[3.836276] (-) TimerEvent: {}
+[3.936577] (-) TimerEvent: {}
+[4.036863] (-) TimerEvent: {}
+[4.137161] (-) TimerEvent: {}
+[4.237469] (-) TimerEvent: {}
+[4.337735] (-) TimerEvent: {}
+[4.438018] (-) TimerEvent: {}
+[4.538304] (-) TimerEvent: {}
+[4.638580] (-) TimerEvent: {}
+[4.738867] (-) TimerEvent: {}
+[4.839176] (-) TimerEvent: {}
+[4.939484] (-) TimerEvent: {}
+[5.039764] (-) TimerEvent: {}
+[5.140068] (-) TimerEvent: {}
+[5.240410] (-) TimerEvent: {}
+[5.340716] (-) TimerEvent: {}
+[5.441011] (-) TimerEvent: {}
+[5.541318] (-) TimerEvent: {}
+[5.641577] (-) TimerEvent: {}
+[5.741838] (-) TimerEvent: {}
+[5.842092] (-) TimerEvent: {}
+[5.942337] (-) TimerEvent: {}
+[6.042609] (-) TimerEvent: {}
+[6.142888] (-) TimerEvent: {}
+[6.243186] (-) TimerEvent: {}
+[6.343567] (-) TimerEvent: {}
+[6.444020] (-) TimerEvent: {}
+[6.544393] (-) TimerEvent: {}
+[6.644656] (-) TimerEvent: {}
+[6.744945] (-) TimerEvent: {}
+[6.845240] (-) TimerEvent: {}
+[6.945593] (-) TimerEvent: {}
+[7.045972] (-) TimerEvent: {}
+[7.146240] (-) TimerEvent: {}
+[7.246534] (-) TimerEvent: {}
+[7.346801] (-) TimerEvent: {}
+[7.447075] (-) TimerEvent: {}
+[7.547320] (-) TimerEvent: {}
+[7.647591] (-) TimerEvent: {}
+[7.747877] (-) TimerEvent: {}
+[7.848149] (-) TimerEvent: {}
+[7.948434] (-) TimerEvent: {}
+[8.048736] (-) TimerEvent: {}
+[8.149002] (-) TimerEvent: {}
+[8.249274] (-) TimerEvent: {}
+[8.349583] (-) TimerEvent: {}
+[8.449864] (-) TimerEvent: {}
+[8.550136] (-) TimerEvent: {}
+[8.650419] (-) TimerEvent: {}
+[8.750717] (-) TimerEvent: {}
+[8.851020] (-) TimerEvent: {}
+[8.951342] (-) TimerEvent: {}
+[9.051650] (-) TimerEvent: {}
+[9.151917] (-) TimerEvent: {}
+[9.252183] (-) TimerEvent: {}
+[9.352461] (-) TimerEvent: {}
+[9.452763] (-) TimerEvent: {}
+[9.553071] (-) TimerEvent: {}
+[9.653327] (-) TimerEvent: {}
+[9.753607] (-) TimerEvent: {}
+[9.853885] (-) TimerEvent: {}
+[9.954200] (-) TimerEvent: {}
+[10.054539] (-) TimerEvent: {}
+[10.154875] (-) TimerEvent: {}
+[10.255181] (-) TimerEvent: {}
+[10.355478] (-) TimerEvent: {}
+[10.455755] (-) TimerEvent: {}
+[10.556005] (-) TimerEvent: {}
+[10.656324] (-) TimerEvent: {}
+[10.756581] (-) TimerEvent: {}
+[10.856831] (-) TimerEvent: {}
+[10.957091] (-) TimerEvent: {}
+[11.057325] (-) TimerEvent: {}
+[11.157586] (-) TimerEvent: {}
+[11.257848] (-) TimerEvent: {}
+[11.358093] (-) TimerEvent: {}
+[11.458373] (-) TimerEvent: {}
+[11.558642] (-) TimerEvent: {}
+[11.658905] (-) TimerEvent: {}
+[11.759167] (-) TimerEvent: {}
+[11.859437] (-) TimerEvent: {}
+[11.959690] (-) TimerEvent: {}
+[11.972811] (ov_eval) StdoutLine: {'line': b'[ 13%] \x1b[32m\x1b[1mLinking CXX shared library libov_eval_lib.so\x1b[0m\n'}
+[12.059788] (-) TimerEvent: {}
+[12.160057] (-) TimerEvent: {}
+[12.260317] (-) TimerEvent: {}
+[12.360574] (-) TimerEvent: {}
+[12.460821] (-) TimerEvent: {}
+[12.561068] (-) TimerEvent: {}
+[12.661321] (-) TimerEvent: {}
+[12.761568] (-) TimerEvent: {}
+[12.861846] (-) TimerEvent: {}
+[12.962154] (-) TimerEvent: {}
+[13.069649] (-) TimerEvent: {}
+[13.169895] (-) TimerEvent: {}
+[13.270141] (-) TimerEvent: {}
+[13.370398] (-) TimerEvent: {}
+[13.470648] (-) TimerEvent: {}
+[13.570914] (-) TimerEvent: {}
+[13.650931] (ov_eval) StdoutLine: {'line': b'[ 24%] Built target ov_eval_lib\n'}
+[13.671393] (-) TimerEvent: {}
+[13.737572] (ov_eval) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target format_converter\x1b[0m\n'}
+[13.737869] (ov_eval) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target timing_comparison\x1b[0m\n'}
+[13.740409] (ov_eval) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target timing_histogram\x1b[0m\n'}
+[13.742590] (ov_eval) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target error_dataset\x1b[0m\n'}
+[13.744835] (ov_eval) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target error_singlerun\x1b[0m\n'}
+[13.745979] (ov_eval) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target error_simulation\x1b[0m\n'}
+[13.746060] (ov_eval) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target error_comparison\x1b[0m\n'}
+[13.751305] (ov_eval) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target plot_trajectories\x1b[0m\n'}
+[13.755076] (ov_eval) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target timing_percentages\x1b[0m\n'}
+[13.757416] (ov_eval) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target timing_flamegraph\x1b[0m\n'}
+[13.771490] (-) TimerEvent: {}
+[13.776227] (ov_eval) StdoutLine: {'line': b'[ 27%] \x1b[32mBuilding CXX object CMakeFiles/pose_to_file_ros2.dir/src/pose_to_file_ros2.cpp.o\x1b[0m\n'}
+[13.871588] (-) TimerEvent: {}
+[13.898828] (ov_eval) StdoutLine: {'line': b'[ 62%] \x1b[32mBuilding CXX object CMakeFiles/timing_percentages.dir/src/timing_percentages.cpp.o\x1b[0m\n'}
+[13.899132] (ov_eval) StdoutLine: {'line': b'[ 62%] \x1b[32mBuilding CXX object CMakeFiles/format_converter.dir/src/format_converter.cpp.o\x1b[0m\n'}
+[13.899254] (ov_eval) StdoutLine: {'line': b'[ 62%] \x1b[32mBuilding CXX object CMakeFiles/timing_comparison.dir/src/timing_comparison.cpp.o\x1b[0m\n'}
+[13.899462] (ov_eval) StdoutLine: {'line': b'[ 62%] \x1b[32mBuilding CXX object CMakeFiles/error_dataset.dir/src/error_dataset.cpp.o\x1b[0m\n'}
+[13.899569] (ov_eval) StdoutLine: {'line': b'[ 62%] \x1b[32mBuilding CXX object CMakeFiles/error_simulation.dir/src/error_simulation.cpp.o\x1b[0m\n'}
+[13.899638] (ov_eval) StdoutLine: {'line': b'[ 62%] \x1b[32mBuilding CXX object CMakeFiles/timing_flamegraph.dir/src/timing_flamegraph.cpp.o\x1b[0m\n'}
+[13.899698] (ov_eval) StdoutLine: {'line': b'[ 62%] \x1b[32mBuilding CXX object CMakeFiles/plot_trajectories.dir/src/plot_trajectories.cpp.o\x1b[0m\n'}
+[13.899762] (ov_eval) StdoutLine: {'line': b'[ 62%] \x1b[32mBuilding CXX object CMakeFiles/timing_histogram.dir/src/timing_histogram.cpp.o\x1b[0m\n'}
+[13.899823] (ov_eval) StdoutLine: {'line': b'[ 62%] \x1b[32mBuilding CXX object CMakeFiles/error_singlerun.dir/src/error_singlerun.cpp.o\x1b[0m\n'}
+[13.901052] (ov_eval) StdoutLine: {'line': b'[ 62%] \x1b[32mBuilding CXX object CMakeFiles/error_comparison.dir/src/error_comparison.cpp.o\x1b[0m\n'}
+[13.972328] (-) TimerEvent: {}
+[14.072631] (-) TimerEvent: {}
+[14.172992] (-) TimerEvent: {}
+[14.273813] (-) TimerEvent: {}
+[14.374354] (-) TimerEvent: {}
+[14.460450] (ov_eval) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/catkin_ws/src/open_vins/ov_eval/src/pose_to_file_ros2.cpp:14\x1b[m\x1b[K:\n'}
+[14.460701] (ov_eval) StderrLine: {'line': b'\x1b[01m\x1b[K/catkin_ws/src/open_vins/ov_eval/src/utils/Recorder.h:32:10:\x1b[m\x1b[K \x1b[01;31m\x1b[Kfatal error: \x1b[m\x1b[Kgeometry_msgs/PoseStamped.h: No such file or directory\n'}
+[14.460779] (ov_eval) StderrLine: {'line': b'   32 | #include \x1b[01;31m\x1b[K<geometry_msgs/PoseStamped.h>\x1b[m\x1b[K\n'}
+[14.460851] (ov_eval) StderrLine: {'line': b'      |          \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[14.460909] (ov_eval) StderrLine: {'line': b'compilation terminated.\n'}
+[14.471875] (ov_eval) StderrLine: {'line': b'gmake[2]: *** [CMakeFiles/pose_to_file_ros2.dir/build.make:76: CMakeFiles/pose_to_file_ros2.dir/src/pose_to_file_ros2.cpp.o] Error 1\n'}
+[14.472091] (ov_eval) StderrLine: {'line': b'gmake[1]: *** [CMakeFiles/Makefile2:185: CMakeFiles/pose_to_file_ros2.dir/all] Error 2\n'}
+[14.473341] (ov_eval) StderrLine: {'line': b'gmake[1]: *** Waiting for unfinished jobs....\n'}
+[14.474412] (-) TimerEvent: {}
+[14.575355] (-) TimerEvent: {}
+[14.675732] (-) TimerEvent: {}
+[14.776837] (-) TimerEvent: {}
+[14.877347] (-) TimerEvent: {}
+[14.977846] (-) TimerEvent: {}
+[15.078329] (-) TimerEvent: {}
+[15.178712] (-) TimerEvent: {}
+[15.279070] (-) TimerEvent: {}
+[15.379688] (-) TimerEvent: {}
+[15.480060] (-) TimerEvent: {}
+[15.580584] (-) TimerEvent: {}
+[15.680956] (-) TimerEvent: {}
+[15.781346] (-) TimerEvent: {}
+[15.881985] (-) TimerEvent: {}
+[15.984769] (-) TimerEvent: {}
+[16.085285] (-) TimerEvent: {}
+[16.186356] (-) TimerEvent: {}
+[16.286847] (-) TimerEvent: {}
+[16.387553] (-) TimerEvent: {}
+[16.489361] (-) TimerEvent: {}
+[16.589726] (-) TimerEvent: {}
+[16.690349] (-) TimerEvent: {}
+[16.790731] (-) TimerEvent: {}
+[16.891225] (-) TimerEvent: {}
+[16.992891] (-) TimerEvent: {}
+[17.093913] (-) TimerEvent: {}
+[17.199528] (-) TimerEvent: {}
+[17.300418] (-) TimerEvent: {}
+[17.401483] (-) TimerEvent: {}
+[17.501854] (-) TimerEvent: {}
+[17.603648] (-) TimerEvent: {}
+[17.705444] (-) TimerEvent: {}
+[17.755075] (ov_eval) StdoutLine: {'line': b'[ 65%] \x1b[32m\x1b[1mLinking CXX executable format_converter\x1b[0m\n'}
+[17.805531] (-) TimerEvent: {}
+[17.905977] (-) TimerEvent: {}
+[18.008451] (-) TimerEvent: {}
+[18.108843] (-) TimerEvent: {}
+[18.171383] (ov_eval) StdoutLine: {'line': b'[ 68%] \x1b[32m\x1b[1mLinking CXX executable timing_histogram\x1b[0m\n'}
+[18.209068] (-) TimerEvent: {}
+[18.309874] (-) TimerEvent: {}
+[18.410649] (-) TimerEvent: {}
+[18.511046] (-) TimerEvent: {}
+[18.611527] (-) TimerEvent: {}
+[18.613713] (ov_eval) StdoutLine: {'line': b'[ 72%] \x1b[32m\x1b[1mLinking CXX executable timing_flamegraph\x1b[0m\n'}
+[18.711705] (-) TimerEvent: {}
+[18.812108] (-) TimerEvent: {}
+[18.924202] (-) TimerEvent: {}
+[18.996346] (ov_eval) StdoutLine: {'line': b'[ 75%] \x1b[32m\x1b[1mLinking CXX executable timing_comparison\x1b[0m\n'}
+[19.000946] (ov_eval) StdoutLine: {'line': b'[ 75%] Built target format_converter\n'}
+[19.024349] (-) TimerEvent: {}
+[19.124779] (-) TimerEvent: {}
+[19.225208] (-) TimerEvent: {}
+[19.325719] (-) TimerEvent: {}
+[19.426022] (-) TimerEvent: {}
+[19.485789] (ov_eval) StdoutLine: {'line': b'[ 75%] Built target timing_histogram\n'}
+[19.526146] (-) TimerEvent: {}
+[19.567115] (ov_eval) StdoutLine: {'line': b'[ 75%] Built target timing_flamegraph\n'}
+[19.626259] (-) TimerEvent: {}
+[19.711838] (ov_eval) StdoutLine: {'line': b'[ 79%] \x1b[32m\x1b[1mLinking CXX executable timing_percentages\x1b[0m\n'}
+[19.726351] (-) TimerEvent: {}
+[19.826746] (-) TimerEvent: {}
+[19.927095] (-) TimerEvent: {}
+[19.967773] (ov_eval) StdoutLine: {'line': b'[ 79%] Built target timing_comparison\n'}
+[20.027253] (-) TimerEvent: {}
+[20.127990] (-) TimerEvent: {}
+[20.228703] (-) TimerEvent: {}
+[20.306470] (ov_eval) StdoutLine: {'line': b'[ 82%] \x1b[32m\x1b[1mLinking CXX executable error_simulation\x1b[0m\n'}
+[20.328908] (-) TimerEvent: {}
+[20.429452] (-) TimerEvent: {}
+[20.529769] (-) TimerEvent: {}
+[20.630064] (-) TimerEvent: {}
+[20.730414] (-) TimerEvent: {}
+[20.815699] (ov_eval) StdoutLine: {'line': b'[ 82%] Built target timing_percentages\n'}
+[20.830522] (-) TimerEvent: {}
+[20.930819] (-) TimerEvent: {}
+[21.031111] (-) TimerEvent: {}
+[21.131417] (-) TimerEvent: {}
+[21.231728] (-) TimerEvent: {}
+[21.297395] (ov_eval) StdoutLine: {'line': b'[ 86%] \x1b[32m\x1b[1mLinking CXX executable error_singlerun\x1b[0m\n'}
+[21.331828] (-) TimerEvent: {}
+[21.432077] (-) TimerEvent: {}
+[21.532332] (-) TimerEvent: {}
+[21.632593] (-) TimerEvent: {}
+[21.732881] (-) TimerEvent: {}
+[21.833169] (-) TimerEvent: {}
+[21.933471] (-) TimerEvent: {}
+[22.033775] (-) TimerEvent: {}
+[22.134052] (-) TimerEvent: {}
+[22.234334] (-) TimerEvent: {}
+[22.323198] (ov_eval) StdoutLine: {'line': b'[ 86%] Built target error_simulation\n'}
+[22.334440] (-) TimerEvent: {}
+[22.434765] (-) TimerEvent: {}
+[22.535121] (-) TimerEvent: {}
+[22.635485] (-) TimerEvent: {}
+[22.735757] (-) TimerEvent: {}
+[22.836020] (-) TimerEvent: {}
+[22.909032] (ov_eval) StdoutLine: {'line': b'[ 89%] \x1b[32m\x1b[1mLinking CXX executable plot_trajectories\x1b[0m\n'}
+[22.936186] (-) TimerEvent: {}
+[23.036543] (-) TimerEvent: {}
+[23.136875] (-) TimerEvent: {}
+[23.237199] (-) TimerEvent: {}
+[23.337496] (-) TimerEvent: {}
+[23.415697] (ov_eval) StdoutLine: {'line': b'[ 93%] \x1b[32m\x1b[1mLinking CXX executable error_dataset\x1b[0m\n'}
+[23.437594] (-) TimerEvent: {}
+[23.537849] (-) TimerEvent: {}
+[23.638106] (-) TimerEvent: {}
+[23.738326] (-) TimerEvent: {}
+[23.802716] (ov_eval) StdoutLine: {'line': b'[ 93%] Built target error_singlerun\n'}
+[23.838431] (-) TimerEvent: {}
+[23.938717] (-) TimerEvent: {}
+[24.039008] (-) TimerEvent: {}
+[24.139303] (-) TimerEvent: {}
+[24.239560] (-) TimerEvent: {}
+[24.339846] (-) TimerEvent: {}
+[24.396855] (ov_eval) StdoutLine: {'line': b'[ 96%] \x1b[32m\x1b[1mLinking CXX executable error_comparison\x1b[0m\n'}
+[24.439954] (-) TimerEvent: {}
+[24.540211] (-) TimerEvent: {}
+[24.640494] (-) TimerEvent: {}
+[24.740744] (-) TimerEvent: {}
+[24.840994] (-) TimerEvent: {}
+[24.941245] (-) TimerEvent: {}
+[25.041507] (-) TimerEvent: {}
+[25.141784] (-) TimerEvent: {}
+[25.242036] (-) TimerEvent: {}
+[25.342301] (-) TimerEvent: {}
+[25.442538] (-) TimerEvent: {}
+[25.542782] (-) TimerEvent: {}
+[25.643026] (-) TimerEvent: {}
+[25.743280] (-) TimerEvent: {}
+[25.843529] (-) TimerEvent: {}
+[25.943784] (-) TimerEvent: {}
+[26.044022] (-) TimerEvent: {}
+[26.144279] (-) TimerEvent: {}
+[26.244536] (-) TimerEvent: {}
+[26.321747] (ov_eval) StdoutLine: {'line': b'[ 96%] Built target plot_trajectories\n'}
+[26.344625] (-) TimerEvent: {}
+[26.444880] (-) TimerEvent: {}
+[26.532396] (ov_eval) StdoutLine: {'line': b'[ 96%] Built target error_dataset\n'}
+[26.544953] (-) TimerEvent: {}
+[26.645185] (-) TimerEvent: {}
+[26.656970] (ov_eval) StdoutLine: {'line': b'[ 96%] Built target error_comparison\n'}
+[26.673936] (ov_eval) StderrLine: {'line': b'gmake: *** [Makefile:146: all] Error 2\n'}
+[26.674033] (ov_eval) CommandEnded: {'returncode': 2}
+[26.745272] (-) TimerEvent: {}
+[26.845601] (-) TimerEvent: {}
+[26.945810] (-) TimerEvent: {}
+[26.946046] (ov_eval) JobEnded: {'identifier': 'ov_eval', 'rc': 2}
+[26.957643] (-) EventReactorShutdown: {}

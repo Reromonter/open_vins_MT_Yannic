@@ -1,0 +1,35 @@
+[35m[1mConsolidate compiler generated dependencies of target ov_eval_lib[0m
+[  3%] [32mBuilding CXX object CMakeFiles/ov_eval_lib.dir/src/utils/Loader.cpp.o[0m
+[  6%] [32m[1mLinking CXX shared library libov_eval_lib.so[0m
+[ 24%] Built target ov_eval_lib
+[35m[1mConsolidate compiler generated dependencies of target error_singlerun[0m
+[35m[1mConsolidate compiler generated dependencies of target timing_percentages[0m
+[35m[1mConsolidate compiler generated dependencies of target error_comparison[0m
+[ 27%] [32mBuilding CXX object CMakeFiles/pose_to_file_ros2.dir/src/pose_to_file_ros2.cpp.o[0m
+[35m[1mConsolidate compiler generated dependencies of target error_simulation[0m
+[35m[1mConsolidate compiler generated dependencies of target timing_flamegraph[0m
+[35m[1mConsolidate compiler generated dependencies of target plot_trajectories[0m
+[35m[1mConsolidate compiler generated dependencies of target timing_comparison[0m
+[35m[1mConsolidate compiler generated dependencies of target error_dataset[0m
+[35m[1mConsolidate compiler generated dependencies of target format_converter[0m
+[35m[1mConsolidate compiler generated dependencies of target timing_histogram[0m
+[ 31%] [32m[1mLinking CXX executable error_singlerun[0m
+[ 48%] [32m[1mLinking CXX executable timing_percentages[0m
+[ 48%] [32m[1mLinking CXX executable timing_flamegraph[0m
+[ 48%] [32m[1mLinking CXX executable plot_trajectories[0m
+[ 48%] [32m[1mLinking CXX executable error_comparison[0m
+[ 48%] [32m[1mLinking CXX executable error_simulation[0m
+[ 55%] [32m[1mLinking CXX executable format_converter[0m
+[ 55%] [32m[1mLinking CXX executable error_dataset[0m
+[ 58%] [32m[1mLinking CXX executable timing_comparison[0m
+[ 62%] [32m[1mLinking CXX executable timing_histogram[0m
+[ 72%] Built target timing_comparison
+[ 72%] Built target timing_flamegraph
+[ 72%] Built target format_converter
+[ 75%] Built target timing_histogram
+[ 79%] Built target timing_percentages
+[ 82%] Built target error_simulation
+[ 86%] Built target error_singlerun
+[ 89%] Built target error_dataset
+[ 93%] Built target error_comparison
+[ 96%] Built target plot_trajectories

@@ -1,0 +1,405 @@
+[0.050s] Invoking command in '/catkin_ws/src/open_vins/ov_eval/build/ov_eval': CMAKE_PREFIX_PATH=/opt/ros/humble:${CMAKE_PREFIX_PATH} /usr/bin/cmake --build /catkin_ws/src/open_vins/ov_eval/build/ov_eval -- -j16 -l16
+[0.084s] -- PYTHON VERSION: 3.10.12
+[0.084s] -- PYTHON INCLUDE: /usr/include/python3.10
+[0.084s] -- PYTHON LIBRARIES: /usr/lib/x86_64-linux-gnu/libpython3.10.so
+[0.233s] -- Override CMake install command with custom implementation using symlinks instead of copying resources
+[0.274s] -- ROS *2* version found, building ROS2.cmake
+[0.277s] -- Found rclcpp: 16.0.12 (/opt/ros/humble/share/rclcpp/cmake)
+[0.302s] -- Found rosidl_generator_c: 3.1.6 (/opt/ros/humble/share/rosidl_generator_c/cmake)
+[0.304s] -- Found rosidl_adapter: 3.1.6 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[0.309s] -- Found rosidl_generator_cpp: 3.1.6 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
+[0.314s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.322s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[0.344s] -- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)
+[0.345s] -- Found rmw_fastrtps_cpp: 6.2.7 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)
+[0.580s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[0.614s] -- Found ov_core: 2.7.0 (/catkin_ws/install/ov_core/share/ov_core/cmake)
+[0.617s] -- Found geometry_msgs: 4.9.0 (/opt/ros/humble/share/geometry_msgs/cmake)
+[0.624s] -- Found nav_msgs: 4.9.0 (/opt/ros/humble/share/nav_msgs/cmake)
+[0.905s] -- Configuring done
+[1.584s] -- Generating done
+[1.851s] -- Build files have been written to: /catkin_ws/src/open_vins/ov_eval/build/ov_eval
+[1.911s] [35m[1mConsolidate compiler generated dependencies of target ov_eval_lib[0m
+[1.967s] [ 20%] [32mBuilding CXX object CMakeFiles/ov_eval_lib.dir/src/calc/ResultTrajectory.cpp.o[0m
+[1.968s] [ 20%] [32mBuilding CXX object CMakeFiles/ov_eval_lib.dir/src/dummy.cpp.o[0m
+[1.969s] [ 20%] [32mBuilding CXX object CMakeFiles/ov_eval_lib.dir/src/alignment/AlignUtils.cpp.o[0m
+[1.970s] [ 20%] [32mBuilding CXX object CMakeFiles/ov_eval_lib.dir/src/calc/ResultSimulation.cpp.o[0m
+[1.970s] [ 20%] [32mBuilding CXX object CMakeFiles/ov_eval_lib.dir/src/alignment/AlignTrajectory.cpp.o[0m
+[1.971s] [ 20%] [32mBuilding CXX object CMakeFiles/ov_eval_lib.dir/src/utils/Loader.cpp.o[0m
+[4.889s] In file included from [01m[K/catkin_ws/src/open_vins/ov_eval/src/utils/Loader.cpp:22[m[K:
+[4.890s] [01m[K/catkin_ws/src/open_vins/ov_eval/src/utils/Loader.h:[m[K In constructor ‘[01m[Kov_eval::Recorder::Recorder(const string&)[m[K’:
+[4.892s] [01m[K/catkin_ws/src/open_vins/ov_eval/src/utils/Loader.h:190:8:[m[K [01;31m[Kerror: [m[K‘[01m[KPRINT_WARN[m[K’ was not declared in this scope; did you mean ‘[01m[KPRINT_ALL[m[K’?
+[4.893s]   190 |        [01;31m[KPRINT_WARN[m[K("Output file exists, deleting old file: %s", filename.c_str());
+[4.893s]       |        [01;31m[K^~~~~~~~~~[m[K
+[4.894s]       |        [32m[KPRINT_ALL[m[K
+[4.904s] [01m[K/catkin_ws/src/open_vins/ov_eval/src/utils/Loader.cpp:[m[K At global scope:
+[4.905s] [01m[K/catkin_ws/src/open_vins/ov_eval/src/utils/Loader.cpp:26:6:[m[K [01;31m[Kerror: [m[K‘[01m[KLoader[m[K’ has not been declared
+[4.906s]    26 | void [01;31m[KLoader[m[K::load_data(std::string path_traj, std::vector<double> &times, std::vector<Eigen::Matrix<double, 7, 1>> &poses,
+[4.907s]       |      [01;31m[K^~~~~~[m[K
+[4.910s] In file included from [01m[K/catkin_ws/src/open_vins/ov_eval/src/utils/Loader.h:132[m[K,
+[4.910s]                  from [01m[K/catkin_ws/src/open_vins/ov_eval/src/utils/Loader.cpp:22[m[K:
+[4.911s] [01m[K/catkin_ws/src/open_vins/ov_eval/src/utils/Loader.cpp:[m[K In function ‘[01m[Kvoid load_data(std::string, std::vector<double, std::allocator<double> >&, std::vector<Eigen::Matrix<double, 7, 1> >&, std::vector<Eigen::Matrix<double, 3, 3> >&, std::vector<Eigen::Matrix<double, 3, 3> >&)[m[K’:
+[4.912s] [01m[K/catkin_ws/src/open_vins/ov_eval/src/utils/Loader.cpp:32:17:[m[K [01;31m[Kerror: [m[K‘[01m[KRED[m[K’ was not declared in this scope
+[4.928s]    32 |     PRINT_ERROR([01;31m[KRED[m[K "[LOAD]: Unable to open trajectory file...\n" RESET);
+[4.930s]       |                 [01;31m[K^~~[m[K
+[4.930s] [01m[K/catkin_ws/install/ov_core/include/utils/print.h:100:123:[m[K [01;36m[Knote: [m[Kin definition of macro ‘[01m[KPRINT_ERROR[m[K’
+[4.933s]   100 | #define PRINT_ERROR(x...) ov_core::Printer::debugPrint(ov_core::Printer::PrintLevel::ERROR, __FILE__, TOSTRING(__LINE__), [01;36m[Kx[m[K);
+[4.938s]       |                                                                                                                           [01;36m[K^[m[K
+[4.940s] [01m[K/catkin_ws/src/open_vins/ov_eval/src/utils/Loader.cpp:33:21:[m[K [01;31m[Kerror: [m[Kexpected ‘[01m[K)[m[K’ before string constant
+[4.942s]    33 |     PRINT_ERROR(RED [01;31m[K"[LOAD]: %s\n"[m[K RESET, path_traj.c_str());
+[4.943s]       |                     [01;31m[K^~~~~~~~~~~~~~[m[K
+[4.943s] [01m[K/catkin_ws/install/ov_core/include/utils/print.h:100:123:[m[K [01;36m[Knote: [m[Kin definition of macro ‘[01m[KPRINT_ERROR[m[K’
+[4.945s]   100 | #define PRINT_ERROR(x...) ov_core::Printer::debugPrint(ov_core::Printer::PrintLevel::ERROR, __FILE__, TOSTRING(__LINE__), [01;36m[Kx[m[K);
+[4.946s]       |                                                                                                                           [01;36m[K^[m[K
+[4.947s] [01m[K/catkin_ws/install/ov_core/include/utils/print.h:100:55:[m[K [01;36m[Knote: [m[Kto match this ‘[01m[K([m[K’
+[4.948s]   100 | #define PRINT_ERROR(x...) ov_core::Printer::debugPrint[01;36m[K([m[Kov_core::Printer::PrintLevel::ERROR, __FILE__, TOSTRING(__LINE__), x);
+[4.948s]       |                                                       [01;36m[K^[m[K
+[4.950s] [01m[K/catkin_ws/src/open_vins/ov_eval/src/utils/Loader.cpp:33:5:[m[K [01;36m[Knote: [m[Kin expansion of macro ‘[01m[KPRINT_ERROR[m[K’
+[4.951s]    33 |     [01;36m[KPRINT_ERROR[m[K(RED "[LOAD]: %s\n" RESET, path_traj.c_str());
+[4.952s]       |     [01;36m[K^~~~~~~~~~~[m[K
+[4.983s] [01m[K/catkin_ws/src/open_vins/ov_eval/src/utils/Loader.cpp:85:17:[m[K [01;31m[Kerror: [m[K‘[01m[KRED[m[K’ was not declared in this scope
+[4.984s]    85 |     PRINT_ERROR([01;31m[KRED[m[K "[LOAD]: Could not parse any data from the file!!\n" RESET);
+[4.986s]       |                 [01;31m[K^~~[m[K
+[4.988s] [01m[K/catkin_ws/install/ov_core/include/utils/print.h:100:123:[m[K [01;36m[Knote: [m[Kin definition of macro ‘[01m[KPRINT_ERROR[m[K’
+[4.988s]   100 | #define PRINT_ERROR(x...) ov_core::Printer::debugPrint(ov_core::Printer::PrintLevel::ERROR, __FILE__, TOSTRING(__LINE__), [01;36m[Kx[m[K);
+[4.989s]       |                                                                                                                           [01;36m[K^[m[K
+[4.990s] [01m[K/catkin_ws/src/open_vins/ov_eval/src/utils/Loader.cpp:86:21:[m[K [01;31m[Kerror: [m[Kexpected ‘[01m[K)[m[K’ before string constant
+[4.992s]    86 |     PRINT_ERROR(RED [01;31m[K"[LOAD]: %s\n"[m[K RESET, path_traj.c_str());
+[4.993s]       |                     [01;31m[K^~~~~~~~~~~~~~[m[K
+[4.993s] [01m[K/catkin_ws/install/ov_core/include/utils/print.h:100:123:[m[K [01;36m[Knote: [m[Kin definition of macro ‘[01m[KPRINT_ERROR[m[K’
+[4.994s]   100 | #define PRINT_ERROR(x...) ov_core::Printer::debugPrint(ov_core::Printer::PrintLevel::ERROR, __FILE__, TOSTRING(__LINE__), [01;36m[Kx[m[K);
+[4.995s]       |                                                                                                                           [01;36m[K^[m[K
+[4.997s] [01m[K/catkin_ws/install/ov_core/include/utils/print.h:100:55:[m[K [01;36m[Knote: [m[Kto match this ‘[01m[K([m[K’
+[4.998s]   100 | #define PRINT_ERROR(x...) ov_core::Printer::debugPrint[01;36m[K([m[Kov_core::Printer::PrintLevel::ERROR, __FILE__, TOSTRING(__LINE__), x);
+[4.998s]       |                                                       [01;36m[K^[m[K
+[4.999s] [01m[K/catkin_ws/src/open_vins/ov_eval/src/utils/Loader.cpp:86:5:[m[K [01;36m[Knote: [m[Kin expansion of macro ‘[01m[KPRINT_ERROR[m[K’
+[5.001s]    86 |     [01;36m[KPRINT_ERROR[m[K(RED "[LOAD]: %s\n" RESET, path_traj.c_str());
+[5.002s]       |     [01;36m[K^~~~~~~~~~~[m[K
+[5.003s] [01m[K/catkin_ws/src/open_vins/ov_eval/src/utils/Loader.cpp:92:17:[m[K [01;31m[Kerror: [m[K‘[01m[KRED[m[K’ was not declared in this scope
+[5.003s]    92 |     PRINT_ERROR([01;31m[KRED[m[K "[LOAD]: Parsing error, pose and timestamps do not match!!\n" RESET);
+[5.005s]       |                 [01;31m[K^~~[m[K
+[5.006s] [01m[K/catkin_ws/install/ov_core/include/utils/print.h:100:123:[m[K [01;36m[Knote: [m[Kin definition of macro ‘[01m[KPRINT_ERROR[m[K’
+[5.007s]   100 | #define PRINT_ERROR(x...) ov_core::Printer::debugPrint(ov_core::Printer::PrintLevel::ERROR, __FILE__, TOSTRING(__LINE__), [01;36m[Kx[m[K);
+[5.008s]       |                                                                                                                           [01;36m[K^[m[K
+[5.009s] [01m[K/catkin_ws/src/open_vins/ov_eval/src/utils/Loader.cpp:93:21:[m[K [01;31m[Kerror: [m[Kexpected ‘[01m[K)[m[K’ before string constant
+[5.010s]    93 |     PRINT_ERROR(RED [01;31m[K"[LOAD]: %s\n"[m[K RESET, path_traj.c_str());
+[5.011s]       |                     [01;31m[K^~~~~~~~~~~~~~[m[K
+[5.013s] [01m[K/catkin_ws/install/ov_core/include/utils/print.h:100:123:[m[K [01;36m[Knote: [m[Kin definition of macro ‘[01m[KPRINT_ERROR[m[K’
+[5.014s]   100 | #define PRINT_ERROR(x...) ov_core::Printer::debugPrint(ov_core::Printer::PrintLevel::ERROR, __FILE__, TOSTRING(__LINE__), [01;36m[Kx[m[K);
+[5.014s]       |                                                                                                                           [01;36m[K^[m[K
+[5.015s] [01m[K/catkin_ws/install/ov_core/include/utils/print.h:100:55:[m[K [01;36m[Knote: [m[Kto match this ‘[01m[K([m[K’
+[5.016s]   100 | #define PRINT_ERROR(x...) ov_core::Printer::debugPrint[01;36m[K([m[Kov_core::Printer::PrintLevel::ERROR, __FILE__, TOSTRING(__LINE__), x);
+[5.018s]       |                                                       [01;36m[K^[m[K
+[5.019s] [01m[K/catkin_ws/src/open_vins/ov_eval/src/utils/Loader.cpp:93:5:[m[K [01;36m[Knote: [m[Kin expansion of macro ‘[01m[KPRINT_ERROR[m[K’
+[5.019s]    93 |     [01;36m[KPRINT_ERROR[m[K(RED "[LOAD]: %s\n" RESET, path_traj.c_str());
+[5.020s]       |     [01;36m[K^~~~~~~~~~~[m[K
+[5.021s] [01m[K/catkin_ws/src/open_vins/ov_eval/src/utils/Loader.cpp:99:17:[m[K [01;31m[Kerror: [m[K‘[01m[KRED[m[K’ was not declared in this scope
+[5.023s]    99 |     PRINT_ERROR([01;31m[KRED[m[K "[LOAD]: Parsing error, timestamps covariance size do not match!!\n" RESET);
+[5.024s]       |                 [01;31m[K^~~[m[K
+[5.024s] [01m[K/catkin_ws/install/ov_core/include/utils/print.h:100:123:[m[K [01;36m[Knote: [m[Kin definition of macro ‘[01m[KPRINT_ERROR[m[K’
+[5.025s]   100 | #define PRINT_ERROR(x...) ov_core::Printer::debugPrint(ov_core::Printer::PrintLevel::ERROR, __FILE__, TOSTRING(__LINE__), [01;36m[Kx[m[K);
+[5.027s]       |                                                                                                                           [01;36m[K^[m[K
+[5.028s] [01m[K/catkin_ws/src/open_vins/ov_eval/src/utils/Loader.cpp:100:21:[m[K [01;31m[Kerror: [m[Kexpected ‘[01m[K)[m[K’ before string constant
+[5.029s]   100 |     PRINT_ERROR(RED [01;31m[K"[LOAD]: %s\n"[m[K RESET, path_traj.c_str());
+[5.029s]       |                     [01;31m[K^~~~~~~~~~~~~~[m[K
+[5.031s] [01m[K/catkin_ws/src/open_vins/ov_eval/src/utils/Loader.cpp:100:5:[m[K [01;36m[Knote: [m[Kin expansion of macro ‘[01m[KPRINT_ERROR[m[K’
+[5.032s]   100 |     [01;36m[KPRINT_ERROR[m[K(RED "[LOAD]: %s\n" RESET, path_traj.c_str());
+[5.033s]       |     [01;36m[K^~~~~~~~~~~[m[K
+[5.034s] [01m[K/catkin_ws/install/ov_core/include/utils/print.h:100:55:[m[K [01;36m[Knote: [m[Kto match this ‘[01m[K([m[K’
+[5.035s]   100 | #define PRINT_ERROR(x...) ov_core::Printer::debugPrint[01;36m[K([m[Kov_core::Printer::PrintLevel::ERROR, __FILE__, TOSTRING(__LINE__), x);
+[5.038s]       |                                                       [01;36m[K^[m[K
+[5.040s] [01m[K/catkin_ws/src/open_vins/ov_eval/src/utils/Loader.cpp:100:5:[m[K [01;36m[Knote: [m[Kin expansion of macro ‘[01m[KPRINT_ERROR[m[K’
+[5.040s]   100 |     [01;36m[KPRINT_ERROR[m[K(RED "[LOAD]: %s\n" RESET, path_traj.c_str());
+[5.042s]       |     [01;36m[K^~~~~~~~~~~[m[K
+[5.043s] [01m[K/catkin_ws/src/open_vins/ov_eval/src/utils/Loader.cpp:[m[K At global scope:
+[5.045s] [01m[K/catkin_ws/src/open_vins/ov_eval/src/utils/Loader.cpp:109:6:[m[K [01;31m[Kerror: [m[K‘[01m[KLoader[m[K’ has not been declared
+[5.045s]   109 | void [01;31m[KLoader[m[K::load_data_csv(std::string path_traj, std::vector<double> &times, std::vector<Eigen::Matrix<double, 7, 1>> &poses,
+[5.046s]       |      [01;31m[K^~~~~~[m[K
+[5.047s] In file included from [01m[K/catkin_ws/src/open_vins/ov_eval/src/utils/Loader.h:132[m[K,
+[5.049s]                  from [01m[K/catkin_ws/src/open_vins/ov_eval/src/utils/Loader.cpp:22[m[K:
+[5.050s] [01m[K/catkin_ws/src/open_vins/ov_eval/src/utils/Loader.cpp:[m[K In function ‘[01m[Kvoid load_data_csv(std::string, std::vector<double, std::allocator<double> >&, std::vector<Eigen::Matrix<double, 7, 1> >&, std::vector<Eigen::Matrix<double, 3, 3> >&, std::vector<Eigen::Matrix<double, 3, 3> >&)[m[K’:
+[5.050s] [01m[K/catkin_ws/src/open_vins/ov_eval/src/utils/Loader.cpp:115:17:[m[K [01;31m[Kerror: [m[K‘[01m[KRED[m[K’ was not declared in this scope
+[5.051s]   115 |     PRINT_ERROR([01;31m[KRED[m[K "[LOAD]: Unable to open trajectory file...\n" RESET);
+[5.052s]       |                 [01;31m[K^~~[m[K
+[5.054s] [01m[K/catkin_ws/install/ov_core/include/utils/print.h:100:123:[m[K [01;36m[Knote: [m[Kin definition of macro ‘[01m[KPRINT_ERROR[m[K’
+[5.055s]   100 | #define PRINT_ERROR(x...) ov_core::Printer::debugPrint(ov_core::Printer::PrintLevel::ERROR, __FILE__, TOSTRING(__LINE__), [01;36m[Kx[m[K);
+[5.055s]       |                                                                                                                           [01;36m[K^[m[K
+[5.057s] [01m[K/catkin_ws/src/open_vins/ov_eval/src/utils/Loader.cpp:116:21:[m[K [01;31m[Kerror: [m[Kexpected ‘[01m[K)[m[K’ before string constant
+[5.057s]   116 |     PRINT_ERROR(RED [01;31m[K"[LOAD]: %s\n"[m[K RESET, path_traj.c_str());
+[5.057s]       |                     [01;31m[K^~~~~~~~~~~~~~[m[K
+[5.057s] [01m[K/catkin_ws/install/ov_core/include/utils/print.h:100:123:[m[K [01;36m[Knote: [m[Kin definition of macro ‘[01m[KPRINT_ERROR[m[K’
+[5.057s]   100 | #define PRINT_ERROR(x...) ov_core::Printer::debugPrint(ov_core::Printer::PrintLevel::ERROR, __FILE__, TOSTRING(__LINE__), [01;36m[Kx[m[K);
+[5.057s]       |                                                                                                                           [01;36m[K^[m[K
+[5.057s] [01m[K/catkin_ws/install/ov_core/include/utils/print.h:100:55:[m[K [01;36m[Knote: [m[Kto match this ‘[01m[K([m[K’
+[5.057s]   100 | #define PRINT_ERROR(x...) ov_core::Printer::debugPrint[01;36m[K([m[Kov_core::Printer::PrintLevel::ERROR, __FILE__, TOSTRING(__LINE__), x);
+[5.057s]       |                                                       [01;36m[K^[m[K
+[5.057s] [01m[K/catkin_ws/src/open_vins/ov_eval/src/utils/Loader.cpp:116:5:[m[K [01;36m[Knote: [m[Kin expansion of macro ‘[01m[KPRINT_ERROR[m[K’
+[5.057s]   116 |     [01;36m[KPRINT_ERROR[m[K(RED "[LOAD]: %s\n" RESET, path_traj.c_str());
+[5.057s]       |     [01;36m[K^~~~~~~~~~~[m[K
+[5.057s] [01m[K/catkin_ws/src/open_vins/ov_eval/src/utils/Loader.cpp:166:17:[m[K [01;31m[Kerror: [m[K‘[01m[KRED[m[K’ was not declared in this scope
+[5.057s]   166 |     PRINT_ERROR([01;31m[KRED[m[K "[LOAD]: Could not parse any data from the file!!\n" RESET);
+[5.057s]       |                 [01;31m[K^~~[m[K
+[5.058s] [01m[K/catkin_ws/install/ov_core/include/utils/print.h:100:123:[m[K [01;36m[Knote: [m[Kin definition of macro ‘[01m[KPRINT_ERROR[m[K’
+[5.058s]   100 | #define PRINT_ERROR(x...) ov_core::Printer::debugPrint(ov_core::Printer::PrintLevel::ERROR, __FILE__, TOSTRING(__LINE__), [01;36m[Kx[m[K);
+[5.058s]       |                                                                                                                           [01;36m[K^[m[K
+[5.058s] In file included from [01m[K/catkin_ws/src/open_vins/ov_eval/src/calc/ResultSimulation.h:33[m[K,
+[5.058s]                  from [01m[K/catkin_ws/src/open_vins/ov_eval/src/calc/ResultSimulation.cpp:22[m[K:
+[5.059s] [01m[K/catkin_ws/src/open_vins/ov_eval/src/utils/Loader.h:[m[K In constructor ‘[01m[Kov_eval::Recorder::Recorder(const string&)[m[K’:
+[5.060s] [01m[K/catkin_ws/src/open_vins/ov_eval/src/utils/Loader.h:190:8:[m[K [01;31m[Kerror: [m[K‘[01m[KPRINT_WARN[m[K’ was not declared in this scope; did you mean ‘[01m[KPRINT_ALL[m[K’?
+[5.060s]   190 |        [01;31m[KPRINT_WARN[m[K("Output file exists, deleting old file: %s", filename.c_str());
+[5.062s]       |        [01;31m[K^~~~~~~~~~[m[K
+[5.064s]       |        [32m[KPRINT_ALL[m[K
+[5.065s] [01m[K/catkin_ws/src/open_vins/ov_eval/src/utils/Loader.cpp:167:21:[m[K [01;31m[Kerror: [m[Kexpected ‘[01m[K)[m[K’ before string constant
+[5.065s]   167 |     PRINT_ERROR(RED [01;31m[K"[LOAD]: %s\n"[m[K RESET, path_traj.c_str());
+[5.066s]       |                     [01;31m[K^~~~~~~~~~~~~~[m[K
+[5.066s] [01m[K/catkin_ws/install/ov_core/include/utils/print.h:100:123:[m[K [01;36m[Knote: [m[Kin definition of macro ‘[01m[KPRINT_ERROR[m[K’
+[5.068s]   100 | #define PRINT_ERROR(x...) ov_core::Printer::debugPrint(ov_core::Printer::PrintLevel::ERROR, __FILE__, TOSTRING(__LINE__), [01;36m[Kx[m[K);
+[5.069s]       |                                                                                                                           [01;36m[K^[m[K
+[5.070s] [01m[K/catkin_ws/install/ov_core/include/utils/print.h:100:55:[m[K [01;36m[Knote: [m[Kto match this ‘[01m[K([m[K’
+[5.072s]   100 | #define PRINT_ERROR(x...) ov_core::Printer::debugPrint[01;36m[K([m[Kov_core::Printer::PrintLevel::ERROR, __FILE__, TOSTRING(__LINE__), x);
+[5.072s]       |                                                       [01;36m[K^[m[K
+[5.072s] [01m[K/catkin_ws/src/open_vins/ov_eval/src/utils/Loader.cpp:167:5:[m[K [01;36m[Knote: [m[Kin expansion of macro ‘[01m[KPRINT_ERROR[m[K’
+[5.072s]   167 |     [01;36m[KPRINT_ERROR[m[K(RED "[LOAD]: %s\n" RESET, path_traj.c_str());
+[5.072s]       |     [01;36m[K^~~~~~~~~~~[m[K
+[5.073s] [01m[K/catkin_ws/src/open_vins/ov_eval/src/utils/Loader.cpp:173:17:[m[K [01;31m[Kerror: [m[K‘[01m[KRED[m[K’ was not declared in this scope
+[5.075s]   173 |     PRINT_ERROR([01;31m[KRED[m[K "[LOAD]: Parsing error, pose and timestamps do not match!!\n" RESET);
+[5.076s]       |                 [01;31m[K^~~[m[K
+[5.077s] [01m[K/catkin_ws/install/ov_core/include/utils/print.h:100:123:[m[K [01;36m[Knote: [m[Kin definition of macro ‘[01m[KPRINT_ERROR[m[K’
+[5.077s]   100 | #define PRINT_ERROR(x...) ov_core::Printer::debugPrint(ov_core::Printer::PrintLevel::ERROR, __FILE__, TOSTRING(__LINE__), [01;36m[Kx[m[K);
+[5.078s]       |                                                                                                                           [01;36m[K^[m[K
+[5.080s] [01m[K/catkin_ws/src/open_vins/ov_eval/src/utils/Loader.cpp:174:21:[m[K [01;31m[Kerror: [m[Kexpected ‘[01m[K)[m[K’ before string constant
+[5.081s]   174 |     PRINT_ERROR(RED [01;31m[K"[LOAD]: %s\n"[m[K RESET, path_traj.c_str());
+[5.082s]       |                     [01;31m[K^~~~~~~~~~~~~~[m[K
+[5.082s] [01m[K/catkin_ws/install/ov_core/include/utils/print.h:100:123:[m[K [01;36m[Knote: [m[Kin definition of macro ‘[01m[KPRINT_ERROR[m[K’
+[5.084s]   100 | #define PRINT_ERROR(x...) ov_core::Printer::debugPrint(ov_core::Printer::PrintLevel::ERROR, __FILE__, TOSTRING(__LINE__), [01;36m[Kx[m[K);
+[5.085s]       |                                                                                                                           [01;36m[K^[m[K
+[5.086s] [01m[K/catkin_ws/install/ov_core/include/utils/print.h:100:55:[m[K [01;36m[Knote: [m[Kto match this ‘[01m[K([m[K’
+[5.088s]   100 | #define PRINT_ERROR(x...) ov_core::Printer::debugPrint[01;36m[K([m[Kov_core::Printer::PrintLevel::ERROR, __FILE__, TOSTRING(__LINE__), x);
+[5.088s]       |                                                       [01;36m[K^[m[K
+[5.089s] [01m[K/catkin_ws/src/open_vins/ov_eval/src/utils/Loader.cpp:174:5:[m[K [01;36m[Knote: [m[Kin expansion of macro ‘[01m[KPRINT_ERROR[m[K’
+[5.090s]   174 |     [01;36m[KPRINT_ERROR[m[K(RED "[LOAD]: %s\n" RESET, path_traj.c_str());
+[5.091s]       |     [01;36m[K^~~~~~~~~~~[m[K
+[5.093s] [01m[K/catkin_ws/src/open_vins/ov_eval/src/utils/Loader.cpp:[m[K At global scope:
+[5.093s] [01m[K/catkin_ws/src/open_vins/ov_eval/src/utils/Loader.cpp:179:6:[m[K [01;31m[Kerror: [m[K‘[01m[KLoader[m[K’ has not been declared
+[5.094s]   179 | void [01;31m[KLoader[m[K::load_simulation(std::string path, std::vector<Eigen::VectorXd> &values) {
+[5.095s]       |      [01;31m[K^~~~~~[m[K
+[5.097s] In file included from [01m[K/catkin_ws/src/open_vins/ov_eval/src/utils/Loader.h:132[m[K,
+[5.098s]                  from [01m[K/catkin_ws/src/open_vins/ov_eval/src/utils/Loader.cpp:22[m[K:
+[5.098s] [01m[K/catkin_ws/src/open_vins/ov_eval/src/utils/Loader.cpp:[m[K In function ‘[01m[Kvoid load_simulation(std::string, std::vector<Eigen::Matrix<double, -1, 1> >&)[m[K’:
+[5.099s] [01m[K/catkin_ws/src/open_vins/ov_eval/src/utils/Loader.cpp:184:17:[m[K [01;31m[Kerror: [m[K‘[01m[KRED[m[K’ was not declared in this scope
+[5.101s]   184 |     PRINT_ERROR([01;31m[KRED[m[K "[LOAD]: Unable to open file...\n" RESET);
+[5.102s]       |                 [01;31m[K^~~[m[K
+[5.103s] [01m[K/catkin_ws/install/ov_core/include/utils/print.h:100:123:[m[K [01;36m[Knote: [m[Kin definition of macro ‘[01m[KPRINT_ERROR[m[K’
+[5.104s]   100 | #define PRINT_ERROR(x...) ov_core::Printer::debugPrint(ov_core::Printer::PrintLevel::ERROR, __FILE__, TOSTRING(__LINE__), [01;36m[Kx[m[K);
+[5.105s]       |                                                                                                                           [01;36m[K^[m[K
+[5.106s] [01m[K/catkin_ws/src/open_vins/ov_eval/src/utils/Loader.cpp:185:21:[m[K [01;31m[Kerror: [m[Kexpected ‘[01m[K)[m[K’ before string constant
+[5.108s]   185 |     PRINT_ERROR(RED [01;31m[K"[LOAD]: %s\n"[m[K RESET, path.c_str());
+[5.109s]       |                     [01;31m[K^~~~~~~~~~~~~~[m[K
+[5.109s] [01m[K/catkin_ws/install/ov_core/include/utils/print.h:100:123:[m[K [01;36m[Knote: [m[Kin definition of macro ‘[01m[KPRINT_ERROR[m[K’
+[5.110s]   100 | #define PRINT_ERROR(x...) ov_core::Printer::debugPrint(ov_core::Printer::PrintLevel::ERROR, __FILE__, TOSTRING(__LINE__), [01;36m[Kx[m[K);
+[5.111s]       |                                                                                                                           [01;36m[K^[m[K
+[5.113s] [01m[K/catkin_ws/install/ov_core/include/utils/print.h:100:55:[m[K [01;36m[Knote: [m[Kto match this ‘[01m[K([m[K’
+[5.114s]   100 | #define PRINT_ERROR(x...) ov_core::Printer::debugPrint[01;36m[K([m[Kov_core::Printer::PrintLevel::ERROR, __FILE__, TOSTRING(__LINE__), x);
+[5.114s]       |                                                       [01;36m[K^[m[K
+[5.116s] [01m[K/catkin_ws/src/open_vins/ov_eval/src/utils/Loader.cpp:185:5:[m[K [01;36m[Knote: [m[Kin expansion of macro ‘[01m[KPRINT_ERROR[m[K’
+[5.117s]   185 |     [01;36m[KPRINT_ERROR[m[K(RED "[LOAD]: %s\n" RESET, path.c_str());
+[5.118s]       |     [01;36m[K^~~~~~~~~~~[m[K
+[5.120s] [01m[K/catkin_ws/src/open_vins/ov_eval/src/utils/Loader.cpp:224:17:[m[K [01;31m[Kerror: [m[K‘[01m[KRED[m[K’ was not declared in this scope
+[5.120s]   224 |     PRINT_ERROR([01;31m[KRED[m[K "[LOAD]: Could not parse any data from the file!!\n" RESET);
+[5.121s]       |                 [01;31m[K^~~[m[K
+[5.122s] [01m[K/catkin_ws/install/ov_core/include/utils/print.h:100:123:[m[K [01;36m[Knote: [m[Kin definition of macro ‘[01m[KPRINT_ERROR[m[K’
+[5.124s]   100 | #define PRINT_ERROR(x...) ov_core::Printer::debugPrint(ov_core::Printer::PrintLevel::ERROR, __FILE__, TOSTRING(__LINE__), [01;36m[Kx[m[K);
+[5.125s]       |                                                                                                                           [01;36m[K^[m[K
+[5.125s] [01m[K/catkin_ws/src/open_vins/ov_eval/src/utils/Loader.cpp:225:21:[m[K [01;31m[Kerror: [m[Kexpected ‘[01m[K)[m[K’ before string constant
+[5.126s]   225 |     PRINT_ERROR(RED [01;31m[K"[LOAD]: %s\n"[m[K RESET, path.c_str());
+[5.127s]       |                     [01;31m[K^~~~~~~~~~~~~~[m[K
+[5.129s] [01m[K/catkin_ws/install/ov_core/include/utils/print.h:100:123:[m[K [01;36m[Knote: [m[Kin definition of macro ‘[01m[KPRINT_ERROR[m[K’
+[5.130s]   100 | #define PRINT_ERROR(x...) ov_core::Printer::debugPrint(ov_core::Printer::PrintLevel::ERROR, __FILE__, TOSTRING(__LINE__), [01;36m[Kx[m[K);
+[5.130s]       |                                                                                                                           [01;36m[K^[m[K
+[5.131s] [01m[K/catkin_ws/install/ov_core/include/utils/print.h:100:55:[m[K [01;36m[Knote: [m[Kto match this ‘[01m[K([m[K’
+[5.134s]   100 | #define PRINT_ERROR(x...) ov_core::Printer::debugPrint[01;36m[K([m[Kov_core::Printer::PrintLevel::ERROR, __FILE__, TOSTRING(__LINE__), x);
+[5.135s]       |                                                       [01;36m[K^[m[K
+[5.135s] [01m[K/catkin_ws/src/open_vins/ov_eval/src/utils/Loader.cpp:225:5:[m[K [01;36m[Knote: [m[Kin expansion of macro ‘[01m[KPRINT_ERROR[m[K’
+[5.136s]   225 |     [01;36m[KPRINT_ERROR[m[K(RED "[LOAD]: %s\n" RESET, path.c_str());
+[5.138s]       |     [01;36m[K^~~~~~~~~~~[m[K
+[5.139s] [01m[K/catkin_ws/src/open_vins/ov_eval/src/utils/Loader.cpp:233:19:[m[K [01;31m[Kerror: [m[K‘[01m[KRED[m[K’ was not declared in this scope
+[5.140s]   233 |       PRINT_ERROR([01;31m[KRED[m[K "[LOAD]: Invalid row size on line %d (of size %d instead of %d)\n" RESET, (int)i, (int)values.at(i).rows(), rowsize);
+[5.140s]       |                   [01;31m[K^~~[m[K
+[5.141s] [01m[K/catkin_ws/install/ov_core/include/utils/print.h:100:123:[m[K [01;36m[Knote: [m[Kin definition of macro ‘[01m[KPRINT_ERROR[m[K’
+[5.143s]   100 | #define PRINT_ERROR(x...) ov_core::Printer::debugPrint(ov_core::Printer::PrintLevel::ERROR, __FILE__, TOSTRING(__LINE__), [01;36m[Kx[m[K);
+[5.144s]       |                                                                                                                           [01;36m[K^[m[K
+[5.145s] [01m[K/catkin_ws/src/open_vins/ov_eval/src/utils/Loader.cpp:234:23:[m[K [01;31m[Kerror: [m[Kexpected ‘[01m[K)[m[K’ before string constant
+[5.145s]   234 |       PRINT_ERROR(RED [01;31m[K"[LOAD]: %s\n"[m[K RESET, path.c_str());
+[5.146s]       |                       [01;31m[K^~~~~~~~~~~~~~[m[K
+[5.147s] [01m[K/catkin_ws/install/ov_core/include/utils/print.h:100:123:[m[K [01;36m[Knote: [m[Kin definition of macro ‘[01m[KPRINT_ERROR[m[K’
+[5.148s]   100 | #define PRINT_ERROR(x...) ov_core::Printer::debugPrint(ov_core::Printer::PrintLevel::ERROR, __FILE__, TOSTRING(__LINE__), [01;36m[Kx[m[K);
+[5.148s]       |                                                                                                                           [01;36m[K^[m[K
+[5.149s] [01m[K/catkin_ws/install/ov_core/include/utils/print.h:100:55:[m[K [01;36m[Knote: [m[Kto match this ‘[01m[K([m[K’
+[5.150s]   100 | #define PRINT_ERROR(x...) ov_core::Printer::debugPrint[01;36m[K([m[Kov_core::Printer::PrintLevel::ERROR, __FILE__, TOSTRING(__LINE__), x);
+[5.150s]       |                                                       [01;36m[K^[m[K
+[5.151s] [01m[K/catkin_ws/src/open_vins/ov_eval/src/utils/Loader.cpp:234:7:[m[K [01;36m[Knote: [m[Kin expansion of macro ‘[01m[KPRINT_ERROR[m[K’
+[5.153s]   234 |       [01;36m[KPRINT_ERROR[m[K(RED "[LOAD]: %s\n" RESET, path.c_str());
+[5.154s]       |       [01;36m[K^~~~~~~~~~~[m[K
+[5.155s] [01m[K/catkin_ws/src/open_vins/ov_eval/src/utils/Loader.cpp:[m[K At global scope:
+[5.156s] [01m[K/catkin_ws/src/open_vins/ov_eval/src/utils/Loader.cpp:240:6:[m[K [01;31m[Kerror: [m[K‘[01m[KLoader[m[K’ has not been declared
+[5.157s]   240 | void [01;31m[KLoader[m[K::load_timing_flamegraph(std::string path, std::vector<std::string> &names, std::vector<double> &times,
+[5.158s]       |      [01;31m[K^~~~~~[m[K
+[5.159s] In file included from [01m[K/catkin_ws/src/open_vins/ov_eval/src/utils/Loader.h:132[m[K,
+[5.160s]                  from [01m[K/catkin_ws/src/open_vins/ov_eval/src/utils/Loader.cpp:22[m[K:
+[5.160s] [01m[K/catkin_ws/src/open_vins/ov_eval/src/utils/Loader.cpp:[m[K In function ‘[01m[Kvoid load_timing_flamegraph(std::string, std::vector<std::__cxx11::basic_string<char> >&, std::vector<double, std::allocator<double> >&, std::vector<Eigen::Matrix<double, -1, 1> >&)[m[K’:
+[5.162s] [01m[K/catkin_ws/src/open_vins/ov_eval/src/utils/Loader.cpp:246:17:[m[K [01;31m[Kerror: [m[K‘[01m[KRED[m[K’ was not declared in this scope
+[5.163s]   246 |     PRINT_ERROR([01;31m[KRED[m[K "[LOAD]: Unable to open file...\n" RESET);
+[5.165s]       |                 [01;31m[K^~~[m[K
+[5.166s] [01m[K/catkin_ws/install/ov_core/include/utils/print.h:100:123:[m[K [01;36m[Knote: [m[Kin definition of macro ‘[01m[KPRINT_ERROR[m[K’
+[5.166s]   100 | #define PRINT_ERROR(x...) ov_core::Printer::debugPrint(ov_core::Printer::PrintLevel::ERROR, __FILE__, TOSTRING(__LINE__), [01;36m[Kx[m[K);
+[5.168s]       |                                                                                                                           [01;36m[K^[m[K
+[5.169s] [01m[K/catkin_ws/src/open_vins/ov_eval/src/utils/Loader.cpp:247:21:[m[K [01;31m[Kerror: [m[Kexpected ‘[01m[K)[m[K’ before string constant
+[5.170s]   247 |     PRINT_ERROR(RED [01;31m[K"[LOAD]: %s\n"[m[K RESET, path.c_str());
+[5.172s]       |                     [01;31m[K^~~~~~~~~~~~~~[m[K
+[5.172s] [01m[K/catkin_ws/install/ov_core/include/utils/print.h:100:123:[m[K [01;36m[Knote: [m[Kin definition of macro ‘[01m[KPRINT_ERROR[m[K’
+[5.173s]   100 | #define PRINT_ERROR(x...) ov_core::Printer::debugPrint(ov_core::Printer::PrintLevel::ERROR, __FILE__, TOSTRING(__LINE__), [01;36m[Kx[m[K);
+[5.174s]       |                                                                                                                           [01;36m[K^[m[K
+[5.176s] [01m[K/catkin_ws/install/ov_core/include/utils/print.h:100:55:[m[K [01;36m[Knote: [m[Kto match this ‘[01m[K([m[K’
+[5.177s]   100 | #define PRINT_ERROR(x...) ov_core::Printer::debugPrint[01;36m[K([m[Kov_core::Printer::PrintLevel::ERROR, __FILE__, TOSTRING(__LINE__), x);
+[5.177s]       |                                                       [01;36m[K^[m[K
+[5.178s] [01m[K/catkin_ws/src/open_vins/ov_eval/src/utils/Loader.cpp:247:5:[m[K [01;36m[Knote: [m[Kin expansion of macro ‘[01m[KPRINT_ERROR[m[K’
+[5.180s]   247 |     [01;36m[KPRINT_ERROR[m[K(RED "[LOAD]: %s\n" RESET, path.c_str());
+[5.181s]       |     [01;36m[K^~~~~~~~~~~[m[K
+[5.182s] [01m[K/catkin_ws/src/open_vins/ov_eval/src/utils/Loader.cpp:304:17:[m[K [01;31m[Kerror: [m[K‘[01m[KRED[m[K’ was not declared in this scope
+[5.182s]   304 |     PRINT_ERROR([01;31m[KRED[m[K "[LOAD]: Could not parse any data from the file!!\n" RESET);
+[5.184s]       |                 [01;31m[K^~~[m[K
+[5.185s] [01m[K/catkin_ws/install/ov_core/include/utils/print.h:100:123:[m[K [01;36m[Knote: [m[Kin definition of macro ‘[01m[KPRINT_ERROR[m[K’
+[5.187s]   100 | #define PRINT_ERROR(x...) ov_core::Printer::debugPrint(ov_core::Printer::PrintLevel::ERROR, __FILE__, TOSTRING(__LINE__), [01;36m[Kx[m[K);
+[5.188s]       |                                                                                                                           [01;36m[K^[m[K
+[5.188s] [01m[K/catkin_ws/src/open_vins/ov_eval/src/utils/Loader.cpp:305:21:[m[K [01;31m[Kerror: [m[Kexpected ‘[01m[K)[m[K’ before string constant
+[5.189s]   305 |     PRINT_ERROR(RED [01;31m[K"[LOAD]: %s\n"[m[K RESET, path.c_str());
+[5.191s]       |                     [01;31m[K^~~~~~~~~~~~~~[m[K
+[5.192s] [01m[K/catkin_ws/install/ov_core/include/utils/print.h:100:123:[m[K [01;36m[Knote: [m[Kin definition of macro ‘[01m[KPRINT_ERROR[m[K’
+[5.193s]   100 | #define PRINT_ERROR(x...) ov_core::Printer::debugPrint(ov_core::Printer::PrintLevel::ERROR, __FILE__, TOSTRING(__LINE__), [01;36m[Kx[m[K);
+[5.193s]       |                                                                                                                           [01;36m[K^[m[K
+[5.194s] [01m[K/catkin_ws/install/ov_core/include/utils/print.h:100:55:[m[K [01;36m[Knote: [m[Kto match this ‘[01m[K([m[K’
+[5.195s]   100 | #define PRINT_ERROR(x...) ov_core::Printer::debugPrint[01;36m[K([m[Kov_core::Printer::PrintLevel::ERROR, __FILE__, TOSTRING(__LINE__), x);
+[5.196s]       |                                                       [01;36m[K^[m[K
+[5.198s] [01m[K/catkin_ws/src/open_vins/ov_eval/src/utils/Loader.cpp:305:5:[m[K [01;36m[Knote: [m[Kin expansion of macro ‘[01m[KPRINT_ERROR[m[K’
+[5.198s]   305 |     [01;36m[KPRINT_ERROR[m[K(RED "[LOAD]: %s\n" RESET, path.c_str());
+[5.199s]       |     [01;36m[K^~~~~~~~~~~[m[K
+[5.202s] [01m[K/catkin_ws/src/open_vins/ov_eval/src/utils/Loader.cpp:313:19:[m[K [01;31m[Kerror: [m[K‘[01m[KRED[m[K’ was not declared in this scope
+[5.204s]   313 |       PRINT_ERROR([01;31m[KRED[m[K "[LOAD]: Invalid row size on line %d (of size %d instead of %d)\n" RESET, (int)i, (int)timing_values.at(i).rows(),
+[5.204s]       |                   [01;31m[K^~~[m[K
+[5.205s] [01m[K/catkin_ws/install/ov_core/include/utils/print.h:100:123:[m[K [01;36m[Knote: [m[Kin definition of macro ‘[01m[KPRINT_ERROR[m[K’
+[5.206s]   100 | #define PRINT_ERROR(x...) ov_core::Printer::debugPrint(ov_core::Printer::PrintLevel::ERROR, __FILE__, TOSTRING(__LINE__), [01;36m[Kx[m[K);
+[5.208s]       |                                                                                                                           [01;36m[K^[m[K
+[5.210s] [01m[K/catkin_ws/src/open_vins/ov_eval/src/utils/Loader.cpp:315:23:[m[K [01;31m[Kerror: [m[Kexpected ‘[01m[K)[m[K’ before string constant
+[5.210s]   315 |       PRINT_ERROR(RED [01;31m[K"[LOAD]: %s\n"[m[K RESET, path.c_str());
+[5.211s]       |                       [01;31m[K^~~~~~~~~~~~~~[m[K
+[5.212s] [01m[K/catkin_ws/install/ov_core/include/utils/print.h:100:123:[m[K [01;36m[Knote: [m[Kin definition of macro ‘[01m[KPRINT_ERROR[m[K’
+[5.214s]   100 | #define PRINT_ERROR(x...) ov_core::Printer::debugPrint(ov_core::Printer::PrintLevel::ERROR, __FILE__, TOSTRING(__LINE__), [01;36m[Kx[m[K);
+[5.215s]       |                                                                                                                           [01;36m[K^[m[K
+[5.215s] [01m[K/catkin_ws/install/ov_core/include/utils/print.h:100:55:[m[K [01;36m[Knote: [m[Kto match this ‘[01m[K([m[K’
+[5.217s]   100 | #define PRINT_ERROR(x...) ov_core::Printer::debugPrint[01;36m[K([m[Kov_core::Printer::PrintLevel::ERROR, __FILE__, TOSTRING(__LINE__), x);
+[5.218s]       |                                                       [01;36m[K^[m[K
+[5.219s] [01m[K/catkin_ws/src/open_vins/ov_eval/src/utils/Loader.cpp:315:7:[m[K [01;36m[Knote: [m[Kin expansion of macro ‘[01m[KPRINT_ERROR[m[K’
+[5.221s]   315 |       [01;36m[KPRINT_ERROR[m[K(RED "[LOAD]: %s\n" RESET, path.c_str());
+[5.221s]       |       [01;36m[K^~~~~~~~~~~[m[K
+[5.222s] [01m[K/catkin_ws/src/open_vins/ov_eval/src/utils/Loader.cpp:[m[K At global scope:
+[5.223s] [01m[K/catkin_ws/src/open_vins/ov_eval/src/utils/Loader.cpp:321:6:[m[K [01;31m[Kerror: [m[K‘[01m[KLoader[m[K’ has not been declared
+[5.223s]   321 | void [01;31m[KLoader[m[K::load_timing_percent(std::string path, std::vector<double> &times, std::vector<Eigen::Vector3d> &summed_values,
+[5.224s]       |      [01;31m[K^~~~~~[m[K
+[5.224s] In file included from [01m[K/catkin_ws/src/open_vins/ov_eval/src/utils/Loader.h:132[m[K,
+[5.224s]                  from [01m[K/catkin_ws/src/open_vins/ov_eval/src/utils/Loader.cpp:22[m[K:
+[5.224s] [01m[K/catkin_ws/src/open_vins/ov_eval/src/utils/Loader.cpp:[m[K In function ‘[01m[Kvoid load_timing_percent(std::string, std::vector<double, std::allocator<double> >&, std::vector<Eigen::Matrix<double, 3, 1> >&, std::vector<Eigen::Matrix<double, -1, 1> >&)[m[K’:
+[5.224s] [01m[K/catkin_ws/src/open_vins/ov_eval/src/utils/Loader.cpp:327:17:[m[K [01;31m[Kerror: [m[K‘[01m[KRED[m[K’ was not declared in this scope
+[5.224s]   327 |     PRINT_ERROR([01;31m[KRED[m[K "[LOAD]: Unable to open timing file...\n" RESET);
+[5.224s]       |                 [01;31m[K^~~[m[K
+[5.224s] [01m[K/catkin_ws/install/ov_core/include/utils/print.h:100:123:[m[K [01;36m[Knote: [m[Kin definition of macro ‘[01m[KPRINT_ERROR[m[K’
+[5.224s]   100 | #define PRINT_ERROR(x...) ov_core::Printer::debugPrint(ov_core::Printer::PrintLevel::ERROR, __FILE__, TOSTRING(__LINE__), [01;36m[Kx[m[K);
+[5.224s]       |                                                                                                                           [01;36m[K^[m[K
+[5.224s] [01m[K/catkin_ws/src/open_vins/ov_eval/src/utils/Loader.cpp:328:21:[m[K [01;31m[Kerror: [m[Kexpected ‘[01m[K)[m[K’ before string constant
+[5.224s]   328 |     PRINT_ERROR(RED [01;31m[K"[LOAD]: %s\n"[m[K RESET, path.c_str());
+[5.224s]       |                     [01;31m[K^~~~~~~~~~~~~~[m[K
+[5.225s] [01m[K/catkin_ws/install/ov_core/include/utils/print.h:100:123:[m[K [01;36m[Knote: [m[Kin definition of macro ‘[01m[KPRINT_ERROR[m[K’
+[5.225s]   100 | #define PRINT_ERROR(x...) ov_core::Printer::debugPrint(ov_core::Printer::PrintLevel::ERROR, __FILE__, TOSTRING(__LINE__), [01;36m[Kx[m[K);
+[5.226s]       |                                                                                                                           [01;36m[K^[m[K
+[5.226s] [01m[K/catkin_ws/install/ov_core/include/utils/print.h:100:55:[m[K [01;36m[Knote: [m[Kto match this ‘[01m[K([m[K’
+[5.228s]   100 | #define PRINT_ERROR(x...) ov_core::Printer::debugPrint[01;36m[K([m[Kov_core::Printer::PrintLevel::ERROR, __FILE__, TOSTRING(__LINE__), x);
+[5.234s]       |                                                       [01;36m[K^[m[K
+[5.236s] [01m[K/catkin_ws/src/open_vins/ov_eval/src/utils/Loader.cpp:328:5:[m[K [01;36m[Knote: [m[Kin expansion of macro ‘[01m[KPRINT_ERROR[m[K’
+[5.236s]   328 |     [01;36m[KPRINT_ERROR[m[K(RED "[LOAD]: %s\n" RESET, path.c_str());
+[5.237s]       |     [01;36m[K^~~~~~~~~~~[m[K
+[5.238s] [01m[K/catkin_ws/src/open_vins/ov_eval/src/utils/Loader.cpp:375:17:[m[K [01;31m[Kerror: [m[K‘[01m[KRED[m[K’ was not declared in this scope
+[5.240s]   375 |     PRINT_ERROR([01;31m[KRED[m[K "[LOAD]: Could not parse any data from the file!!\n" RESET);
+[5.241s]       |                 [01;31m[K^~~[m[K
+[5.241s] [01m[K/catkin_ws/install/ov_core/include/utils/print.h:100:123:[m[K [01;36m[Knote: [m[Kin definition of macro ‘[01m[KPRINT_ERROR[m[K’
+[5.243s]   100 | #define PRINT_ERROR(x...) ov_core::Printer::debugPrint(ov_core::Printer::PrintLevel::ERROR, __FILE__, TOSTRING(__LINE__), [01;36m[Kx[m[K);
+[5.244s]       |                                                                                                                           [01;36m[K^[m[K
+[5.245s] [01m[K/catkin_ws/src/open_vins/ov_eval/src/utils/Loader.cpp:376:21:[m[K [01;31m[Kerror: [m[Kexpected ‘[01m[K)[m[K’ before string constant
+[5.246s]   376 |     PRINT_ERROR(RED [01;31m[K"[LOAD]: %s\n"[m[K RESET, path.c_str());
+[5.247s]       |                     [01;31m[K^~~~~~~~~~~~~~[m[K
+[5.248s] [01m[K/catkin_ws/install/ov_core/include/utils/print.h:100:123:[m[K [01;36m[Knote: [m[Kin definition of macro ‘[01m[KPRINT_ERROR[m[K’
+[5.249s]   100 | #define PRINT_ERROR(x...) ov_core::Printer::debugPrint(ov_core::Printer::PrintLevel::ERROR, __FILE__, TOSTRING(__LINE__), [01;36m[Kx[m[K);
+[5.250s]       |                                                                                                                           [01;36m[K^[m[K
+[5.252s] [01m[K/catkin_ws/install/ov_core/include/utils/print.h:100:55:[m[K [01;36m[Knote: [m[Kto match this ‘[01m[K([m[K’
+[5.252s]   100 | #define PRINT_ERROR(x...) ov_core::Printer::debugPrint[01;36m[K([m[Kov_core::Printer::PrintLevel::ERROR, __FILE__, TOSTRING(__LINE__), x);
+[5.253s]       |                                                       [01;36m[K^[m[K
+[5.254s] [01m[K/catkin_ws/src/open_vins/ov_eval/src/utils/Loader.cpp:376:5:[m[K [01;36m[Knote: [m[Kin expansion of macro ‘[01m[KPRINT_ERROR[m[K’
+[5.256s]   376 |     [01;36m[KPRINT_ERROR[m[K(RED "[LOAD]: %s\n" RESET, path.c_str());
+[5.257s]       |     [01;36m[K^~~~~~~~~~~[m[K
+[5.257s] [01m[K/catkin_ws/src/open_vins/ov_eval/src/utils/Loader.cpp:382:17:[m[K [01;31m[Kerror: [m[K‘[01m[KRED[m[K’ was not declared in this scope
+[5.258s]   382 |     PRINT_ERROR([01;31m[KRED[m[K "[LOAD]: Parsing error, pose and timestamps do not match!!\n" RESET);
+[5.259s]       |                 [01;31m[K^~~[m[K
+[5.261s] [01m[K/catkin_ws/install/ov_core/include/utils/print.h:100:123:[m[K [01;36m[Knote: [m[Kin definition of macro ‘[01m[KPRINT_ERROR[m[K’
+[5.262s]   100 | #define PRINT_ERROR(x...) ov_core::Printer::debugPrint(ov_core::Printer::PrintLevel::ERROR, __FILE__, TOSTRING(__LINE__), [01;36m[Kx[m[K);
+[5.262s]       |                                                                                                                           [01;36m[K^[m[K
+[5.263s] [01m[K/catkin_ws/src/open_vins/ov_eval/src/utils/Loader.cpp:383:21:[m[K [01;31m[Kerror: [m[Kexpected ‘[01m[K)[m[K’ before string constant
+[5.265s]   383 |     PRINT_ERROR(RED [01;31m[K"[LOAD]: %s\n"[m[K RESET, path.c_str());
+[5.266s]       |                     [01;31m[K^~~~~~~~~~~~~~[m[K
+[5.267s] [01m[K/catkin_ws/install/ov_core/include/utils/print.h:100:123:[m[K [01;36m[Knote: [m[Kin definition of macro ‘[01m[KPRINT_ERROR[m[K’
+[5.267s]   100 | #define PRINT_ERROR(x...) ov_core::Printer::debugPrint(ov_core::Printer::PrintLevel::ERROR, __FILE__, TOSTRING(__LINE__), [01;36m[Kx[m[K);
+[5.269s]       |                                                                                                                           [01;36m[K^[m[K
+[5.270s] [01m[K/catkin_ws/install/ov_core/include/utils/print.h:100:55:[m[K [01;36m[Knote: [m[Kto match this ‘[01m[K([m[K’
+[5.271s]   100 | #define PRINT_ERROR(x...) ov_core::Printer::debugPrint[01;36m[K([m[Kov_core::Printer::PrintLevel::ERROR, __FILE__, TOSTRING(__LINE__), x);
+[5.271s]       |                                                       [01;36m[K^[m[K
+[5.273s] [01m[K/catkin_ws/src/open_vins/ov_eval/src/utils/Loader.cpp:383:5:[m[K [01;36m[Knote: [m[Kin expansion of macro ‘[01m[KPRINT_ERROR[m[K’
+[5.273s]   383 |     [01;36m[KPRINT_ERROR[m[K(RED "[LOAD]: %s\n" RESET, path.c_str());
+[5.274s]       |     [01;36m[K^~~~~~~~~~~[m[K
+[5.276s] [01m[K/catkin_ws/src/open_vins/ov_eval/src/utils/Loader.cpp:[m[K At global scope:
+[5.277s] [01m[K/catkin_ws/src/open_vins/ov_eval/src/utils/Loader.cpp:388:8:[m[K [01;31m[Kerror: [m[K‘[01m[KLoader[m[K’ has not been declared
+[5.278s]   388 | double [01;31m[KLoader[m[K::get_total_length(const std::vector<Eigen::Matrix<double, 7, 1>> &poses) {
+[5.278s]       |        [01;31m[K^~~~~~[m[K
+[5.517s] In file included from [01m[K/catkin_ws/src/open_vins/ov_eval/src/calc/ResultTrajectory.h:36[m[K,
+[5.518s]                  from [01m[K/catkin_ws/src/open_vins/ov_eval/src/calc/ResultTrajectory.cpp:22[m[K:
+[5.519s] [01m[K/catkin_ws/src/open_vins/ov_eval/src/utils/Loader.h:[m[K In constructor ‘[01m[Kov_eval::Recorder::Recorder(const string&)[m[K’:
+[5.520s] [01m[K/catkin_ws/src/open_vins/ov_eval/src/utils/Loader.h:190:8:[m[K [01;31m[Kerror: [m[K‘[01m[KPRINT_WARN[m[K’ was not declared in this scope; did you mean ‘[01m[KPRINT_WARNING[m[K’?
+[5.521s]   190 |        [01;31m[KPRINT_WARN[m[K("Output file exists, deleting old file: %s", filename.c_str());
+[5.521s]       |        [01;31m[K^~~~~~~~~~[m[K
+[5.522s]       |        [32m[KPRINT_WARNING[m[K
+[5.537s] [01m[K/catkin_ws/src/open_vins/ov_eval/src/calc/ResultTrajectory.cpp:[m[K In constructor ‘[01m[Kov_eval::ResultTrajectory::ResultTrajectory(std::string, std::string, std::string)[m[K’:
+[5.540s] [01m[K/catkin_ws/src/open_vins/ov_eval/src/calc/ResultTrajectory.cpp:29:3:[m[K [01;31m[Kerror: [m[K‘[01m[KLoader[m[K’ has not been declared
+[5.541s]    29 |   [01;31m[KLoader[m[K::load_data(path_est, est_times, est_poses, est_covori, est_covpos);
+[5.541s]       |   [01;31m[K^~~~~~[m[K
+[5.545s] [01m[K/catkin_ws/src/open_vins/ov_eval/src/calc/ResultTrajectory.cpp:30:3:[m[K [01;31m[Kerror: [m[K‘[01m[KLoader[m[K’ has not been declared
+[5.546s]    30 |   [01;31m[KLoader[m[K::load_data(path_gt, gt_times, gt_poses, gt_covori, gt_covpos);
+[5.546s]       |   [01;31m[K^~~~~~[m[K
+[5.549s] [01m[K/catkin_ws/src/open_vins/ov_eval/src/calc/ResultTrajectory.cpp:37:28:[m[K [01;31m[Kerror: [m[K‘[01m[Kov_eval::Loader[m[K’ has not been declared
+[5.550s]    37 |   double len_gt = ov_eval::[01;31m[KLoader[m[K::get_total_length(gt_poses);
+[5.551s]       |                            [01;31m[K^~~~~~[m[K
+[5.551s] [01m[K/catkin_ws/src/open_vins/ov_eval/src/calc/ResultTrajectory.cpp:38:29:[m[K [01;31m[Kerror: [m[K‘[01m[Kov_eval::Loader[m[K’ has not been declared
+[5.553s]    38 |   double len_est = ov_eval::[01;31m[KLoader[m[K::get_total_length(est_poses);
+[5.555s]       |                             [01;31m[K^~~~~~[m[K
+[5.556s] [01m[K/catkin_ws/src/open_vins/ov_eval/src/calc/ResultSimulation.cpp:[m[K In constructor ‘[01m[Kov_eval::ResultSimulation::ResultSimulation(std::string, std::string, std::string)[m[K’:
+[5.556s] [01m[K/catkin_ws/src/open_vins/ov_eval/src/calc/ResultSimulation.cpp:29:3:[m[K [01;31m[Kerror: [m[K‘[01m[KLoader[m[K’ has not been declared
+[5.557s]    29 |   [01;31m[KLoader[m[K::load_simulation(path_est, est_state);
+[5.559s]       |   [01;31m[K^~~~~~[m[K
+[5.560s] [01m[K/catkin_ws/src/open_vins/ov_eval/src/calc/ResultSimulation.cpp:30:3:[m[K [01;31m[Kerror: [m[K‘[01m[KLoader[m[K’ has not been declared
+[5.560s]    30 |   [01;31m[KLoader[m[K::load_simulation(path_std, state_cov);
+[5.563s]       |   [01;31m[K^~~~~~[m[K
+[5.564s] [01m[K/catkin_ws/src/open_vins/ov_eval/src/calc/ResultSimulation.cpp:31:3:[m[K [01;31m[Kerror: [m[K‘[01m[KLoader[m[K’ has not been declared
+[5.564s]    31 |   [01;31m[KLoader[m[K::load_simulation(path_gt, gt_state);
+[5.567s]       |   [01;31m[K^~~~~~[m[K
+[5.641s] gmake[2]: *** [CMakeFiles/ov_eval_lib.dir/build.make:146: CMakeFiles/ov_eval_lib.dir/src/utils/Loader.cpp.o] Error 1
+[5.643s] gmake[2]: *** Waiting for unfinished jobs....
+[6.884s] gmake[2]: *** [CMakeFiles/ov_eval_lib.dir/build.make:132: CMakeFiles/ov_eval_lib.dir/src/calc/ResultSimulation.cpp.o] Error 1
+[8.150s] gmake[2]: *** [CMakeFiles/ov_eval_lib.dir/build.make:118: CMakeFiles/ov_eval_lib.dir/src/calc/ResultTrajectory.cpp.o] Error 1
+[8.154s] gmake[1]: *** [CMakeFiles/Makefile2:159: CMakeFiles/ov_eval_lib.dir/all] Error 2
+[8.154s] gmake: *** [Makefile:146: all] Error 2
+[8.155s] Invoked command in '/catkin_ws/src/open_vins/ov_eval/build/ov_eval' returned '2': CMAKE_PREFIX_PATH=/opt/ros/humble:${CMAKE_PREFIX_PATH} /usr/bin/cmake --build /catkin_ws/src/open_vins/ov_eval/build/ov_eval -- -j16 -l16

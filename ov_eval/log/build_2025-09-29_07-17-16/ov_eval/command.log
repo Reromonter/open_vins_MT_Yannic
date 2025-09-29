@@ -1,0 +1,2 @@
+Invoking command in '/catkin_ws/src/open_vins/ov_eval/build/ov_eval': CMAKE_PREFIX_PATH=/opt/ros/humble:${CMAKE_PREFIX_PATH} /usr/bin/cmake --build /catkin_ws/src/open_vins/ov_eval/build/ov_eval -- -j16 -l16
+Invoked command in '/catkin_ws/src/open_vins/ov_eval/build/ov_eval' returned '2': CMAKE_PREFIX_PATH=/opt/ros/humble:${CMAKE_PREFIX_PATH} /usr/bin/cmake --build /catkin_ws/src/open_vins/ov_eval/build/ov_eval -- -j16 -l16

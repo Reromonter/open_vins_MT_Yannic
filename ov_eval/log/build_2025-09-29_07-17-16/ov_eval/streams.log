@@ -1,0 +1,80 @@
+[0.076s] Invoking command in '/catkin_ws/src/open_vins/ov_eval/build/ov_eval': CMAKE_PREFIX_PATH=/opt/ros/humble:${CMAKE_PREFIX_PATH} /usr/bin/cmake --build /catkin_ws/src/open_vins/ov_eval/build/ov_eval -- -j16 -l16
+[0.260s] [ 10%] [32mBuilding CXX object CMakeFiles/ov_eval_lib.dir/src/calc/ResultTrajectory.cpp.o[0m
+[0.261s] [ 10%] [32mBuilding CXX object CMakeFiles/ov_eval_lib.dir/src/calc/ResultSimulation.cpp.o[0m
+[0.262s] [ 10%] [32mBuilding CXX object CMakeFiles/ov_eval_lib.dir/src/utils/Loader.cpp.o[0m
+[0.272s] In file included from [01m[K/catkin_ws/src/open_vins/ov_eval/src/utils/Loader.cpp:22[m[K:
+[0.274s] [01m[K/catkin_ws/src/open_vins/ov_eval/src/utils/Loader.h:23:2:[m[K [01;31m[Kerror: [m[Kempty character constant
+[0.275s]    23 |  [01;31m[K''[m[K'
+[0.275s]       |  [01;31m[K^~[m[K
+[0.278s] [01m[K/catkin_ws/src/open_vins/ov_eval/src/utils/Loader.h:23:4:[m[K [01;35m[Kwarning: [m[Kmissing terminating ' character
+[0.279s]    23 |  ''[01;35m[K'[m[K
+[0.279s]       |    [01;35m[K^[m[K
+[0.280s] [01m[K/catkin_ws/src/open_vins/ov_eval/src/utils/Loader.h:23:4:[m[K [01;31m[Kerror: [m[Kmissing terminating ' character
+[0.445s] In file included from [01m[K/catkin_ws/src/open_vins/ov_eval/src/calc/ResultSimulation.h:33[m[K,
+[0.446s]                  from [01m[K/catkin_ws/src/open_vins/ov_eval/src/calc/ResultSimulation.cpp:22[m[K:
+[0.447s] [01m[K/catkin_ws/src/open_vins/ov_eval/src/utils/Loader.h:23:2:[m[K [01;31m[Kerror: [m[Kempty character constant
+[0.448s]    23 |  [01;31m[K''[m[K'
+[0.448s]       |  [01;31m[K^~[m[K
+[0.451s] [01m[K/catkin_ws/src/open_vins/ov_eval/src/utils/Loader.h:23:4:[m[K [01;35m[Kwarning: [m[Kmissing terminating ' character
+[0.452s]    23 |  ''[01;35m[K'[m[K
+[0.452s]       |    [01;35m[K^[m[K
+[0.453s] [01m[K/catkin_ws/src/open_vins/ov_eval/src/utils/Loader.h:23:4:[m[K [01;31m[Kerror: [m[Kmissing terminating ' character
+[0.453s] In file included from [01m[K/catkin_ws/src/open_vins/ov_eval/src/calc/ResultTrajectory.h:36[m[K,
+[0.453s]                  from [01m[K/catkin_ws/src/open_vins/ov_eval/src/calc/ResultTrajectory.cpp:22[m[K:
+[0.454s] [01m[K/catkin_ws/src/open_vins/ov_eval/src/utils/Loader.h:23:2:[m[K [01;31m[Kerror: [m[Kempty character constant
+[0.456s]    23 |  [01;31m[K''[m[K'
+[0.457s]       |  [01;31m[K^~[m[K
+[0.458s] [01m[K/catkin_ws/src/open_vins/ov_eval/src/utils/Loader.h:23:4:[m[K [01;35m[Kwarning: [m[Kmissing terminating ' character
+[0.458s]    23 |  ''[01;35m[K'[m[K
+[0.459s]       |    [01;35m[K^[m[K
+[0.460s] [01m[K/catkin_ws/src/open_vins/ov_eval/src/utils/Loader.h:23:4:[m[K [01;31m[Kerror: [m[Kmissing terminating ' character
+[0.586s] In file included from [01m[K/catkin_ws/src/open_vins/ov_eval/src/utils/Loader.cpp:22[m[K:
+[0.589s] [01m[K/catkin_ws/src/open_vins/ov_eval/src/utils/Loader.h:114:1:[m[K [01;31m[Kerror: [m[Kempty character constant
+[0.590s]   114 | [01;31m[K''[m[K'
+[0.590s]       | [01;31m[K^~[m[K
+[0.591s] [01m[K/catkin_ws/src/open_vins/ov_eval/src/utils/Loader.h:114:3:[m[K [01;35m[Kwarning: [m[Kmissing terminating ' character
+[0.592s]   114 | ''[01;35m[K'[m[K
+[0.593s]       |   [01;35m[K^[m[K
+[0.594s] [01m[K/catkin_ws/src/open_vins/ov_eval/src/utils/Loader.h:114:3:[m[K [01;31m[Kerror: [m[Kmissing terminating ' character
+[0.597s] In file included from [01m[K/catkin_ws/src/open_vins/ov_eval/src/calc/ResultTrajectory.h:36[m[K,
+[0.598s]                  from [01m[K/catkin_ws/src/open_vins/ov_eval/src/calc/ResultTrajectory.cpp:22[m[K:
+[0.599s] [01m[K/catkin_ws/src/open_vins/ov_eval/src/utils/Loader.h:114:1:[m[K [01;31m[Kerror: [m[Kempty character constant
+[0.599s]   114 | [01;31m[K''[m[K'
+[0.602s]       | [01;31m[K^~[m[K
+[0.603s] [01m[K/catkin_ws/src/open_vins/ov_eval/src/utils/Loader.h:114:3:[m[K [01;35m[Kwarning: [m[Kmissing terminating ' character
+[0.603s]   114 | ''[01;35m[K'[m[K
+[0.608s]       |   [01;35m[K^[m[K
+[0.609s] [01m[K/catkin_ws/src/open_vins/ov_eval/src/utils/Loader.h:114:3:[m[K [01;31m[Kerror: [m[Kmissing terminating ' character
+[0.610s] In file included from [01m[K/catkin_ws/src/open_vins/ov_eval/src/calc/ResultSimulation.h:33[m[K,
+[0.611s]                  from [01m[K/catkin_ws/src/open_vins/ov_eval/src/calc/ResultSimulation.cpp:22[m[K:
+[0.611s] [01m[K/catkin_ws/src/open_vins/ov_eval/src/utils/Loader.h:114:1:[m[K [01;31m[Kerror: [m[Kempty character constant
+[0.612s]   114 | [01;31m[K''[m[K'
+[0.614s]       | [01;31m[K^~[m[K
+[0.615s] [01m[K/catkin_ws/src/open_vins/ov_eval/src/utils/Loader.h:114:3:[m[K [01;35m[Kwarning: [m[Kmissing terminating ' character
+[0.620s]   114 | ''[01;35m[K'[m[K
+[0.620s]       |   [01;35m[K^[m[K
+[0.621s] [01m[K/catkin_ws/src/open_vins/ov_eval/src/utils/Loader.h:114:3:[m[K [01;31m[Kerror: [m[Kmissing terminating ' character
+[0.742s] In file included from [01m[K/catkin_ws/src/open_vins/ov_eval/src/calc/ResultTrajectory.h:36[m[K,
+[0.746s]                  from [01m[K/catkin_ws/src/open_vins/ov_eval/src/calc/ResultTrajectory.cpp:22[m[K:
+[0.747s] [01m[K/catkin_ws/src/open_vins/ov_eval/src/utils/Loader.h:138:13:[m[K [01;31m[Kfatal error: [m[Kgeometry_msgs/msg/pose_stamped.hpp: No such file or directory
+[0.749s]   138 |    #include [01;31m[K"geometry_msgs/msg/pose_stamped.hpp"[m[K
+[0.750s]       |             [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[0.752s] compilation terminated.
+[0.752s] In file included from [01m[K/catkin_ws/src/open_vins/ov_eval/src/utils/Loader.cpp:22[m[K:
+[0.753s] [01m[K/catkin_ws/src/open_vins/ov_eval/src/utils/Loader.h:138:13:[m[K [01;31m[Kfatal error: [m[Kgeometry_msgs/msg/pose_stamped.hpp: No such file or directory
+[0.754s]   138 |    #include [01;31m[K"geometry_msgs/msg/pose_stamped.hpp"[m[K
+[0.755s]       |             [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[0.756s] compilation terminated.
+[0.757s] In file included from [01m[K/catkin_ws/src/open_vins/ov_eval/src/calc/ResultSimulation.h:33[m[K,
+[0.758s]                  from [01m[K/catkin_ws/src/open_vins/ov_eval/src/calc/ResultSimulation.cpp:22[m[K:
+[0.759s] [01m[K/catkin_ws/src/open_vins/ov_eval/src/utils/Loader.h:138:13:[m[K [01;31m[Kfatal error: [m[Kgeometry_msgs/msg/pose_stamped.hpp: No such file or directory
+[0.760s]   138 |    #include [01;31m[K"geometry_msgs/msg/pose_stamped.hpp"[m[K
+[0.762s]       |             [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[0.762s] compilation terminated.
+[0.763s] gmake[2]: *** [CMakeFiles/ov_eval_lib.dir/build.make:118: CMakeFiles/ov_eval_lib.dir/src/calc/ResultTrajectory.cpp.o] Error 1
+[0.764s] gmake[2]: *** Waiting for unfinished jobs....
+[0.765s] gmake[2]: *** [CMakeFiles/ov_eval_lib.dir/build.make:146: CMakeFiles/ov_eval_lib.dir/src/utils/Loader.cpp.o] Error 1
+[0.767s] gmake[2]: *** [CMakeFiles/ov_eval_lib.dir/build.make:132: CMakeFiles/ov_eval_lib.dir/src/calc/ResultSimulation.cpp.o] Error 1
+[0.767s] gmake[1]: *** [CMakeFiles/Makefile2:159: CMakeFiles/ov_eval_lib.dir/all] Error 2
+[0.768s] gmake: *** [Makefile:146: all] Error 2
+[0.769s] Invoked command in '/catkin_ws/src/open_vins/ov_eval/build/ov_eval' returned '2': CMAKE_PREFIX_PATH=/opt/ros/humble:${CMAKE_PREFIX_PATH} /usr/bin/cmake --build /catkin_ws/src/open_vins/ov_eval/build/ov_eval -- -j16 -l16

@@ -38,10 +38,13 @@ list(APPEND LIBRARY_SOURCES
         src/calc/ResultTrajectory.cpp
         src/calc/ResultSimulation.cpp
         src/utils/Loader.cpp
+       # src/recorder.cpp            # <── ADD THIS LINE, probably not needed
+
 )
 file(GLOB_RECURSE LIBRARY_HEADERS "src/*.h")
 add_library(ov_eval_lib SHARED ${LIBRARY_SOURCES} ${LIBRARY_HEADERS})
-ament_target_dependencies(ov_eval_lib rclcpp ov_core)
+target_compile_features(ov_eval_lib PRIVATE cxx_std_17)
+ament_target_dependencies(ov_eval_lib rclcpp ov_core geometry_msgs nav_msgs)
 target_link_libraries(ov_eval_lib ${thirdparty_libraries})
 target_include_directories(ov_eval_lib PUBLIC src/)
 install(TARGETS ov_eval_lib
@@ -70,11 +73,11 @@ ament_export_libraries(ov_eval_lib)
 
 
 #ros2 try upgrade of above file
-#add_executable(pose_to_file src/pose_to_file.cpp)
-#target_compile_features(pose_to_file PRIVATE cxx_std_17)
-#ament_target_dependencies(pose_to_file rclcpp geometry_msgs nav_msgs)
-#target_link_libraries(pose_to_file ov_eval_lib ${thirdparty_libraries})
-#install(TARGETS pose_to_file DESTINATION lib/${PROJECT_NAME})
+add_executable(pose_to_file_ros2 src/pose_to_file_ros2.cpp)
+target_compile_features(pose_to_file_ros2 PRIVATE cxx_std_17)
+ament_target_dependencies(pose_to_file_ros2 rclcpp geometry_msgs nav_msgs)
+target_link_libraries(pose_to_file_ros2 ov_eval_lib ${thirdparty_libraries})
+install(TARGETS pose_to_file_ros2 DESTINATION lib/${PROJECT_NAME})
 #end of try
 
 

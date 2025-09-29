@@ -1,0 +1,56 @@
+[35m[1mConsolidate compiler generated dependencies of target ov_eval_lib[0m
+[  6%] [32mBuilding CXX object CMakeFiles/ov_eval_lib.dir/src/calc/ResultTrajectory.cpp.o[0m
+[ 10%] [32mBuilding CXX object CMakeFiles/ov_eval_lib.dir/src/calc/ResultSimulation.cpp.o[0m
+[ 10%] [32mBuilding CXX object CMakeFiles/ov_eval_lib.dir/src/utils/Loader.cpp.o[0m
+[ 13%] [32m[1mLinking CXX shared library libov_eval_lib.so[0m
+[ 24%] Built target ov_eval_lib
+[35m[1mConsolidate compiler generated dependencies of target format_converter[0m
+[35m[1mConsolidate compiler generated dependencies of target timing_comparison[0m
+[35m[1mConsolidate compiler generated dependencies of target timing_histogram[0m
+[35m[1mConsolidate compiler generated dependencies of target error_dataset[0m
+[35m[1mConsolidate compiler generated dependencies of target error_singlerun[0m
+[35m[1mConsolidate compiler generated dependencies of target error_simulation[0m
+[35m[1mConsolidate compiler generated dependencies of target error_comparison[0m
+[35m[1mConsolidate compiler generated dependencies of target plot_trajectories[0m
+[35m[1mConsolidate compiler generated dependencies of target timing_percentages[0m
+[35m[1mConsolidate compiler generated dependencies of target timing_flamegraph[0m
+[ 27%] [32mBuilding CXX object CMakeFiles/pose_to_file_ros2.dir/src/pose_to_file_ros2.cpp.o[0m
+[ 62%] [32mBuilding CXX object CMakeFiles/timing_percentages.dir/src/timing_percentages.cpp.o[0m
+[ 62%] [32mBuilding CXX object CMakeFiles/format_converter.dir/src/format_converter.cpp.o[0m
+[ 62%] [32mBuilding CXX object CMakeFiles/timing_comparison.dir/src/timing_comparison.cpp.o[0m
+[ 62%] [32mBuilding CXX object CMakeFiles/error_dataset.dir/src/error_dataset.cpp.o[0m
+[ 62%] [32mBuilding CXX object CMakeFiles/error_simulation.dir/src/error_simulation.cpp.o[0m
+[ 62%] [32mBuilding CXX object CMakeFiles/timing_flamegraph.dir/src/timing_flamegraph.cpp.o[0m
+[ 62%] [32mBuilding CXX object CMakeFiles/plot_trajectories.dir/src/plot_trajectories.cpp.o[0m
+[ 62%] [32mBuilding CXX object CMakeFiles/timing_histogram.dir/src/timing_histogram.cpp.o[0m
+[ 62%] [32mBuilding CXX object CMakeFiles/error_singlerun.dir/src/error_singlerun.cpp.o[0m
+[ 62%] [32mBuilding CXX object CMakeFiles/error_comparison.dir/src/error_comparison.cpp.o[0m
+In file included from [01m[K/catkin_ws/src/open_vins/ov_eval/src/pose_to_file_ros2.cpp:14[m[K:
+[01m[K/catkin_ws/src/open_vins/ov_eval/src/utils/Recorder.h:32:10:[m[K [01;31m[Kfatal error: [m[Kgeometry_msgs/PoseStamped.h: No such file or directory
+   32 | #include [01;31m[K<geometry_msgs/PoseStamped.h>[m[K
+      |          [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+compilation terminated.
+gmake[2]: *** [CMakeFiles/pose_to_file_ros2.dir/build.make:76: CMakeFiles/pose_to_file_ros2.dir/src/pose_to_file_ros2.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:185: CMakeFiles/pose_to_file_ros2.dir/all] Error 2
+gmake[1]: *** Waiting for unfinished jobs....
+[ 65%] [32m[1mLinking CXX executable format_converter[0m
+[ 68%] [32m[1mLinking CXX executable timing_histogram[0m
+[ 72%] [32m[1mLinking CXX executable timing_flamegraph[0m
+[ 75%] [32m[1mLinking CXX executable timing_comparison[0m
+[ 75%] Built target format_converter
+[ 75%] Built target timing_histogram
+[ 75%] Built target timing_flamegraph
+[ 79%] [32m[1mLinking CXX executable timing_percentages[0m
+[ 79%] Built target timing_comparison
+[ 82%] [32m[1mLinking CXX executable error_simulation[0m
+[ 82%] Built target timing_percentages
+[ 86%] [32m[1mLinking CXX executable error_singlerun[0m
+[ 86%] Built target error_simulation
+[ 89%] [32m[1mLinking CXX executable plot_trajectories[0m
+[ 93%] [32m[1mLinking CXX executable error_dataset[0m
+[ 93%] Built target error_singlerun
+[ 96%] [32m[1mLinking CXX executable error_comparison[0m
+[ 96%] Built target plot_trajectories
+[ 96%] Built target error_dataset
+[ 96%] Built target error_comparison
+gmake: *** [Makefile:146: all] Error 2

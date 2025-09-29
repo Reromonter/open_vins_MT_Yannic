@@ -1,0 +1,46 @@
+[0.082s] Invoking command in '/catkin_ws/src/open_vins/ov_eval/build/ov_eval': CMAKE_PREFIX_PATH=/opt/ros/humble:${CMAKE_PREFIX_PATH} /usr/bin/cmake --build /catkin_ws/src/open_vins/ov_eval/build/ov_eval -- -j16 -l16
+[0.310s] [35m[1mConsolidate compiler generated dependencies of target ov_eval_lib[0m
+[0.376s] [  3%] [32mBuilding CXX object CMakeFiles/ov_eval_lib.dir/src/utils/Loader.cpp.o[0m
+[3.167s] [  6%] [32m[1mLinking CXX shared library libov_eval_lib.so[0m
+[3.988s] [ 24%] Built target ov_eval_lib
+[4.023s] [35m[1mConsolidate compiler generated dependencies of target error_singlerun[0m
+[4.024s] [35m[1mConsolidate compiler generated dependencies of target timing_percentages[0m
+[4.026s] [35m[1mConsolidate compiler generated dependencies of target error_comparison[0m
+[4.028s] [ 27%] [32mBuilding CXX object CMakeFiles/pose_to_file_ros2.dir/src/pose_to_file_ros2.cpp.o[0m
+[4.030s] [35m[1mConsolidate compiler generated dependencies of target error_simulation[0m
+[4.031s] [35m[1mConsolidate compiler generated dependencies of target timing_flamegraph[0m
+[4.032s] [35m[1mConsolidate compiler generated dependencies of target plot_trajectories[0m
+[4.032s] [35m[1mConsolidate compiler generated dependencies of target timing_comparison[0m
+[4.040s] [35m[1mConsolidate compiler generated dependencies of target error_dataset[0m
+[4.047s] [35m[1mConsolidate compiler generated dependencies of target format_converter[0m
+[4.063s] [35m[1mConsolidate compiler generated dependencies of target timing_histogram[0m
+[4.072s] [ 31%] [32m[1mLinking CXX executable error_singlerun[0m
+[4.083s] [ 48%] [32m[1mLinking CXX executable timing_percentages[0m
+[4.085s] [ 48%] [32m[1mLinking CXX executable timing_flamegraph[0m
+[4.086s] [ 48%] [32m[1mLinking CXX executable plot_trajectories[0m
+[4.087s] [ 48%] [32m[1mLinking CXX executable error_comparison[0m
+[4.088s] [ 48%] [32m[1mLinking CXX executable error_simulation[0m
+[4.093s] [ 55%] [32m[1mLinking CXX executable format_converter[0m
+[4.096s] [ 55%] [32m[1mLinking CXX executable error_dataset[0m
+[4.109s] [ 58%] [32m[1mLinking CXX executable timing_comparison[0m
+[4.113s] [ 62%] [32m[1mLinking CXX executable timing_histogram[0m
+[4.565s] In file included from [01m[K/catkin_ws/src/open_vins/ov_eval/src/pose_to_file_ros2.cpp:14[m[K:
+[4.565s] [01m[K/catkin_ws/src/open_vins/ov_eval/src/utils/Recorder.h:32:10:[m[K [01;31m[Kfatal error: [m[Kgeometry_msgs/PoseStamped.h: No such file or directory
+[4.565s]    32 | #include [01;31m[K<geometry_msgs/PoseStamped.h>[m[K
+[4.565s]       |          [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[4.565s] compilation terminated.
+[4.572s] gmake[2]: *** [CMakeFiles/pose_to_file_ros2.dir/build.make:76: CMakeFiles/pose_to_file_ros2.dir/src/pose_to_file_ros2.cpp.o] Error 1
+[4.572s] gmake[1]: *** [CMakeFiles/Makefile2:185: CMakeFiles/pose_to_file_ros2.dir/all] Error 2
+[4.572s] gmake[1]: *** Waiting for unfinished jobs....
+[4.682s] [ 72%] Built target timing_comparison
+[4.682s] [ 72%] Built target timing_flamegraph
+[4.683s] [ 72%] Built target format_converter
+[4.713s] [ 75%] Built target timing_histogram
+[4.730s] [ 79%] Built target timing_percentages
+[5.192s] [ 82%] Built target error_simulation
+[5.216s] [ 86%] Built target error_singlerun
+[5.341s] [ 89%] Built target error_dataset
+[5.353s] [ 93%] Built target error_comparison
+[5.410s] [ 96%] Built target plot_trajectories
+[5.411s] gmake: *** [Makefile:146: all] Error 2
+[5.413s] Invoked command in '/catkin_ws/src/open_vins/ov_eval/build/ov_eval' returned '2': CMAKE_PREFIX_PATH=/opt/ros/humble:${CMAKE_PREFIX_PATH} /usr/bin/cmake --build /catkin_ws/src/open_vins/ov_eval/build/ov_eval -- -j16 -l16

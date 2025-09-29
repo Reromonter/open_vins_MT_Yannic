@@ -1,0 +1,24 @@
+[0.076s] Invoking command in '/catkin_ws/src/open_vins/ov_eval/build/ov_eval': CMAKE_PREFIX_PATH=/opt/ros/humble:${CMAKE_PREFIX_PATH} /usr/bin/cmake --build /catkin_ws/src/open_vins/ov_eval/build/ov_eval -- -j16 -l16
+[0.234s] [35m[1mConsolidate compiler generated dependencies of target ov_eval_lib[0m
+[0.306s] [ 24%] Built target ov_eval_lib
+[0.348s] [ 27%] [32mBuilding CXX object CMakeFiles/pose_to_file_ros2.dir/src/pose_to_file_ros2.cpp.o[0m
+[0.383s] [ 96%] Built target error_simulation
+[0.383s] [ 96%] Built target timing_histogram
+[0.383s] [ 96%] Built target timing_comparison
+[0.383s] [ 96%] Built target plot_trajectories
+[0.383s] [ 96%] Built target error_comparison
+[0.383s] [ 96%] Built target timing_percentages
+[0.383s] [ 96%] Built target error_dataset
+[0.383s] [ 96%] Built target timing_flamegraph
+[0.383s] [ 96%] Built target format_converter
+[0.383s] [ 96%] Built target error_singlerun
+[3.029s] In file included from [01m[K/catkin_ws/src/open_vins/ov_eval/src/pose_to_file_ros2.cpp:14[m[K:
+[3.032s] [01m[K/catkin_ws/src/open_vins/ov_eval/src/utils/Recorder_ros2.h:[m[K In constructor ‘[01m[Kov_eval::Recorder::Recorder(std::string)[m[K’:
+[3.033s] [01m[K/catkin_ws/src/open_vins/ov_eval/src/utils/Recorder_ros2.h:67:8:[m[K [01;31m[Kerror: [m[K‘[01m[KPRINT_WARN[m[K’ was not declared in this scope; did you mean ‘[01m[KPRINT_WARNING[m[K’?
+[3.033s]    67 |        [01;31m[KPRINT_WARN[m[K("Output file exists, deleting old file....");
+[3.034s]       |        [01;31m[K^~~~~~~~~~[m[K
+[3.035s]       |        [32m[KPRINT_WARNING[m[K
+[6.772s] gmake[2]: *** [CMakeFiles/pose_to_file_ros2.dir/build.make:76: CMakeFiles/pose_to_file_ros2.dir/src/pose_to_file_ros2.cpp.o] Error 1
+[6.774s] gmake[1]: *** [CMakeFiles/Makefile2:185: CMakeFiles/pose_to_file_ros2.dir/all] Error 2
+[6.775s] gmake: *** [Makefile:146: all] Error 2
+[6.775s] Invoked command in '/catkin_ws/src/open_vins/ov_eval/build/ov_eval' returned '2': CMAKE_PREFIX_PATH=/opt/ros/humble:${CMAKE_PREFIX_PATH} /usr/bin/cmake --build /catkin_ws/src/open_vins/ov_eval/build/ov_eval -- -j16 -l16

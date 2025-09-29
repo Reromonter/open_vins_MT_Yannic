@@ -1,0 +1,51 @@
+[0.072s] Invoking command in '/catkin_ws/src/open_vins/ov_eval/build/ov_eval': CMAKE_PREFIX_PATH=/opt/ros/humble:${CMAKE_PREFIX_PATH} /usr/bin/cmake /catkin_ws/src/open_vins/ov_eval -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/catkin_ws/src/open_vins/ov_eval/install/ov_eval
+[0.092s] -- PYTHON VERSION: 3.10.12
+[0.092s] -- PYTHON INCLUDE: /usr/include/python3.10
+[0.092s] -- PYTHON LIBRARIES: /usr/lib/x86_64-linux-gnu/libpython3.10.so
+[0.246s] -- Override CMake install command with custom implementation using symlinks instead of copying resources
+[0.291s] -- ROS *2* version found, building ROS2.cmake
+[0.293s] -- Found rclcpp: 16.0.12 (/opt/ros/humble/share/rclcpp/cmake)
+[0.318s] -- Found rosidl_generator_c: 3.1.6 (/opt/ros/humble/share/rosidl_generator_c/cmake)
+[0.321s] -- Found rosidl_adapter: 3.1.6 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[0.324s] -- Found rosidl_generator_cpp: 3.1.6 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
+[0.339s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.348s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[0.370s] -- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)
+[0.371s] -- Found rmw_fastrtps_cpp: 6.2.7 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)
+[0.611s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[0.650s] -- Found ov_core: 2.7.0 (/catkin_ws/install/ov_core/share/ov_core/cmake)
+[0.657s] -- Found geometry_msgs: 4.9.0 (/opt/ros/humble/share/geometry_msgs/cmake)
+[0.666s] -- Found nav_msgs: 4.9.0 (/opt/ros/humble/share/nav_msgs/cmake)
+[0.972s] -- Configuring done
+[1.757s] -- Generating done
+[1.964s] -- Build files have been written to: /catkin_ws/src/open_vins/ov_eval/build/ov_eval
+[1.972s] Invoked command in '/catkin_ws/src/open_vins/ov_eval/build/ov_eval' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble:${CMAKE_PREFIX_PATH} /usr/bin/cmake /catkin_ws/src/open_vins/ov_eval -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/catkin_ws/src/open_vins/ov_eval/install/ov_eval
+[1.977s] Invoking command in '/catkin_ws/src/open_vins/ov_eval/build/ov_eval': CMAKE_PREFIX_PATH=/opt/ros/humble:${CMAKE_PREFIX_PATH} /usr/bin/cmake --build /catkin_ws/src/open_vins/ov_eval/build/ov_eval -- -j16 -l16
+[2.058s] [35m[1mConsolidate compiler generated dependencies of target ov_eval_lib[0m
+[2.114s] [ 10%] [32mBuilding CXX object CMakeFiles/ov_eval_lib.dir/src/calc/ResultTrajectory.cpp.o[0m
+[2.115s] [ 10%] [32mBuilding CXX object CMakeFiles/ov_eval_lib.dir/src/calc/ResultSimulation.cpp.o[0m
+[2.116s] [ 10%] [32mBuilding CXX object CMakeFiles/ov_eval_lib.dir/src/utils/Loader.cpp.o[0m
+[2.416s] In file included from [01m[K/catkin_ws/src/open_vins/ov_eval/src/utils/Loader.cpp:22[m[K:
+[2.417s] [01m[K/catkin_ws/src/open_vins/ov_eval/src/utils/Loader.h:141:13:[m[K [01;31m[Kfatal error: [m[Kgeometry_msgs/msg/pose_stamped.hpp: No such file or directory
+[2.419s]   141 |    #include [01;31m[K"geometry_msgs/msg/pose_stamped.hpp"[m[K
+[2.420s]       |             [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[2.420s] compilation terminated.
+[2.424s] gmake[2]: *** [CMakeFiles/ov_eval_lib.dir/build.make:146: CMakeFiles/ov_eval_lib.dir/src/utils/Loader.cpp.o] Error 1
+[2.424s] gmake[2]: *** Waiting for unfinished jobs....
+[2.429s] In file included from [01m[K/catkin_ws/src/open_vins/ov_eval/src/calc/ResultSimulation.h:33[m[K,
+[2.429s]                  from [01m[K/catkin_ws/src/open_vins/ov_eval/src/calc/ResultSimulation.cpp:22[m[K:
+[2.430s] [01m[K/catkin_ws/src/open_vins/ov_eval/src/utils/Loader.h:141:13:[m[K [01;31m[Kfatal error: [m[Kgeometry_msgs/msg/pose_stamped.hpp: No such file or directory
+[2.432s]   141 |    #include [01;31m[K"geometry_msgs/msg/pose_stamped.hpp"[m[K
+[2.433s]       |             [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[2.433s] compilation terminated.
+[2.438s] In file included from [01m[K/catkin_ws/src/open_vins/ov_eval/src/calc/ResultTrajectory.h:36[m[K,
+[2.439s]                  from [01m[K/catkin_ws/src/open_vins/ov_eval/src/calc/ResultTrajectory.cpp:22[m[K:
+[2.440s] [01m[K/catkin_ws/src/open_vins/ov_eval/src/utils/Loader.h:141:13:[m[K [01;31m[Kfatal error: [m[Kgeometry_msgs/msg/pose_stamped.hpp: No such file or directory
+[2.441s]   141 |    #include [01;31m[K"geometry_msgs/msg/pose_stamped.hpp"[m[K
+[2.441s]       |             [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[2.441s] compilation terminated.
+[2.442s] gmake[2]: *** [CMakeFiles/ov_eval_lib.dir/build.make:132: CMakeFiles/ov_eval_lib.dir/src/calc/ResultSimulation.cpp.o] Error 1
+[2.444s] gmake[2]: *** [CMakeFiles/ov_eval_lib.dir/build.make:118: CMakeFiles/ov_eval_lib.dir/src/calc/ResultTrajectory.cpp.o] Error 1
+[2.445s] gmake[1]: *** [CMakeFiles/Makefile2:159: CMakeFiles/ov_eval_lib.dir/all] Error 2
+[2.448s] gmake: *** [Makefile:146: all] Error 2
+[2.448s] Invoked command in '/catkin_ws/src/open_vins/ov_eval/build/ov_eval' returned '2': CMAKE_PREFIX_PATH=/opt/ros/humble:${CMAKE_PREFIX_PATH} /usr/bin/cmake --build /catkin_ws/src/open_vins/ov_eval/build/ov_eval -- -j16 -l16

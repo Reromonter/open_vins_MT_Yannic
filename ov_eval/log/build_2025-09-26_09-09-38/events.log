@@ -1,0 +1,186 @@
+[0.000000] (-) TimerEvent: {}
+[0.000144] (ov_eval) JobQueued: {'identifier': 'ov_eval', 'dependencies': OrderedDict()}
+[0.000172] (ov_eval) JobStarted: {'identifier': 'ov_eval'}
+[0.064693] (ov_eval) JobProgress: {'identifier': 'ov_eval', 'progress': 'cmake'}
+[0.093123] (ov_eval) JobProgress: {'identifier': 'ov_eval', 'progress': 'build'}
+[0.094229] (ov_eval) Command: {'cmd': ['/usr/bin/cmake', '--build', '/catkin_ws/src/open_vins/ov_eval/build/ov_eval', '--', '-j16', '-l16'], 'cwd': '/catkin_ws/src/open_vins/ov_eval/build/ov_eval', 'env': OrderedDict([('HOSTNAME', 'leo-c15-12'), ('GIT_ASKPASS', '/root/.vscode-server/bin/17baf841131aa23349f217ca7c570c76ee87b957/extensions/git/dist/askpass.sh'), ('SHLVL', '2'), ('LD_LIBRARY_PATH', '/catkin_ws/install/ov_msckf/lib:/catkin_ws/install/ov_init/lib:/catkin_ws/install/ov_eval/lib:/catkin_ws/install/ov_core/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('BROWSER', '/root/.vscode-server/bin/17baf841131aa23349f217ca7c570c76ee87b957/bin/helpers/browser.sh'), ('HOME', '/root'), ('OLDPWD', '/catkin_ws'), ('TERM_PROGRAM_VERSION', '1.99.3'), ('VSCODE_IPC_HOOK_CLI', '/tmp/vscode-ipc-4ab475a5-344e-4304-89e8-4c9142176357.sock'), ('ROS_PYTHON_VERSION', '3'), ('VSCODE_GIT_ASKPASS_MAIN', '/root/.vscode-server/bin/17baf841131aa23349f217ca7c570c76ee87b957/extensions/git/dist/askpass-main.js'), ('VSCODE_GIT_ASKPASS_NODE', '/root/.vscode-server/bin/17baf841131aa23349f217ca7c570c76ee87b957/node'), ('COLORTERM', 'truecolor'), ('REMOTE_CONTAINERS', 'true'), ('DEBUGINFOD_URLS', ''), ('COLCON_PREFIX_PATH', '/catkin_ws/install'), ('ROS_DISTRO', 'humble'), ('REMOTE_CONTAINERS_IPC', '/tmp/vscode-remote-containers-ipc-756015d0-c950-458b-8c5b-914f02062b57.sock'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('NVIDIA_DRIVER_CAPABILITIES', 'all'), ('TERM', 'xterm-256color'), ('ROS_LOCALHOST_ONLY', '0'), ('QT_X11_NO_MITSHM', '1'), ('PATH', '/opt/ros/humble/bin:/root/.vscode-server/bin/17baf841131aa23349f217ca7c570c76ee87b957/bin/remote-cli:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/root/.vscode-server/data/User/globalStorage/github.copilot-chat/debugCommand'), ('REMOTE_CONTAINERS_SOCKETS', '["/tmp/vscode-ssh-auth-756015d0-c950-458b-8c5b-914f02062b57.sock","/root/.gnupg/S.gpg-agent"]'), ('DISPLAY', ':1'), ('LANG', 'C.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('VSCODE_GIT_IPC_HANDLE', '/tmp/vscode-git-02de4b1a9e.sock'), ('TERM_PROGRAM', 'vscode'), ('SSH_AUTH_SOCK', '/tmp/vscode-ssh-auth-756015d0-c950-458b-8c5b-914f02062b57.sock'), ('AMENT_PREFIX_PATH', '/catkin_ws/install/ov_msckf:/catkin_ws/install/ov_init:/catkin_ws/install/ov_eval:/catkin_ws/install/ov_data:/catkin_ws/install/ov_core:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('FASTDDS_DEFAULT_PROFILES_FILE', '/etc/fastdds/disable_shm.xml'), ('VSCODE_GIT_ASKPASS_EXTRA_ARGS', ''), ('PWD', '/catkin_ws/src/open_vins/ov_eval/build/ov_eval'), ('LC_ALL', 'C.UTF-8'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/opt/ros/humble:/catkin_ws/install/ov_msckf:/catkin_ws/install/ov_init:/catkin_ws/install/ov_eval:/catkin_ws/install/ov_data:/catkin_ws/install/ov_core')]), 'shell': False}
+[0.131464] (-) TimerEvent: {}
+[0.231652] (-) TimerEvent: {}
+[0.285019] (ov_eval) StdoutLine: {'line': b'-- PYTHON VERSION: 3.10.12\n'}
+[0.285189] (ov_eval) StdoutLine: {'line': b'-- PYTHON INCLUDE: /usr/include/python3.10\n'}
+[0.286642] (ov_eval) StdoutLine: {'line': b'-- PYTHON LIBRARIES: /usr/lib/x86_64-linux-gnu/libpython3.10.so\n'}
+[0.331740] (-) TimerEvent: {}
+[0.431955] (-) TimerEvent: {}
+[0.450007] (ov_eval) StdoutLine: {'line': b'-- Override CMake install command with custom implementation using symlinks instead of copying resources\n'}
+[0.502726] (ov_eval) StdoutLine: {'line': b'-- ROS *2* version found, building ROS2.cmake\n'}
+[0.503805] (ov_eval) StdoutLine: {'line': b'-- Found rclcpp: 16.0.12 (/opt/ros/humble/share/rclcpp/cmake)\n'}
+[0.531719] (ov_eval) StdoutLine: {'line': b'-- Found rosidl_generator_c: 3.1.6 (/opt/ros/humble/share/rosidl_generator_c/cmake)\n'}
+[0.532016] (-) TimerEvent: {}
+[0.533413] (ov_eval) StdoutLine: {'line': b'-- Found rosidl_adapter: 3.1.6 (/opt/ros/humble/share/rosidl_adapter/cmake)\n'}
+[0.537200] (ov_eval) StdoutLine: {'line': b'-- Found rosidl_generator_cpp: 3.1.6 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)\n'}
+[0.555050] (ov_eval) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[0.565312] (ov_eval) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[0.590473] (ov_eval) StdoutLine: {'line': b'-- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)\n'}
+[0.593008] (ov_eval) StdoutLine: {'line': b'-- Found rmw_fastrtps_cpp: 6.2.7 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)\n'}
+[0.632104] (-) TimerEvent: {}
+[0.732338] (-) TimerEvent: {}
+[0.831095] (ov_eval) StdoutLine: {'line': b"-- Using RMW implementation 'rmw_fastrtps_cpp' as default\n"}
+[0.832401] (-) TimerEvent: {}
+[0.863669] (ov_eval) StdoutLine: {'line': b'-- Found ov_core: 2.7.0 (/catkin_ws/install/ov_core/share/ov_core/cmake)\n'}
+[0.868268] (ov_eval) StdoutLine: {'line': b'-- Found geometry_msgs: 4.9.0 (/opt/ros/humble/share/geometry_msgs/cmake)\n'}
+[0.877711] (ov_eval) StdoutLine: {'line': b'-- Found nav_msgs: 4.9.0 (/opt/ros/humble/share/nav_msgs/cmake)\n'}
+[0.932497] (-) TimerEvent: {}
+[1.032725] (-) TimerEvent: {}
+[1.132948] (-) TimerEvent: {}
+[1.233191] (-) TimerEvent: {}
+[1.256702] (ov_eval) StdoutLine: {'line': b'-- Configuring done\n'}
+[1.333289] (-) TimerEvent: {}
+[1.433530] (-) TimerEvent: {}
+[1.533764] (-) TimerEvent: {}
+[1.634020] (-) TimerEvent: {}
+[1.734267] (-) TimerEvent: {}
+[1.834518] (-) TimerEvent: {}
+[1.934772] (-) TimerEvent: {}
+[2.035037] (-) TimerEvent: {}
+[2.135283] (-) TimerEvent: {}
+[2.235532] (-) TimerEvent: {}
+[2.335791] (-) TimerEvent: {}
+[2.436062] (-) TimerEvent: {}
+[2.536312] (-) TimerEvent: {}
+[2.636568] (-) TimerEvent: {}
+[2.639925] (ov_eval) StdoutLine: {'line': b'-- Generating done\n'}
+[2.736660] (-) TimerEvent: {}
+[2.836930] (-) TimerEvent: {}
+[2.882805] (ov_eval) StdoutLine: {'line': b'-- Build files have been written to: /catkin_ws/src/open_vins/ov_eval/build/ov_eval\n'}
+[2.937021] (-) TimerEvent: {}
+[3.019294] (ov_eval) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target ov_eval_lib\x1b[0m\n'}
+[3.037096] (-) TimerEvent: {}
+[3.094659] (ov_eval) StdoutLine: {'line': b'[  3%] \x1b[32m\x1b[1mLinking CXX shared library libov_eval_lib.so\x1b[0m\n'}
+[3.137195] (-) TimerEvent: {}
+[3.237438] (-) TimerEvent: {}
+[3.337690] (-) TimerEvent: {}
+[3.437947] (-) TimerEvent: {}
+[3.538199] (-) TimerEvent: {}
+[3.638446] (-) TimerEvent: {}
+[3.738697] (-) TimerEvent: {}
+[3.838963] (-) TimerEvent: {}
+[3.939230] (-) TimerEvent: {}
+[4.039484] (-) TimerEvent: {}
+[4.139742] (-) TimerEvent: {}
+[4.239945] (-) TimerEvent: {}
+[4.340188] (-) TimerEvent: {}
+[4.440440] (-) TimerEvent: {}
+[4.540695] (-) TimerEvent: {}
+[4.640960] (-) TimerEvent: {}
+[4.741206] (-) TimerEvent: {}
+[4.841457] (-) TimerEvent: {}
+[4.869861] (ov_eval) StdoutLine: {'line': b'[ 25%] Built target ov_eval_lib\n'}
+[4.903664] (ov_eval) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target error_dataset\x1b[0m\n'}
+[4.904047] (ov_eval) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target format_converter\x1b[0m\n'}
+[4.905270] (ov_eval) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target timing_comparison\x1b[0m\n'}
+[4.906481] (ov_eval) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target error_comparison\x1b[0m\n'}
+[4.907654] (ov_eval) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target timing_flamegraph\x1b[0m\n'}
+[4.909096] (ov_eval) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target error_simulation\x1b[0m\n'}
+[4.913057] (ov_eval) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target error_singlerun\x1b[0m\n'}
+[4.915657] (ov_eval) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target timing_percentages\x1b[0m\n'}
+[4.917959] (ov_eval) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target timing_histogram\x1b[0m\n'}
+[4.920124] (ov_eval) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target plot_trajectories\x1b[0m\n'}
+[4.941548] (-) TimerEvent: {}
+[4.959466] (ov_eval) StdoutLine: {'line': b'[ 48%] \x1b[32m\x1b[1mLinking CXX executable error_dataset\x1b[0m\n'}
+[4.960869] (ov_eval) StdoutLine: {'line': b'[ 48%] \x1b[32m\x1b[1mLinking CXX executable timing_comparison\x1b[0m\n'}
+[4.962109] (ov_eval) StdoutLine: {'line': b'[ 48%] \x1b[32m\x1b[1mLinking CXX executable error_comparison\x1b[0m\n'}
+[4.963208] (ov_eval) StdoutLine: {'line': b'[ 48%] \x1b[32m\x1b[1mLinking CXX executable timing_flamegraph\x1b[0m\n'}
+[4.964543] (ov_eval) StdoutLine: {'line': b'[ 51%] \x1b[32m\x1b[1mLinking CXX executable error_singlerun\x1b[0m\n'}
+[4.965377] (ov_eval) StdoutLine: {'line': b'[ 51%] \x1b[32m\x1b[1mLinking CXX executable error_simulation\x1b[0m\n'}
+[4.967036] (ov_eval) StdoutLine: {'line': b'[ 59%] \x1b[32m\x1b[1mLinking CXX executable timing_percentages\x1b[0m\n'}
+[4.969412] (ov_eval) StdoutLine: {'line': b'[ 59%] \x1b[32m\x1b[1mLinking CXX executable timing_histogram\x1b[0m\n'}
+[4.970534] (ov_eval) StdoutLine: {'line': b'[ 62%] \x1b[32m\x1b[1mLinking CXX executable plot_trajectories\x1b[0m\n'}
+[4.970607] (ov_eval) StdoutLine: {'line': b'[ 62%] \x1b[32m\x1b[1mLinking CXX executable format_converter\x1b[0m\n'}
+[5.041637] (-) TimerEvent: {}
+[5.141948] (-) TimerEvent: {}
+[5.242296] (-) TimerEvent: {}
+[5.342656] (-) TimerEvent: {}
+[5.443061] (-) TimerEvent: {}
+[5.543324] (-) TimerEvent: {}
+[5.643572] (-) TimerEvent: {}
+[5.743815] (-) TimerEvent: {}
+[5.844071] (-) TimerEvent: {}
+[5.944304] (-) TimerEvent: {}
+[5.967909] (ov_eval) StdoutLine: {'line': b'[ 70%] Built target timing_histogram\n'}
+[5.972075] (ov_eval) StdoutLine: {'line': b'[ 70%] Built target format_converter\n'}
+[6.005376] (ov_eval) StdoutLine: {'line': b'[ 77%] Built target timing_comparison\n'}
+[6.007713] (ov_eval) StdoutLine: {'line': b'[ 77%] Built target timing_flamegraph\n'}
+[6.033917] (ov_eval) StdoutLine: {'line': b'[ 81%] Built target timing_percentages\n'}
+[6.044345] (-) TimerEvent: {}
+[6.144547] (-) TimerEvent: {}
+[6.244788] (-) TimerEvent: {}
+[6.345066] (-) TimerEvent: {}
+[6.445351] (-) TimerEvent: {}
+[6.545748] (-) TimerEvent: {}
+[6.551720] (ov_eval) StdoutLine: {'line': b'[ 85%] Built target error_simulation\n'}
+[6.622030] (ov_eval) StdoutLine: {'line': b'[ 88%] Built target error_singlerun\n'}
+[6.645826] (-) TimerEvent: {}
+[6.666660] (ov_eval) StdoutLine: {'line': b'[ 92%] Built target error_dataset\n'}
+[6.729680] (ov_eval) StdoutLine: {'line': b'[ 96%] Built target error_comparison\n'}
+[6.745911] (-) TimerEvent: {}
+[6.779316] (ov_eval) StdoutLine: {'line': b'[100%] Built target plot_trajectories\n'}
+[6.833278] (ov_eval) CommandEnded: {'returncode': 0}
+[6.839739] (ov_eval) JobProgress: {'identifier': 'ov_eval', 'progress': 'install'}
+[6.845979] (-) TimerEvent: {}
+[6.851098] (ov_eval) Command: {'cmd': ['/usr/bin/cmake', '--install', '/catkin_ws/src/open_vins/ov_eval/build/ov_eval'], 'cwd': '/catkin_ws/src/open_vins/ov_eval/build/ov_eval', 'env': OrderedDict([('HOSTNAME', 'leo-c15-12'), ('GIT_ASKPASS', '/root/.vscode-server/bin/17baf841131aa23349f217ca7c570c76ee87b957/extensions/git/dist/askpass.sh'), ('SHLVL', '2'), ('LD_LIBRARY_PATH', '/catkin_ws/install/ov_msckf/lib:/catkin_ws/install/ov_init/lib:/catkin_ws/install/ov_eval/lib:/catkin_ws/install/ov_core/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('BROWSER', '/root/.vscode-server/bin/17baf841131aa23349f217ca7c570c76ee87b957/bin/helpers/browser.sh'), ('HOME', '/root'), ('OLDPWD', '/catkin_ws'), ('TERM_PROGRAM_VERSION', '1.99.3'), ('VSCODE_IPC_HOOK_CLI', '/tmp/vscode-ipc-4ab475a5-344e-4304-89e8-4c9142176357.sock'), ('ROS_PYTHON_VERSION', '3'), ('VSCODE_GIT_ASKPASS_MAIN', '/root/.vscode-server/bin/17baf841131aa23349f217ca7c570c76ee87b957/extensions/git/dist/askpass-main.js'), ('VSCODE_GIT_ASKPASS_NODE', '/root/.vscode-server/bin/17baf841131aa23349f217ca7c570c76ee87b957/node'), ('COLORTERM', 'truecolor'), ('REMOTE_CONTAINERS', 'true'), ('DEBUGINFOD_URLS', ''), ('COLCON_PREFIX_PATH', '/catkin_ws/install'), ('ROS_DISTRO', 'humble'), ('REMOTE_CONTAINERS_IPC', '/tmp/vscode-remote-containers-ipc-756015d0-c950-458b-8c5b-914f02062b57.sock'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('NVIDIA_DRIVER_CAPABILITIES', 'all'), ('TERM', 'xterm-256color'), ('ROS_LOCALHOST_ONLY', '0'), ('QT_X11_NO_MITSHM', '1'), ('PATH', '/opt/ros/humble/bin:/root/.vscode-server/bin/17baf841131aa23349f217ca7c570c76ee87b957/bin/remote-cli:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/root/.vscode-server/data/User/globalStorage/github.copilot-chat/debugCommand'), ('REMOTE_CONTAINERS_SOCKETS', '["/tmp/vscode-ssh-auth-756015d0-c950-458b-8c5b-914f02062b57.sock","/root/.gnupg/S.gpg-agent"]'), ('DISPLAY', ':1'), ('LANG', 'C.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('VSCODE_GIT_IPC_HANDLE', '/tmp/vscode-git-02de4b1a9e.sock'), ('TERM_PROGRAM', 'vscode'), ('SSH_AUTH_SOCK', '/tmp/vscode-ssh-auth-756015d0-c950-458b-8c5b-914f02062b57.sock'), ('AMENT_PREFIX_PATH', '/catkin_ws/install/ov_msckf:/catkin_ws/install/ov_init:/catkin_ws/install/ov_eval:/catkin_ws/install/ov_data:/catkin_ws/install/ov_core:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('FASTDDS_DEFAULT_PROFILES_FILE', '/etc/fastdds/disable_shm.xml'), ('VSCODE_GIT_ASKPASS_EXTRA_ARGS', ''), ('PWD', '/catkin_ws/src/open_vins/ov_eval/build/ov_eval'), ('LC_ALL', 'C.UTF-8'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/opt/ros/humble:/catkin_ws/install/ov_msckf:/catkin_ws/install/ov_init:/catkin_ws/install/ov_eval:/catkin_ws/install/ov_data:/catkin_ws/install/ov_core')]), 'shell': False}
+[6.857987] (ov_eval) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[6.863995] (ov_eval) StdoutLine: {'line': b'-- Execute custom install script\n'}
+[6.865873] (ov_eval) StdoutLine: {'line': b'-- Up-to-date symlink: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/share/ov_eval/environment/library_path.sh\n'}
+[6.867644] (ov_eval) StdoutLine: {'line': b'-- Up-to-date symlink: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/share/ov_eval/environment/library_path.dsv\n'}
+[6.871410] (ov_eval) StdoutLine: {'line': b'-- Up-to-date symlink: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/lib/ov_eval/format_converter\n'}
+[6.874998] (ov_eval) StdoutLine: {'line': b'-- Up-to-date symlink: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/lib/ov_eval/error_comparison\n'}
+[6.878803] (ov_eval) StdoutLine: {'line': b'-- Up-to-date symlink: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/lib/ov_eval/error_dataset\n'}
+[6.882727] (ov_eval) StdoutLine: {'line': b'-- Up-to-date symlink: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/lib/ov_eval/error_singlerun\n'}
+[6.886420] (ov_eval) StdoutLine: {'line': b'-- Up-to-date symlink: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/lib/ov_eval/error_simulation\n'}
+[6.890280] (ov_eval) StdoutLine: {'line': b'-- Up-to-date symlink: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/lib/ov_eval/timing_comparison\n'}
+[6.894448] (ov_eval) StdoutLine: {'line': b'-- Up-to-date symlink: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/lib/ov_eval/timing_flamegraph\n'}
+[6.898408] (ov_eval) StdoutLine: {'line': b'-- Up-to-date symlink: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/lib/ov_eval/timing_histogram\n'}
+[6.902115] (ov_eval) StdoutLine: {'line': b'-- Up-to-date symlink: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/lib/ov_eval/timing_percentages\n'}
+[6.906078] (ov_eval) StdoutLine: {'line': b'-- Up-to-date symlink: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/lib/ov_eval/plot_trajectories\n'}
+[6.908327] (ov_eval) StdoutLine: {'line': b'-- Up-to-date symlink: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/lib/ov_eval/pid_ros.py\n'}
+[6.910180] (ov_eval) StdoutLine: {'line': b'-- Up-to-date symlink: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/lib/ov_eval/pid_sys.py\n'}
+[6.911856] (ov_eval) StdoutLine: {'line': b'-- Up-to-date symlink: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/share/ament_index/resource_index/package_run_dependencies/ov_eval\n'}
+[6.913773] (ov_eval) StdoutLine: {'line': b'-- Up-to-date symlink: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/share/ament_index/resource_index/parent_prefix_path/ov_eval\n'}
+[6.915594] (ov_eval) StdoutLine: {'line': b'-- Up-to-date symlink: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/share/ov_eval/environment/ament_prefix_path.sh\n'}
+[6.917492] (ov_eval) StdoutLine: {'line': b'-- Up-to-date symlink: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/share/ov_eval/environment/ament_prefix_path.dsv\n'}
+[6.919144] (ov_eval) StdoutLine: {'line': b'-- Up-to-date symlink: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/share/ov_eval/environment/path.sh\n'}
+[6.921034] (ov_eval) StdoutLine: {'line': b'-- Up-to-date symlink: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/share/ov_eval/environment/path.dsv\n'}
+[6.922662] (ov_eval) StdoutLine: {'line': b'-- Up-to-date symlink: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/share/ov_eval/local_setup.bash\n'}
+[6.924249] (ov_eval) StdoutLine: {'line': b'-- Up-to-date symlink: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/share/ov_eval/local_setup.sh\n'}
+[6.925995] (ov_eval) StdoutLine: {'line': b'-- Up-to-date symlink: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/share/ov_eval/local_setup.zsh\n'}
+[6.927945] (ov_eval) StdoutLine: {'line': b'-- Up-to-date symlink: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/share/ov_eval/local_setup.dsv\n'}
+[6.929686] (ov_eval) StdoutLine: {'line': b'-- Symlinking: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/share/ov_eval/package.dsv\n'}
+[6.946051] (-) TimerEvent: {}
+[6.951261] (ov_eval) StdoutLine: {'line': b'-- Up-to-date symlink: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/share/ament_index/resource_index/packages/ov_eval\n'}
+[6.953112] (ov_eval) StdoutLine: {'line': b'-- Up-to-date symlink: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/share/ov_eval/cmake/ament_cmake_export_include_directories-extras.cmake\n'}
+[6.954903] (ov_eval) StdoutLine: {'line': b'-- Up-to-date symlink: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/share/ov_eval/cmake/ament_cmake_export_libraries-extras.cmake\n'}
+[6.956937] (ov_eval) StdoutLine: {'line': b'-- Up-to-date symlink: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/share/ov_eval/cmake/ov_evalConfig.cmake\n'}
+[6.958709] (ov_eval) StdoutLine: {'line': b'-- Up-to-date symlink: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/share/ov_eval/cmake/ov_evalConfig-version.cmake\n'}
+[6.960567] (ov_eval) StdoutLine: {'line': b'-- Up-to-date symlink: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/share/ov_eval/package.xml\n'}
+[6.961445] (ov_eval) StdoutLine: {'line': b'-- Installing: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/lib/libov_eval_lib.so\n'}
+[7.046154] (-) TimerEvent: {}
+[7.146421] (-) TimerEvent: {}
+[7.246679] (-) TimerEvent: {}
+[7.346953] (-) TimerEvent: {}
+[7.436880] (ov_eval) StdoutLine: {'line': b'-- Set runtime path of "/catkin_ws/src/open_vins/ov_eval/install/ov_eval/lib/libov_eval_lib.so" to ""\n'}
+[7.437932] (ov_eval) StdoutLine: {'line': b'-- Up-to-date: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/include\n'}
+[7.440456] (ov_eval) StdoutLine: {'line': b'-- Up-to-date: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/include/calc\n'}
+[7.442900] (ov_eval) StdoutLine: {'line': b'-- Up-to-date: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/include/calc/ResultTrajectory.h\n'}
+[7.444325] (ov_eval) StdoutLine: {'line': b'-- Up-to-date: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/include/calc/ResultSimulation.h\n'}
+[7.445744] (ov_eval) StdoutLine: {'line': b'-- Up-to-date: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/include/utils\n'}
+[7.447005] (-) TimerEvent: {}
+[7.448343] (ov_eval) StdoutLine: {'line': b'-- Up-to-date: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/include/utils/Statistics.h\n'}
+[7.449652] (ov_eval) StdoutLine: {'line': b'-- Up-to-date: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/include/utils/Loader.h\n'}
+[7.450979] (ov_eval) StdoutLine: {'line': b'-- Up-to-date: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/include/utils/Recorder.h\n'}
+[7.452252] (ov_eval) StdoutLine: {'line': b'-- Up-to-date: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/include/alignment\n'}
+[7.454663] (ov_eval) StdoutLine: {'line': b'-- Up-to-date: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/include/alignment/AlignTrajectory.h\n'}
+[7.455838] (ov_eval) StdoutLine: {'line': b'-- Up-to-date: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/include/alignment/AlignUtils.h\n'}
+[7.463352] (ov_eval) CommandEnded: {'returncode': 0}
+[7.547088] (-) TimerEvent: {}
+[7.615027] (ov_eval) JobEnded: {'identifier': 'ov_eval', 'rc': 0}
+[7.619712] (-) EventReactorShutdown: {}

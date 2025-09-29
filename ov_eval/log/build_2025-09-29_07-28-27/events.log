@@ -1,0 +1,494 @@
+[0.000000] (-) TimerEvent: {}
+[0.000092] (ov_eval) JobQueued: {'identifier': 'ov_eval', 'dependencies': OrderedDict()}
+[0.000117] (ov_eval) JobStarted: {'identifier': 'ov_eval'}
+[0.032607] (ov_eval) JobProgress: {'identifier': 'ov_eval', 'progress': 'cmake'}
+[0.038876] (ov_eval) JobProgress: {'identifier': 'ov_eval', 'progress': 'build'}
+[0.040001] (ov_eval) Command: {'cmd': ['/usr/bin/cmake', '--build', '/catkin_ws/src/open_vins/ov_eval/build/ov_eval', '--', '-j16', '-l16'], 'cwd': '/catkin_ws/src/open_vins/ov_eval/build/ov_eval', 'env': OrderedDict([('HOSTNAME', 'leo-c15-12'), ('GIT_ASKPASS', '/root/.vscode-server/bin/17baf841131aa23349f217ca7c570c76ee87b957/extensions/git/dist/askpass.sh'), ('SHLVL', '2'), ('LD_LIBRARY_PATH', '/catkin_ws/install/ov_msckf/lib:/catkin_ws/install/ov_init/lib:/catkin_ws/install/ov_eval/lib:/catkin_ws/install/ov_core/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('BROWSER', '/root/.vscode-server/bin/17baf841131aa23349f217ca7c570c76ee87b957/bin/helpers/browser.sh'), ('HOME', '/root'), ('OLDPWD', '/catkin_ws'), ('TERM_PROGRAM_VERSION', '1.99.3'), ('VSCODE_IPC_HOOK_CLI', '/tmp/vscode-ipc-4ab475a5-344e-4304-89e8-4c9142176357.sock'), ('ROS_PYTHON_VERSION', '3'), ('VSCODE_GIT_ASKPASS_MAIN', '/root/.vscode-server/bin/17baf841131aa23349f217ca7c570c76ee87b957/extensions/git/dist/askpass-main.js'), ('VSCODE_GIT_ASKPASS_NODE', '/root/.vscode-server/bin/17baf841131aa23349f217ca7c570c76ee87b957/node'), ('COLORTERM', 'truecolor'), ('REMOTE_CONTAINERS', 'true'), ('DEBUGINFOD_URLS', ''), ('COLCON_PREFIX_PATH', '/catkin_ws/install'), ('ROS_DISTRO', 'humble'), ('REMOTE_CONTAINERS_IPC', '/tmp/vscode-remote-containers-ipc-756015d0-c950-458b-8c5b-914f02062b57.sock'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('NVIDIA_DRIVER_CAPABILITIES', 'all'), ('TERM', 'xterm-256color'), ('ROS_LOCALHOST_ONLY', '0'), ('QT_X11_NO_MITSHM', '1'), ('PATH', '/opt/ros/humble/bin:/root/.vscode-server/bin/17baf841131aa23349f217ca7c570c76ee87b957/bin/remote-cli:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/root/.vscode-server/data/User/globalStorage/github.copilot-chat/debugCommand'), ('REMOTE_CONTAINERS_SOCKETS', '["/tmp/vscode-ssh-auth-756015d0-c950-458b-8c5b-914f02062b57.sock","/root/.gnupg/S.gpg-agent"]'), ('DISPLAY', ':1'), ('LANG', 'C.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('VSCODE_GIT_IPC_HANDLE', '/tmp/vscode-git-02de4b1a9e.sock'), ('TERM_PROGRAM', 'vscode'), ('SSH_AUTH_SOCK', '/tmp/vscode-ssh-auth-756015d0-c950-458b-8c5b-914f02062b57.sock'), ('AMENT_PREFIX_PATH', '/catkin_ws/install/ov_msckf:/catkin_ws/install/ov_init:/catkin_ws/install/ov_eval:/catkin_ws/install/ov_data:/catkin_ws/install/ov_core:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('FASTDDS_DEFAULT_PROFILES_FILE', '/etc/fastdds/disable_shm.xml'), ('VSCODE_GIT_ASKPASS_EXTRA_ARGS', ''), ('PWD', '/catkin_ws/src/open_vins/ov_eval/build/ov_eval'), ('LC_ALL', 'C.UTF-8'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/opt/ros/humble:/catkin_ws/install/ov_msckf:/catkin_ws/install/ov_init:/catkin_ws/install/ov_eval:/catkin_ws/install/ov_data:/catkin_ws/install/ov_core')]), 'shell': False}
+[0.083969] (ov_eval) StdoutLine: {'line': b'-- PYTHON VERSION: 3.10.12\n'}
+[0.084131] (ov_eval) StdoutLine: {'line': b'-- PYTHON INCLUDE: /usr/include/python3.10\n'}
+[0.084181] (ov_eval) StdoutLine: {'line': b'-- PYTHON LIBRARIES: /usr/lib/x86_64-linux-gnu/libpython3.10.so\n'}
+[0.098703] (-) TimerEvent: {}
+[0.198913] (-) TimerEvent: {}
+[0.232821] (ov_eval) StdoutLine: {'line': b'-- Override CMake install command with custom implementation using symlinks instead of copying resources\n'}
+[0.274455] (ov_eval) StdoutLine: {'line': b'-- ROS *2* version found, building ROS2.cmake\n'}
+[0.276181] (ov_eval) StdoutLine: {'line': b'-- Found rclcpp: 16.0.12 (/opt/ros/humble/share/rclcpp/cmake)\n'}
+[0.299000] (-) TimerEvent: {}
+[0.301572] (ov_eval) StdoutLine: {'line': b'-- Found rosidl_generator_c: 3.1.6 (/opt/ros/humble/share/rosidl_generator_c/cmake)\n'}
+[0.303239] (ov_eval) StdoutLine: {'line': b'-- Found rosidl_adapter: 3.1.6 (/opt/ros/humble/share/rosidl_adapter/cmake)\n'}
+[0.307485] (ov_eval) StdoutLine: {'line': b'-- Found rosidl_generator_cpp: 3.1.6 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)\n'}
+[0.314256] (ov_eval) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[0.322549] (ov_eval) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[0.344253] (ov_eval) StdoutLine: {'line': b'-- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)\n'}
+[0.345231] (ov_eval) StdoutLine: {'line': b'-- Found rmw_fastrtps_cpp: 6.2.7 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)\n'}
+[0.399108] (-) TimerEvent: {}
+[0.499366] (-) TimerEvent: {}
+[0.579824] (ov_eval) StdoutLine: {'line': b"-- Using RMW implementation 'rmw_fastrtps_cpp' as default\n"}
+[0.599463] (-) TimerEvent: {}
+[0.614007] (ov_eval) StdoutLine: {'line': b'-- Found ov_core: 2.7.0 (/catkin_ws/install/ov_core/share/ov_core/cmake)\n'}
+[0.616320] (ov_eval) StdoutLine: {'line': b'-- Found geometry_msgs: 4.9.0 (/opt/ros/humble/share/geometry_msgs/cmake)\n'}
+[0.624524] (ov_eval) StdoutLine: {'line': b'-- Found nav_msgs: 4.9.0 (/opt/ros/humble/share/nav_msgs/cmake)\n'}
+[0.699558] (-) TimerEvent: {}
+[0.799810] (-) TimerEvent: {}
+[0.900059] (-) TimerEvent: {}
+[0.905257] (ov_eval) StdoutLine: {'line': b'-- Configuring done\n'}
+[1.000161] (-) TimerEvent: {}
+[1.100445] (-) TimerEvent: {}
+[1.200723] (-) TimerEvent: {}
+[1.300990] (-) TimerEvent: {}
+[1.401275] (-) TimerEvent: {}
+[1.501556] (-) TimerEvent: {}
+[1.583630] (ov_eval) StdoutLine: {'line': b'-- Generating done\n'}
+[1.601598] (-) TimerEvent: {}
+[1.701830] (-) TimerEvent: {}
+[1.802075] (-) TimerEvent: {}
+[1.851095] (ov_eval) StdoutLine: {'line': b'-- Build files have been written to: /catkin_ws/src/open_vins/ov_eval/build/ov_eval\n'}
+[1.902191] (-) TimerEvent: {}
+[1.910979] (ov_eval) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target ov_eval_lib\x1b[0m\n'}
+[1.966490] (ov_eval) StdoutLine: {'line': b'[ 20%] \x1b[32mBuilding CXX object CMakeFiles/ov_eval_lib.dir/src/calc/ResultTrajectory.cpp.o\x1b[0m\n'}
+[1.966697] (ov_eval) StdoutLine: {'line': b'[ 20%] \x1b[32mBuilding CXX object CMakeFiles/ov_eval_lib.dir/src/dummy.cpp.o\x1b[0m\n'}
+[1.967886] (ov_eval) StdoutLine: {'line': b'[ 20%] \x1b[32mBuilding CXX object CMakeFiles/ov_eval_lib.dir/src/alignment/AlignUtils.cpp.o\x1b[0m\n'}
+[1.968980] (ov_eval) StdoutLine: {'line': b'[ 20%] \x1b[32mBuilding CXX object CMakeFiles/ov_eval_lib.dir/src/calc/ResultSimulation.cpp.o\x1b[0m\n'}
+[1.970145] (ov_eval) StdoutLine: {'line': b'[ 20%] \x1b[32mBuilding CXX object CMakeFiles/ov_eval_lib.dir/src/alignment/AlignTrajectory.cpp.o\x1b[0m\n'}
+[1.971162] (ov_eval) StdoutLine: {'line': b'[ 20%] \x1b[32mBuilding CXX object CMakeFiles/ov_eval_lib.dir/src/utils/Loader.cpp.o\x1b[0m\n'}
+[2.002281] (-) TimerEvent: {}
+[2.102534] (-) TimerEvent: {}
+[2.202850] (-) TimerEvent: {}
+[2.303131] (-) TimerEvent: {}
+[2.403420] (-) TimerEvent: {}
+[2.503738] (-) TimerEvent: {}
+[2.604056] (-) TimerEvent: {}
+[2.704418] (-) TimerEvent: {}
+[2.804779] (-) TimerEvent: {}
+[2.905144] (-) TimerEvent: {}
+[3.005498] (-) TimerEvent: {}
+[3.105845] (-) TimerEvent: {}
+[3.206192] (-) TimerEvent: {}
+[3.306538] (-) TimerEvent: {}
+[3.406867] (-) TimerEvent: {}
+[3.507180] (-) TimerEvent: {}
+[3.607518] (-) TimerEvent: {}
+[3.707894] (-) TimerEvent: {}
+[3.808240] (-) TimerEvent: {}
+[3.908593] (-) TimerEvent: {}
+[4.008925] (-) TimerEvent: {}
+[4.109274] (-) TimerEvent: {}
+[4.209617] (-) TimerEvent: {}
+[4.309963] (-) TimerEvent: {}
+[4.410288] (-) TimerEvent: {}
+[4.510680] (-) TimerEvent: {}
+[4.611002] (-) TimerEvent: {}
+[4.711335] (-) TimerEvent: {}
+[4.811669] (-) TimerEvent: {}
+[4.888775] (ov_eval) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/catkin_ws/src/open_vins/ov_eval/src/utils/Loader.cpp:22\x1b[m\x1b[K:\n'}
+[4.888996] (ov_eval) StderrLine: {'line': b'\x1b[01m\x1b[K/catkin_ws/src/open_vins/ov_eval/src/utils/Loader.h:\x1b[m\x1b[K In constructor \xe2\x80\x98\x1b[01m\x1b[Kov_eval::Recorder::Recorder(const string&)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[4.890405] (ov_eval) StderrLine: {'line': b'\x1b[01m\x1b[K/catkin_ws/src/open_vins/ov_eval/src/utils/Loader.h:190:8:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[KPRINT_WARN\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope; did you mean \xe2\x80\x98\x1b[01m\x1b[KPRINT_ALL\x1b[m\x1b[K\xe2\x80\x99?\n'}
+[4.891747] (ov_eval) StderrLine: {'line': b'  190 |        \x1b[01;31m\x1b[KPRINT_WARN\x1b[m\x1b[K("Output file exists, deleting old file: %s", filename.c_str());\n'}
+[4.892958] (ov_eval) StderrLine: {'line': b'      |        \x1b[01;31m\x1b[K^~~~~~~~~~\x1b[m\x1b[K\n'}
+[4.894184] (ov_eval) StderrLine: {'line': b'      |        \x1b[32m\x1b[KPRINT_ALL\x1b[m\x1b[K\n'}
+[4.903857] (ov_eval) StderrLine: {'line': b'\x1b[01m\x1b[K/catkin_ws/src/open_vins/ov_eval/src/utils/Loader.cpp:\x1b[m\x1b[K At global scope:\n'}
+[4.904017] (ov_eval) StderrLine: {'line': b'\x1b[01m\x1b[K/catkin_ws/src/open_vins/ov_eval/src/utils/Loader.cpp:26:6:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[KLoader\x1b[m\x1b[K\xe2\x80\x99 has not been declared\n'}
+[4.905153] (ov_eval) StderrLine: {'line': b'   26 | void \x1b[01;31m\x1b[KLoader\x1b[m\x1b[K::load_data(std::string path_traj, std::vector<double> &times, std::vector<Eigen::Matrix<double, 7, 1>> &poses,\n'}
+[4.906050] (ov_eval) StderrLine: {'line': b'      |      \x1b[01;31m\x1b[K^~~~~~\x1b[m\x1b[K\n'}
+[4.908533] (ov_eval) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/catkin_ws/src/open_vins/ov_eval/src/utils/Loader.h:132\x1b[m\x1b[K,\n'}
+[4.909664] (ov_eval) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/catkin_ws/src/open_vins/ov_eval/src/utils/Loader.cpp:22\x1b[m\x1b[K:\n'}
+[4.910575] (ov_eval) StderrLine: {'line': b'\x1b[01m\x1b[K/catkin_ws/src/open_vins/ov_eval/src/utils/Loader.cpp:\x1b[m\x1b[K In function \xe2\x80\x98\x1b[01m\x1b[Kvoid load_data(std::string, std::vector<double, std::allocator<double> >&, std::vector<Eigen::Matrix<double, 7, 1> >&, std::vector<Eigen::Matrix<double, 3, 3> >&, std::vector<Eigen::Matrix<double, 3, 3> >&)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[4.911606] (ov_eval) StderrLine: {'line': b'\x1b[01m\x1b[K/catkin_ws/src/open_vins/ov_eval/src/utils/Loader.cpp:32:17:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[KRED\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[4.925868] (-) TimerEvent: {}
+[4.927324] (ov_eval) StderrLine: {'line': b'   32 |     PRINT_ERROR(\x1b[01;31m\x1b[KRED\x1b[m\x1b[K "[LOAD]: Unable to open trajectory file...\\n" RESET);\n'}
+[4.928532] (ov_eval) StderrLine: {'line': b'      |                 \x1b[01;31m\x1b[K^~~\x1b[m\x1b[K\n'}
+[4.929767] (ov_eval) StderrLine: {'line': b'\x1b[01m\x1b[K/catkin_ws/install/ov_core/include/utils/print.h:100:123:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kin definition of macro \xe2\x80\x98\x1b[01m\x1b[KPRINT_ERROR\x1b[m\x1b[K\xe2\x80\x99\n'}
+[4.931009] (ov_eval) StderrLine: {'line': b'  100 | #define PRINT_ERROR(x...) ov_core::Printer::debugPrint(ov_core::Printer::PrintLevel::ERROR, __FILE__, TOSTRING(__LINE__), \x1b[01;36m\x1b[Kx\x1b[m\x1b[K);\n'}
+[4.933518] (ov_eval) StderrLine: {'line': b'      |                                                                                                                           \x1b[01;36m\x1b[K^\x1b[m\x1b[K\n'}
+[4.939219] (ov_eval) StderrLine: {'line': b'\x1b[01m\x1b[K/catkin_ws/src/open_vins/ov_eval/src/utils/Loader.cpp:33:21:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Kexpected \xe2\x80\x98\x1b[01m\x1b[K)\x1b[m\x1b[K\xe2\x80\x99 before string constant\n'}
+[4.940614] (ov_eval) StderrLine: {'line': b'   33 |     PRINT_ERROR(RED \x1b[01;31m\x1b[K"[LOAD]: %s\\n"\x1b[m\x1b[K RESET, path_traj.c_str());\n'}
+[4.941873] (ov_eval) StderrLine: {'line': b'      |                     \x1b[01;31m\x1b[K^~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[4.943414] (ov_eval) StderrLine: {'line': b'\x1b[01m\x1b[K/catkin_ws/install/ov_core/include/utils/print.h:100:123:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kin definition of macro \xe2\x80\x98\x1b[01m\x1b[KPRINT_ERROR\x1b[m\x1b[K\xe2\x80\x99\n'}
+[4.944700] (ov_eval) StderrLine: {'line': b'  100 | #define PRINT_ERROR(x...) ov_core::Printer::debugPrint(ov_core::Printer::PrintLevel::ERROR, __FILE__, TOSTRING(__LINE__), \x1b[01;36m\x1b[Kx\x1b[m\x1b[K);\n'}
+[4.944784] (ov_eval) StderrLine: {'line': b'      |                                                                                                                           \x1b[01;36m\x1b[K^\x1b[m\x1b[K\n'}
+[4.946047] (ov_eval) StderrLine: {'line': b'\x1b[01m\x1b[K/catkin_ws/install/ov_core/include/utils/print.h:100:55:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kto match this \xe2\x80\x98\x1b[01m\x1b[K(\x1b[m\x1b[K\xe2\x80\x99\n'}
+[4.947219] (ov_eval) StderrLine: {'line': b'  100 | #define PRINT_ERROR(x...) ov_core::Printer::debugPrint\x1b[01;36m\x1b[K(\x1b[m\x1b[Kov_core::Printer::PrintLevel::ERROR, __FILE__, TOSTRING(__LINE__), x);\n'}
+[4.948513] (ov_eval) StderrLine: {'line': b'      |                                                       \x1b[01;36m\x1b[K^\x1b[m\x1b[K\n'}
+[4.949643] (ov_eval) StderrLine: {'line': b'\x1b[01m\x1b[K/catkin_ws/src/open_vins/ov_eval/src/utils/Loader.cpp:33:5:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kin expansion of macro \xe2\x80\x98\x1b[01m\x1b[KPRINT_ERROR\x1b[m\x1b[K\xe2\x80\x99\n'}
+[4.949728] (ov_eval) StderrLine: {'line': b'   33 |     \x1b[01;36m\x1b[KPRINT_ERROR\x1b[m\x1b[K(RED "[LOAD]: %s\\n" RESET, path_traj.c_str());\n'}
+[4.951077] (ov_eval) StderrLine: {'line': b'      |     \x1b[01;36m\x1b[K^~~~~~~~~~~\x1b[m\x1b[K\n'}
+[4.982998] (ov_eval) StderrLine: {'line': b'\x1b[01m\x1b[K/catkin_ws/src/open_vins/ov_eval/src/utils/Loader.cpp:85:17:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[KRED\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[4.983237] (ov_eval) StderrLine: {'line': b'   85 |     PRINT_ERROR(\x1b[01;31m\x1b[KRED\x1b[m\x1b[K "[LOAD]: Could not parse any data from the file!!\\n" RESET);\n'}
+[4.984575] (ov_eval) StderrLine: {'line': b'      |                 \x1b[01;31m\x1b[K^~~\x1b[m\x1b[K\n'}
+[4.986491] (ov_eval) StderrLine: {'line': b'\x1b[01m\x1b[K/catkin_ws/install/ov_core/include/utils/print.h:100:123:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kin definition of macro \xe2\x80\x98\x1b[01m\x1b[KPRINT_ERROR\x1b[m\x1b[K\xe2\x80\x99\n'}
+[4.987768] (ov_eval) StderrLine: {'line': b'  100 | #define PRINT_ERROR(x...) ov_core::Printer::debugPrint(ov_core::Printer::PrintLevel::ERROR, __FILE__, TOSTRING(__LINE__), \x1b[01;36m\x1b[Kx\x1b[m\x1b[K);\n'}
+[4.989185] (ov_eval) StderrLine: {'line': b'      |                                                                                                                           \x1b[01;36m\x1b[K^\x1b[m\x1b[K\n'}
+[4.989281] (ov_eval) StderrLine: {'line': b'\x1b[01m\x1b[K/catkin_ws/src/open_vins/ov_eval/src/utils/Loader.cpp:86:21:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Kexpected \xe2\x80\x98\x1b[01m\x1b[K)\x1b[m\x1b[K\xe2\x80\x99 before string constant\n'}
+[4.990298] (ov_eval) StderrLine: {'line': b'   86 |     PRINT_ERROR(RED \x1b[01;31m\x1b[K"[LOAD]: %s\\n"\x1b[m\x1b[K RESET, path_traj.c_str());\n'}
+[4.991666] (ov_eval) StderrLine: {'line': b'      |                     \x1b[01;31m\x1b[K^~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[4.992882] (ov_eval) StderrLine: {'line': b'\x1b[01m\x1b[K/catkin_ws/install/ov_core/include/utils/print.h:100:123:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kin definition of macro \xe2\x80\x98\x1b[01m\x1b[KPRINT_ERROR\x1b[m\x1b[K\xe2\x80\x99\n'}
+[4.994148] (ov_eval) StderrLine: {'line': b'  100 | #define PRINT_ERROR(x...) ov_core::Printer::debugPrint(ov_core::Printer::PrintLevel::ERROR, __FILE__, TOSTRING(__LINE__), \x1b[01;36m\x1b[Kx\x1b[m\x1b[K);\n'}
+[4.994216] (ov_eval) StderrLine: {'line': b'      |                                                                                                                           \x1b[01;36m\x1b[K^\x1b[m\x1b[K\n'}
+[4.995406] (ov_eval) StderrLine: {'line': b'\x1b[01m\x1b[K/catkin_ws/install/ov_core/include/utils/print.h:100:55:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kto match this \xe2\x80\x98\x1b[01m\x1b[K(\x1b[m\x1b[K\xe2\x80\x99\n'}
+[4.996688] (ov_eval) StderrLine: {'line': b'  100 | #define PRINT_ERROR(x...) ov_core::Printer::debugPrint\x1b[01;36m\x1b[K(\x1b[m\x1b[Kov_core::Printer::PrintLevel::ERROR, __FILE__, TOSTRING(__LINE__), x);\n'}
+[4.997894] (ov_eval) StderrLine: {'line': b'      |                                                       \x1b[01;36m\x1b[K^\x1b[m\x1b[K\n'}
+[4.999161] (ov_eval) StderrLine: {'line': b'\x1b[01m\x1b[K/catkin_ws/src/open_vins/ov_eval/src/utils/Loader.cpp:86:5:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kin expansion of macro \xe2\x80\x98\x1b[01m\x1b[KPRINT_ERROR\x1b[m\x1b[K\xe2\x80\x99\n'}
+[4.999227] (ov_eval) StderrLine: {'line': b'   86 |     \x1b[01;36m\x1b[KPRINT_ERROR\x1b[m\x1b[K(RED "[LOAD]: %s\\n" RESET, path_traj.c_str());\n'}
+[5.000696] (ov_eval) StderrLine: {'line': b'      |     \x1b[01;36m\x1b[K^~~~~~~~~~~\x1b[m\x1b[K\n'}
+[5.002000] (ov_eval) StderrLine: {'line': b'\x1b[01m\x1b[K/catkin_ws/src/open_vins/ov_eval/src/utils/Loader.cpp:92:17:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[KRED\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[5.003361] (ov_eval) StderrLine: {'line': b'   92 |     PRINT_ERROR(\x1b[01;31m\x1b[KRED\x1b[m\x1b[K "[LOAD]: Parsing error, pose and timestamps do not match!!\\n" RESET);\n'}
+[5.004640] (ov_eval) StderrLine: {'line': b'      |                 \x1b[01;31m\x1b[K^~~\x1b[m\x1b[K\n'}
+[5.004726] (ov_eval) StderrLine: {'line': b'\x1b[01m\x1b[K/catkin_ws/install/ov_core/include/utils/print.h:100:123:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kin definition of macro \xe2\x80\x98\x1b[01m\x1b[KPRINT_ERROR\x1b[m\x1b[K\xe2\x80\x99\n'}
+[5.005922] (ov_eval) StderrLine: {'line': b'  100 | #define PRINT_ERROR(x...) ov_core::Printer::debugPrint(ov_core::Printer::PrintLevel::ERROR, __FILE__, TOSTRING(__LINE__), \x1b[01;36m\x1b[Kx\x1b[m\x1b[K);\n'}
+[5.007188] (ov_eval) StderrLine: {'line': b'      |                                                                                                                           \x1b[01;36m\x1b[K^\x1b[m\x1b[K\n'}
+[5.008617] (ov_eval) StderrLine: {'line': b'\x1b[01m\x1b[K/catkin_ws/src/open_vins/ov_eval/src/utils/Loader.cpp:93:21:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Kexpected \xe2\x80\x98\x1b[01m\x1b[K)\x1b[m\x1b[K\xe2\x80\x99 before string constant\n'}
+[5.009850] (ov_eval) StderrLine: {'line': b'   93 |     PRINT_ERROR(RED \x1b[01;31m\x1b[K"[LOAD]: %s\\n"\x1b[m\x1b[K RESET, path_traj.c_str());\n'}
+[5.009935] (ov_eval) StderrLine: {'line': b'      |                     \x1b[01;31m\x1b[K^~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[5.011222] (ov_eval) StderrLine: {'line': b'\x1b[01m\x1b[K/catkin_ws/install/ov_core/include/utils/print.h:100:123:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kin definition of macro \xe2\x80\x98\x1b[01m\x1b[KPRINT_ERROR\x1b[m\x1b[K\xe2\x80\x99\n'}
+[5.012653] (ov_eval) StderrLine: {'line': b'  100 | #define PRINT_ERROR(x...) ov_core::Printer::debugPrint(ov_core::Printer::PrintLevel::ERROR, __FILE__, TOSTRING(__LINE__), \x1b[01;36m\x1b[Kx\x1b[m\x1b[K);\n'}
+[5.013797] (ov_eval) StderrLine: {'line': b'      |                                                                                                                           \x1b[01;36m\x1b[K^\x1b[m\x1b[K\n'}
+[5.015038] (ov_eval) StderrLine: {'line': b'\x1b[01m\x1b[K/catkin_ws/install/ov_core/include/utils/print.h:100:55:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kto match this \xe2\x80\x98\x1b[01m\x1b[K(\x1b[m\x1b[K\xe2\x80\x99\n'}
+[5.015100] (ov_eval) StderrLine: {'line': b'  100 | #define PRINT_ERROR(x...) ov_core::Printer::debugPrint\x1b[01;36m\x1b[K(\x1b[m\x1b[Kov_core::Printer::PrintLevel::ERROR, __FILE__, TOSTRING(__LINE__), x);\n'}
+[5.016461] (ov_eval) StderrLine: {'line': b'      |                                                       \x1b[01;36m\x1b[K^\x1b[m\x1b[K\n'}
+[5.017756] (ov_eval) StderrLine: {'line': b'\x1b[01m\x1b[K/catkin_ws/src/open_vins/ov_eval/src/utils/Loader.cpp:93:5:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kin expansion of macro \xe2\x80\x98\x1b[01m\x1b[KPRINT_ERROR\x1b[m\x1b[K\xe2\x80\x99\n'}
+[5.019087] (ov_eval) StderrLine: {'line': b'   93 |     \x1b[01;36m\x1b[KPRINT_ERROR\x1b[m\x1b[K(RED "[LOAD]: %s\\n" RESET, path_traj.c_str());\n'}
+[5.020290] (ov_eval) StderrLine: {'line': b'      |     \x1b[01;36m\x1b[K^~~~~~~~~~~\x1b[m\x1b[K\n'}
+[5.020381] (ov_eval) StderrLine: {'line': b'\x1b[01m\x1b[K/catkin_ws/src/open_vins/ov_eval/src/utils/Loader.cpp:99:17:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[KRED\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[5.021558] (ov_eval) StderrLine: {'line': b'   99 |     PRINT_ERROR(\x1b[01;31m\x1b[KRED\x1b[m\x1b[K "[LOAD]: Parsing error, timestamps covariance size do not match!!\\n" RESET);\n'}
+[5.022809] (ov_eval) StderrLine: {'line': b'      |                 \x1b[01;31m\x1b[K^~~\x1b[m\x1b[K\n'}
+[5.023958] (ov_eval) StderrLine: {'line': b'\x1b[01m\x1b[K/catkin_ws/install/ov_core/include/utils/print.h:100:123:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kin definition of macro \xe2\x80\x98\x1b[01m\x1b[KPRINT_ERROR\x1b[m\x1b[K\xe2\x80\x99\n'}
+[5.025209] (ov_eval) StderrLine: {'line': b'  100 | #define PRINT_ERROR(x...) ov_core::Printer::debugPrint(ov_core::Printer::PrintLevel::ERROR, __FILE__, TOSTRING(__LINE__), \x1b[01;36m\x1b[Kx\x1b[m\x1b[K);\n'}
+[5.025314] (ov_eval) StderrLine: {'line': b'      |                                                                                                                           \x1b[01;36m\x1b[K^\x1b[m\x1b[K\n'}
+[5.026708] (-) TimerEvent: {}
+[5.026808] (ov_eval) StderrLine: {'line': b'\x1b[01m\x1b[K/catkin_ws/src/open_vins/ov_eval/src/utils/Loader.cpp:100:21:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Kexpected \xe2\x80\x98\x1b[01m\x1b[K)\x1b[m\x1b[K\xe2\x80\x99 before string constant\n'}
+[5.028025] (ov_eval) StderrLine: {'line': b'  100 |     PRINT_ERROR(RED \x1b[01;31m\x1b[K"[LOAD]: %s\\n"\x1b[m\x1b[K RESET, path_traj.c_str());\n'}
+[5.029368] (ov_eval) StderrLine: {'line': b'      |                     \x1b[01;31m\x1b[K^~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[5.030819] (ov_eval) StderrLine: {'line': b'\x1b[01m\x1b[K/catkin_ws/src/open_vins/ov_eval/src/utils/Loader.cpp:100:5:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kin expansion of macro \xe2\x80\x98\x1b[01m\x1b[KPRINT_ERROR\x1b[m\x1b[K\xe2\x80\x99\n'}
+[5.030897] (ov_eval) StderrLine: {'line': b'  100 |     \x1b[01;36m\x1b[KPRINT_ERROR\x1b[m\x1b[K(RED "[LOAD]: %s\\n" RESET, path_traj.c_str());\n'}
+[5.032145] (ov_eval) StderrLine: {'line': b'      |     \x1b[01;36m\x1b[K^~~~~~~~~~~\x1b[m\x1b[K\n'}
+[5.033317] (ov_eval) StderrLine: {'line': b'\x1b[01m\x1b[K/catkin_ws/install/ov_core/include/utils/print.h:100:55:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kto match this \xe2\x80\x98\x1b[01m\x1b[K(\x1b[m\x1b[K\xe2\x80\x99\n'}
+[5.034642] (ov_eval) StderrLine: {'line': b'  100 | #define PRINT_ERROR(x...) ov_core::Printer::debugPrint\x1b[01;36m\x1b[K(\x1b[m\x1b[Kov_core::Printer::PrintLevel::ERROR, __FILE__, TOSTRING(__LINE__), x);\n'}
+[5.035913] (ov_eval) StderrLine: {'line': b'      |                                                       \x1b[01;36m\x1b[K^\x1b[m\x1b[K\n'}
+[5.038359] (ov_eval) StderrLine: {'line': b'\x1b[01m\x1b[K/catkin_ws/src/open_vins/ov_eval/src/utils/Loader.cpp:100:5:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kin expansion of macro \xe2\x80\x98\x1b[01m\x1b[KPRINT_ERROR\x1b[m\x1b[K\xe2\x80\x99\n'}
+[5.039666] (ov_eval) StderrLine: {'line': b'  100 |     \x1b[01;36m\x1b[KPRINT_ERROR\x1b[m\x1b[K(RED "[LOAD]: %s\\n" RESET, path_traj.c_str());\n'}
+[5.040921] (ov_eval) StderrLine: {'line': b'      |     \x1b[01;36m\x1b[K^~~~~~~~~~~\x1b[m\x1b[K\n'}
+[5.042244] (ov_eval) StderrLine: {'line': b'\x1b[01m\x1b[K/catkin_ws/src/open_vins/ov_eval/src/utils/Loader.cpp:\x1b[m\x1b[K At global scope:\n'}
+[5.043496] (ov_eval) StderrLine: {'line': b'\x1b[01m\x1b[K/catkin_ws/src/open_vins/ov_eval/src/utils/Loader.cpp:109:6:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[KLoader\x1b[m\x1b[K\xe2\x80\x99 has not been declared\n'}
+[5.044820] (ov_eval) StderrLine: {'line': b'  109 | void \x1b[01;31m\x1b[KLoader\x1b[m\x1b[K::load_data_csv(std::string path_traj, std::vector<double> &times, std::vector<Eigen::Matrix<double, 7, 1>> &poses,\n'}
+[5.046204] (ov_eval) StderrLine: {'line': b'      |      \x1b[01;31m\x1b[K^~~~~~\x1b[m\x1b[K\n'}
+[5.046287] (ov_eval) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/catkin_ws/src/open_vins/ov_eval/src/utils/Loader.h:132\x1b[m\x1b[K,\n'}
+[5.047398] (ov_eval) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/catkin_ws/src/open_vins/ov_eval/src/utils/Loader.cpp:22\x1b[m\x1b[K:\n'}
+[5.048692] (ov_eval) StderrLine: {'line': b'\x1b[01m\x1b[K/catkin_ws/src/open_vins/ov_eval/src/utils/Loader.cpp:\x1b[m\x1b[K In function \xe2\x80\x98\x1b[01m\x1b[Kvoid load_data_csv(std::string, std::vector<double, std::allocator<double> >&, std::vector<Eigen::Matrix<double, 7, 1> >&, std::vector<Eigen::Matrix<double, 3, 3> >&, std::vector<Eigen::Matrix<double, 3, 3> >&)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[5.049973] (ov_eval) StderrLine: {'line': b'\x1b[01m\x1b[K/catkin_ws/src/open_vins/ov_eval/src/utils/Loader.cpp:115:17:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[KRED\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[5.051200] (ov_eval) StderrLine: {'line': b'  115 |     PRINT_ERROR(\x1b[01;31m\x1b[KRED\x1b[m\x1b[K "[LOAD]: Unable to open trajectory file...\\n" RESET);\n'}
+[5.051295] (ov_eval) StderrLine: {'line': b'      |                 \x1b[01;31m\x1b[K^~~\x1b[m\x1b[K\n'}
+[5.052610] (ov_eval) StderrLine: {'line': b'\x1b[01m\x1b[K/catkin_ws/install/ov_core/include/utils/print.h:100:123:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kin definition of macro \xe2\x80\x98\x1b[01m\x1b[KPRINT_ERROR\x1b[m\x1b[K\xe2\x80\x99\n'}
+[5.053949] (ov_eval) StderrLine: {'line': b'  100 | #define PRINT_ERROR(x...) ov_core::Printer::debugPrint(ov_core::Printer::PrintLevel::ERROR, __FILE__, TOSTRING(__LINE__), \x1b[01;36m\x1b[Kx\x1b[m\x1b[K);\n'}
+[5.055101] (ov_eval) StderrLine: {'line': b'      |                                                                                                                           \x1b[01;36m\x1b[K^\x1b[m\x1b[K\n'}
+[5.056474] (ov_eval) StderrLine: {'line': b'\x1b[01m\x1b[K/catkin_ws/src/open_vins/ov_eval/src/utils/Loader.cpp:116:21:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Kexpected \xe2\x80\x98\x1b[01m\x1b[K)\x1b[m\x1b[K\xe2\x80\x99 before string constant\n'}
+[5.056688] (ov_eval) StderrLine: {'line': b'  116 |     PRINT_ERROR(RED \x1b[01;31m\x1b[K"[LOAD]: %s\\n"\x1b[m\x1b[K RESET, path_traj.c_str());\n'}
+[5.056763] (ov_eval) StderrLine: {'line': b'      |                     \x1b[01;31m\x1b[K^~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[5.056832] (ov_eval) StderrLine: {'line': b'\x1b[01m\x1b[K/catkin_ws/install/ov_core/include/utils/print.h:100:123:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kin definition of macro \xe2\x80\x98\x1b[01m\x1b[KPRINT_ERROR\x1b[m\x1b[K\xe2\x80\x99\n'}
+[5.056900] (ov_eval) StderrLine: {'line': b'  100 | #define PRINT_ERROR(x...) ov_core::Printer::debugPrint(ov_core::Printer::PrintLevel::ERROR, __FILE__, TOSTRING(__LINE__), \x1b[01;36m\x1b[Kx\x1b[m\x1b[K);\n'}
+[5.056967] (ov_eval) StderrLine: {'line': b'      |                                                                                                                           \x1b[01;36m\x1b[K^\x1b[m\x1b[K\n'}
+[5.057037] (ov_eval) StderrLine: {'line': b'\x1b[01m\x1b[K/catkin_ws/install/ov_core/include/utils/print.h:100:55:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kto match this \xe2\x80\x98\x1b[01m\x1b[K(\x1b[m\x1b[K\xe2\x80\x99\n'}
+[5.057102] (ov_eval) StderrLine: {'line': b'  100 | #define PRINT_ERROR(x...) ov_core::Printer::debugPrint\x1b[01;36m\x1b[K(\x1b[m\x1b[Kov_core::Printer::PrintLevel::ERROR, __FILE__, TOSTRING(__LINE__), x);\n'}
+[5.057167] (ov_eval) StderrLine: {'line': b'      |                                                       \x1b[01;36m\x1b[K^\x1b[m\x1b[K\n'}
+[5.057230] (ov_eval) StderrLine: {'line': b'\x1b[01m\x1b[K/catkin_ws/src/open_vins/ov_eval/src/utils/Loader.cpp:116:5:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kin expansion of macro \xe2\x80\x98\x1b[01m\x1b[KPRINT_ERROR\x1b[m\x1b[K\xe2\x80\x99\n'}
+[5.057296] (ov_eval) StderrLine: {'line': b'  116 |     \x1b[01;36m\x1b[KPRINT_ERROR\x1b[m\x1b[K(RED "[LOAD]: %s\\n" RESET, path_traj.c_str());\n'}
+[5.057363] (ov_eval) StderrLine: {'line': b'      |     \x1b[01;36m\x1b[K^~~~~~~~~~~\x1b[m\x1b[K\n'}
+[5.057424] (ov_eval) StderrLine: {'line': b'\x1b[01m\x1b[K/catkin_ws/src/open_vins/ov_eval/src/utils/Loader.cpp:166:17:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[KRED\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[5.057477] (ov_eval) StderrLine: {'line': b'  166 |     PRINT_ERROR(\x1b[01;31m\x1b[KRED\x1b[m\x1b[K "[LOAD]: Could not parse any data from the file!!\\n" RESET);\n'}
+[5.057528] (ov_eval) StderrLine: {'line': b'      |                 \x1b[01;31m\x1b[K^~~\x1b[m\x1b[K\n'}
+[5.057593] (ov_eval) StderrLine: {'line': b'\x1b[01m\x1b[K/catkin_ws/install/ov_core/include/utils/print.h:100:123:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kin definition of macro \xe2\x80\x98\x1b[01m\x1b[KPRINT_ERROR\x1b[m\x1b[K\xe2\x80\x99\n'}
+[5.057646] (ov_eval) StderrLine: {'line': b'  100 | #define PRINT_ERROR(x...) ov_core::Printer::debugPrint(ov_core::Printer::PrintLevel::ERROR, __FILE__, TOSTRING(__LINE__), \x1b[01;36m\x1b[Kx\x1b[m\x1b[K);\n'}
+[5.057699] (ov_eval) StderrLine: {'line': b'      |                                                                                                                           \x1b[01;36m\x1b[K^\x1b[m\x1b[K\n'}
+[5.057749] (ov_eval) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/catkin_ws/src/open_vins/ov_eval/src/calc/ResultSimulation.h:33\x1b[m\x1b[K,\n'}
+[5.057800] (ov_eval) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/catkin_ws/src/open_vins/ov_eval/src/calc/ResultSimulation.cpp:22\x1b[m\x1b[K:\n'}
+[5.057850] (ov_eval) StderrLine: {'line': b'\x1b[01m\x1b[K/catkin_ws/src/open_vins/ov_eval/src/utils/Loader.h:\x1b[m\x1b[K In constructor \xe2\x80\x98\x1b[01m\x1b[Kov_eval::Recorder::Recorder(const string&)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[5.059157] (ov_eval) StderrLine: {'line': b'\x1b[01m\x1b[K/catkin_ws/src/open_vins/ov_eval/src/utils/Loader.h:190:8:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[KPRINT_WARN\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope; did you mean \xe2\x80\x98\x1b[01m\x1b[KPRINT_ALL\x1b[m\x1b[K\xe2\x80\x99?\n'}
+[5.060526] (ov_eval) StderrLine: {'line': b'  190 |        \x1b[01;31m\x1b[KPRINT_WARN\x1b[m\x1b[K("Output file exists, deleting old file: %s", filename.c_str());\n'}
+[5.061961] (ov_eval) StderrLine: {'line': b'      |        \x1b[01;31m\x1b[K^~~~~~~~~~\x1b[m\x1b[K\n'}
+[5.062026] (ov_eval) StderrLine: {'line': b'      |        \x1b[32m\x1b[KPRINT_ALL\x1b[m\x1b[K\n'}
+[5.063882] (ov_eval) StderrLine: {'line': b'\x1b[01m\x1b[K/catkin_ws/src/open_vins/ov_eval/src/utils/Loader.cpp:167:21:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Kexpected \xe2\x80\x98\x1b[01m\x1b[K)\x1b[m\x1b[K\xe2\x80\x99 before string constant\n'}
+[5.065190] (ov_eval) StderrLine: {'line': b'  167 |     PRINT_ERROR(RED \x1b[01;31m\x1b[K"[LOAD]: %s\\n"\x1b[m\x1b[K RESET, path_traj.c_str());\n'}
+[5.065244] (ov_eval) StderrLine: {'line': b'      |                     \x1b[01;31m\x1b[K^~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[5.066504] (ov_eval) StderrLine: {'line': b'\x1b[01m\x1b[K/catkin_ws/install/ov_core/include/utils/print.h:100:123:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kin definition of macro \xe2\x80\x98\x1b[01m\x1b[KPRINT_ERROR\x1b[m\x1b[K\xe2\x80\x99\n'}
+[5.067846] (ov_eval) StderrLine: {'line': b'  100 | #define PRINT_ERROR(x...) ov_core::Printer::debugPrint(ov_core::Printer::PrintLevel::ERROR, __FILE__, TOSTRING(__LINE__), \x1b[01;36m\x1b[Kx\x1b[m\x1b[K);\n'}
+[5.067942] (ov_eval) StderrLine: {'line': b'      |                                                                                                                           \x1b[01;36m\x1b[K^\x1b[m\x1b[K\n'}
+[5.069188] (ov_eval) StderrLine: {'line': b'\x1b[01m\x1b[K/catkin_ws/install/ov_core/include/utils/print.h:100:55:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kto match this \xe2\x80\x98\x1b[01m\x1b[K(\x1b[m\x1b[K\xe2\x80\x99\n'}
+[5.070459] (ov_eval) StderrLine: {'line': b'  100 | #define PRINT_ERROR(x...) ov_core::Printer::debugPrint\x1b[01;36m\x1b[K(\x1b[m\x1b[Kov_core::Printer::PrintLevel::ERROR, __FILE__, TOSTRING(__LINE__), x);\n'}
+[5.071727] (ov_eval) StderrLine: {'line': b'      |                                                       \x1b[01;36m\x1b[K^\x1b[m\x1b[K\n'}
+[5.071806] (ov_eval) StderrLine: {'line': b'\x1b[01m\x1b[K/catkin_ws/src/open_vins/ov_eval/src/utils/Loader.cpp:167:5:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kin expansion of macro \xe2\x80\x98\x1b[01m\x1b[KPRINT_ERROR\x1b[m\x1b[K\xe2\x80\x99\n'}
+[5.071876] (ov_eval) StderrLine: {'line': b'  167 |     \x1b[01;36m\x1b[KPRINT_ERROR\x1b[m\x1b[K(RED "[LOAD]: %s\\n" RESET, path_traj.c_str());\n'}
+[5.071944] (ov_eval) StderrLine: {'line': b'      |     \x1b[01;36m\x1b[K^~~~~~~~~~~\x1b[m\x1b[K\n'}
+[5.073292] (ov_eval) StderrLine: {'line': b'\x1b[01m\x1b[K/catkin_ws/src/open_vins/ov_eval/src/utils/Loader.cpp:173:17:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[KRED\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[5.073377] (ov_eval) StderrLine: {'line': b'  173 |     PRINT_ERROR(\x1b[01;31m\x1b[KRED\x1b[m\x1b[K "[LOAD]: Parsing error, pose and timestamps do not match!!\\n" RESET);\n'}
+[5.074671] (ov_eval) StderrLine: {'line': b'      |                 \x1b[01;31m\x1b[K^~~\x1b[m\x1b[K\n'}
+[5.076052] (ov_eval) StderrLine: {'line': b'\x1b[01m\x1b[K/catkin_ws/install/ov_core/include/utils/print.h:100:123:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kin definition of macro \xe2\x80\x98\x1b[01m\x1b[KPRINT_ERROR\x1b[m\x1b[K\xe2\x80\x99\n'}
+[5.077387] (ov_eval) StderrLine: {'line': b'  100 | #define PRINT_ERROR(x...) ov_core::Printer::debugPrint(ov_core::Printer::PrintLevel::ERROR, __FILE__, TOSTRING(__LINE__), \x1b[01;36m\x1b[Kx\x1b[m\x1b[K);\n'}
+[5.078535] (ov_eval) StderrLine: {'line': b'      |                                                                                                                           \x1b[01;36m\x1b[K^\x1b[m\x1b[K\n'}
+[5.078639] (ov_eval) StderrLine: {'line': b'\x1b[01m\x1b[K/catkin_ws/src/open_vins/ov_eval/src/utils/Loader.cpp:174:21:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Kexpected \xe2\x80\x98\x1b[01m\x1b[K)\x1b[m\x1b[K\xe2\x80\x99 before string constant\n'}
+[5.079874] (ov_eval) StderrLine: {'line': b'  174 |     PRINT_ERROR(RED \x1b[01;31m\x1b[K"[LOAD]: %s\\n"\x1b[m\x1b[K RESET, path_traj.c_str());\n'}
+[5.081212] (ov_eval) StderrLine: {'line': b'      |                     \x1b[01;31m\x1b[K^~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[5.082385] (ov_eval) StderrLine: {'line': b'\x1b[01m\x1b[K/catkin_ws/install/ov_core/include/utils/print.h:100:123:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kin definition of macro \xe2\x80\x98\x1b[01m\x1b[KPRINT_ERROR\x1b[m\x1b[K\xe2\x80\x99\n'}
+[5.083712] (ov_eval) StderrLine: {'line': b'  100 | #define PRINT_ERROR(x...) ov_core::Printer::debugPrint(ov_core::Printer::PrintLevel::ERROR, __FILE__, TOSTRING(__LINE__), \x1b[01;36m\x1b[Kx\x1b[m\x1b[K);\n'}
+[5.083799] (ov_eval) StderrLine: {'line': b'      |                                                                                                                           \x1b[01;36m\x1b[K^\x1b[m\x1b[K\n'}
+[5.085242] (ov_eval) StderrLine: {'line': b'\x1b[01m\x1b[K/catkin_ws/install/ov_core/include/utils/print.h:100:55:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kto match this \xe2\x80\x98\x1b[01m\x1b[K(\x1b[m\x1b[K\xe2\x80\x99\n'}
+[5.086496] (ov_eval) StderrLine: {'line': b'  100 | #define PRINT_ERROR(x...) ov_core::Printer::debugPrint\x1b[01;36m\x1b[K(\x1b[m\x1b[Kov_core::Printer::PrintLevel::ERROR, __FILE__, TOSTRING(__LINE__), x);\n'}
+[5.087762] (ov_eval) StderrLine: {'line': b'      |                                                       \x1b[01;36m\x1b[K^\x1b[m\x1b[K\n'}
+[5.088931] (ov_eval) StderrLine: {'line': b'\x1b[01m\x1b[K/catkin_ws/src/open_vins/ov_eval/src/utils/Loader.cpp:174:5:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kin expansion of macro \xe2\x80\x98\x1b[01m\x1b[KPRINT_ERROR\x1b[m\x1b[K\xe2\x80\x99\n'}
+[5.089019] (ov_eval) StderrLine: {'line': b'  174 |     \x1b[01;36m\x1b[KPRINT_ERROR\x1b[m\x1b[K(RED "[LOAD]: %s\\n" RESET, path_traj.c_str());\n'}
+[5.090289] (ov_eval) StderrLine: {'line': b'      |     \x1b[01;36m\x1b[K^~~~~~~~~~~\x1b[m\x1b[K\n'}
+[5.091552] (ov_eval) StderrLine: {'line': b'\x1b[01m\x1b[K/catkin_ws/src/open_vins/ov_eval/src/utils/Loader.cpp:\x1b[m\x1b[K At global scope:\n'}
+[5.092882] (ov_eval) StderrLine: {'line': b'\x1b[01m\x1b[K/catkin_ws/src/open_vins/ov_eval/src/utils/Loader.cpp:179:6:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[KLoader\x1b[m\x1b[K\xe2\x80\x99 has not been declared\n'}
+[5.094051] (ov_eval) StderrLine: {'line': b'  179 | void \x1b[01;31m\x1b[KLoader\x1b[m\x1b[K::load_simulation(std::string path, std::vector<Eigen::VectorXd> &values) {\n'}
+[5.094133] (ov_eval) StderrLine: {'line': b'      |      \x1b[01;31m\x1b[K^~~~~~\x1b[m\x1b[K\n'}
+[5.095457] (ov_eval) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/catkin_ws/src/open_vins/ov_eval/src/utils/Loader.h:132\x1b[m\x1b[K,\n'}
+[5.096660] (ov_eval) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/catkin_ws/src/open_vins/ov_eval/src/utils/Loader.cpp:22\x1b[m\x1b[K:\n'}
+[5.098084] (ov_eval) StderrLine: {'line': b'\x1b[01m\x1b[K/catkin_ws/src/open_vins/ov_eval/src/utils/Loader.cpp:\x1b[m\x1b[K In function \xe2\x80\x98\x1b[01m\x1b[Kvoid load_simulation(std::string, std::vector<Eigen::Matrix<double, -1, 1> >&)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[5.099466] (ov_eval) StderrLine: {'line': b'\x1b[01m\x1b[K/catkin_ws/src/open_vins/ov_eval/src/utils/Loader.cpp:184:17:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[KRED\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[5.099552] (ov_eval) StderrLine: {'line': b'  184 |     PRINT_ERROR(\x1b[01;31m\x1b[KRED\x1b[m\x1b[K "[LOAD]: Unable to open file...\\n" RESET);\n'}
+[5.101013] (ov_eval) StderrLine: {'line': b'      |                 \x1b[01;31m\x1b[K^~~\x1b[m\x1b[K\n'}
+[5.102319] (ov_eval) StderrLine: {'line': b'\x1b[01m\x1b[K/catkin_ws/install/ov_core/include/utils/print.h:100:123:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kin definition of macro \xe2\x80\x98\x1b[01m\x1b[KPRINT_ERROR\x1b[m\x1b[K\xe2\x80\x99\n'}
+[5.103649] (ov_eval) StderrLine: {'line': b'  100 | #define PRINT_ERROR(x...) ov_core::Printer::debugPrint(ov_core::Printer::PrintLevel::ERROR, __FILE__, TOSTRING(__LINE__), \x1b[01;36m\x1b[Kx\x1b[m\x1b[K);\n'}
+[5.104914] (ov_eval) StderrLine: {'line': b'      |                                                                                                                           \x1b[01;36m\x1b[K^\x1b[m\x1b[K\n'}
+[5.105003] (ov_eval) StderrLine: {'line': b'\x1b[01m\x1b[K/catkin_ws/src/open_vins/ov_eval/src/utils/Loader.cpp:185:21:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Kexpected \xe2\x80\x98\x1b[01m\x1b[K)\x1b[m\x1b[K\xe2\x80\x99 before string constant\n'}
+[5.106350] (ov_eval) StderrLine: {'line': b'  185 |     PRINT_ERROR(RED \x1b[01;31m\x1b[K"[LOAD]: %s\\n"\x1b[m\x1b[K RESET, path.c_str());\n'}
+[5.107690] (ov_eval) StderrLine: {'line': b'      |                     \x1b[01;31m\x1b[K^~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[5.109038] (ov_eval) StderrLine: {'line': b'\x1b[01m\x1b[K/catkin_ws/install/ov_core/include/utils/print.h:100:123:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kin definition of macro \xe2\x80\x98\x1b[01m\x1b[KPRINT_ERROR\x1b[m\x1b[K\xe2\x80\x99\n'}
+[5.110250] (ov_eval) StderrLine: {'line': b'  100 | #define PRINT_ERROR(x...) ov_core::Printer::debugPrint(ov_core::Printer::PrintLevel::ERROR, __FILE__, TOSTRING(__LINE__), \x1b[01;36m\x1b[Kx\x1b[m\x1b[K);\n'}
+[5.110336] (ov_eval) StderrLine: {'line': b'      |                                                                                                                           \x1b[01;36m\x1b[K^\x1b[m\x1b[K\n'}
+[5.111572] (ov_eval) StderrLine: {'line': b'\x1b[01m\x1b[K/catkin_ws/install/ov_core/include/utils/print.h:100:55:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kto match this \xe2\x80\x98\x1b[01m\x1b[K(\x1b[m\x1b[K\xe2\x80\x99\n'}
+[5.112927] (ov_eval) StderrLine: {'line': b'  100 | #define PRINT_ERROR(x...) ov_core::Printer::debugPrint\x1b[01;36m\x1b[K(\x1b[m\x1b[Kov_core::Printer::PrintLevel::ERROR, __FILE__, TOSTRING(__LINE__), x);\n'}
+[5.114363] (ov_eval) StderrLine: {'line': b'      |                                                       \x1b[01;36m\x1b[K^\x1b[m\x1b[K\n'}
+[5.115738] (ov_eval) StderrLine: {'line': b'\x1b[01m\x1b[K/catkin_ws/src/open_vins/ov_eval/src/utils/Loader.cpp:185:5:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kin expansion of macro \xe2\x80\x98\x1b[01m\x1b[KPRINT_ERROR\x1b[m\x1b[K\xe2\x80\x99\n'}
+[5.115822] (ov_eval) StderrLine: {'line': b'  185 |     \x1b[01;36m\x1b[KPRINT_ERROR\x1b[m\x1b[K(RED "[LOAD]: %s\\n" RESET, path.c_str());\n'}
+[5.117148] (ov_eval) StderrLine: {'line': b'      |     \x1b[01;36m\x1b[K^~~~~~~~~~~\x1b[m\x1b[K\n'}
+[5.118577] (ov_eval) StderrLine: {'line': b'\x1b[01m\x1b[K/catkin_ws/src/open_vins/ov_eval/src/utils/Loader.cpp:224:17:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[KRED\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[5.119856] (ov_eval) StderrLine: {'line': b'  224 |     PRINT_ERROR(\x1b[01;31m\x1b[KRED\x1b[m\x1b[K "[LOAD]: Could not parse any data from the file!!\\n" RESET);\n'}
+[5.121220] (ov_eval) StderrLine: {'line': b'      |                 \x1b[01;31m\x1b[K^~~\x1b[m\x1b[K\n'}
+[5.121291] (ov_eval) StderrLine: {'line': b'\x1b[01m\x1b[K/catkin_ws/install/ov_core/include/utils/print.h:100:123:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kin definition of macro \xe2\x80\x98\x1b[01m\x1b[KPRINT_ERROR\x1b[m\x1b[K\xe2\x80\x99\n'}
+[5.122432] (ov_eval) StderrLine: {'line': b'  100 | #define PRINT_ERROR(x...) ov_core::Printer::debugPrint(ov_core::Printer::PrintLevel::ERROR, __FILE__, TOSTRING(__LINE__), \x1b[01;36m\x1b[Kx\x1b[m\x1b[K);\n'}
+[5.123813] (ov_eval) StderrLine: {'line': b'      |                                                                                                                           \x1b[01;36m\x1b[K^\x1b[m\x1b[K\n'}
+[5.125114] (ov_eval) StderrLine: {'line': b'\x1b[01m\x1b[K/catkin_ws/src/open_vins/ov_eval/src/utils/Loader.cpp:225:21:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Kexpected \xe2\x80\x98\x1b[01m\x1b[K)\x1b[m\x1b[K\xe2\x80\x99 before string constant\n'}
+[5.126249] (ov_eval) StderrLine: {'line': b'  225 |     PRINT_ERROR(RED \x1b[01;31m\x1b[K"[LOAD]: %s\\n"\x1b[m\x1b[K RESET, path.c_str());\n'}
+[5.126337] (ov_eval) StderrLine: {'line': b'      |                     \x1b[01;31m\x1b[K^~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[5.127630] (-) TimerEvent: {}
+[5.127732] (ov_eval) StderrLine: {'line': b'\x1b[01m\x1b[K/catkin_ws/install/ov_core/include/utils/print.h:100:123:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kin definition of macro \xe2\x80\x98\x1b[01m\x1b[KPRINT_ERROR\x1b[m\x1b[K\xe2\x80\x99\n'}
+[5.128827] (ov_eval) StderrLine: {'line': b'  100 | #define PRINT_ERROR(x...) ov_core::Printer::debugPrint(ov_core::Printer::PrintLevel::ERROR, __FILE__, TOSTRING(__LINE__), \x1b[01;36m\x1b[Kx\x1b[m\x1b[K);\n'}
+[5.129920] (ov_eval) StderrLine: {'line': b'      |                                                                                                                           \x1b[01;36m\x1b[K^\x1b[m\x1b[K\n'}
+[5.131277] (ov_eval) StderrLine: {'line': b'\x1b[01m\x1b[K/catkin_ws/install/ov_core/include/utils/print.h:100:55:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kto match this \xe2\x80\x98\x1b[01m\x1b[K(\x1b[m\x1b[K\xe2\x80\x99\n'}
+[5.131368] (ov_eval) StderrLine: {'line': b'  100 | #define PRINT_ERROR(x...) ov_core::Printer::debugPrint\x1b[01;36m\x1b[K(\x1b[m\x1b[Kov_core::Printer::PrintLevel::ERROR, __FILE__, TOSTRING(__LINE__), x);\n'}
+[5.133766] (ov_eval) StderrLine: {'line': b'      |                                                       \x1b[01;36m\x1b[K^\x1b[m\x1b[K\n'}
+[5.135189] (ov_eval) StderrLine: {'line': b'\x1b[01m\x1b[K/catkin_ws/src/open_vins/ov_eval/src/utils/Loader.cpp:225:5:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kin expansion of macro \xe2\x80\x98\x1b[01m\x1b[KPRINT_ERROR\x1b[m\x1b[K\xe2\x80\x99\n'}
+[5.136277] (ov_eval) StderrLine: {'line': b'  225 |     \x1b[01;36m\x1b[KPRINT_ERROR\x1b[m\x1b[K(RED "[LOAD]: %s\\n" RESET, path.c_str());\n'}
+[5.136358] (ov_eval) StderrLine: {'line': b'      |     \x1b[01;36m\x1b[K^~~~~~~~~~~\x1b[m\x1b[K\n'}
+[5.137691] (ov_eval) StderrLine: {'line': b'\x1b[01m\x1b[K/catkin_ws/src/open_vins/ov_eval/src/utils/Loader.cpp:233:19:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[KRED\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[5.138886] (ov_eval) StderrLine: {'line': b'  233 |       PRINT_ERROR(\x1b[01;31m\x1b[KRED\x1b[m\x1b[K "[LOAD]: Invalid row size on line %d (of size %d instead of %d)\\n" RESET, (int)i, (int)values.at(i).rows(), rowsize);\n'}
+[5.140190] (ov_eval) StderrLine: {'line': b'      |                   \x1b[01;31m\x1b[K^~~\x1b[m\x1b[K\n'}
+[5.141469] (ov_eval) StderrLine: {'line': b'\x1b[01m\x1b[K/catkin_ws/install/ov_core/include/utils/print.h:100:123:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kin definition of macro \xe2\x80\x98\x1b[01m\x1b[KPRINT_ERROR\x1b[m\x1b[K\xe2\x80\x99\n'}
+[5.141548] (ov_eval) StderrLine: {'line': b'  100 | #define PRINT_ERROR(x...) ov_core::Printer::debugPrint(ov_core::Printer::PrintLevel::ERROR, __FILE__, TOSTRING(__LINE__), \x1b[01;36m\x1b[Kx\x1b[m\x1b[K);\n'}
+[5.142759] (ov_eval) StderrLine: {'line': b'      |                                                                                                                           \x1b[01;36m\x1b[K^\x1b[m\x1b[K\n'}
+[5.143816] (ov_eval) StderrLine: {'line': b'\x1b[01m\x1b[K/catkin_ws/src/open_vins/ov_eval/src/utils/Loader.cpp:234:23:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Kexpected \xe2\x80\x98\x1b[01m\x1b[K)\x1b[m\x1b[K\xe2\x80\x99 before string constant\n'}
+[5.145029] (ov_eval) StderrLine: {'line': b'  234 |       PRINT_ERROR(RED \x1b[01;31m\x1b[K"[LOAD]: %s\\n"\x1b[m\x1b[K RESET, path.c_str());\n'}
+[5.146256] (ov_eval) StderrLine: {'line': b'      |                       \x1b[01;31m\x1b[K^~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[5.146318] (ov_eval) StderrLine: {'line': b'\x1b[01m\x1b[K/catkin_ws/install/ov_core/include/utils/print.h:100:123:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kin definition of macro \xe2\x80\x98\x1b[01m\x1b[KPRINT_ERROR\x1b[m\x1b[K\xe2\x80\x99\n'}
+[5.147587] (ov_eval) StderrLine: {'line': b'  100 | #define PRINT_ERROR(x...) ov_core::Printer::debugPrint(ov_core::Printer::PrintLevel::ERROR, __FILE__, TOSTRING(__LINE__), \x1b[01;36m\x1b[Kx\x1b[m\x1b[K);\n'}
+[5.147644] (ov_eval) StderrLine: {'line': b'      |                                                                                                                           \x1b[01;36m\x1b[K^\x1b[m\x1b[K\n'}
+[5.147701] (ov_eval) StderrLine: {'line': b'\x1b[01m\x1b[K/catkin_ws/install/ov_core/include/utils/print.h:100:55:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kto match this \xe2\x80\x98\x1b[01m\x1b[K(\x1b[m\x1b[K\xe2\x80\x99\n'}
+[5.149016] (ov_eval) StderrLine: {'line': b'  100 | #define PRINT_ERROR(x...) ov_core::Printer::debugPrint\x1b[01;36m\x1b[K(\x1b[m\x1b[Kov_core::Printer::PrintLevel::ERROR, __FILE__, TOSTRING(__LINE__), x);\n'}
+[5.150380] (ov_eval) StderrLine: {'line': b'      |                                                       \x1b[01;36m\x1b[K^\x1b[m\x1b[K\n'}
+[5.151528] (ov_eval) StderrLine: {'line': b'\x1b[01m\x1b[K/catkin_ws/src/open_vins/ov_eval/src/utils/Loader.cpp:234:7:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kin expansion of macro \xe2\x80\x98\x1b[01m\x1b[KPRINT_ERROR\x1b[m\x1b[K\xe2\x80\x99\n'}
+[5.151627] (ov_eval) StderrLine: {'line': b'  234 |       \x1b[01;36m\x1b[KPRINT_ERROR\x1b[m\x1b[K(RED "[LOAD]: %s\\n" RESET, path.c_str());\n'}
+[5.152837] (ov_eval) StderrLine: {'line': b'      |       \x1b[01;36m\x1b[K^~~~~~~~~~~\x1b[m\x1b[K\n'}
+[5.154195] (ov_eval) StderrLine: {'line': b'\x1b[01m\x1b[K/catkin_ws/src/open_vins/ov_eval/src/utils/Loader.cpp:\x1b[m\x1b[K At global scope:\n'}
+[5.155607] (ov_eval) StderrLine: {'line': b'\x1b[01m\x1b[K/catkin_ws/src/open_vins/ov_eval/src/utils/Loader.cpp:240:6:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[KLoader\x1b[m\x1b[K\xe2\x80\x99 has not been declared\n'}
+[5.156786] (ov_eval) StderrLine: {'line': b'  240 | void \x1b[01;31m\x1b[KLoader\x1b[m\x1b[K::load_timing_flamegraph(std::string path, std::vector<std::string> &names, std::vector<double> &times,\n'}
+[5.156848] (ov_eval) StderrLine: {'line': b'      |      \x1b[01;31m\x1b[K^~~~~~\x1b[m\x1b[K\n'}
+[5.158059] (ov_eval) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/catkin_ws/src/open_vins/ov_eval/src/utils/Loader.h:132\x1b[m\x1b[K,\n'}
+[5.159333] (ov_eval) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/catkin_ws/src/open_vins/ov_eval/src/utils/Loader.cpp:22\x1b[m\x1b[K:\n'}
+[5.160445] (ov_eval) StderrLine: {'line': b'\x1b[01m\x1b[K/catkin_ws/src/open_vins/ov_eval/src/utils/Loader.cpp:\x1b[m\x1b[K In function \xe2\x80\x98\x1b[01m\x1b[Kvoid load_timing_flamegraph(std::string, std::vector<std::__cxx11::basic_string<char> >&, std::vector<double, std::allocator<double> >&, std::vector<Eigen::Matrix<double, -1, 1> >&)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[5.161653] (ov_eval) StderrLine: {'line': b'\x1b[01m\x1b[K/catkin_ws/src/open_vins/ov_eval/src/utils/Loader.cpp:246:17:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[KRED\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[5.161715] (ov_eval) StderrLine: {'line': b'  246 |     PRINT_ERROR(\x1b[01;31m\x1b[KRED\x1b[m\x1b[K "[LOAD]: Unable to open file...\\n" RESET);\n'}
+[5.163105] (ov_eval) StderrLine: {'line': b'      |                 \x1b[01;31m\x1b[K^~~\x1b[m\x1b[K\n'}
+[5.164954] (ov_eval) StderrLine: {'line': b'\x1b[01m\x1b[K/catkin_ws/install/ov_core/include/utils/print.h:100:123:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kin definition of macro \xe2\x80\x98\x1b[01m\x1b[KPRINT_ERROR\x1b[m\x1b[K\xe2\x80\x99\n'}
+[5.166464] (ov_eval) StderrLine: {'line': b'  100 | #define PRINT_ERROR(x...) ov_core::Printer::debugPrint(ov_core::Printer::PrintLevel::ERROR, __FILE__, TOSTRING(__LINE__), \x1b[01;36m\x1b[Kx\x1b[m\x1b[K);\n'}
+[5.167822] (ov_eval) StderrLine: {'line': b'      |                                                                                                                           \x1b[01;36m\x1b[K^\x1b[m\x1b[K\n'}
+[5.167885] (ov_eval) StderrLine: {'line': b'\x1b[01m\x1b[K/catkin_ws/src/open_vins/ov_eval/src/utils/Loader.cpp:247:21:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Kexpected \xe2\x80\x98\x1b[01m\x1b[K)\x1b[m\x1b[K\xe2\x80\x99 before string constant\n'}
+[5.169296] (ov_eval) StderrLine: {'line': b'  247 |     PRINT_ERROR(RED \x1b[01;31m\x1b[K"[LOAD]: %s\\n"\x1b[m\x1b[K RESET, path.c_str());\n'}
+[5.170638] (ov_eval) StderrLine: {'line': b'      |                     \x1b[01;31m\x1b[K^~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[5.172043] (ov_eval) StderrLine: {'line': b'\x1b[01m\x1b[K/catkin_ws/install/ov_core/include/utils/print.h:100:123:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kin definition of macro \xe2\x80\x98\x1b[01m\x1b[KPRINT_ERROR\x1b[m\x1b[K\xe2\x80\x99\n'}
+[5.173437] (ov_eval) StderrLine: {'line': b'  100 | #define PRINT_ERROR(x...) ov_core::Printer::debugPrint(ov_core::Printer::PrintLevel::ERROR, __FILE__, TOSTRING(__LINE__), \x1b[01;36m\x1b[Kx\x1b[m\x1b[K);\n'}
+[5.173527] (ov_eval) StderrLine: {'line': b'      |                                                                                                                           \x1b[01;36m\x1b[K^\x1b[m\x1b[K\n'}
+[5.174634] (ov_eval) StderrLine: {'line': b'\x1b[01m\x1b[K/catkin_ws/install/ov_core/include/utils/print.h:100:55:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kto match this \xe2\x80\x98\x1b[01m\x1b[K(\x1b[m\x1b[K\xe2\x80\x99\n'}
+[5.175857] (ov_eval) StderrLine: {'line': b'  100 | #define PRINT_ERROR(x...) ov_core::Printer::debugPrint\x1b[01;36m\x1b[K(\x1b[m\x1b[Kov_core::Printer::PrintLevel::ERROR, __FILE__, TOSTRING(__LINE__), x);\n'}
+[5.177114] (ov_eval) StderrLine: {'line': b'      |                                                       \x1b[01;36m\x1b[K^\x1b[m\x1b[K\n'}
+[5.178557] (ov_eval) StderrLine: {'line': b'\x1b[01m\x1b[K/catkin_ws/src/open_vins/ov_eval/src/utils/Loader.cpp:247:5:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kin expansion of macro \xe2\x80\x98\x1b[01m\x1b[KPRINT_ERROR\x1b[m\x1b[K\xe2\x80\x99\n'}
+[5.178631] (ov_eval) StderrLine: {'line': b'  247 |     \x1b[01;36m\x1b[KPRINT_ERROR\x1b[m\x1b[K(RED "[LOAD]: %s\\n" RESET, path.c_str());\n'}
+[5.179794] (ov_eval) StderrLine: {'line': b'      |     \x1b[01;36m\x1b[K^~~~~~~~~~~\x1b[m\x1b[K\n'}
+[5.181069] (ov_eval) StderrLine: {'line': b'\x1b[01m\x1b[K/catkin_ws/src/open_vins/ov_eval/src/utils/Loader.cpp:304:17:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[KRED\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[5.182211] (ov_eval) StderrLine: {'line': b'  304 |     PRINT_ERROR(\x1b[01;31m\x1b[KRED\x1b[m\x1b[K "[LOAD]: Could not parse any data from the file!!\\n" RESET);\n'}
+[5.184092] (ov_eval) StderrLine: {'line': b'      |                 \x1b[01;31m\x1b[K^~~\x1b[m\x1b[K\n'}
+[5.184162] (ov_eval) StderrLine: {'line': b'\x1b[01m\x1b[K/catkin_ws/install/ov_core/include/utils/print.h:100:123:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kin definition of macro \xe2\x80\x98\x1b[01m\x1b[KPRINT_ERROR\x1b[m\x1b[K\xe2\x80\x99\n'}
+[5.185334] (ov_eval) StderrLine: {'line': b'  100 | #define PRINT_ERROR(x...) ov_core::Printer::debugPrint(ov_core::Printer::PrintLevel::ERROR, __FILE__, TOSTRING(__LINE__), \x1b[01;36m\x1b[Kx\x1b[m\x1b[K);\n'}
+[5.186736] (ov_eval) StderrLine: {'line': b'      |                                                                                                                           \x1b[01;36m\x1b[K^\x1b[m\x1b[K\n'}
+[5.188014] (ov_eval) StderrLine: {'line': b'\x1b[01m\x1b[K/catkin_ws/src/open_vins/ov_eval/src/utils/Loader.cpp:305:21:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Kexpected \xe2\x80\x98\x1b[01m\x1b[K)\x1b[m\x1b[K\xe2\x80\x99 before string constant\n'}
+[5.189288] (ov_eval) StderrLine: {'line': b'  305 |     PRINT_ERROR(RED \x1b[01;31m\x1b[K"[LOAD]: %s\\n"\x1b[m\x1b[K RESET, path.c_str());\n'}
+[5.189380] (ov_eval) StderrLine: {'line': b'      |                     \x1b[01;31m\x1b[K^~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[5.190681] (ov_eval) StderrLine: {'line': b'\x1b[01m\x1b[K/catkin_ws/install/ov_core/include/utils/print.h:100:123:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kin definition of macro \xe2\x80\x98\x1b[01m\x1b[KPRINT_ERROR\x1b[m\x1b[K\xe2\x80\x99\n'}
+[5.191815] (ov_eval) StderrLine: {'line': b'  100 | #define PRINT_ERROR(x...) ov_core::Printer::debugPrint(ov_core::Printer::PrintLevel::ERROR, __FILE__, TOSTRING(__LINE__), \x1b[01;36m\x1b[Kx\x1b[m\x1b[K);\n'}
+[5.193042] (ov_eval) StderrLine: {'line': b'      |                                                                                                                           \x1b[01;36m\x1b[K^\x1b[m\x1b[K\n'}
+[5.194245] (ov_eval) StderrLine: {'line': b'\x1b[01m\x1b[K/catkin_ws/install/ov_core/include/utils/print.h:100:55:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kto match this \xe2\x80\x98\x1b[01m\x1b[K(\x1b[m\x1b[K\xe2\x80\x99\n'}
+[5.194329] (ov_eval) StderrLine: {'line': b'  100 | #define PRINT_ERROR(x...) ov_core::Printer::debugPrint\x1b[01;36m\x1b[K(\x1b[m\x1b[Kov_core::Printer::PrintLevel::ERROR, __FILE__, TOSTRING(__LINE__), x);\n'}
+[5.195473] (ov_eval) StderrLine: {'line': b'      |                                                       \x1b[01;36m\x1b[K^\x1b[m\x1b[K\n'}
+[5.196623] (ov_eval) StderrLine: {'line': b'\x1b[01m\x1b[K/catkin_ws/src/open_vins/ov_eval/src/utils/Loader.cpp:305:5:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kin expansion of macro \xe2\x80\x98\x1b[01m\x1b[KPRINT_ERROR\x1b[m\x1b[K\xe2\x80\x99\n'}
+[5.198091] (ov_eval) StderrLine: {'line': b'  305 |     \x1b[01;36m\x1b[KPRINT_ERROR\x1b[m\x1b[K(RED "[LOAD]: %s\\n" RESET, path.c_str());\n'}
+[5.199396] (ov_eval) StderrLine: {'line': b'      |     \x1b[01;36m\x1b[K^~~~~~~~~~~\x1b[m\x1b[K\n'}
+[5.199485] (ov_eval) StderrLine: {'line': b'\x1b[01m\x1b[K/catkin_ws/src/open_vins/ov_eval/src/utils/Loader.cpp:313:19:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[KRED\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[5.202049] (ov_eval) StderrLine: {'line': b'  313 |       PRINT_ERROR(\x1b[01;31m\x1b[KRED\x1b[m\x1b[K "[LOAD]: Invalid row size on line %d (of size %d instead of %d)\\n" RESET, (int)i, (int)timing_values.at(i).rows(),\n'}
+[5.203747] (ov_eval) StderrLine: {'line': b'      |                   \x1b[01;31m\x1b[K^~~\x1b[m\x1b[K\n'}
+[5.205211] (ov_eval) StderrLine: {'line': b'\x1b[01m\x1b[K/catkin_ws/install/ov_core/include/utils/print.h:100:123:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kin definition of macro \xe2\x80\x98\x1b[01m\x1b[KPRINT_ERROR\x1b[m\x1b[K\xe2\x80\x99\n'}
+[5.205299] (ov_eval) StderrLine: {'line': b'  100 | #define PRINT_ERROR(x...) ov_core::Printer::debugPrint(ov_core::Printer::PrintLevel::ERROR, __FILE__, TOSTRING(__LINE__), \x1b[01;36m\x1b[Kx\x1b[m\x1b[K);\n'}
+[5.206518] (ov_eval) StderrLine: {'line': b'      |                                                                                                                           \x1b[01;36m\x1b[K^\x1b[m\x1b[K\n'}
+[5.207873] (ov_eval) StderrLine: {'line': b'\x1b[01m\x1b[K/catkin_ws/src/open_vins/ov_eval/src/utils/Loader.cpp:315:23:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Kexpected \xe2\x80\x98\x1b[01m\x1b[K)\x1b[m\x1b[K\xe2\x80\x99 before string constant\n'}
+[5.209868] (ov_eval) StderrLine: {'line': b'  315 |       PRINT_ERROR(RED \x1b[01;31m\x1b[K"[LOAD]: %s\\n"\x1b[m\x1b[K RESET, path.c_str());\n'}
+[5.211149] (ov_eval) StderrLine: {'line': b'      |                       \x1b[01;31m\x1b[K^~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[5.211237] (ov_eval) StderrLine: {'line': b'\x1b[01m\x1b[K/catkin_ws/install/ov_core/include/utils/print.h:100:123:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kin definition of macro \xe2\x80\x98\x1b[01m\x1b[KPRINT_ERROR\x1b[m\x1b[K\xe2\x80\x99\n'}
+[5.212645] (ov_eval) StderrLine: {'line': b'  100 | #define PRINT_ERROR(x...) ov_core::Printer::debugPrint(ov_core::Printer::PrintLevel::ERROR, __FILE__, TOSTRING(__LINE__), \x1b[01;36m\x1b[Kx\x1b[m\x1b[K);\n'}
+[5.214079] (ov_eval) StderrLine: {'line': b'      |                                                                                                                           \x1b[01;36m\x1b[K^\x1b[m\x1b[K\n'}
+[5.215342] (ov_eval) StderrLine: {'line': b'\x1b[01m\x1b[K/catkin_ws/install/ov_core/include/utils/print.h:100:55:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kto match this \xe2\x80\x98\x1b[01m\x1b[K(\x1b[m\x1b[K\xe2\x80\x99\n'}
+[5.216679] (ov_eval) StderrLine: {'line': b'  100 | #define PRINT_ERROR(x...) ov_core::Printer::debugPrint\x1b[01;36m\x1b[K(\x1b[m\x1b[Kov_core::Printer::PrintLevel::ERROR, __FILE__, TOSTRING(__LINE__), x);\n'}
+[5.216764] (ov_eval) StderrLine: {'line': b'      |                                                       \x1b[01;36m\x1b[K^\x1b[m\x1b[K\n'}
+[5.218092] (ov_eval) StderrLine: {'line': b'\x1b[01m\x1b[K/catkin_ws/src/open_vins/ov_eval/src/utils/Loader.cpp:315:7:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kin expansion of macro \xe2\x80\x98\x1b[01m\x1b[KPRINT_ERROR\x1b[m\x1b[K\xe2\x80\x99\n'}
+[5.219427] (ov_eval) StderrLine: {'line': b'  315 |       \x1b[01;36m\x1b[KPRINT_ERROR\x1b[m\x1b[K(RED "[LOAD]: %s\\n" RESET, path.c_str());\n'}
+[5.220834] (ov_eval) StderrLine: {'line': b'      |       \x1b[01;36m\x1b[K^~~~~~~~~~~\x1b[m\x1b[K\n'}
+[5.222223] (ov_eval) StderrLine: {'line': b'\x1b[01m\x1b[K/catkin_ws/src/open_vins/ov_eval/src/utils/Loader.cpp:\x1b[m\x1b[K At global scope:\n'}
+[5.222307] (ov_eval) StderrLine: {'line': b'\x1b[01m\x1b[K/catkin_ws/src/open_vins/ov_eval/src/utils/Loader.cpp:321:6:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[KLoader\x1b[m\x1b[K\xe2\x80\x99 has not been declared\n'}
+[5.223533] (ov_eval) StderrLine: {'line': b'  321 | void \x1b[01;31m\x1b[KLoader\x1b[m\x1b[K::load_timing_percent(std::string path, std::vector<double> &times, std::vector<Eigen::Vector3d> &summed_values,\n'}
+[5.223638] (ov_eval) StderrLine: {'line': b'      |      \x1b[01;31m\x1b[K^~~~~~\x1b[m\x1b[K\n'}
+[5.223717] (ov_eval) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/catkin_ws/src/open_vins/ov_eval/src/utils/Loader.h:132\x1b[m\x1b[K,\n'}
+[5.223791] (ov_eval) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/catkin_ws/src/open_vins/ov_eval/src/utils/Loader.cpp:22\x1b[m\x1b[K:\n'}
+[5.223861] (ov_eval) StderrLine: {'line': b'\x1b[01m\x1b[K/catkin_ws/src/open_vins/ov_eval/src/utils/Loader.cpp:\x1b[m\x1b[K In function \xe2\x80\x98\x1b[01m\x1b[Kvoid load_timing_percent(std::string, std::vector<double, std::allocator<double> >&, std::vector<Eigen::Matrix<double, 3, 1> >&, std::vector<Eigen::Matrix<double, -1, 1> >&)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[5.223934] (ov_eval) StderrLine: {'line': b'\x1b[01m\x1b[K/catkin_ws/src/open_vins/ov_eval/src/utils/Loader.cpp:327:17:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[KRED\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[5.224000] (ov_eval) StderrLine: {'line': b'  327 |     PRINT_ERROR(\x1b[01;31m\x1b[KRED\x1b[m\x1b[K "[LOAD]: Unable to open timing file...\\n" RESET);\n'}
+[5.224062] (ov_eval) StderrLine: {'line': b'      |                 \x1b[01;31m\x1b[K^~~\x1b[m\x1b[K\n'}
+[5.224128] (ov_eval) StderrLine: {'line': b'\x1b[01m\x1b[K/catkin_ws/install/ov_core/include/utils/print.h:100:123:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kin definition of macro \xe2\x80\x98\x1b[01m\x1b[KPRINT_ERROR\x1b[m\x1b[K\xe2\x80\x99\n'}
+[5.224201] (ov_eval) StderrLine: {'line': b'  100 | #define PRINT_ERROR(x...) ov_core::Printer::debugPrint(ov_core::Printer::PrintLevel::ERROR, __FILE__, TOSTRING(__LINE__), \x1b[01;36m\x1b[Kx\x1b[m\x1b[K);\n'}
+[5.224276] (ov_eval) StderrLine: {'line': b'      |                                                                                                                           \x1b[01;36m\x1b[K^\x1b[m\x1b[K\n'}
+[5.224350] (ov_eval) StderrLine: {'line': b'\x1b[01m\x1b[K/catkin_ws/src/open_vins/ov_eval/src/utils/Loader.cpp:328:21:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Kexpected \xe2\x80\x98\x1b[01m\x1b[K)\x1b[m\x1b[K\xe2\x80\x99 before string constant\n'}
+[5.224425] (ov_eval) StderrLine: {'line': b'  328 |     PRINT_ERROR(RED \x1b[01;31m\x1b[K"[LOAD]: %s\\n"\x1b[m\x1b[K RESET, path.c_str());\n'}
+[5.224505] (ov_eval) StderrLine: {'line': b'      |                     \x1b[01;31m\x1b[K^~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[5.224586] (ov_eval) StderrLine: {'line': b'\x1b[01m\x1b[K/catkin_ws/install/ov_core/include/utils/print.h:100:123:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kin definition of macro \xe2\x80\x98\x1b[01m\x1b[KPRINT_ERROR\x1b[m\x1b[K\xe2\x80\x99\n'}
+[5.224660] (ov_eval) StderrLine: {'line': b'  100 | #define PRINT_ERROR(x...) ov_core::Printer::debugPrint(ov_core::Printer::PrintLevel::ERROR, __FILE__, TOSTRING(__LINE__), \x1b[01;36m\x1b[Kx\x1b[m\x1b[K);\n'}
+[5.224737] (ov_eval) StderrLine: {'line': b'      |                                                                                                                           \x1b[01;36m\x1b[K^\x1b[m\x1b[K\n'}
+[5.226087] (ov_eval) StderrLine: {'line': b'\x1b[01m\x1b[K/catkin_ws/install/ov_core/include/utils/print.h:100:55:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kto match this \xe2\x80\x98\x1b[01m\x1b[K(\x1b[m\x1b[K\xe2\x80\x99\n'}
+[5.227577] (ov_eval) StderrLine: {'line': b'  100 | #define PRINT_ERROR(x...) ov_core::Printer::debugPrint\x1b[01;36m\x1b[K(\x1b[m\x1b[Kov_core::Printer::PrintLevel::ERROR, __FILE__, TOSTRING(__LINE__), x);\n'}
+[5.227663] (-) TimerEvent: {}
+[5.232705] (ov_eval) StderrLine: {'line': b'      |                                                       \x1b[01;36m\x1b[K^\x1b[m\x1b[K\n'}
+[5.234614] (ov_eval) StderrLine: {'line': b'\x1b[01m\x1b[K/catkin_ws/src/open_vins/ov_eval/src/utils/Loader.cpp:328:5:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kin expansion of macro \xe2\x80\x98\x1b[01m\x1b[KPRINT_ERROR\x1b[m\x1b[K\xe2\x80\x99\n'}
+[5.235803] (ov_eval) StderrLine: {'line': b'  328 |     \x1b[01;36m\x1b[KPRINT_ERROR\x1b[m\x1b[K(RED "[LOAD]: %s\\n" RESET, path.c_str());\n'}
+[5.237139] (ov_eval) StderrLine: {'line': b'      |     \x1b[01;36m\x1b[K^~~~~~~~~~~\x1b[m\x1b[K\n'}
+[5.237231] (ov_eval) StderrLine: {'line': b'\x1b[01m\x1b[K/catkin_ws/src/open_vins/ov_eval/src/utils/Loader.cpp:375:17:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[KRED\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[5.238458] (ov_eval) StderrLine: {'line': b'  375 |     PRINT_ERROR(\x1b[01;31m\x1b[KRED\x1b[m\x1b[K "[LOAD]: Could not parse any data from the file!!\\n" RESET);\n'}
+[5.239874] (ov_eval) StderrLine: {'line': b'      |                 \x1b[01;31m\x1b[K^~~\x1b[m\x1b[K\n'}
+[5.241099] (ov_eval) StderrLine: {'line': b'\x1b[01m\x1b[K/catkin_ws/install/ov_core/include/utils/print.h:100:123:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kin definition of macro \xe2\x80\x98\x1b[01m\x1b[KPRINT_ERROR\x1b[m\x1b[K\xe2\x80\x99\n'}
+[5.242575] (ov_eval) StderrLine: {'line': b'  100 | #define PRINT_ERROR(x...) ov_core::Printer::debugPrint(ov_core::Printer::PrintLevel::ERROR, __FILE__, TOSTRING(__LINE__), \x1b[01;36m\x1b[Kx\x1b[m\x1b[K);\n'}
+[5.242666] (ov_eval) StderrLine: {'line': b'      |                                                                                                                           \x1b[01;36m\x1b[K^\x1b[m\x1b[K\n'}
+[5.243962] (ov_eval) StderrLine: {'line': b'\x1b[01m\x1b[K/catkin_ws/src/open_vins/ov_eval/src/utils/Loader.cpp:376:21:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Kexpected \xe2\x80\x98\x1b[01m\x1b[K)\x1b[m\x1b[K\xe2\x80\x99 before string constant\n'}
+[5.245304] (ov_eval) StderrLine: {'line': b'  376 |     PRINT_ERROR(RED \x1b[01;31m\x1b[K"[LOAD]: %s\\n"\x1b[m\x1b[K RESET, path.c_str());\n'}
+[5.246615] (ov_eval) StderrLine: {'line': b'      |                     \x1b[01;31m\x1b[K^~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[5.247862] (ov_eval) StderrLine: {'line': b'\x1b[01m\x1b[K/catkin_ws/install/ov_core/include/utils/print.h:100:123:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kin definition of macro \xe2\x80\x98\x1b[01m\x1b[KPRINT_ERROR\x1b[m\x1b[K\xe2\x80\x99\n'}
+[5.247969] (ov_eval) StderrLine: {'line': b'  100 | #define PRINT_ERROR(x...) ov_core::Printer::debugPrint(ov_core::Printer::PrintLevel::ERROR, __FILE__, TOSTRING(__LINE__), \x1b[01;36m\x1b[Kx\x1b[m\x1b[K);\n'}
+[5.249365] (ov_eval) StderrLine: {'line': b'      |                                                                                                                           \x1b[01;36m\x1b[K^\x1b[m\x1b[K\n'}
+[5.250615] (ov_eval) StderrLine: {'line': b'\x1b[01m\x1b[K/catkin_ws/install/ov_core/include/utils/print.h:100:55:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kto match this \xe2\x80\x98\x1b[01m\x1b[K(\x1b[m\x1b[K\xe2\x80\x99\n'}
+[5.251838] (ov_eval) StderrLine: {'line': b'  100 | #define PRINT_ERROR(x...) ov_core::Printer::debugPrint\x1b[01;36m\x1b[K(\x1b[m\x1b[Kov_core::Printer::PrintLevel::ERROR, __FILE__, TOSTRING(__LINE__), x);\n'}
+[5.253133] (ov_eval) StderrLine: {'line': b'      |                                                       \x1b[01;36m\x1b[K^\x1b[m\x1b[K\n'}
+[5.253218] (ov_eval) StderrLine: {'line': b'\x1b[01m\x1b[K/catkin_ws/src/open_vins/ov_eval/src/utils/Loader.cpp:376:5:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kin expansion of macro \xe2\x80\x98\x1b[01m\x1b[KPRINT_ERROR\x1b[m\x1b[K\xe2\x80\x99\n'}
+[5.254431] (ov_eval) StderrLine: {'line': b'  376 |     \x1b[01;36m\x1b[KPRINT_ERROR\x1b[m\x1b[K(RED "[LOAD]: %s\\n" RESET, path.c_str());\n'}
+[5.255655] (ov_eval) StderrLine: {'line': b'      |     \x1b[01;36m\x1b[K^~~~~~~~~~~\x1b[m\x1b[K\n'}
+[5.256985] (ov_eval) StderrLine: {'line': b'\x1b[01m\x1b[K/catkin_ws/src/open_vins/ov_eval/src/utils/Loader.cpp:382:17:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[KRED\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[5.258315] (ov_eval) StderrLine: {'line': b'  382 |     PRINT_ERROR(\x1b[01;31m\x1b[KRED\x1b[m\x1b[K "[LOAD]: Parsing error, pose and timestamps do not match!!\\n" RESET);\n'}
+[5.258386] (ov_eval) StderrLine: {'line': b'      |                 \x1b[01;31m\x1b[K^~~\x1b[m\x1b[K\n'}
+[5.259537] (ov_eval) StderrLine: {'line': b'\x1b[01m\x1b[K/catkin_ws/install/ov_core/include/utils/print.h:100:123:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kin definition of macro \xe2\x80\x98\x1b[01m\x1b[KPRINT_ERROR\x1b[m\x1b[K\xe2\x80\x99\n'}
+[5.260834] (ov_eval) StderrLine: {'line': b'  100 | #define PRINT_ERROR(x...) ov_core::Printer::debugPrint(ov_core::Printer::PrintLevel::ERROR, __FILE__, TOSTRING(__LINE__), \x1b[01;36m\x1b[Kx\x1b[m\x1b[K);\n'}
+[5.262205] (ov_eval) StderrLine: {'line': b'      |                                                                                                                           \x1b[01;36m\x1b[K^\x1b[m\x1b[K\n'}
+[5.263501] (ov_eval) StderrLine: {'line': b'\x1b[01m\x1b[K/catkin_ws/src/open_vins/ov_eval/src/utils/Loader.cpp:383:21:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Kexpected \xe2\x80\x98\x1b[01m\x1b[K)\x1b[m\x1b[K\xe2\x80\x99 before string constant\n'}
+[5.263579] (ov_eval) StderrLine: {'line': b'  383 |     PRINT_ERROR(RED \x1b[01;31m\x1b[K"[LOAD]: %s\\n"\x1b[m\x1b[K RESET, path.c_str());\n'}
+[5.264693] (ov_eval) StderrLine: {'line': b'      |                     \x1b[01;31m\x1b[K^~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[5.265996] (ov_eval) StderrLine: {'line': b'\x1b[01m\x1b[K/catkin_ws/install/ov_core/include/utils/print.h:100:123:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kin definition of macro \xe2\x80\x98\x1b[01m\x1b[KPRINT_ERROR\x1b[m\x1b[K\xe2\x80\x99\n'}
+[5.267219] (ov_eval) StderrLine: {'line': b'  100 | #define PRINT_ERROR(x...) ov_core::Printer::debugPrint(ov_core::Printer::PrintLevel::ERROR, __FILE__, TOSTRING(__LINE__), \x1b[01;36m\x1b[Kx\x1b[m\x1b[K);\n'}
+[5.268678] (ov_eval) StderrLine: {'line': b'      |                                                                                                                           \x1b[01;36m\x1b[K^\x1b[m\x1b[K\n'}
+[5.268745] (ov_eval) StderrLine: {'line': b'\x1b[01m\x1b[K/catkin_ws/install/ov_core/include/utils/print.h:100:55:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kto match this \xe2\x80\x98\x1b[01m\x1b[K(\x1b[m\x1b[K\xe2\x80\x99\n'}
+[5.270021] (ov_eval) StderrLine: {'line': b'  100 | #define PRINT_ERROR(x...) ov_core::Printer::debugPrint\x1b[01;36m\x1b[K(\x1b[m\x1b[Kov_core::Printer::PrintLevel::ERROR, __FILE__, TOSTRING(__LINE__), x);\n'}
+[5.271480] (ov_eval) StderrLine: {'line': b'      |                                                       \x1b[01;36m\x1b[K^\x1b[m\x1b[K\n'}
+[5.271530] (ov_eval) StderrLine: {'line': b'\x1b[01m\x1b[K/catkin_ws/src/open_vins/ov_eval/src/utils/Loader.cpp:383:5:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kin expansion of macro \xe2\x80\x98\x1b[01m\x1b[KPRINT_ERROR\x1b[m\x1b[K\xe2\x80\x99\n'}
+[5.272922] (ov_eval) StderrLine: {'line': b'  383 |     \x1b[01;36m\x1b[KPRINT_ERROR\x1b[m\x1b[K(RED "[LOAD]: %s\\n" RESET, path.c_str());\n'}
+[5.274181] (ov_eval) StderrLine: {'line': b'      |     \x1b[01;36m\x1b[K^~~~~~~~~~~\x1b[m\x1b[K\n'}
+[5.274236] (ov_eval) StderrLine: {'line': b'\x1b[01m\x1b[K/catkin_ws/src/open_vins/ov_eval/src/utils/Loader.cpp:\x1b[m\x1b[K At global scope:\n'}
+[5.275708] (ov_eval) StderrLine: {'line': b'\x1b[01m\x1b[K/catkin_ws/src/open_vins/ov_eval/src/utils/Loader.cpp:388:8:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[KLoader\x1b[m\x1b[K\xe2\x80\x99 has not been declared\n'}
+[5.276975] (ov_eval) StderrLine: {'line': b'  388 | double \x1b[01;31m\x1b[KLoader\x1b[m\x1b[K::get_total_length(const std::vector<Eigen::Matrix<double, 7, 1>> &poses) {\n'}
+[5.278169] (ov_eval) StderrLine: {'line': b'      |        \x1b[01;31m\x1b[K^~~~~~\x1b[m\x1b[K\n'}
+[5.327782] (-) TimerEvent: {}
+[5.428078] (-) TimerEvent: {}
+[5.516511] (ov_eval) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/catkin_ws/src/open_vins/ov_eval/src/calc/ResultTrajectory.h:36\x1b[m\x1b[K,\n'}
+[5.516736] (ov_eval) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/catkin_ws/src/open_vins/ov_eval/src/calc/ResultTrajectory.cpp:22\x1b[m\x1b[K:\n'}
+[5.518159] (ov_eval) StderrLine: {'line': b'\x1b[01m\x1b[K/catkin_ws/src/open_vins/ov_eval/src/utils/Loader.h:\x1b[m\x1b[K In constructor \xe2\x80\x98\x1b[01m\x1b[Kov_eval::Recorder::Recorder(const string&)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[5.519612] (ov_eval) StderrLine: {'line': b'\x1b[01m\x1b[K/catkin_ws/src/open_vins/ov_eval/src/utils/Loader.h:190:8:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[KPRINT_WARN\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope; did you mean \xe2\x80\x98\x1b[01m\x1b[KPRINT_WARNING\x1b[m\x1b[K\xe2\x80\x99?\n'}
+[5.519660] (ov_eval) StderrLine: {'line': b'  190 |        \x1b[01;31m\x1b[KPRINT_WARN\x1b[m\x1b[K("Output file exists, deleting old file: %s", filename.c_str());\n'}
+[5.520803] (ov_eval) StderrLine: {'line': b'      |        \x1b[01;31m\x1b[K^~~~~~~~~~\x1b[m\x1b[K\n'}
+[5.522300] (ov_eval) StderrLine: {'line': b'      |        \x1b[32m\x1b[KPRINT_WARNING\x1b[m\x1b[K\n'}
+[5.528159] (-) TimerEvent: {}
+[5.536895] (ov_eval) StderrLine: {'line': b'\x1b[01m\x1b[K/catkin_ws/src/open_vins/ov_eval/src/calc/ResultTrajectory.cpp:\x1b[m\x1b[K In constructor \xe2\x80\x98\x1b[01m\x1b[Kov_eval::ResultTrajectory::ResultTrajectory(std::string, std::string, std::string)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[5.537081] (ov_eval) StderrLine: {'line': b'\x1b[01m\x1b[K/catkin_ws/src/open_vins/ov_eval/src/calc/ResultTrajectory.cpp:29:3:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[KLoader\x1b[m\x1b[K\xe2\x80\x99 has not been declared\n'}
+[5.539696] (ov_eval) StderrLine: {'line': b'   29 |   \x1b[01;31m\x1b[KLoader\x1b[m\x1b[K::load_data(path_est, est_times, est_poses, est_covori, est_covpos);\n'}
+[5.540998] (ov_eval) StderrLine: {'line': b'      |   \x1b[01;31m\x1b[K^~~~~~\x1b[m\x1b[K\n'}
+[5.542485] (ov_eval) StderrLine: {'line': b'\x1b[01m\x1b[K/catkin_ws/src/open_vins/ov_eval/src/calc/ResultTrajectory.cpp:30:3:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[KLoader\x1b[m\x1b[K\xe2\x80\x99 has not been declared\n'}
+[5.545050] (ov_eval) StderrLine: {'line': b'   30 |   \x1b[01;31m\x1b[KLoader\x1b[m\x1b[K::load_data(path_gt, gt_times, gt_poses, gt_covori, gt_covpos);\n'}
+[5.546348] (ov_eval) StderrLine: {'line': b'      |   \x1b[01;31m\x1b[K^~~~~~\x1b[m\x1b[K\n'}
+[5.547570] (ov_eval) StderrLine: {'line': b'\x1b[01m\x1b[K/catkin_ws/src/open_vins/ov_eval/src/calc/ResultTrajectory.cpp:37:28:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kov_eval::Loader\x1b[m\x1b[K\xe2\x80\x99 has not been declared\n'}
+[5.548842] (ov_eval) StderrLine: {'line': b'   37 |   double len_gt = ov_eval::\x1b[01;31m\x1b[KLoader\x1b[m\x1b[K::get_total_length(gt_poses);\n'}
+[5.550110] (ov_eval) StderrLine: {'line': b'      |                            \x1b[01;31m\x1b[K^~~~~~\x1b[m\x1b[K\n'}
+[5.551356] (ov_eval) StderrLine: {'line': b'\x1b[01m\x1b[K/catkin_ws/src/open_vins/ov_eval/src/calc/ResultTrajectory.cpp:38:29:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kov_eval::Loader\x1b[m\x1b[K\xe2\x80\x99 has not been declared\n'}
+[5.552540] (ov_eval) StderrLine: {'line': b'   38 |   double len_est = ov_eval::\x1b[01;31m\x1b[KLoader\x1b[m\x1b[K::get_total_length(est_poses);\n'}
+[5.553637] (ov_eval) StderrLine: {'line': b'      |                             \x1b[01;31m\x1b[K^~~~~~\x1b[m\x1b[K\n'}
+[5.554714] (ov_eval) StderrLine: {'line': b'\x1b[01m\x1b[K/catkin_ws/src/open_vins/ov_eval/src/calc/ResultSimulation.cpp:\x1b[m\x1b[K In constructor \xe2\x80\x98\x1b[01m\x1b[Kov_eval::ResultSimulation::ResultSimulation(std::string, std::string, std::string)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[5.555714] (ov_eval) StderrLine: {'line': b'\x1b[01m\x1b[K/catkin_ws/src/open_vins/ov_eval/src/calc/ResultSimulation.cpp:29:3:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[KLoader\x1b[m\x1b[K\xe2\x80\x99 has not been declared\n'}
+[5.556785] (ov_eval) StderrLine: {'line': b'   29 |   \x1b[01;31m\x1b[KLoader\x1b[m\x1b[K::load_simulation(path_est, est_state);\n'}
+[5.556859] (ov_eval) StderrLine: {'line': b'      |   \x1b[01;31m\x1b[K^~~~~~\x1b[m\x1b[K\n'}
+[5.558949] (ov_eval) StderrLine: {'line': b'\x1b[01m\x1b[K/catkin_ws/src/open_vins/ov_eval/src/calc/ResultSimulation.cpp:30:3:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[KLoader\x1b[m\x1b[K\xe2\x80\x99 has not been declared\n'}
+[5.560098] (ov_eval) StderrLine: {'line': b'   30 |   \x1b[01;31m\x1b[KLoader\x1b[m\x1b[K::load_simulation(path_std, state_cov);\n'}
+[5.561264] (ov_eval) StderrLine: {'line': b'      |   \x1b[01;31m\x1b[K^~~~~~\x1b[m\x1b[K\n'}
+[5.563464] (ov_eval) StderrLine: {'line': b'\x1b[01m\x1b[K/catkin_ws/src/open_vins/ov_eval/src/calc/ResultSimulation.cpp:31:3:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[KLoader\x1b[m\x1b[K\xe2\x80\x99 has not been declared\n'}
+[5.564488] (ov_eval) StderrLine: {'line': b'   31 |   \x1b[01;31m\x1b[KLoader\x1b[m\x1b[K::load_simulation(path_gt, gt_state);\n'}
+[5.565890] (ov_eval) StderrLine: {'line': b'      |   \x1b[01;31m\x1b[K^~~~~~\x1b[m\x1b[K\n'}
+[5.628292] (-) TimerEvent: {}
+[5.641355] (ov_eval) StderrLine: {'line': b'gmake[2]: *** [CMakeFiles/ov_eval_lib.dir/build.make:146: CMakeFiles/ov_eval_lib.dir/src/utils/Loader.cpp.o] Error 1\n'}
+[5.641589] (ov_eval) StderrLine: {'line': b'gmake[2]: *** Waiting for unfinished jobs....\n'}
+[5.728405] (-) TimerEvent: {}
+[5.828717] (-) TimerEvent: {}
+[5.928992] (-) TimerEvent: {}
+[6.029253] (-) TimerEvent: {}
+[6.129589] (-) TimerEvent: {}
+[6.229910] (-) TimerEvent: {}
+[6.330238] (-) TimerEvent: {}
+[6.430558] (-) TimerEvent: {}
+[6.530895] (-) TimerEvent: {}
+[6.631212] (-) TimerEvent: {}
+[6.731535] (-) TimerEvent: {}
+[6.831866] (-) TimerEvent: {}
+[6.884258] (ov_eval) StderrLine: {'line': b'gmake[2]: *** [CMakeFiles/ov_eval_lib.dir/build.make:132: CMakeFiles/ov_eval_lib.dir/src/calc/ResultSimulation.cpp.o] Error 1\n'}
+[6.931962] (-) TimerEvent: {}
+[7.032229] (-) TimerEvent: {}
+[7.132494] (-) TimerEvent: {}
+[7.232770] (-) TimerEvent: {}
+[7.333041] (-) TimerEvent: {}
+[7.433328] (-) TimerEvent: {}
+[7.533637] (-) TimerEvent: {}
+[7.633953] (-) TimerEvent: {}
+[7.734253] (-) TimerEvent: {}
+[7.834542] (-) TimerEvent: {}
+[7.934848] (-) TimerEvent: {}
+[8.035119] (-) TimerEvent: {}
+[8.135384] (-) TimerEvent: {}
+[8.149704] (ov_eval) StderrLine: {'line': b'gmake[2]: *** [CMakeFiles/ov_eval_lib.dir/build.make:118: CMakeFiles/ov_eval_lib.dir/src/calc/ResultTrajectory.cpp.o] Error 1\n'}
+[8.150020] (ov_eval) StderrLine: {'line': b'gmake[1]: *** [CMakeFiles/Makefile2:159: CMakeFiles/ov_eval_lib.dir/all] Error 2\n'}
+[8.153908] (ov_eval) StderrLine: {'line': b'gmake: *** [Makefile:146: all] Error 2\n'}
+[8.155217] (ov_eval) CommandEnded: {'returncode': 2}
+[8.235455] (-) TimerEvent: {}
+[8.235740] (ov_eval) JobEnded: {'identifier': 'ov_eval', 'rc': 2}
+[8.247363] (-) EventReactorShutdown: {}

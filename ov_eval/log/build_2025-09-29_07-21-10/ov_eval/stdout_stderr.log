@@ -1,0 +1,26 @@
+[ 10%] [32mBuilding CXX object CMakeFiles/ov_eval_lib.dir/src/calc/ResultTrajectory.cpp.o[0m
+[ 10%] [32mBuilding CXX object CMakeFiles/ov_eval_lib.dir/src/calc/ResultSimulation.cpp.o[0m
+[ 10%] [32mBuilding CXX object CMakeFiles/ov_eval_lib.dir/src/utils/Loader.cpp.o[0m
+In file included from [01m[K/catkin_ws/src/open_vins/ov_eval/src/utils/Loader.cpp:22[m[K:
+[01m[K/catkin_ws/src/open_vins/ov_eval/src/utils/Loader.h:141:13:[m[K [01;31m[Kfatal error: [m[Kgeometry_msgs/msg/pose_stamped.hpp: No such file or directory
+  141 |    #include [01;31m[K"geometry_msgs/msg/pose_stamped.hpp"[m[K
+      |             [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+compilation terminated.
+gmake[2]: *** [CMakeFiles/ov_eval_lib.dir/build.make:146: CMakeFiles/ov_eval_lib.dir/src/utils/Loader.cpp.o] Error 1
+gmake[2]: *** Waiting for unfinished jobs....
+In file included from [01m[K/catkin_ws/src/open_vins/ov_eval/src/calc/ResultSimulation.h:33[m[K,
+                 from [01m[K/catkin_ws/src/open_vins/ov_eval/src/calc/ResultSimulation.cpp:22[m[K:
+[01m[K/catkin_ws/src/open_vins/ov_eval/src/utils/Loader.h:141:13:[m[K [01;31m[Kfatal error: [m[Kgeometry_msgs/msg/pose_stamped.hpp: No such file or directory
+  141 |    #include [01;31m[K"geometry_msgs/msg/pose_stamped.hpp"[m[K
+      |             [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+compilation terminated.
+In file included from [01m[K/catkin_ws/src/open_vins/ov_eval/src/calc/ResultTrajectory.h:36[m[K,
+                 from [01m[K/catkin_ws/src/open_vins/ov_eval/src/calc/ResultTrajectory.cpp:22[m[K:
+[01m[K/catkin_ws/src/open_vins/ov_eval/src/utils/Loader.h:141:13:[m[K [01;31m[Kfatal error: [m[Kgeometry_msgs/msg/pose_stamped.hpp: No such file or directory
+  141 |    #include [01;31m[K"geometry_msgs/msg/pose_stamped.hpp"[m[K
+      |             [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+compilation terminated.
+gmake[2]: *** [CMakeFiles/ov_eval_lib.dir/build.make:132: CMakeFiles/ov_eval_lib.dir/src/calc/ResultSimulation.cpp.o] Error 1
+gmake[2]: *** [CMakeFiles/ov_eval_lib.dir/build.make:118: CMakeFiles/ov_eval_lib.dir/src/calc/ResultTrajectory.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:159: CMakeFiles/ov_eval_lib.dir/all] Error 2
+gmake: *** [Makefile:146: all] Error 2

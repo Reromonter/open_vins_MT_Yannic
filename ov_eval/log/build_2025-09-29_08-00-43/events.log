@@ -1,0 +1,108 @@
+[0.000000] (-) TimerEvent: {}
+[0.000100] (ov_eval) JobQueued: {'identifier': 'ov_eval', 'dependencies': OrderedDict()}
+[0.000125] (ov_eval) JobStarted: {'identifier': 'ov_eval'}
+[0.059194] (ov_eval) JobProgress: {'identifier': 'ov_eval', 'progress': 'cmake'}
+[0.067291] (ov_eval) JobProgress: {'identifier': 'ov_eval', 'progress': 'build'}
+[0.068552] (ov_eval) Command: {'cmd': ['/usr/bin/cmake', '--build', '/catkin_ws/src/open_vins/ov_eval/build/ov_eval', '--', '-j16', '-l16'], 'cwd': '/catkin_ws/src/open_vins/ov_eval/build/ov_eval', 'env': OrderedDict([('HOSTNAME', 'leo-c15-12'), ('GIT_ASKPASS', '/root/.vscode-server/bin/17baf841131aa23349f217ca7c570c76ee87b957/extensions/git/dist/askpass.sh'), ('SHLVL', '2'), ('LD_LIBRARY_PATH', '/catkin_ws/install/ov_msckf/lib:/catkin_ws/install/ov_init/lib:/catkin_ws/install/ov_eval/lib:/catkin_ws/install/ov_core/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('BROWSER', '/root/.vscode-server/bin/17baf841131aa23349f217ca7c570c76ee87b957/bin/helpers/browser.sh'), ('HOME', '/root'), ('OLDPWD', '/catkin_ws'), ('TERM_PROGRAM_VERSION', '1.99.3'), ('VSCODE_IPC_HOOK_CLI', '/tmp/vscode-ipc-4ab475a5-344e-4304-89e8-4c9142176357.sock'), ('ROS_PYTHON_VERSION', '3'), ('VSCODE_GIT_ASKPASS_MAIN', '/root/.vscode-server/bin/17baf841131aa23349f217ca7c570c76ee87b957/extensions/git/dist/askpass-main.js'), ('VSCODE_GIT_ASKPASS_NODE', '/root/.vscode-server/bin/17baf841131aa23349f217ca7c570c76ee87b957/node'), ('COLORTERM', 'truecolor'), ('REMOTE_CONTAINERS', 'true'), ('DEBUGINFOD_URLS', ''), ('COLCON_PREFIX_PATH', '/catkin_ws/install'), ('ROS_DISTRO', 'humble'), ('REMOTE_CONTAINERS_IPC', '/tmp/vscode-remote-containers-ipc-756015d0-c950-458b-8c5b-914f02062b57.sock'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('NVIDIA_DRIVER_CAPABILITIES', 'all'), ('TERM', 'xterm-256color'), ('ROS_LOCALHOST_ONLY', '0'), ('QT_X11_NO_MITSHM', '1'), ('PATH', '/opt/ros/humble/bin:/root/.vscode-server/bin/17baf841131aa23349f217ca7c570c76ee87b957/bin/remote-cli:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/root/.vscode-server/data/User/globalStorage/github.copilot-chat/debugCommand'), ('REMOTE_CONTAINERS_SOCKETS', '["/tmp/vscode-ssh-auth-756015d0-c950-458b-8c5b-914f02062b57.sock","/root/.gnupg/S.gpg-agent"]'), ('DISPLAY', ':1'), ('LANG', 'C.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('VSCODE_GIT_IPC_HANDLE', '/tmp/vscode-git-02de4b1a9e.sock'), ('TERM_PROGRAM', 'vscode'), ('SSH_AUTH_SOCK', '/tmp/vscode-ssh-auth-756015d0-c950-458b-8c5b-914f02062b57.sock'), ('AMENT_PREFIX_PATH', '/catkin_ws/install/ov_msckf:/catkin_ws/install/ov_init:/catkin_ws/install/ov_eval:/catkin_ws/install/ov_data:/catkin_ws/install/ov_core:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('FASTDDS_DEFAULT_PROFILES_FILE', '/etc/fastdds/disable_shm.xml'), ('VSCODE_GIT_ASKPASS_EXTRA_ARGS', ''), ('PWD', '/catkin_ws/src/open_vins/ov_eval/build/ov_eval'), ('LC_ALL', 'C.UTF-8'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/opt/ros/humble:/catkin_ws/install/ov_msckf:/catkin_ws/install/ov_init:/catkin_ws/install/ov_eval:/catkin_ws/install/ov_data:/catkin_ws/install/ov_core')]), 'shell': False}
+[0.098502] (-) TimerEvent: {}
+[0.198698] (-) TimerEvent: {}
+[0.298952] (-) TimerEvent: {}
+[0.310410] (ov_eval) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target ov_eval_lib\x1b[0m\n'}
+[0.376166] (ov_eval) StdoutLine: {'line': b'[  3%] \x1b[32mBuilding CXX object CMakeFiles/ov_eval_lib.dir/src/utils/Loader.cpp.o\x1b[0m\n'}
+[0.399029] (-) TimerEvent: {}
+[0.499274] (-) TimerEvent: {}
+[0.599563] (-) TimerEvent: {}
+[0.699820] (-) TimerEvent: {}
+[0.800111] (-) TimerEvent: {}
+[0.900381] (-) TimerEvent: {}
+[1.000655] (-) TimerEvent: {}
+[1.100940] (-) TimerEvent: {}
+[1.201242] (-) TimerEvent: {}
+[1.301506] (-) TimerEvent: {}
+[1.401770] (-) TimerEvent: {}
+[1.502052] (-) TimerEvent: {}
+[1.602329] (-) TimerEvent: {}
+[1.702581] (-) TimerEvent: {}
+[1.802840] (-) TimerEvent: {}
+[1.903110] (-) TimerEvent: {}
+[2.003380] (-) TimerEvent: {}
+[2.103639] (-) TimerEvent: {}
+[2.203904] (-) TimerEvent: {}
+[2.304216] (-) TimerEvent: {}
+[2.404490] (-) TimerEvent: {}
+[2.504752] (-) TimerEvent: {}
+[2.605024] (-) TimerEvent: {}
+[2.705317] (-) TimerEvent: {}
+[2.805596] (-) TimerEvent: {}
+[2.905877] (-) TimerEvent: {}
+[3.006162] (-) TimerEvent: {}
+[3.106460] (-) TimerEvent: {}
+[3.167014] (ov_eval) StdoutLine: {'line': b'[  6%] \x1b[32m\x1b[1mLinking CXX shared library libov_eval_lib.so\x1b[0m\n'}
+[3.206559] (-) TimerEvent: {}
+[3.306832] (-) TimerEvent: {}
+[3.407099] (-) TimerEvent: {}
+[3.507355] (-) TimerEvent: {}
+[3.607658] (-) TimerEvent: {}
+[3.707914] (-) TimerEvent: {}
+[3.808210] (-) TimerEvent: {}
+[3.908486] (-) TimerEvent: {}
+[3.987913] (ov_eval) StdoutLine: {'line': b'[ 24%] Built target ov_eval_lib\n'}
+[4.008592] (-) TimerEvent: {}
+[4.022609] (ov_eval) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target error_singlerun\x1b[0m\n'}
+[4.023975] (ov_eval) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target timing_percentages\x1b[0m\n'}
+[4.025714] (ov_eval) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target error_comparison\x1b[0m\n'}
+[4.028509] (ov_eval) StdoutLine: {'line': b'[ 27%] \x1b[32mBuilding CXX object CMakeFiles/pose_to_file_ros2.dir/src/pose_to_file_ros2.cpp.o\x1b[0m\n'}
+[4.028694] (ov_eval) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target error_simulation\x1b[0m\n'}
+[4.029951] (ov_eval) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target timing_flamegraph\x1b[0m\n'}
+[4.030859] (ov_eval) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target plot_trajectories\x1b[0m\n'}
+[4.031951] (ov_eval) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target timing_comparison\x1b[0m\n'}
+[4.040532] (ov_eval) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target error_dataset\x1b[0m\n'}
+[4.045701] (ov_eval) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target format_converter\x1b[0m\n'}
+[4.062824] (ov_eval) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target timing_histogram\x1b[0m\n'}
+[4.072099] (ov_eval) StdoutLine: {'line': b'[ 31%] \x1b[32m\x1b[1mLinking CXX executable error_singlerun\x1b[0m\n'}
+[4.082818] (ov_eval) StdoutLine: {'line': b'[ 48%] \x1b[32m\x1b[1mLinking CXX executable timing_percentages\x1b[0m\n'}
+[4.083110] (ov_eval) StdoutLine: {'line': b'[ 48%] \x1b[32m\x1b[1mLinking CXX executable timing_flamegraph\x1b[0m\n'}
+[4.085582] (ov_eval) StdoutLine: {'line': b'[ 48%] \x1b[32m\x1b[1mLinking CXX executable plot_trajectories\x1b[0m\n'}
+[4.086674] (ov_eval) StdoutLine: {'line': b'[ 48%] \x1b[32m\x1b[1mLinking CXX executable error_comparison\x1b[0m\n'}
+[4.088106] (ov_eval) StdoutLine: {'line': b'[ 48%] \x1b[32m\x1b[1mLinking CXX executable error_simulation\x1b[0m\n'}
+[4.093295] (ov_eval) StdoutLine: {'line': b'[ 55%] \x1b[32m\x1b[1mLinking CXX executable format_converter\x1b[0m\n'}
+[4.093419] (ov_eval) StdoutLine: {'line': b'[ 55%] \x1b[32m\x1b[1mLinking CXX executable error_dataset\x1b[0m\n'}
+[4.108737] (ov_eval) StdoutLine: {'line': b'[ 58%] \x1b[32m\x1b[1mLinking CXX executable timing_comparison\x1b[0m\n'}
+[4.108899] (-) TimerEvent: {}
+[4.112791] (ov_eval) StdoutLine: {'line': b'[ 62%] \x1b[32m\x1b[1mLinking CXX executable timing_histogram\x1b[0m\n'}
+[4.209156] (-) TimerEvent: {}
+[4.310425] (-) TimerEvent: {}
+[4.410912] (-) TimerEvent: {}
+[4.511180] (-) TimerEvent: {}
+[4.565066] (ov_eval) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/catkin_ws/src/open_vins/ov_eval/src/pose_to_file_ros2.cpp:14\x1b[m\x1b[K:\n'}
+[4.565213] (ov_eval) StderrLine: {'line': b'\x1b[01m\x1b[K/catkin_ws/src/open_vins/ov_eval/src/utils/Recorder.h:32:10:\x1b[m\x1b[K \x1b[01;31m\x1b[Kfatal error: \x1b[m\x1b[Kgeometry_msgs/PoseStamped.h: No such file or directory\n'}
+[4.565265] (ov_eval) StderrLine: {'line': b'   32 | #include \x1b[01;31m\x1b[K<geometry_msgs/PoseStamped.h>\x1b[m\x1b[K\n'}
+[4.565306] (ov_eval) StderrLine: {'line': b'      |          \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[4.565343] (ov_eval) StderrLine: {'line': b'compilation terminated.\n'}
+[4.571562] (ov_eval) StderrLine: {'line': b'gmake[2]: *** [CMakeFiles/pose_to_file_ros2.dir/build.make:76: CMakeFiles/pose_to_file_ros2.dir/src/pose_to_file_ros2.cpp.o] Error 1\n'}
+[4.571766] (ov_eval) StderrLine: {'line': b'gmake[1]: *** [CMakeFiles/Makefile2:185: CMakeFiles/pose_to_file_ros2.dir/all] Error 2\n'}
+[4.571837] (ov_eval) StderrLine: {'line': b'gmake[1]: *** Waiting for unfinished jobs....\n'}
+[4.611282] (-) TimerEvent: {}
+[4.681909] (ov_eval) StdoutLine: {'line': b'[ 72%] Built target timing_comparison\n'}
+[4.682092] (ov_eval) StdoutLine: {'line': b'[ 72%] Built target timing_flamegraph\n'}
+[4.682636] (ov_eval) StdoutLine: {'line': b'[ 72%] Built target format_converter\n'}
+[4.711365] (-) TimerEvent: {}
+[4.713374] (ov_eval) StdoutLine: {'line': b'[ 75%] Built target timing_histogram\n'}
+[4.729713] (ov_eval) StdoutLine: {'line': b'[ 79%] Built target timing_percentages\n'}
+[4.811461] (-) TimerEvent: {}
+[4.911711] (-) TimerEvent: {}
+[5.011967] (-) TimerEvent: {}
+[5.112222] (-) TimerEvent: {}
+[5.191632] (ov_eval) StdoutLine: {'line': b'[ 82%] Built target error_simulation\n'}
+[5.212304] (-) TimerEvent: {}
+[5.215849] (ov_eval) StdoutLine: {'line': b'[ 86%] Built target error_singlerun\n'}
+[5.312402] (-) TimerEvent: {}
+[5.340652] (ov_eval) StdoutLine: {'line': b'[ 89%] Built target error_dataset\n'}
+[5.351628] (ov_eval) StdoutLine: {'line': b'[ 93%] Built target error_comparison\n'}
+[5.409703] (ov_eval) StdoutLine: {'line': b'[ 96%] Built target plot_trajectories\n'}
+[5.411088] (ov_eval) StderrLine: {'line': b'gmake: *** [Makefile:146: all] Error 2\n'}
+[5.412457] (-) TimerEvent: {}
+[5.413146] (ov_eval) CommandEnded: {'returncode': 2}
+[5.511103] (ov_eval) JobEnded: {'identifier': 'ov_eval', 'rc': 2}
+[5.514792] (-) TimerEvent: {}
+[5.522681] (-) EventReactorShutdown: {}

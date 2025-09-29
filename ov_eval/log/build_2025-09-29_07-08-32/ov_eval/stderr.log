@@ -1,0 +1,8 @@
+In file included from [01m[K/catkin_ws/src/open_vins/ov_eval/src/pose_to_file_ros2.cpp:14[m[K:
+[01m[K/catkin_ws/src/open_vins/ov_eval/src/utils/Recorder.h:32:10:[m[K [01;31m[Kfatal error: [m[Kgeometry_msgs/PoseStamped.h: No such file or directory
+   32 | #include [01;31m[K<geometry_msgs/PoseStamped.h>[m[K
+      |          [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+compilation terminated.
+gmake[2]: *** [CMakeFiles/pose_to_file_ros2.dir/build.make:76: CMakeFiles/pose_to_file_ros2.dir/src/pose_to_file_ros2.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:185: CMakeFiles/pose_to_file_ros2.dir/all] Error 2
+gmake: *** [Makefile:146: all] Error 2

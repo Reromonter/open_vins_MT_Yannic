@@ -1,0 +1,52 @@
+[0.125s] Invoking command in '/catkin_ws/src/open_vins/ov_eval/build/ov_eval': CMAKE_PREFIX_PATH=/opt/ros/humble:${CMAKE_PREFIX_PATH} /usr/bin/cmake --build /catkin_ws/src/open_vins/ov_eval/build/ov_eval -- -j16 -l16
+[0.388s] -- PYTHON VERSION: 3.10.12
+[0.389s] -- PYTHON INCLUDE: /usr/include/python3.10
+[0.391s] -- PYTHON LIBRARIES: /usr/lib/x86_64-linux-gnu/libpython3.10.so
+[0.564s] -- Override CMake install command with custom implementation using symlinks instead of copying resources
+[0.617s] -- ROS *2* version found, building ROS2.cmake
+[0.619s] -- Found rclcpp: 16.0.12 (/opt/ros/humble/share/rclcpp/cmake)
+[0.643s] -- Found rosidl_generator_c: 3.1.6 (/opt/ros/humble/share/rosidl_generator_c/cmake)
+[0.646s] -- Found rosidl_adapter: 3.1.6 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[0.651s] -- Found rosidl_generator_cpp: 3.1.6 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
+[0.667s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.678s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[0.703s] -- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)
+[0.707s] -- Found rmw_fastrtps_cpp: 6.2.7 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)
+[0.953s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[0.987s] -- Found ov_core: 2.7.0 (/catkin_ws/install/ov_core/share/ov_core/cmake)
+[0.991s] -- Found geometry_msgs: 4.9.0 (/opt/ros/humble/share/geometry_msgs/cmake)
+[0.999s] -- Found nav_msgs: 4.9.0 (/opt/ros/humble/share/nav_msgs/cmake)
+[1.391s] -- Configuring done
+[2.744s] -- Generating done
+[2.996s] -- Build files have been written to: /catkin_ws/src/open_vins/ov_eval/build/ov_eval
+[3.121s] [35m[1mConsolidate compiler generated dependencies of target ov_eval_lib[0m
+[3.202s] [ 24%] Built target ov_eval_lib
+[3.228s] [35m[1mConsolidate compiler generated dependencies of target error_simulation[0m
+[3.233s] [35m[1mConsolidate compiler generated dependencies of target timing_histogram[0m
+[3.236s] [35m[1mConsolidate compiler generated dependencies of target format_converter[0m
+[3.237s] [35m[1mConsolidate compiler generated dependencies of target error_comparison[0m
+[3.237s] [35m[1mConsolidate compiler generated dependencies of target timing_comparison[0m
+[3.241s] [35m[1mConsolidate compiler generated dependencies of target error_dataset[0m
+[3.243s] [35m[1mConsolidate compiler generated dependencies of target timing_flamegraph[0m
+[3.243s] [35m[1mConsolidate compiler generated dependencies of target plot_trajectories[0m
+[3.249s] [ 27%] [32mBuilding CXX object CMakeFiles/pose_to_file_ros2.dir/src/pose_to_file_ros2.cpp.o[0m
+[3.254s] [35m[1mConsolidate compiler generated dependencies of target timing_percentages[0m
+[3.255s] [35m[1mConsolidate compiler generated dependencies of target error_singlerun[0m
+[3.282s] [ 34%] Built target error_simulation
+[3.299s] [ 68%] Built target timing_comparison
+[3.318s] [ 68%] Built target timing_histogram
+[3.322s] [ 68%] Built target format_converter
+[3.324s] [ 96%] Built target plot_trajectories
+[3.325s] [ 93%] Built target error_comparison
+[3.327s] [ 96%] Built target error_dataset
+[3.327s] [ 96%] Built target timing_percentages
+[3.328s] [ 96%] Built target error_singlerun
+[3.329s] [ 93%] Built target timing_flamegraph
+[3.663s] [01m[K/catkin_ws/src/open_vins/ov_eval/src/pose_to_file_ros2.cpp:13:10:[m[K [01;31m[Kfatal error: [m[Kov_core/print.h: No such file or directory
+[3.665s]    13 | #include [01;31m[K"ov_core/print.h"[m[K
+[3.666s]       |          [01;31m[K^~~~~~~~~~~~~~~~~[m[K
+[3.666s] compilation terminated.
+[3.667s] gmake[2]: *** [CMakeFiles/pose_to_file_ros2.dir/build.make:76: CMakeFiles/pose_to_file_ros2.dir/src/pose_to_file_ros2.cpp.o] Error 1
+[3.668s] gmake[1]: *** [CMakeFiles/Makefile2:185: CMakeFiles/pose_to_file_ros2.dir/all] Error 2
+[3.669s] gmake: *** [Makefile:146: all] Error 2
+[3.670s] Invoked command in '/catkin_ws/src/open_vins/ov_eval/build/ov_eval' returned '2': CMAKE_PREFIX_PATH=/opt/ros/humble:${CMAKE_PREFIX_PATH} /usr/bin/cmake --build /catkin_ws/src/open_vins/ov_eval/build/ov_eval -- -j16 -l16

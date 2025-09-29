@@ -1,0 +1,12 @@
+[ 24%] Built target ov_eval_lib
+[ 27%] [32mBuilding CXX object CMakeFiles/pose_to_file_ros2.dir/src/pose_to_file_ros2.cpp.o[0m
+[ 96%] Built target error_comparison
+[ 96%] Built target error_dataset
+[ 96%] Built target plot_trajectories
+[ 96%] Built target error_singlerun
+[ 96%] Built target timing_comparison
+[ 96%] Built target format_converter
+[ 96%] Built target timing_histogram
+[ 96%] Built target error_simulation
+[ 96%] Built target timing_flamegraph
+[ 96%] Built target timing_percentages
