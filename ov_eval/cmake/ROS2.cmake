@@ -145,6 +145,7 @@ install(
   PROGRAMS
     python/pid_ros.py
     python/pid_sys.py
+    python/pid_ros2.py
   DESTINATION lib/${PROJECT_NAME}
 )
 

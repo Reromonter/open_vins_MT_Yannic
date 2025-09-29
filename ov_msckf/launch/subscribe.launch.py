@@ -28,7 +28,7 @@ launch_args = [
     ),
     DeclareLaunchArgument(
         name="verbosity",
-        default_value="DEBUG",
+        default_value="WARNING",
         description="ALL, DEBUG, INFO, WARNING, ERROR, SILENT",
     ),
     DeclareLaunchArgument(
@@ -46,10 +46,12 @@ launch_args = [
         default_value="true",
         description="record the total state with calibration and features to a txt file",
     ),
+    DeclareLaunchArgument(
+    name="path_gt",
+    default_value="/catkin_ws/runtime_groundtruth/groundtruth_60s.csv",
+    description="Path to ground truth data file in ASL format"
+    ),
 
-
-
-# try to include the recorder, does not work at the moment
     DeclareLaunchArgument(
         name="recorder_enable", default_value="true",
         description="enable ov_eval pose recorder"
@@ -60,11 +62,28 @@ launch_args = [
     ),
     DeclareLaunchArgument(
         name="recorder_topic_type", default_value="PoseWithCovarianceStamped",
-        description="PoseWithCovarianceStamped or Odometry"
+        description="PoseWithCovarianceStamped, PoseStamped, TransformStamped, and Odometry."
     ),
     DeclareLaunchArgument(
-        name="recorder_output", default_value="/catkin_ws/estimated_trajectory/ov_runs/openvins_run1.txt",
+        name="recorder_output", default_value="/catkin_ws/estimated_trajectory/ov_runs/openvins_run_1.txt",
         description="output file for recorded trajectory"
+    ),
+        DeclareLaunchArgument(
+        name="recorder_output", default_value="/catkin_ws/estimated_trajectory/ov_runs/openvins_run_1.txt",
+        description="output file for recorded trajectory"
+    ),
+    # timing recorder (ROS 2)
+    DeclareLaunchArgument(
+        name="timing_recorder_enable", default_value="true",
+        description="enable CPU/memory recorder"
+    ),
+    DeclareLaunchArgument(
+        name="timing_nodes", default_value="/ov_msckf/run_subscribe_msckf",
+        description="comma-separated node tokens, e.g. /ov_msckf/run_subscribe_msckf"
+    ),
+    DeclareLaunchArgument(
+        name="timing_output", default_value="/catkin_ws/logging_files/psutil_log.txt",
+        description="output file for timing/psutil logs"
     )
 ]
 
@@ -107,6 +126,7 @@ def launch_setup(context):
             {"max_cameras": LaunchConfiguration("max_cameras")},
             {"save_total_state": LaunchConfiguration("save_total_state")},
             {"config_path": config_path},
+            {"path_gt": LaunchConfiguration("path_gt")}, 
         ],
     )
     node2 = Node(
@@ -125,7 +145,6 @@ def launch_setup(context):
     )
 
 
-    # try to create the recorder part
     recorder_output = LaunchConfiguration("recorder_output").perform(context)
     try:
         os.makedirs(os.path.dirname(recorder_output), exist_ok=True)
@@ -145,7 +164,18 @@ def launch_setup(context):
         ],
     )
 
-    return [node1, node2, recorder_node]
+    recorder_timing_node = Node(
+        package="ov_eval",
+        executable="pid_ros2.py",
+        condition=IfCondition(LaunchConfiguration("timing_recorder_enable")),
+        output="screen",
+        parameters=[
+            {"nodes": LaunchConfiguration("timing_nodes")},
+            {"output": LaunchConfiguration("timing_output")},
+        ],
+    )
+
+    return [node1, node2, recorder_node, recorder_timing_node]
 
 
 def generate_launch_description():

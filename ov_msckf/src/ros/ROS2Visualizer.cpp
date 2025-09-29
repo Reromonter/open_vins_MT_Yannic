@@ -124,6 +124,9 @@ ROS2Visualizer::ROS2Visualizer(std::shared_ptr<rclcpp::Node> node, std::shared_p
     DatasetReader::load_gt_file(path_to_gt, gt_states);
     PRINT_DEBUG("gt file path is: %s\n", path_to_gt.c_str());
   }
+  else {
+    PRINT_WARNING("No gt file loaded\n");
+  }
 
   // Load if we should save the total state to file
   // If so, then open the file and create folders as needed

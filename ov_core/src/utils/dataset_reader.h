@@ -120,6 +120,7 @@ public:
       return false;
     }
 
+
     // Loop through gt states and find the closest time stamp
     double closest_time = INFINITY;
     auto it0 = gt_states.begin();
@@ -131,7 +132,7 @@ public:
     }
 
     // If close to this timestamp, then use it
-    if (std::abs(closest_time - timestep) < 0.10) {
+    if (std::abs(closest_time - timestep) < 0.1) {
       // PRINT_DEBUG("init DT = %.4f\n", std::abs(closest_time-timestep));
       // PRINT_DEBUG("timestamp = %.15f\n", closest_time);
       timestep = closest_time;

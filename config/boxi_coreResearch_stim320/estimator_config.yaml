@@ -78,17 +78,17 @@ filepath_gt: "/catkin_ws/logging_files/ov_groundtruth.txt"
 
 # our front-end feature tracking parameters
 # we have a KLT and descriptor based (KLT is better implemented...)
-use_klt: true # if true we will use KLT, otherwise use a ORB descriptor + robust matching, crahes when setting to false
+use_klt: true # if true we will use KLT, otherwise use a ORB descriptor + robust matching -- need to set histogram_method to NONE to not crash,
 num_pts: 500 # number of points (per camera) we will extract and try to track
 fast_threshold: 10 # threshold for fast extraction (warning: lower threshs can be expensive), 10 good accroding to documenatation
 grid_x: 5 # extraction sub-grid count for horizontal direction (uniform tracking)
 grid_y: 5 # extraction sub-grid count for vertical direction (uniform tracking)
 min_px_dist: 10 # distance between features (features near each other provide less information)
-knn_ratio: 0.70 # descriptor knn threshold for the top two descriptor matches (not used if KLT)
+knn_ratio: 0.99 # descriptor knn threshold for the top two descriptor matches (not used if KLT, if lower means that reject more matches)
 track_frequency: 11.0 # fps of the images which will be used by the system, e.g if sets to 2 will drop the ones in between (in frames per second / hertz)
 downsample_cameras: false # will downsample image in half if true
 num_opencv_threads: 1 # -1: auto, 0-1: serial, >1: number of threads
-histogram_method: "HISTOGRAM" # NONE, HISTOGRAM, CLAHE
+histogram_method: "HISTOGRAM" # NONE, HISTOGRAM, CLAHE, if have use_klt false then must be NONE
 
 # aruco tag tracker for the system
 # DICT_6X6_1000 from https://chev.me/arucogen/

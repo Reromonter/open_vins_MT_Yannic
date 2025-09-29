@@ -1,0 +1,60 @@
+[ 24%] Built target ov_eval_lib
+[35m[1mConsolidate compiler generated dependencies of target pose_to_file_ros2[0m
+[ 93%] Built target plot_trajectories
+[ 93%] Built target format_converter
+[ 93%] Built target timing_comparison
+[ 93%] Built target error_dataset
+[ 93%] Built target error_comparison
+[ 93%] Built target timing_histogram
+[ 93%] Built target timing_flamegraph
+[ 93%] Built target timing_percentages
+[ 93%] Built target error_singlerun
+[ 93%] Built target error_simulation
+[100%] Built target pose_to_file_ros2
+-- Install configuration: ""
+-- Execute custom install script
+-- Up-to-date symlink: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/share/ov_eval/environment/library_path.sh
+-- Up-to-date symlink: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/share/ov_eval/environment/library_path.dsv
+-- Up-to-date symlink: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/lib/ov_eval/pose_to_file_ros2
+-- Up-to-date symlink: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/lib/ov_eval/format_converter
+-- Up-to-date symlink: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/lib/ov_eval/error_comparison
+-- Up-to-date symlink: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/lib/ov_eval/error_dataset
+-- Up-to-date symlink: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/lib/ov_eval/error_singlerun
+-- Up-to-date symlink: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/lib/ov_eval/error_simulation
+-- Up-to-date symlink: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/lib/ov_eval/timing_comparison
+-- Up-to-date symlink: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/lib/ov_eval/timing_flamegraph
+-- Up-to-date symlink: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/lib/ov_eval/timing_histogram
+-- Up-to-date symlink: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/lib/ov_eval/timing_percentages
+-- Up-to-date symlink: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/lib/ov_eval/plot_trajectories
+-- Up-to-date symlink: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/lib/ov_eval/pid_ros.py
+-- Up-to-date symlink: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/lib/ov_eval/pid_sys.py
+-- Up-to-date symlink: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/share/ament_index/resource_index/package_run_dependencies/ov_eval
+-- Up-to-date symlink: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/share/ament_index/resource_index/parent_prefix_path/ov_eval
+-- Up-to-date symlink: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/share/ov_eval/environment/ament_prefix_path.sh
+-- Up-to-date symlink: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/share/ov_eval/environment/ament_prefix_path.dsv
+-- Up-to-date symlink: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/share/ov_eval/environment/path.sh
+-- Up-to-date symlink: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/share/ov_eval/environment/path.dsv
+-- Up-to-date symlink: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/share/ov_eval/local_setup.bash
+-- Up-to-date symlink: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/share/ov_eval/local_setup.sh
+-- Up-to-date symlink: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/share/ov_eval/local_setup.zsh
+-- Up-to-date symlink: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/share/ov_eval/local_setup.dsv
+-- Symlinking: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/share/ov_eval/package.dsv
+-- Up-to-date symlink: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/share/ament_index/resource_index/packages/ov_eval
+-- Up-to-date symlink: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/share/ov_eval/cmake/ament_cmake_export_include_directories-extras.cmake
+-- Up-to-date symlink: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/share/ov_eval/cmake/ament_cmake_export_libraries-extras.cmake
+-- Up-to-date symlink: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/share/ov_eval/cmake/ov_evalConfig.cmake
+-- Up-to-date symlink: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/share/ov_eval/cmake/ov_evalConfig-version.cmake
+-- Up-to-date symlink: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/share/ov_eval/package.xml
+-- Up-to-date: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/lib/libov_eval_lib.so
+-- Up-to-date: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/include
+-- Up-to-date: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/include/calc
+-- Up-to-date: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/include/calc/ResultTrajectory.h
+-- Up-to-date: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/include/calc/ResultSimulation.h
+-- Up-to-date: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/include/utils
+-- Up-to-date: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/include/utils/Recorder_ros2.h
+-- Up-to-date: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/include/utils/Statistics.h
+-- Up-to-date: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/include/utils/Loader.h
+-- Up-to-date: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/include/utils/Recorder.h
+-- Up-to-date: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/include/alignment
+-- Up-to-date: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/include/alignment/AlignTrajectory.h
+-- Up-to-date: /catkin_ws/src/open_vins/ov_eval/install/ov_eval/include/alignment/AlignUtils.h
