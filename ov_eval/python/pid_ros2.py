@@ -34,7 +34,6 @@ class PidRos2(Node):
         os.makedirs(os.path.dirname(self.save_path), exist_ok=True)
         self.file = open(self.save_path, 'w')
         
-        # Use spaces instead of commas for header
         header = '# timestamp(s) summed_cpu_perc summed_mem_perc summed_threads'
         for t in self.tokens:
             header += f' {t}_cpu_perc {t}_mem_perc {t}_threads'
@@ -49,7 +48,7 @@ class PidRos2(Node):
             except Exception:
                 pass
 
-        self.timer = self.create_timer(0.1, self.tick)
+        self.timer = self.create_timer(1.0, self.tick)
 
     def tick(self):
         # refresh mapping if any process went away

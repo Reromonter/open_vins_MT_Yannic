@@ -28,7 +28,7 @@ launch_args = [
     ),
     DeclareLaunchArgument(
         name="verbosity",
-        default_value="WARNING",
+        default_value="DEBUG",
         description="ALL, DEBUG, INFO, WARNING, ERROR, SILENT",
     ),
     DeclareLaunchArgument(
@@ -48,7 +48,7 @@ launch_args = [
     ),
     DeclareLaunchArgument(
     name="path_gt",
-    default_value="/catkin_ws/runtime_groundtruth/groundtruth_60s.csv",
+    default_value="/catkin_ws/runtime_groundtruth/construction1_full_gt.csv",
     description="Path to ground truth data file in ASL format"
     ),
 

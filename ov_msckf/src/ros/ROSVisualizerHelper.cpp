@@ -94,7 +94,7 @@ sensor_msgs::msg::PointCloud2 ROSVisualizerHelper::get_ros_pointcloud(std::share
 
   // Declare message and sizes
   sensor_msgs::msg::PointCloud2 cloud;
-  cloud.header.frame_id = "global";
+  cloud.header.frame_id = "global_vio";
   cloud.header.stamp = node->now();
   cloud.width = feats.size();
   cloud.height = 1;

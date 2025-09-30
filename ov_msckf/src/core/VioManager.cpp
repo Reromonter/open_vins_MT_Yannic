@@ -119,6 +119,36 @@ VioManager::VioManager(VioManagerOptions &params_) : thread_init_running(false),
       of_statistics << "slam update,slam delayed,";
     }
     of_statistics << "re-tri & marg,total" << std::endl;
+    
+    // Now set up the feature statistics file
+    // Create the features file path by replacing "timing" with "features" in the filename
+    std::string features_filepath = params.record_timing_filepath;
+    size_t pos = features_filepath.rfind("traj_timing");
+    if (pos != std::string::npos) {
+      features_filepath.replace(pos, 11, "traj_features");
+    } else {
+      // If the original filename doesn't contain "traj_timing", 
+      // just append "_features" before the extension
+      size_t ext_pos = features_filepath.rfind(".");
+      if (ext_pos != std::string::npos) {
+        features_filepath.insert(ext_pos, "_features");
+      } else {
+        features_filepath += "_features";
+      }
+    }
+
+    // If the file exists, then delete it
+    if (boost::filesystem::exists(features_filepath)) {
+      boost::filesystem::remove(features_filepath);
+      PRINT_INFO(YELLOW "[STATS]: found old features file, deleted...\n" RESET);
+    }
+    
+    // Open our features file
+    of_features.open(features_filepath, std::ofstream::out | std::ofstream::app);
+    
+    // Write the header information into it
+    of_features << "# timestamp (sec),msckf_features,slam_features,total_features" << std::endl;
+
   }
 
   //===================================================================================
@@ -633,6 +663,13 @@ void VioManager::do_feature_propagate_update(const ov_core::CameraData &message)
     // The timestamp in the state will be the last camera time
     double t_ItoC = state->_calib_dt_CAMtoIMU->value()(0);
     double timestamp_inI = state->_timestamp + t_ItoC;
+
+    // Count features - count features after RANSAC/outlier rejection
+    int msckf_feature_count = featsup_MSCKF.size();
+    int slam_feature_count = state->_features_SLAM.size();
+    int total_feature_count = trackFEATS->get_feature_database()->size();
+  
+
     // Append to the file
     of_statistics << std::fixed << std::setprecision(15) << timestamp_inI << "," << std::fixed << std::setprecision(5) << time_track << ","
                   << time_prop << "," << time_msckf << ",";
@@ -641,6 +678,15 @@ void VioManager::do_feature_propagate_update(const ov_core::CameraData &message)
     }
     of_statistics << time_marg << "," << time_total << std::endl;
     of_statistics.flush();
+
+      // Append to the features statistics file
+    if (of_features.is_open()) {
+      of_features << std::fixed << std::setprecision(15) << timestamp_inI << "," 
+                  << msckf_feature_count << "," 
+                  << slam_feature_count << "," 
+                  << total_feature_count << std::endl;
+      of_features.flush();
+  }
   }
 
   // Update our distance traveled

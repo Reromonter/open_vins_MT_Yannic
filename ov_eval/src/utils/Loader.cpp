@@ -248,7 +248,6 @@ void Loader::load_timing_flamegraph(std::string path, std::vector<std::string> &
     PRINT_ERROR(RED "[LOAD]: %s\n" RESET, path.c_str());
     std::exit(EXIT_FAILURE);
   }
-
   // Loop through each line of this file
   std::string current_line;
   while (std::getline(file, current_line)) {
