@@ -117,6 +117,9 @@ bool InertialInitializer::initialize(double &timestamp, Eigen::MatrixXd &covaria
       PRINT_WARNING(YELLOW "[init]: not enough feats to compute disp: %d,%d < %d\n" RESET, num_features0, num_features1, feat_thresh);
       return false;
     }
+    else {
+      PRINT_INFO(YELLOW "[init]: enough features to compute disparity: %d,%d >= %d\n" RESET, num_features0, num_features1, feat_thresh);
+    }
 
     // Check if it passed our check!
     PRINT_INFO(YELLOW "[init]: disparity is %.3f,%.3f (%.2f thresh)\n" RESET, avg_disp0, avg_disp1, params.init_max_disparity);

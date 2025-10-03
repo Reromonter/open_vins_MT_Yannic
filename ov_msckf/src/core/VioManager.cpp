@@ -147,7 +147,7 @@ VioManager::VioManager(VioManagerOptions &params_) : thread_init_running(false),
     of_features.open(features_filepath, std::ofstream::out | std::ofstream::app);
     
     // Write the header information into it
-    of_features << "# timestamp (sec),msckf_features,slam_features,total_features" << std::endl;
+    of_features << "# timestamp (sec),msckf_features,slam_features,total_features_tracking_current_frame, total_features_tracked_this_and_last_frame" << std::endl;
 
   }
 
@@ -668,7 +668,20 @@ void VioManager::do_feature_propagate_update(const ov_core::CameraData &message)
     int msckf_feature_count = featsup_MSCKF.size();
     int slam_feature_count = state->_features_SLAM.size();
     int total_feature_count = trackFEATS->get_feature_database()->size();
-  
+
+
+    // Current frame's active features
+    auto now_feats = trackFEATS->get_feature_database()
+                      ->features_containing(state->_timestamp, false, true);
+
+    // Count how many survived from last frame
+    size_t survived_from_last = 0;
+    for (auto &f : now_feats) {
+        if (last_frame_featids_.count(f->featid)) {
+            ++survived_from_last;
+        }
+    }
+
 
     // Append to the file
     of_statistics << std::fixed << std::setprecision(15) << timestamp_inI << "," << std::fixed << std::setprecision(5) << time_track << ","
@@ -684,7 +697,8 @@ void VioManager::do_feature_propagate_update(const ov_core::CameraData &message)
       of_features << std::fixed << std::setprecision(15) << timestamp_inI << "," 
                   << msckf_feature_count << "," 
                   << slam_feature_count << "," 
-                  << total_feature_count << std::endl;
+                  << total_feature_count << "," 
+                  << survived_from_last << std::endl;
       of_features.flush();
   }
   }
@@ -757,4 +771,13 @@ void VioManager::do_feature_propagate_update(const ov_core::CameraData &message)
                state->_calib_imu_tg->value()(4), state->_calib_imu_tg->value()(5), state->_calib_imu_tg->value()(6),
                state->_calib_imu_tg->value()(7), state->_calib_imu_tg->value()(8));
   }
+
+
+  // Save the IDs of all features that were visible in this frame
+  last_frame_featids_.clear();
+  auto now_feats = trackFEATS->get_feature_database()
+                    ->features_containing(state->_timestamp, false, true);
+  for (auto &f : now_feats) {
+      last_frame_featids_.insert(f->featid);
+}
 }

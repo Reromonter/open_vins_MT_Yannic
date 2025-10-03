@@ -131,6 +131,12 @@ ament_target_dependencies(plot_trajectories rclcpp ov_core)
 target_link_libraries(plot_trajectories ov_eval_lib ${thirdparty_libraries})
 install(TARGETS plot_trajectories DESTINATION lib/${PROJECT_NAME})
 
+# Feature comparison utility
+add_executable(feature_comparison src/feature_comparison.cpp)
+target_link_libraries(feature_comparison ov_eval_lib ${thirdparty_libraries})
+install(TARGETS feature_comparison
+  RUNTIME DESTINATION lib/${PROJECT_NAME}/
+)
 
 ##################################################
 # Python scripts!

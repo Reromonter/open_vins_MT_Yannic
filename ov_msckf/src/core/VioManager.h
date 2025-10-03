@@ -230,6 +230,10 @@ protected:
   bool did_zupt_update = false;
   bool has_moved_since_zupt = false;
 
+  // Feature ids that were used in the last update
+  std::unordered_set<size_t> last_frame_featids_;
+
+
   // Good features that where used in the last update (used in visualization)
   std::vector<Eigen::Vector3d> good_features_MSCKF;
 

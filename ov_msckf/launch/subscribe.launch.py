@@ -65,13 +65,10 @@ launch_args = [
         description="PoseWithCovarianceStamped, PoseStamped, TransformStamped, and Odometry."
     ),
     DeclareLaunchArgument(
-        name="recorder_output", default_value="/catkin_ws/estimated_trajectory/ov_runs/openvins_run_1.txt",
+        name="recorder_output", default_value="/catkin_ws/estimated_trajectory/ov_runs/estimated_trajectory.txt",
         description="output file for recorded trajectory"
     ),
-        DeclareLaunchArgument(
-        name="recorder_output", default_value="/catkin_ws/estimated_trajectory/ov_runs/openvins_run_1.txt",
-        description="output file for recorded trajectory"
-    ),
+
     # timing recorder (ROS 2)
     DeclareLaunchArgument(
         name="timing_recorder_enable", default_value="true",
