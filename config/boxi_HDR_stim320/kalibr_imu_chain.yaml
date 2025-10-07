@@ -1,0 +1,46 @@
+%YAML:1.0
+
+imu0:
+  T_i_b: #assume body frame is the prism frame and then this is the transformation from prism to IMU,
+    - [0.999795 , 0.019657 ,-0.004946 ,-0.021327] #- [1.0, 0.0, 0.0, 0.250]
+    - [0.019767 ,-0.999537,  0.023127 ,-0.036919 ]   #- [0.0, 1.0, 0.0, 0.0  ]
+    - [-0.004489 ,-0.02322,  -0.99972 ,  0.392837]    #- [0.0, 0.0, 1.0, 0.215]
+    - [0.0, 0.0, 0.0, 1.0  ]   #- [0.0, 0.0, 0.0, 1.0  ]
+  
+  accelerometer_noise_density:  0.00011342219135615652   # [ m / s^2 / sqrt(Hz) ]   ( accel "white noise" )
+  accelerometer_random_walk: 2.266045767910792e-06  # [ m / s^3 / sqrt(Hz) ].  ( accel bias diffusion )
+  gyroscope_noise_density: 8.992407693407532e-05    # [ rad / s / sqrt(Hz) ]   ( gyro "white noise" )
+  gyroscope_random_walk: 4.968451356558349e-06      # [ rad / s^2 / sqrt(Hz) ] ( gyro bias diffusion )
+
+  rostopic: /boxi/stim320/imu
+  time_offset: 0.0
+  update_rate: 500.0 #appears to not be used in the code anywhere
+  # three different modes supported:
+  # "calibrated" (same as "kalibr"), "kalibr", "rpng"
+  model: "kalibr"
+  # how to get from Kalibr imu.yaml result file:
+  #   - Tw is imu0:gyroscopes:M:
+  #   - R_IMUtoGYRO: is imu0:gyroscopes:C_gyro_i:
+  #   - Ta is imu0:accelerometers:M:
+  #   - R_IMUtoACC not used by Kalibr
+  #   - Tg is imu0:gyroscopes:A:
+  Tw:
+    - [ 1.0, 0.0, 0.0 ]
+    - [ 0.0, 1.0, 0.0 ]
+    - [ 0.0, 0.0, 1.0 ]
+  R_IMUtoGYRO:
+    - [ 1.0, 0.0, 0.0 ]
+    - [ 0.0, 1.0, 0.0 ]
+    - [ 0.0, 0.0, 1.0 ]
+  Ta:
+    - [ 1.0, 0.0, 0.0 ]
+    - [ 0.0, 1.0, 0.0 ]
+    - [ 0.0, 0.0, 1.0 ]
+  R_IMUtoACC:
+    - [ 1.0, 0.0, 0.0 ]
+    - [ 0.0, 1.0, 0.0 ]
+    - [ 0.0, 0.0, 1.0 ]
+  Tg:
+    - [ 0.0, 0.0, 0.0 ]
+    - [ 0.0, 0.0, 0.0 ]
+    - [ 0.0, 0.0, 0.0 ]

@@ -47,6 +47,9 @@ using namespace ov_core;
 using namespace ov_type;
 using namespace ov_msckf;
 
+
+
+
 VioManager::VioManager(VioManagerOptions &params_) : thread_init_running(false), thread_init_success(false) {
 
   // Nice startup message
@@ -147,7 +150,7 @@ VioManager::VioManager(VioManagerOptions &params_) : thread_init_running(false),
     of_features.open(features_filepath, std::ofstream::out | std::ofstream::app);
     
     // Write the header information into it
-    of_features << "# timestamp (sec),msckf_features,slam_features,total_features_tracking_current_frame, total_features_tracked_this_and_last_frame" << std::endl;
+    of_features << "# timestamp (sec),msckf_features,slam_features,total_features,tracked_since_last,triangulated_features" << std::endl;
 
   }
 
@@ -192,6 +195,7 @@ VioManager::VioManager(VioManagerOptions &params_) : thread_init_running(false),
                                                         params.zupt_noise_multiplier, params.zupt_max_disparity);
   }
 }
+
 
 void VioManager::feed_measurement_imu(const ov_core::ImuData &message) {
 
@@ -282,6 +286,9 @@ void VioManager::feed_measurement_simulation(double timestamp, const std::vector
   }
   do_feature_propagate_update(message);
 }
+
+
+
 
 void VioManager::track_image_and_update(const ov_core::CameraData &message_const) {
 
@@ -694,11 +701,15 @@ void VioManager::do_feature_propagate_update(const ov_core::CameraData &message)
 
       // Append to the features statistics file
     if (of_features.is_open()) {
+      // Count triangulated features
+      int triangulated_feature_count = count_triangulated_features();
+      
       of_features << std::fixed << std::setprecision(15) << timestamp_inI << "," 
                   << msckf_feature_count << "," 
                   << slam_feature_count << "," 
                   << total_feature_count << "," 
-                  << survived_from_last << std::endl;
+                  << survived_from_last << "," 
+                  << triangulated_feature_count << std::endl;
       of_features.flush();
   }
   }
@@ -780,4 +791,22 @@ void VioManager::do_feature_propagate_update(const ov_core::CameraData &message)
   for (auto &f : now_feats) {
       last_frame_featids_.insert(f->featid);
 }
+}
+
+
+/**
+ * @brief Count features that have been successfully triangulated
+ * @return Number of features with valid 3D positions
+ */
+int VioManager::count_triangulated_features() {
+  // Get current frame's active tracks with 3D positions
+  std::unordered_map<size_t, Eigen::Vector3d> active_tracks_posinG;
+  std::unordered_map<size_t, Eigen::Vector3d> active_tracks_uvd;
+  
+  // Use the same function that the visualizer uses to get active tracks
+  double active_tracks_time = state->_timestamp;
+  get_active_tracks(active_tracks_time, active_tracks_posinG, active_tracks_uvd);
+  
+  // Return the number of successfully triangulated features
+  return active_tracks_posinG.size();
 }
