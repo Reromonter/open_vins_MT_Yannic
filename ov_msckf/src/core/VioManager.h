@@ -68,6 +68,12 @@ public:
    */
   VioManager(VioManagerOptions &params_);
 
+    /**
+   * @brief Count features that have been successfully triangulated
+   * @return Number of features with valid 3D positions
+   */
+  int count_triangulated_features();
+  
   /**
    * @brief Feed function for inertial data
    * @param message Contains our timestamp and inertial information

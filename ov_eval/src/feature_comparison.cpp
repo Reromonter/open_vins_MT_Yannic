@@ -197,7 +197,7 @@ void display_statistics(const FeatureData &data1, const FeatureData &data2) {
   double total_pct = (data2.stats_total.mean > 0) ? (total_diff / data2.stats_total.mean) * 100.0 : 0.0;
 
   PRINT_INFO("%-15s | mean: %-5.2f, max: %-3.0f, sum: %-7.0f | mean: %-5.2f, max: %-3.0f, sum: %-7.0f | %-5.2f (%+.2f%%)\n",
-             "Total Features",
+             "Total Triangulated Features",
              data1.stats_total.mean, data1.stats_total.max, total_sum1,
              data2.stats_total.mean, data2.stats_total.max, total_sum2,
              total_diff, total_pct);
@@ -274,15 +274,28 @@ int main(int argc, char **argv) {
   plt::named_plot(name1, times1, data1.msckf_features, "b-");
   plt::named_plot(name2, times2, data2.msckf_features, "r-");
   plt::ylabel("MSCKF Features");
+  plt::xlabel("Time (seconds)");
   plt::grid(true);
   plt::legend();
   plt::title("MSCKF Features over Time");
+  auto max1 = *std::max_element(data1.msckf_features.begin(), data1.msckf_features.end());
+  auto max2 = *std::max_element(data2.msckf_features.begin(), data2.msckf_features.end());
+  int y_max = static_cast<int>(std::max<long long>(max1+1, max2+1));
+  int step = 2;
+  std::vector<double> yticks;
+  yticks.reserve(y_max + 1);
+  for (int y = 0; y <= y_max; y += step) yticks.push_back(static_cast<double>(y));
+
+  plt::yticks(yticks);
+  plt::ylim(0, std::max(1, y_max));
+
 
   // SLAM
   plt::subplot(3, 1, 2);
   plt::named_plot(name1, times1, data1.slam_features, "b-");
   plt::named_plot(name2, times2, data2.slam_features, "r-");
   plt::ylabel("SLAM Features");
+  plt::xlabel("Time (seconds)");
   plt::grid(true);
   plt::legend();
   plt::title("SLAM Features over Time");
@@ -291,11 +304,11 @@ int main(int argc, char **argv) {
   plt::subplot(3, 1, 3);
   plt::named_plot(name1, times1, data1.total_features, "b-");
   plt::named_plot(name2, times2, data2.total_features, "r-");
-  plt::ylabel("Total Features");
+  plt::ylabel("Triangulated Features");
   plt::xlabel("Time (seconds)");
   plt::grid(true);
   plt::legend();
-  plt::title("Total Features over Time");
+  plt::title("Triangulated Features over Time");
 
   plt::tight_layout();
   plt::show();
