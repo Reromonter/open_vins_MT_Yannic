@@ -1,23 +1,4 @@
-/*
- * OpenVINS: An Open Platform for Visual-Inertial Research
- * Copyright (C) 2018-2023 Patrick Geneva
- * Copyright (C) 2018-2023 Guoquan Huang
- * Copyright (C) 2018-2023 OpenVINS Contributors
- * Copyright (C) 2018-2019 Kevin Eckenhoff
- *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <https://www.gnu.org/licenses/>.
- */
+// Author @Yannic Hofmann
 
 #include <Eigen/Eigen>
 #include <boost/algorithm/string/predicate.hpp>
@@ -225,85 +206,84 @@ void display_statistics(const FeatureData &data1, const FeatureData &data2) {
 }
 
 int main(int argc, char **argv) {
-  // Verbosity setting
   ov_core::Printer::setPrintLevel("INFO");
 
-  // Ensure we have paths to the two files
   if (argc < 3) {
-    PRINT_ERROR(RED "ERROR: Please specify two feature files to compare\n" RESET);
-    PRINT_ERROR(RED "ERROR: ./feature_comparison <file1_features.txt> <file2_features.txt> [name1] [name2]\n" RESET);
-    PRINT_ERROR(RED "ERROR: rosrun ov_eval feature_comparison <file1_features.txt> <file2_features.txt> [name1] [name2]\n" RESET);
+    PRINT_ERROR(RED "ERROR: Please specify at least two feature files to compare\n" RESET);
+    PRINT_ERROR(RED "ERROR: ./feature_comparison <file1_features.txt> <file2_features.txt> [more files ...] [name1] [name2] [...names]\n" RESET);
     std::exit(EXIT_FAILURE);
   }
 
-  // Get the filenames
-  std::string file1 = argv[1];
-  std::string file2 = argv[2];
+  // Collect file paths and optional names
+  std::vector<std::string> files;
+  std::vector<std::string> names;
+  for (int i = 1; i < argc; ++i) {
+    std::string arg = argv[i];
+    if (boost::algorithm::ends_with(arg, ".txt")) {
+      files.push_back(arg);
+    } else {
+      names.push_back(arg);
+    }
+  }
+  if (files.size() < 2) {
+    PRINT_ERROR(RED "ERROR: Need at least two feature files (.txt) as input\n" RESET);
+    std::exit(EXIT_FAILURE);
+  }
+  while (names.size() < files.size()) names.push_back("File" + std::to_string(names.size() + 1));
 
-  // Get optional display names
-  std::string name1 = "File1";
-  std::string name2 = "File2";
-  if (argc >= 4) name1 = argv[3];
-  if (argc >= 5) name2 = argv[4];
+  // Load all feature data
+  std::vector<FeatureData> all_data;
+  for (size_t i = 0; i < files.size(); ++i) {
+    PRINT_INFO("[FEAT]: Loading feature data from %s as '%s'\n", files[i].c_str(), names[i].c_str());
+    all_data.push_back(load_feature_data(files[i], names[i]));
+    PRINT_INFO("[FEAT]: Loaded %d timestamps from %s\n", (int)all_data.back().timestamps.size(), files[i].c_str());
+  }
 
-  // Load feature data from both files
-  PRINT_INFO("[FEAT]: Loading feature data from files...\n");
-  FeatureData data1 = load_feature_data(file1, name1);
-  FeatureData data2 = load_feature_data(file2, name2);
-
-  PRINT_INFO("[FEAT]: Loaded %d timestamps from %s\n", (int)data1.timestamps.size(), file1.c_str());
-  PRINT_INFO("[FEAT]: Loaded %d timestamps from %s\n", (int)data2.timestamps.size(), file2.c_str());
-
-  // Display statistics
-  display_statistics(data1, data2);
+  // Display statistics for all pairs
+  PRINT_INFO("\n===== FEATURE STATISTICS COMPARISON =====\n");
+  for (size_t i = 0; i < all_data.size(); ++i) {
+    for (size_t j = i + 1; j < all_data.size(); ++j) {
+      PRINT_INFO("\n--- Comparing '%s' vs '%s' ---\n", all_data[i].name.c_str(), all_data[j].name.c_str());
+      display_statistics(all_data[i], all_data[j]);
+    }
+  }
 
 #ifdef HAVE_PYTHONLIBS
-  // Normalize timestamps to start from zero
-  double starttime1 = data1.timestamps.empty() ? 0.0 : data1.timestamps.front();
-  double starttime2 = data2.timestamps.empty() ? 0.0 : data2.timestamps.front();
-
-  std::vector<double> times1 = data1.timestamps;
-  std::vector<double> times2 = data2.timestamps;
-  for (auto &t : times1) t -= starttime1;
-  for (auto &t : times2) t -= starttime2;
+  // Normalize timestamps to start from zero for each file
+  std::vector<std::vector<double>> times;
+  for (const auto &data : all_data) {
+    std::vector<double> t = data.timestamps;
+    double t0 = t.empty() ? 0.0 : t.front();
+    for (auto &v : t) v -= t0;
+    times.push_back(std::move(t));
+  }
 
   plt::figure_size(1200, 900);
 
-  // MSCKF
+  // MSCKF Features
   plt::subplot(3, 1, 1);
-  plt::named_plot(name1, times1, data1.msckf_features, "b-");
-  plt::named_plot(name2, times2, data2.msckf_features, "r-");
+  for (size_t i = 0; i < all_data.size(); ++i)
+    plt::named_plot(all_data[i].name, times[i], all_data[i].msckf_features);
   plt::ylabel("MSCKF Features");
   plt::xlabel("Time (seconds)");
   plt::grid(true);
   plt::legend();
   plt::title("MSCKF Features over Time");
-  auto max1 = *std::max_element(data1.msckf_features.begin(), data1.msckf_features.end());
-  auto max2 = *std::max_element(data2.msckf_features.begin(), data2.msckf_features.end());
-  int y_max = static_cast<int>(std::max<long long>(max1+1, max2+1));
-  int step = 2;
-  std::vector<double> yticks;
-  yticks.reserve(y_max + 1);
-  for (int y = 0; y <= y_max; y += step) yticks.push_back(static_cast<double>(y));
 
-  plt::yticks(yticks);
-  plt::ylim(0, std::max(1, y_max));
-
-
-  // SLAM
+  // SLAM Features
   plt::subplot(3, 1, 2);
-  plt::named_plot(name1, times1, data1.slam_features, "b-");
-  plt::named_plot(name2, times2, data2.slam_features, "r-");
+  for (size_t i = 0; i < all_data.size(); ++i)
+    plt::named_plot(all_data[i].name, times[i], all_data[i].slam_features);
   plt::ylabel("SLAM Features");
   plt::xlabel("Time (seconds)");
   plt::grid(true);
   plt::legend();
   plt::title("SLAM Features over Time");
 
-  // Total
+  // Triangulated Features
   plt::subplot(3, 1, 3);
-  plt::named_plot(name1, times1, data1.total_features, "b-");
-  plt::named_plot(name2, times2, data2.total_features, "r-");
+  for (size_t i = 0; i < all_data.size(); ++i)
+    plt::named_plot(all_data[i].name, times[i], all_data[i].total_features);
   plt::ylabel("Triangulated Features");
   plt::xlabel("Time (seconds)");
   plt::grid(true);
@@ -316,6 +296,5 @@ int main(int argc, char **argv) {
   PRINT_WARNING(YELLOW "Python libraries not found, skipping plot generation\n" RESET);
 #endif
 
-  // Done!
   return EXIT_SUCCESS;
 }

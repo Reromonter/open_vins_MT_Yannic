@@ -1,0 +1,15 @@
+%YAML:1.0
+
+cam0:
+  T_imu_cam: #rotation from camera to IMU R_CtoI, position of camera in IMU p_CinI
+    - [  0.0100401054, -0.1747800198,  0.9845563168,  0.0833244643]
+    - [  -0.9998922014, -0.0123040285,  0.0080122636, -0.0226145486]
+    - [ 0.0107136254, -0.984530627 , -0.1748847125,  0.0903421046]
+    - [  0.000000,  0.000000,  0.000000,  1.000000 ]
+  cam_overlaps: [1]
+  camera_model: pinhole
+  distortion_coeffs: [-0.0385234391527932, -0.006412522405808069, 0.00607744610815908, -0.002388499938007876] # looking at InertialInestialInitializerOptions.h is d1 to d4 (actually k1 to k4) which I get also from camera_info topic
+  distortion_model: equidistant #
+  intrinsics: [700.3894350332721, 682.8896513142247, 700.1313839578163, 523.1354161020042]  #fu, fv, cu, cv
+  resolution: [1440, 1080]
+  rostopic: /boxi/alphasense/front_center/image_raw/uncompressed

@@ -324,8 +324,8 @@ void TrackDescriptor::feed_stereo(const CameraData &message, size_t msg_id_left,
   }
 
   // Debug info
-  // PRINT_DEBUG("LtoL = %d | RtoR = %d | LtoR = %d | good = %d | fromlast = %d\n", (int)matches_ll.size(),
-  //       (int)matches_rr.size(),(int)ids_left_new.size(),(int)good_left.size(),num_tracklast);
+  PRINT_DEBUG("LtoL = %d | RtoR = %d | LtoR = %d | good = %d | fromlast = %d\n", (int)matches_ll.size(),
+        (int)matches_rr.size(),(int)ids_left_new.size(),(int)good_left.size(),num_tracklast);
 
   // Move forward in time
   {
