@@ -30,6 +30,8 @@
 #include <opencv2/highgui/highgui.hpp>
 #include <opencv2/imgproc/imgproc.hpp>
 #include <opencv2/opencv.hpp>
+#include <opencv2/features2d.hpp>
+
 
 #include "utils/opencv_lambda_body.h"
 
@@ -116,7 +118,12 @@ public:
 
                       // Extract FAST features for this part of the image
                       std::vector<cv::KeyPoint> pts_new;
+
+                      // Use line below for FAST, original version 
                       cv::FAST(img(img_roi), pts_new, threshold, nonmaxSuppression);
+
+                      // Use line below for AGAST
+                      //cv::AGAST(img(img_roi), pts_new, threshold, nonmaxSuppression);
 
                       // Now lets get the top number from this
                       std::sort(pts_new.begin(), pts_new.end(), Grider_FAST::compare_response);

@@ -93,7 +93,7 @@
     * @param msg New message
     */
    void callback_odometry(const nav_msgs::msg::Odometry::SharedPtr msg) {
-     timestamp = msg->header.stamp.sec + msg->header.stamp.nanosec * 1e-9;
+     timestamp = msg->header.stamp.toSec();
      q_ItoG << msg->pose.pose.orientation.x, msg->pose.pose.orientation.y, msg->pose.pose.orientation.z, msg->pose.pose.orientation.w;
      p_IinG << msg->pose.pose.position.x, msg->pose.pose.position.y, msg->pose.pose.position.z;
      cov_pos << msg->pose.covariance.at(0), msg->pose.covariance.at(1), msg->pose.covariance.at(2), msg->pose.covariance.at(6),
@@ -111,7 +111,7 @@
     * @param msg New message
     */
    void callback_pose(const geometry_msgs::msg::PoseStamped::SharedPtr msg) {
-     timestamp = msg->header.stamp.sec + msg->header.stamp.nanosec * 1e-9;
+     timestamp = msg->header.stamp.toSec();
      q_ItoG << msg->pose.orientation.x, msg->pose.orientation.y, msg->pose.orientation.z, msg->pose.orientation.w;
      p_IinG << msg->pose.position.x, msg->pose.position.y, msg->pose.position.z;
      write();
@@ -126,7 +126,7 @@
     * @param msg New message
     */
    void callback_posecovariance(const geometry_msgs::msg::PoseWithCovarianceStamped::SharedPtr msg) {
-     timestamp = msg->header.stamp.sec + msg->header.stamp.nanosec * 1e-9;
+     timestamp = msg->header.stamp.toSec();
      q_ItoG << msg->pose.pose.orientation.x, msg->pose.pose.orientation.y, msg->pose.pose.orientation.z, msg->pose.pose.orientation.w;
      p_IinG << msg->pose.pose.position.x, msg->pose.pose.position.y, msg->pose.pose.position.z;
      cov_pos << msg->pose.covariance.at(0), msg->pose.covariance.at(1), msg->pose.covariance.at(2), msg->pose.covariance.at(6),
@@ -144,7 +144,7 @@
     * @param msg New message
     */
    void callback_transform(const geometry_msgs::msg::TransformStamped::SharedPtr msg) {
-     timestamp = msg->header.stamp.sec + msg->header.stamp.nanosec * 1e-9;
+     timestamp = msg->header.stamp..toSec();
      q_ItoG << msg->transform.rotation.x, msg->transform.rotation.y, msg->transform.rotation.z, msg->transform.rotation.w;
      p_IinG << msg->transform.translation.x, msg->transform.translation.y, msg->transform.translation.z;
      write();

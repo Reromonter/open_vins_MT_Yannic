@@ -48,28 +48,89 @@ int main(int argc, char **argv) {
 
   // Ensure we have a path
   if (argc < 2) {
-    PRINT_ERROR(RED "ERROR: Please specify a timing file\n" RESET);
+    PRINT_ERROR(RED "ERROR: Please specify timing files or a folder to search\n" RESET);
     PRINT_ERROR(RED "ERROR: ./timing_comparison <file_times1.txt> ... <file_timesN.txt>\n" RESET);
-    PRINT_ERROR(RED "ERROR: rosrun ov_eval timing_comparison <file_times1.txt> ... <file_timesN.txt>\n" RESET);
+    PRINT_ERROR(RED "ERROR: ./timing_comparison <search_folder>\n" RESET);
+    PRINT_ERROR(RED "ERROR: rosrun ov_eval timing_comparison <files_or_folder>\n" RESET);
     std::exit(EXIT_FAILURE);
+  }
+
+  // Determine if we have a folder search or individual files
+  std::vector<std::pair<std::string, std::string>> timing_files; // pair of <name, file_path>
+  
+  if (argc == 2 && boost::filesystem::is_directory(argv[1])) {
+    // Folder search mode - search for traj_timing files recursively
+    std::string search_folder(argv[1]);
+    PRINT_INFO("Searching for traj_timing files in: %s\n", search_folder.c_str());
+    
+    for (auto &entry : boost::filesystem::recursive_directory_iterator(search_folder)) {
+      // Skip directories
+      if (boost::filesystem::is_directory(entry))
+        continue;
+      
+      // Check if filename starts with "traj_timing"
+      std::string filename = entry.path().filename().string();
+      if (filename.find("traj_timing") == 0) {
+        // Extract both the immediate parent folder and the folder above it
+        boost::filesystem::path parent_path = entry.path().parent_path();
+        std::string immediate_parent = parent_path.filename().string();
+        
+        // Get the folder above the immediate parent
+        boost::filesystem::path grandparent_path = parent_path.parent_path();
+        std::string grandparent = grandparent_path.filename().string();
+        
+        // Combine the two folder names
+        std::string combined_name;
+        if (parent_path == search_folder) {
+          // If the parent is the root search folder, just use the filename
+          combined_name = entry.path().stem().string();
+        } else if (grandparent_path == search_folder || grandparent.empty()) {
+          // If grandparent is the search folder or empty, use only immediate parent
+          combined_name = immediate_parent;
+        } else {
+          // Combine grandparent and immediate parent
+          combined_name = grandparent + "_" + immediate_parent;
+        }
+        
+        timing_files.push_back(std::make_pair(combined_name, entry.path().string()));
+        PRINT_DEBUG("Found traj_timing file: %s -> %s\n", combined_name.c_str(), entry.path().string().c_str());
+      }
+    }
+    
+    // Sort by name for consistent processing
+    std::sort(timing_files.begin(), timing_files.end());
+    
+    if (timing_files.empty()) {
+      PRINT_ERROR(RED "ERROR: No traj_timing files found in %s\n" RESET, search_folder.c_str());
+      std::exit(EXIT_FAILURE);
+    }
+    
+    PRINT_INFO("Found %d traj_timing files to process\n", (int)timing_files.size());
+  } else {
+    // Individual files mode (original behavior)
+    for (int z = 1; z < argc; z++) {
+      boost::filesystem::path path(argv[z]);
+      std::string name = path.stem().string();
+      timing_files.push_back(std::make_pair(name, std::string(argv[z])));
+    }
   }
 
   // Read in all our trajectories from file
   std::vector<std::string> names;
   std::vector<ov_eval::Statistics> total_times;
   PRINT_INFO("======================================\n");
-  for (int z = 1; z < argc; z++) {
+  for (size_t z = 0; z < timing_files.size(); z++) {
 
     // Parse the name of this timing
-    boost::filesystem::path path(argv[z]);
-    std::string name = path.stem().string();
+    std::string name = timing_files.at(z).first;
+    std::string file_path = timing_files.at(z).second;
     PRINT_INFO("[TIME]: loading data for %s\n", name.c_str());
 
     // Load it!!
     std::vector<std::string> names_temp;
     std::vector<double> times;
     std::vector<Eigen::VectorXd> timing_values;
-    ov_eval::Loader::load_timing_flamegraph(argv[z], names_temp, times, timing_values);
+    ov_eval::Loader::load_timing_flamegraph(file_path, names_temp, times, timing_values);
     PRINT_DEBUG("[TIME]: loaded %d timestamps from file (%d categories)!!\n", (int)times.size(), (int)names_temp.size());
 
     // Our categories
@@ -101,6 +162,22 @@ int main(int argc, char **argv) {
     }
     PRINT_INFO("======================================\n");
   }
+
+  // Calculate and print mean rates and minimum rates for each timing file
+  PRINT_INFO("======================================\n");
+  PRINT_INFO("RATES (Hz):\n");
+  for (size_t i = 0; i < names.size(); i++) {
+    if (total_times.at(i).mean > 0 && total_times.at(i).max > 0) {
+      double mean_rate = 1.0 / total_times.at(i).mean;
+      double min_rate = 1.0 / total_times.at(i).max;  // Minimum rate occurs at maximum time
+      PRINT_INFO("%s: mean=%.2f Hz, min=%.2f Hz (times: mean=%.4fs, max=%.4fs)\n", 
+                 names.at(i).c_str(), mean_rate, min_rate, 
+                 total_times.at(i).mean, total_times.at(i).max);
+    } else {
+      PRINT_INFO("%s: undefined (mean time = 0)\n", names.at(i).c_str());
+    }
+  }
+  PRINT_INFO("======================================\n");
 
 #ifdef HAVE_PYTHONLIBS
 

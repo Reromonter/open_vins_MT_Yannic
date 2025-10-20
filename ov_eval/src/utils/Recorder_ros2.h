@@ -4,6 +4,7 @@
  * Copyright (C) 2018-2023 Guoquan Huang
  * Copyright (C) 2018-2023 OpenVINS Contributors
  * Copyright (C) 2018-2019 Kevin Eckenhoff
+ * Created from ros1 version by Yannic Hofmann 2025
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -167,23 +168,17 @@
      outfile << p_IinG.x() << " " << p_IinG.y() << " " << p_IinG.z() << " " << q_ItoG(0) << " " << q_ItoG(1) << " " << q_ItoG(2) << " "
              << q_ItoG(3);
  
-     // output the covariance only if we have it
-     // ALWAYS ONLY POSE, as do not have GROUNDTRUTH ORIENTATION
-    //this is new
-    outfile << std::endl;
 
-    //this was, uncomment this afterwards again
 
-    //  if (has_covariance) {
-    //    outfile.precision(10);
-    //    outfile << " " << cov_rot(0, 0) << " " << cov_rot(0, 1) << " " << cov_rot(0, 2) << " " << cov_rot(1, 1) << " " << cov_rot(1, 2) << " "
-    //            << cov_rot(2, 2) << " " << cov_pos(0, 0) << " " << cov_pos(0, 1) << " " << cov_pos(0, 2) << " " << cov_pos(1, 1) << " "
-    //            << cov_pos(1, 2) << " " << cov_pos(2, 2) << std::endl;
-    //  } else {
-    //    outfile << std::endl;
-    //  }
+     if (has_covariance) {
+       outfile.precision(10);
+       outfile << " " << cov_rot(0, 0) << " " << cov_rot(0, 1) << " " << cov_rot(0, 2) << " " << cov_rot(1, 1) << " " << cov_rot(1, 2) << " "
+               << cov_rot(2, 2) << " " << cov_pos(0, 0) << " " << cov_pos(0, 1) << " " << cov_pos(0, 2) << " " << cov_pos(1, 1) << " "
+               << cov_pos(1, 2) << " " << cov_pos(2, 2) << std::endl;
+     } else {
+       outfile << std::endl;
+     }
 
-     //end of comment
    }
  
    // Output stream file

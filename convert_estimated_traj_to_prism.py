@@ -2,6 +2,7 @@
 import argparse
 import os
 import sys
+import glob
 import numpy as np
 from scipy.spatial.transform import Rotation as R
 
@@ -64,7 +65,7 @@ def build_transform(trans_vec, quat_vec):
     qx, qy, qz, qw = q
     return pose_to_matrix(tx, ty, tz, qx, qy, qz, qw)
 
-def transform_file(input_path, trans_vec, quat_vec, out_suffix):
+def transform_file(input_path, trans_vec, quat_vec, out_suffix, copy_covariance=False):
     if not os.path.isfile(input_path):
         raise FileNotFoundError(f"Input file not found: {input_path}")
 
@@ -75,6 +76,9 @@ def transform_file(input_path, trans_vec, quat_vec, out_suffix):
     output_path = os.path.join(folder, f"{name}{out_suffix}{ext if ext else '.txt'}")
 
     n_in, n_out = 0, 0
+    has_additional_columns = False
+    additional_column_count = 0
+    
     with open(input_path, "r") as fin, open(output_path, "w") as fout:
         for line in fin:
             s = line.strip()
@@ -97,12 +101,93 @@ def transform_file(input_path, trans_vec, quat_vec, out_suffix):
                 T_out = T_pose @ T_delta
                 tx2, ty2, tz2, qx2, qy2, qz2, qw2 = matrix_to_pose(T_out)
 
-                fout.write(f"{t:.17f} {tx2:.17f} {ty2:.17f} {tz2:.17f} {qx2:.17f} {qy2:.17f} {qz2:.17f} {qw2:.17f}\n")
+                # Write transformed pose
+                output_line = f"{t:.17f} {tx2:.17f} {ty2:.17f} {tz2:.17f} {qx2:.17f} {qy2:.17f} {qz2:.17f} {qw2:.17f}"
+                
+                # Copy any additional columns (like covariance data) without modification if flag is set
+                if copy_covariance and len(parts) > 8:
+                    if not has_additional_columns:
+                        has_additional_columns = True
+                        additional_column_count = len(parts) - 8
+                    additional_data = " ".join(parts[8:])
+                    output_line += f" {additional_data}"
+                
+                fout.write(f"{output_line}\n")
                 n_out += 1
             except Exception:
                 fout.write(line)
 
+    # Print information about additional columns if found
+    if copy_covariance and has_additional_columns:
+        print(f"  Note: Preserved {additional_column_count} additional columns (e.g., covariance data)")
+    elif not copy_covariance and has_additional_columns:
+        print(f"  Note: Skipped {additional_column_count} additional columns (use --copy_covariance_also to preserve them)")
+    
     return output_path, n_in, n_out
+
+def find_trajectory_files(folder_path):
+    """
+    Recursively find all potential trajectory files in the given folder and subfolders.
+    Returns files with common trajectory extensions (.txt, .traj, .log, .dat)
+    """
+    if not os.path.isdir(folder_path):
+        raise NotADirectoryError(f"Not a directory: {folder_path}")
+    
+    # Common extensions for trajectory files
+    extensions = ['*.txt', '*.traj', '*.log', '*.dat']
+    trajectory_files = []
+    
+    for ext in extensions:
+        # Use recursive glob to find files in all subdirectories
+        pattern = os.path.join(folder_path, '**', ext)
+        trajectory_files.extend(glob.glob(pattern, recursive=True))
+    
+    # Remove duplicates and sort
+    trajectory_files = sorted(list(set(trajectory_files)))
+    
+    # Filter out files that are likely not trajectory files based on name patterns
+    filtered_files = []
+    exclude_patterns = ['_transformed', '_converted', 'backup', 'temp', 'tmp']
+    
+    for file_path in trajectory_files:
+        filename = os.path.basename(file_path).lower()
+        if not any(pattern in filename for pattern in exclude_patterns):
+            # Basic check: file should have at least some content
+            try:
+                if os.path.getsize(file_path) > 0:
+                    filtered_files.append(file_path)
+            except OSError:
+                continue
+    
+    return filtered_files
+
+def process_folder(folder_path, trans_vec, quat_vec, out_suffix, copy_covariance=False):
+    """
+    Process all trajectory files in a folder and its subfolders.
+    Returns a list of (input_file, output_file, processed_lines, total_lines) tuples
+    """
+    trajectory_files = find_trajectory_files(folder_path)
+    
+    if not trajectory_files:
+        print(f"No trajectory files found in: {folder_path}")
+        return []
+    
+    results = []
+    print(f"Found {len(trajectory_files)} trajectory files to process:")
+    
+    for i, file_path in enumerate(trajectory_files, 1):
+        relative_path = os.path.relpath(file_path, folder_path)
+        print(f"  [{i}/{len(trajectory_files)}] {relative_path}")
+        
+        try:
+            output_path, n_in, n_out = transform_file(file_path, trans_vec, quat_vec, out_suffix, copy_covariance)
+            results.append((file_path, output_path, n_out, n_in))
+            print(f"    -> Processed {n_out}/{n_in} pose lines")
+        except Exception as e:
+            print(f"    -> ERROR: {e}")
+            results.append((file_path, None, 0, 0))
+    
+    return results
 
 def list_available_imus():
     """Display available IMU configurations"""
@@ -117,10 +202,13 @@ def list_available_imus():
     print("-" * 60)
 
 def main():
-    p = argparse.ArgumentParser(description="Apply a transformation to every pose in a trajectory file based on IMU type.")
-    p.add_argument("input", help="Path to input trajectory file (timestamp tx ty tz qx qy qz qw)")
+    p = argparse.ArgumentParser(description="Apply a transformation to every pose in trajectory file(s) based on IMU type. "
+                               "Can process single files or recursively process all trajectory files in a folder.")
+    p.add_argument("input", help="Path to input trajectory file or folder containing trajectory files "
+                                 "(trajectory format: timestamp tx ty tz qx qy qz qw)")
     p.add_argument("--imu", required=True, help="IMU name to use for transformation")
     p.add_argument("--suffix", default="_transformed", help="Suffix for the output filename")
+    p.add_argument("--copy_covariance_also", action="store_true", help="Copy additional columns (e.g., covariance data) without modification")
     p.add_argument("--list", action="store_true", help="List all available IMU configurations")
     args = p.parse_args()
 
@@ -143,10 +231,47 @@ def main():
         print(f"Using IMU: {args.imu} ({imu_config['description']})")
         print(f"Translation: [{', '.join(f'{v:.6f}' for v in trans_vec)}]")
         print(f"Quaternion: [{', '.join(f'{v:.6f}' for v in quat_vec)}]")
+        print()
         
-        out_path, n_in, n_out = transform_file(args.input, trans_vec, quat_vec, args.suffix)
-        print(f"Wrote: {out_path}")
-        print(f"Processed {n_out}/{n_in} pose lines.")
+        # Check if input is a file or folder
+        if os.path.isfile(args.input):
+            # Process single file (original behavior)
+            print(f"Processing single file: {args.input}")
+            if args.copy_covariance_also:
+                print("Covariance copying: ENABLED")
+            else:
+                print("Covariance copying: DISABLED (use --copy_covariance_also to enable)")
+            out_path, n_in, n_out = transform_file(args.input, trans_vec, quat_vec, args.suffix, args.copy_covariance_also)
+            print(f"Wrote: {out_path}")
+            print(f"Processed {n_out}/{n_in} pose lines.")
+            
+        elif os.path.isdir(args.input):
+            # Process folder recursively
+            print(f"Processing folder: {args.input}")
+            if args.copy_covariance_also:
+                print("Covariance copying: ENABLED")
+            else:
+                print("Covariance copying: DISABLED (use --copy_covariance_also to enable)")
+            results = process_folder(args.input, trans_vec, quat_vec, args.suffix, args.copy_covariance_also)
+            
+            # Summary statistics
+            total_files = len(results)
+            successful_files = sum(1 for _, output_path, _, _ in results if output_path is not None)
+            total_poses_in = sum(n_in for _, _, _, n_in in results)
+            total_poses_out = sum(n_out for _, output_path, n_out, _ in results if output_path is not None)
+            
+            print(f"\nSummary:")
+            print(f"  Total files found: {total_files}")
+            print(f"  Successfully processed: {successful_files}")
+            print(f"  Failed: {total_files - successful_files}")
+            print(f"  Total poses processed: {total_poses_out}/{total_poses_in}")
+            
+            if successful_files == 0:
+                print("WARNING: No files were successfully processed!")
+                sys.exit(1)
+        else:
+            raise FileNotFoundError(f"Input path does not exist or is neither a file nor a directory: {args.input}")
+            
     except Exception as e:
         print(f"ERROR: {e}", file=sys.stderr)
         sys.exit(1)

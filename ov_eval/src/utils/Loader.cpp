@@ -361,6 +361,7 @@ void Loader::load_timing_percent(std::string path, std::vector<double> &times, s
     if (temp(3) == 0.0)
       continue;
 
+
     // Save the summed value
     times.push_back(temp(0));
     summed_values.push_back(temp.block(1, 0, 3, 1));

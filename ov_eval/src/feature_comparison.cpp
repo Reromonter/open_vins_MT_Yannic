@@ -208,35 +208,96 @@ void display_statistics(const FeatureData &data1, const FeatureData &data2) {
 int main(int argc, char **argv) {
   ov_core::Printer::setPrintLevel("INFO");
 
-  if (argc < 3) {
-    PRINT_ERROR(RED "ERROR: Please specify at least two feature files to compare\n" RESET);
+  if (argc < 2) {
+    PRINT_ERROR(RED "ERROR: Please specify feature files or a folder to search\n" RESET);
     PRINT_ERROR(RED "ERROR: ./feature_comparison <file1_features.txt> <file2_features.txt> [more files ...] [name1] [name2] [...names]\n" RESET);
+    PRINT_ERROR(RED "ERROR: ./feature_comparison <search_folder>\n" RESET);
     std::exit(EXIT_FAILURE);
   }
 
-  // Collect file paths and optional names
-  std::vector<std::string> files;
-  std::vector<std::string> names;
-  for (int i = 1; i < argc; ++i) {
-    std::string arg = argv[i];
-    if (boost::algorithm::ends_with(arg, ".txt")) {
-      files.push_back(arg);
-    } else {
-      names.push_back(arg);
+  // Determine if we have a folder search or individual files
+  std::vector<std::pair<std::string, std::string>> feature_files; // pair of <name, file_path>
+  
+  if (argc == 2 && boost::filesystem::is_directory(argv[1])) {
+    // Folder search mode - search for traj_features files recursively
+    std::string search_folder(argv[1]);
+    PRINT_INFO("Searching for traj_features files in: %s\n", search_folder.c_str());
+    
+    for (auto &entry : boost::filesystem::recursive_directory_iterator(search_folder)) {
+      // Skip directories
+      if (boost::filesystem::is_directory(entry))
+        continue;
+      
+      // Check if filename starts with "traj_features"
+      std::string filename = entry.path().filename().string();
+      if (filename.find("traj_features") == 0) {
+        // Extract both the immediate parent folder and the folder above it
+        boost::filesystem::path parent_path = entry.path().parent_path();
+        std::string immediate_parent = parent_path.filename().string();
+        
+        // Get the folder above the immediate parent
+        boost::filesystem::path grandparent_path = parent_path.parent_path();
+        std::string grandparent = grandparent_path.filename().string();
+        
+        // Combine the two folder names
+        std::string combined_name;
+        if (parent_path == search_folder) {
+          // If the parent is the root search folder, just use the filename
+          combined_name = entry.path().stem().string();
+        } else if (grandparent_path == search_folder || grandparent.empty()) {
+          // If grandparent is the search folder or empty, use only immediate parent
+          combined_name = immediate_parent;
+        } else {
+          // Combine grandparent and immediate parent
+          combined_name = grandparent + "_" + immediate_parent;
+        }
+        
+        feature_files.push_back(std::make_pair(combined_name, entry.path().string()));
+        PRINT_DEBUG("Found traj_features file: %s -> %s\n", combined_name.c_str(), entry.path().string().c_str());
+      }
+    }
+    
+    // Sort by name for consistent processing
+    std::sort(feature_files.begin(), feature_files.end());
+    
+    if (feature_files.empty()) {
+      PRINT_ERROR(RED "ERROR: No traj_features files found in %s\n" RESET, search_folder.c_str());
+      std::exit(EXIT_FAILURE);
+    }
+    
+    PRINT_INFO("Found %d traj_features files to process\n", (int)feature_files.size());
+  } else {
+    // Individual files mode (original behavior)
+    std::vector<std::string> files;
+    std::vector<std::string> names;
+    for (int i = 1; i < argc; ++i) {
+      std::string arg = argv[i];
+      if (boost::algorithm::ends_with(arg, ".txt")) {
+        files.push_back(arg);
+      } else {
+        names.push_back(arg);
+      }
+    }
+    if (files.size() < 2) {
+      PRINT_ERROR(RED "ERROR: Need at least two feature files (.txt) as input\n" RESET);
+      std::exit(EXIT_FAILURE);
+    }
+    while (names.size() < files.size()) names.push_back("File" + std::to_string(names.size() + 1));
+    
+    // Convert to the new format
+    for (size_t i = 0; i < files.size(); ++i) {
+      feature_files.push_back(std::make_pair(names[i], files[i]));
     }
   }
-  if (files.size() < 2) {
-    PRINT_ERROR(RED "ERROR: Need at least two feature files (.txt) as input\n" RESET);
-    std::exit(EXIT_FAILURE);
-  }
-  while (names.size() < files.size()) names.push_back("File" + std::to_string(names.size() + 1));
 
   // Load all feature data
   std::vector<FeatureData> all_data;
-  for (size_t i = 0; i < files.size(); ++i) {
-    PRINT_INFO("[FEAT]: Loading feature data from %s as '%s'\n", files[i].c_str(), names[i].c_str());
-    all_data.push_back(load_feature_data(files[i], names[i]));
-    PRINT_INFO("[FEAT]: Loaded %d timestamps from %s\n", (int)all_data.back().timestamps.size(), files[i].c_str());
+  for (size_t i = 0; i < feature_files.size(); ++i) {
+    std::string name = feature_files[i].first;
+    std::string filepath = feature_files[i].second;
+    PRINT_INFO("[FEAT]: Loading feature data from %s as '%s'\n", filepath.c_str(), name.c_str());
+    all_data.push_back(load_feature_data(filepath, name));
+    PRINT_INFO("[FEAT]: Loaded %d timestamps from %s\n", (int)all_data.back().timestamps.size(), filepath.c_str());
   }
 
   // Display statistics for all pairs
@@ -295,6 +356,37 @@ int main(int argc, char **argv) {
 #else
   PRINT_WARNING(YELLOW "Python libraries not found, skipping plot generation\n" RESET);
 #endif
+
+  // Generate LaTeX table
+  PRINT_INFO("\n===== LATEX TABLE =====\n");
+  PRINT_INFO("\\begin{table}[htbp]\n");
+  PRINT_INFO("\\centering\n");
+  PRINT_INFO("\\begin{tabular}{l c c c c c}\n");
+  PRINT_INFO("\\hline\n");
+  PRINT_INFO("Name & MSCKF Mean & MSCKF non-zero & SLAM Mean & SLAM non-zero & Total Features Mean \\\\\n");
+  PRINT_INFO("\\hline\n");
+  
+  for (const auto &data : all_data) {
+    // Calculate percentage of non-zero entries for MSCKF
+    double msckf_nonzero_percent = data.msckf_frequency();
+    // Calculate percentage of non-zero entries for SLAM
+    double slam_nonzero_percent = data.slam_frequency();
+    
+    PRINT_INFO("%s & %.1f & %.1f\\%% & %.1f & %.1f\\%% & %.1f \\\\\n",
+               data.name.c_str(),
+               data.stats_msckf.mean,
+               msckf_nonzero_percent,
+               data.stats_slam.mean,
+               slam_nonzero_percent,
+               data.stats_total.mean);
+  }
+  
+  PRINT_INFO("\\hline\n");
+  PRINT_INFO("\\end{tabular}\n");
+  PRINT_INFO("\\caption{Feature Statistics Comparison}\n");
+  PRINT_INFO("\\label{tab:feature_stats}\n");
+  PRINT_INFO("\\end{table}\n");
+  PRINT_INFO("========================\n");
 
   return EXIT_SUCCESS;
 }

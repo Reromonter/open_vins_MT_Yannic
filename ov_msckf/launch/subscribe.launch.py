@@ -33,12 +33,12 @@ launch_args = [
     ),
     DeclareLaunchArgument(
         name="use_stereo",
-        default_value="true",
+        default_value="false",
         description="if we have more than 1 camera, if we should try to track stereo constraints between pairs",
     ),
     DeclareLaunchArgument(
         name="max_cameras",
-        default_value="2",
+        default_value="1",
         description="how many cameras we have 1 = mono, 2 = stereo, >2 = binocular (all mono tracking)",
     ),
     DeclareLaunchArgument(
@@ -62,7 +62,7 @@ launch_args = [
     ),
     DeclareLaunchArgument(
         name="recorder_topic_type", default_value="PoseWithCovarianceStamped",
-        description="PoseWithCovarianceStamped, PoseStamped, TransformStamped, and Odometry."
+        description="PoseWithCovarianceStamped"
     ),
     DeclareLaunchArgument(
         name="recorder_output", default_value="/catkin_ws/_estimated_trajectory/ov_runs/estimated_trajectory.txt",
