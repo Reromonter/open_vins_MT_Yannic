@@ -16,19 +16,4 @@ cam0:
   resolution: [1440, 1080]
   #rostopic: /boxi/alphasense/front_left/image_raw/uncompressed
   rostopic: /gt_box/alphasense_driver_node/cam3/color/image/uncompressed 
-cam1:
-  T_imu_cam: #rotation from camera to IMU R_CtoI, position of camera in IMU p_CinI
-    - [0.009556, -0.173313 , 0.98482 ,  0.083258]
-    - [-0.999853 ,-0.015648 , 0.006948 ,-0.077647]
-    - [ 0.014206 ,-0.984742, -0.173437  ,0.089874]
-    - [0.0, 0.0, 0.0, 1.0]
-  cam_overlaps: [0]
-  camera_model: pinhole
-  #distortion_coeffs: [-0.04459393782932651, 0.01237852934390858, -0.01313451092983728, 0.003895777285135927] # looking at InertialInestialInitializerOptions.h is d1 to d4 which I get also from camera_info topic
-  distortion_coeffs: [-0.04548782552627625, 0.01533655129909394, -0.01613873012805943, 0.004884799860357922]
-  distortion_model: equidistant 
-  #intrinsics: [701.6656970672693, 675.8628766265481, 700.8504216642683, 534.6583586732144] #fu, fv, cu, cv
-  intrinsics: [701.0821868231059, 676.3358153168065, 700.3453628006826, 535.9300946475561]
-  resolution: [1440, 1080]
-  #rostopic: /boxi/alphasense/front_right/image_raw/uncompressed
-  rostopic: /gt_box/alphasense_driver_node/cam2/color/image/uncompressed 
+

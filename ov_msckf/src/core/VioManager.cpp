@@ -353,6 +353,27 @@ void VioManager::track_image_and_update(const ov_core::CameraData &message_const
     }
     if (did_zupt_update) {
       assert(state->_timestamp == message.timestamp);
+      
+      // NEW for logging also during ZUPT
+      // Log feature statistics even during ZUPT
+      if (params.record_timing_information && of_features.is_open()) {
+        // We want to publish in the IMU clock frame
+        double t_ItoC = state->_calib_dt_CAMtoIMU->value()(0);
+        double timestamp_inI = state->_timestamp + t_ItoC;
+        
+        // During ZUPT we don't do feature updates, but we still track features
+        int triangulated_feature_count = count_triangulated_features();
+        std::vector<std::shared_ptr<ov_core::Feature>> active_feats = 
+        trackFEATS->get_feature_database()->features_containing(state->_timestamp, false, true);
+        of_features << std::fixed << std::setprecision(15) << timestamp_inI << "," 
+                    << 0 << "," 
+                    << 0 << ","
+                    << triangulated_feature_count << ","
+                    << active_feats.size() << std::endl;
+        of_features.flush();
+      }
+      // End new logging code
+      
       propagator->clean_old_imu_measurements(message.timestamp + state->_calib_dt_CAMtoIMU->value()(0) - 0.10);
       updaterZUPT->clean_old_imu_measurements(message.timestamp + state->_calib_dt_CAMtoIMU->value()(0) - 0.10);
       propagator->invalidate_cache();

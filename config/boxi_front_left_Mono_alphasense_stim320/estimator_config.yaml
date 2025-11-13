@@ -14,9 +14,9 @@ calib_imu_intrinsics: true # if imu intrinsics should be calibrated (rotation an
 calib_imu_g_sensitivity: true # if gyroscope gravity sensitivity (Tg) should be calibrated
 
 max_clones: 10 # how many clones (poses of IMU) in the sliding window
-max_slam: 50 # number of features in our state vector
+max_slam: 50 #50 # number of features in our state vector
 max_slam_in_update: 25 # update can be split into sequential updates of batches, how many in a batch
-max_msckf_in_update: 40 # how many MSCKF features to use in the update
+max_msckf_in_update: 40 #40 # how many MSCKF features to use in the update
 dt_slam_delay: 2 # delay before initializing (helps with stability from bad initialization...)
 
 gravity_mag: 9.81 # magnitude of gravity in this location
@@ -78,17 +78,17 @@ filepath_gt: "/catkin_ws/logging_files/ov_groundtruth.txt"
 
 # our front-end feature tracking parameters
 # we have a KLT and descriptor based (KLT is better implemented...)
-use_klt: true # if true we will use KLT, otherwise use a ORB descriptor + robust matching -- need to set histogram_method to NONE to not crash,
-num_pts: 600 # number of points (per camera) we will extract and try to track
+use_klt: True # if true we will use KLT, otherwise use a ORB descriptor + robust matching 
+num_pts: 600 #300 # number of points (per camera) we will extract and try to track
 fast_threshold: 15 # threshold for fast extraction (warning: lower threshs can be expensive), 10 good accroding to documenatation
-grid_x: 5 # extraction sub-grid count for horizontal direction (uniform tracking)
+grid_x: 5 #5 # extraction sub-grid count for horizontal direction (uniform tracking)
 grid_y: 5 #5 # extraction sub-grid count for vertical direction (uniform tracking)
 min_px_dist: 10 # distance between features (features near each other provide less information)
 knn_ratio: 0.7 # descriptor knn threshold for the top two descriptor matches (not used if KLT, if lower means that reject more matches)
 track_frequency: 10.01 # fps of the images which will be used by the system, e.g if sets to 2 will drop the ones in between (in frames per second / hertz)
 downsample_cameras: false # will downsample image in half if true
 num_opencv_threads: 1 # -1: auto, 0-1: serial, >1: number of threads
-histogram_method: "NONE" # NONE, HISTOGRAM, CLAHE, if have use_klt false then must be NONE
+histogram_method: "NONE" # NONE, HISTOGRAM, CLAHE,
 
 # aruco tag tracker for the system
 # DICT_6X6_1000 from https://chev.me/arucogen/
@@ -101,15 +101,18 @@ downsize_aruco: true
 
 # camera noises and chi-squared threshold multipliers
 up_msckf_sigma_px: 1
-up_msckf_chi2_multipler: 10
+up_msckf_chi2_multipler: 10 #1
 up_slam_sigma_px: 1
-up_slam_chi2_multipler: 10
+up_slam_chi2_multipler: 10 #1
 up_aruco_sigma_px: 1 #not present if not using aruco
 up_aruco_chi2_multipler: 1 #not present if not using aruco
 
 # masks for our images
 use_mask: true
 #mask0: "mask_80_left.png"
+#mask1: "mask_80_right.png"
+#mask0: "downsampled_mask_top_40_percent_alphasense.png"
+#mask1: "downsampled_mask_top_40_percent_alphasense.png"
 mask0: "mask_top_40_percent.png"
 
 # imu and camera spacial-temporal

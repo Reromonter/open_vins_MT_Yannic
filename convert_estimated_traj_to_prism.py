@@ -73,7 +73,13 @@ def transform_file(input_path, trans_vec, quat_vec, out_suffix, copy_covariance=
 
     folder, base = os.path.split(input_path)
     name, ext = os.path.splitext(base)
-    output_path = os.path.join(folder, f"{name}{out_suffix}{ext if ext else '.txt'}")
+    
+    # Create 'transformed' subfolder
+    transformed_folder = os.path.join(folder, "transformed")
+    os.makedirs(transformed_folder, exist_ok=True)
+    
+    # Use original name without extension (no .txt at the end)
+    output_path = os.path.join(transformed_folder, name)
 
     n_in, n_out = 0, 0
     has_additional_columns = False

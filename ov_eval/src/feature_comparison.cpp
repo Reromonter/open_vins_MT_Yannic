@@ -131,78 +131,62 @@ FeatureData load_feature_data(const std::string &filepath, const std::string &na
 }
 
 /**
- * @brief Display comparison statistics
- * @param data1 First dataset
- * @param data2 Second dataset
+ * @brief Display statistics for all datasets
+ * @param all_data Vector of all feature datasets
  */
-void display_statistics(const FeatureData &data1, const FeatureData &data2) {
-  PRINT_INFO("\n===== FEATURE STATISTICS COMPARISON =====\n\n");
+void display_statistics(const std::vector<FeatureData> &all_data) {
+  PRINT_INFO("\n===== FEATURE STATISTICS =====\n\n");
 
   // helper sums (Statistics has no 'sum' field)
   auto sum_vec = [](const std::vector<double> &v) {
     return std::accumulate(v.begin(), v.end(), 0.0);
   };
-  double msckf_sum1 = sum_vec(data1.msckf_features);
-  double msckf_sum2 = sum_vec(data2.msckf_features);
-  double slam_sum1  = sum_vec(data1.slam_features);
-  double slam_sum2  = sum_vec(data2.slam_features);
-  double total_sum1 = sum_vec(data1.total_features);
-  double total_sum2 = sum_vec(data2.total_features);
 
   // Table header
-  PRINT_INFO("%-15s | %-30s | %-30s | %-15s\n", "Feature Type", data1.name.c_str(), data2.name.c_str(), "Difference");
-  PRINT_INFO("---------------------------------------------------------------------------------------------\n");
+  PRINT_INFO("%-25s | %-10s | %-10s | %-10s | %-10s | %-10s | %-10s\n", 
+             "Dataset Name", "MSCKF Mean", "MSCKF Max", "MSCKF Sum", "SLAM Mean", "SLAM Max", "SLAM Sum");
+  PRINT_INFO("---------------------------------------------------------------------------------------------------------------------------\n");
 
-  // MSCKF features
-  double msckf_diff = data1.stats_msckf.mean - data2.stats_msckf.mean;
-  double msckf_pct = (data2.stats_msckf.mean > 0) ? (msckf_diff / data2.stats_msckf.mean) * 100.0 : 0.0;
+  for (const auto &data : all_data) {
+    double msckf_sum = sum_vec(data.msckf_features);
+    double slam_sum = sum_vec(data.slam_features);
+    
+    PRINT_INFO("%-25s | %10.2f | %10.0f | %10.0f | %10.2f | %10.0f | %10.0f\n",
+               data.name.c_str(),
+               data.stats_msckf.mean, data.stats_msckf.max, msckf_sum,
+               data.stats_slam.mean, data.stats_slam.max, slam_sum);
+  }
 
-  PRINT_INFO("%-15s | mean: %-5.2f, max: %-3.0f, sum: %-7.0f | mean: %-5.2f, max: %-3.0f, sum: %-7.0f | %-5.2f (%+.2f%%)\n",
-             "MSCKF Features",
-             data1.stats_msckf.mean, data1.stats_msckf.max, msckf_sum1,
-             data2.stats_msckf.mean, data2.stats_msckf.max, msckf_sum2,
-             msckf_diff, msckf_pct);
+  PRINT_INFO("---------------------------------------------------------------------------------------------------------------------------\n");
 
-  // SLAM features
-  double slam_diff = data1.stats_slam.mean - data2.stats_slam.mean;
-  double slam_pct = (data2.stats_slam.mean > 0) ? (slam_diff / data2.stats_slam.mean) * 100.0 : 0.0;
+  // Total triangulated features table
+  PRINT_INFO("\n%-25s | %-10s | %-10s | %-10s\n", 
+             "Dataset Name", "Total Mean", "Total Max", "Total Sum");
+  PRINT_INFO("--------------------------------------------------------------\n");
 
-  PRINT_INFO("%-15s | mean: %-5.2f, max: %-3.0f, sum: %-7.0f | mean: %-5.2f, max: %-3.0f, sum: %-7.0f | %-5.2f (%+.2f%%)\n",
-             "SLAM Features",
-             data1.stats_slam.mean, data1.stats_slam.max, slam_sum1,
-             data2.stats_slam.mean, data2.stats_slam.max, slam_sum2,
-             slam_diff, slam_pct);
+  for (const auto &data : all_data) {
+    double total_sum = sum_vec(data.total_features);
+    
+    PRINT_INFO("%-25s | %10.2f | %10.0f | %10.0f\n",
+               data.name.c_str(),
+               data.stats_total.mean, data.stats_total.max, total_sum);
+  }
 
-  // Total features
-  double total_diff = data1.stats_total.mean - data2.stats_total.mean;
-  double total_pct = (data2.stats_total.mean > 0) ? (total_diff / data2.stats_total.mean) * 100.0 : 0.0;
-
-  PRINT_INFO("%-15s | mean: %-5.2f, max: %-3.0f, sum: %-7.0f | mean: %-5.2f, max: %-3.0f, sum: %-7.0f | %-5.2f (%+.2f%%)\n",
-             "Total Triangulated Features",
-             data1.stats_total.mean, data1.stats_total.max, total_sum1,
-             data2.stats_total.mean, data2.stats_total.max, total_sum2,
-             total_diff, total_pct);
-
-  PRINT_INFO("---------------------------------------------------------------------------------------------\n");
+  PRINT_INFO("--------------------------------------------------------------\n");
 
   // Feature usage frequency
   PRINT_INFO("\n===== FEATURE USAGE FREQUENCY (how often not 0) =====\n\n");
-  PRINT_INFO("%-15s | %-15s | %-15s | %-15s\n", "Feature Type", data1.name.c_str(), data2.name.c_str(), "Difference");
-  PRINT_INFO("----------------------------------------------------------------------\n");
+  PRINT_INFO("%-25s | %-15s | %-15s\n", "Dataset Name", "MSCKF Freq (%)", "SLAM Freq (%)");
+  PRINT_INFO("--------------------------------------------------------------\n");
 
-  double msckf_freq1 = data1.msckf_frequency();
-  double msckf_freq2 = data2.msckf_frequency();
-  double msckf_freq_diff = msckf_freq1 - msckf_freq2;
+  for (const auto &data : all_data) {
+    double msckf_freq = data.msckf_frequency();
+    double slam_freq = data.slam_frequency();
 
-  PRINT_INFO("%-15s | %13.2f%% | %13.2f%% | %+.2f%%\n", "MSCKF Features", msckf_freq1, msckf_freq2, msckf_freq_diff);
+    PRINT_INFO("%-25s | %14.2f%% | %14.2f%%\n", data.name.c_str(), msckf_freq, slam_freq);
+  }
 
-  double slam_freq1 = data1.slam_frequency();
-  double slam_freq2 = data2.slam_frequency();
-  double slam_freq_diff = slam_freq1 - slam_freq2;
-
-  PRINT_INFO("%-15s | %13.2f%% | %13.2f%% | %+.2f%%\n", "SLAM Features", slam_freq1, slam_freq2, slam_freq_diff);
-
-  PRINT_INFO("----------------------------------------------------------------------\n");
+  PRINT_INFO("--------------------------------------------------------------\n");
 }
 
 int main(int argc, char **argv) {
@@ -300,14 +284,8 @@ int main(int argc, char **argv) {
     PRINT_INFO("[FEAT]: Loaded %d timestamps from %s\n", (int)all_data.back().timestamps.size(), filepath.c_str());
   }
 
-  // Display statistics for all pairs
-  PRINT_INFO("\n===== FEATURE STATISTICS COMPARISON =====\n");
-  for (size_t i = 0; i < all_data.size(); ++i) {
-    for (size_t j = i + 1; j < all_data.size(); ++j) {
-      PRINT_INFO("\n--- Comparing '%s' vs '%s' ---\n", all_data[i].name.c_str(), all_data[j].name.c_str());
-      display_statistics(all_data[i], all_data[j]);
-    }
-  }
+  // Display statistics for all datasets
+  display_statistics(all_data);
 
 #ifdef HAVE_PYTHONLIBS
   // Normalize timestamps to start from zero for each file

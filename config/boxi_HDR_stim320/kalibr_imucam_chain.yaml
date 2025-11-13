@@ -12,4 +12,5 @@ cam0:
   distortion_model: equidistant #as the camera info topic gives kannalaBrandt from isaac sim (https://medium.com/@manthan2727/camera-calibration-using-opencv-abf92a4caf11) use  equidistant https://docs.openvins.com/classov__core_1_1CamEqui.html
   intrinsics: [984.407734999804, 952.3920462113495, 983.8103917846685, 638.6385463949282]  #fu, fv, cu, cv
   resolution: [1920, 1280]
-  rostopic: /boxi/hdr/front/image_raw/uncompressed
+  #rostopic: /boxi/hdr/front/image_raw/uncompressed
+  rostopic: /gt_box/hdr_front/image_raw/uncompressed 

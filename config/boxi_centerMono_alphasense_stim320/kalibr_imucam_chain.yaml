@@ -8,8 +8,11 @@ cam0:
     - [  0.000000,  0.000000,  0.000000,  1.000000 ]
   cam_overlaps: [1]
   camera_model: pinhole
-  distortion_coeffs: [-0.0385234391527932, -0.006412522405808069, 0.00607744610815908, -0.002388499938007876] # looking at InertialInestialInitializerOptions.h is d1 to d4 (actually k1 to k4) which I get also from camera_info topic
+  #distortion_coeffs: [-0.0385234391527932, -0.006412522405808069, 0.00607744610815908, -0.002388499938007876] # looking at InertialInestialInitializerOptions.h is d1 to d4 (actually k1 to k4) which I get also from camera_info topic
+  distortion_coeffs: [-0.04198285247616155, 0.005905257502205433, -0.009275330867710329, 0.003422474871788316]
   distortion_model: equidistant #
-  intrinsics: [700.3894350332721, 682.8896513142247, 700.1313839578163, 523.1354161020042]  #fu, fv, cu, cv
+  #intrinsics: [700.3894350332721, 682.8896513142247, 700.1313839578163, 523.1354161020042]  #fu, fv, cu, cv
+  intrinsics: [700.7428965963175, 683.1131876300398, 700.4201190715679, 524.312808698532]
   resolution: [1440, 1080]
-  rostopic: /boxi/alphasense/front_center/image_raw/uncompressed
+  #rostopic: /boxi/alphasense/front_center/image_raw/uncompressed
+  rostopic: /gt_box/alphasense_driver_node/cam1/color/image/uncompressed

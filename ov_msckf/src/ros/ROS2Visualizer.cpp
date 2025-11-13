@@ -1079,6 +1079,13 @@ void ROS2Visualizer::publish_loopclosure_information() {
         continue;
       }
 
+      //added
+      // Skip features with invalid depth (NaN, infinity, negative, or zero)
+      if (!std::isfinite(uvd(2)) || uvd(2) <= 0.01) {
+        continue;
+      }
+      //end added
+
       // Append the depth
       // NOTE: scaled by 1000 to fit the 16U
       // NOTE: access order is y,x (stupid opencv convention stuff)
@@ -1100,6 +1107,7 @@ void ROS2Visualizer::publish_loopclosure_information() {
       uchar gc = g < 0 ? 0 : (g > 255 ? 255 : g);
       uchar bc = b < 0 ? 0 : (b > 255 ? 255 : b);
       cv::Scalar color(255 - rc, 255 - gc, 255 - bc);
+      
 
       // Small square around the point (note the above bound check needs to take into account this width)
       cv::Point p0(uvd(0) - dw, uvd(1) - dw);
