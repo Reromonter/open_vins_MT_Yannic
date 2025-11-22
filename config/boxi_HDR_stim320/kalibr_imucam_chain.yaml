@@ -8,9 +8,12 @@ cam0:
     - [  0.000000,  0.000000,  0.000000,  1.000000 ]
   cam_overlaps: [1]
   camera_model: pinhole
-  distortion_coeffs: [-0.06150262047071293, 0.003455916289334078,  -0.001233506511528716, -1.770797322903057e-07] # looking at InertialInestialInitializerOptions.h is d1 to d4 (actually k1 to k4) which I get also from camera_info topic
+  #distortion_coeffs: [-0.06150262047071293, 0.003455916289334078,  -0.001233506511528716, -1.770797322903057e-07] # looking at InertialInestialInitializerOptions.h is d1 to d4 (actually k1 to k4) which I get also from camera_info topic
+  distortion_coeffs: [-0.05935144429253096,  0.004734393938204737,   -0.004806977547360192, 0.001514825591941826] # looking at InertialInestialInitializerOptions.h is d1 to d4 (actually k1 to k4) which I get also from camera_info topic
+
   distortion_model: equidistant #as the camera info topic gives kannalaBrandt from isaac sim (https://medium.com/@manthan2727/camera-calibration-using-opencv-abf92a4caf11) use  equidistant https://docs.openvins.com/classov__core_1_1CamEqui.html
-  intrinsics: [984.407734999804, 952.3920462113495, 983.8103917846685, 638.6385463949282]  #fu, fv, cu, cv
+  #intrinsics: [984.407734999804, 952.3920462113495, 983.8103917846685, 638.6385463949282]  #fu, fv, cu, cv
+  intrinsics: [982.4387800598246, 951.3582535310836, 981.8022190504573, 640.5272366614189]  #fu, fv, cu, cv
   resolution: [1920, 1280]
   #rostopic: /boxi/hdr/front/image_raw/uncompressed
   rostopic: /gt_box/hdr_front/image_raw/uncompressed 
