@@ -1,0 +1,54 @@
+%YAML:1.0
+
+# IMU calibration for OAK-D (BNO085 IMU)
+#
+# !!! PLACEHOLDER VALUES — run Kalibr or Allan variance analysis !!!
+# Replace with values from your specific OAK-D unit.
+#
+# Getting real values:
+#   1. Record a static IMU bag: ros2 bag record /oak/imu/data
+#   2. Run Allan variance: https://github.com/gaowenliang/imu_utils
+#   3. Use the output noise densities below (inflate by 2x white noise, 10x bias)
+#
+# BNO085 datasheet references (typical, not device-specific):
+#   Accel noise: ~100 µg/√Hz → ~0.001 m/s²/√Hz
+#   Gyro noise:  ~0.005 dps/√Hz → ~8.7e-5 rad/s/√Hz
+
+imu0:
+  T_i_b:
+    - [1.0, 0.0, 0.0, 0.0]
+    - [0.0, 1.0, 0.0, 0.0]
+    - [0.0, 0.0, 1.0, 0.0]
+    - [0.0, 0.0, 0.0, 1.0]
+
+  # Inflated values (2x white noise, 10x bias random walk)
+  accelerometer_noise_density: 0.002      # [ m/s²/√Hz ]
+  accelerometer_random_walk:   0.002      # [ m/s³/√Hz ]
+  gyroscope_noise_density:     0.0002     # [ rad/s/√Hz ]
+  gyroscope_random_walk:       0.00002    # [ rad/s²/√Hz ]
+
+  rostopic: /oak/imu/data
+  time_offset: 0.0
+  update_rate: 400.0
+  model: "kalibr"
+
+  Tw:
+    - [ 1.0, 0.0, 0.0 ]
+    - [ 0.0, 1.0, 0.0 ]
+    - [ 0.0, 0.0, 1.0 ]
+  R_IMUtoGYRO:
+    - [ 1.0, 0.0, 0.0 ]
+    - [ 0.0, 1.0, 0.0 ]
+    - [ 0.0, 0.0, 1.0 ]
+  Ta:
+    - [ 1.0, 0.0, 0.0 ]
+    - [ 0.0, 1.0, 0.0 ]
+    - [ 0.0, 0.0, 1.0 ]
+  R_IMUtoACC:
+    - [ 1.0, 0.0, 0.0 ]
+    - [ 0.0, 1.0, 0.0 ]
+    - [ 0.0, 0.0, 1.0 ]
+  Tg:
+    - [ 0.0, 0.0, 0.0 ]
+    - [ 0.0, 0.0, 0.0 ]
+    - [ 0.0, 0.0, 0.0 ]

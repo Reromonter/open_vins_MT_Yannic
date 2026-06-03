@@ -1,0 +1,57 @@
+%YAML:1.0
+
+# Camera-IMU calibration for OAK-D stereo (OV9282 cameras)
+#
+# !!! PLACEHOLDER VALUES — run Kalibr for your specific device !!!
+#
+# The OAK-D stores intrinsic calibration in its EEPROM. You can read it with:
+#   python3 -c "import depthai as dai; d=dai.Device(); print(d.readCalibration())"
+# Or from ROS:
+#   ros2 topic echo /oak/left/camera_info  (after starting the driver)
+#
+# For extrinsics (T_cam_imu) you need Kalibr with a calibration target:
+#   https://github.com/ethz-asl/kalibr/wiki/camera-imu-calibration
+#
+# Camera: Sony OV9282 global shutter mono
+# Baseline: ~75 mm (device-dependent, measure yours)
+# Typical resolution: 640x400 (THE_400_P mode)
+#
+# T_cam_imu: transforms a point from IMU frame into camera frame.
+# Approximate values below assume cameras are roughly aligned with the IMU.
+# Left camera is to the LEFT of the IMU center (negative y in IMU frame).
+
+cam0:
+  T_cam_imu:
+    # !!! REPLACE with values from Kalibr !!!
+    # Rough guess: identity rotation, left camera ~3.75 cm left of IMU center
+    - [ 1.0, 0.0, 0.0, -0.0375 ]
+    - [ 0.0, 1.0, 0.0,  0.0    ]
+    - [ 0.0, 0.0, 1.0,  0.0    ]
+    - [ 0.0, 0.0, 0.0,  1.0    ]
+  cam_overlaps: [1]
+  camera_model: pinhole
+  distortion_model: radtan
+  # !!! REPLACE intrinsics from: ros2 topic echo /oak/left/camera_info !!!
+  intrinsics: [441.25, 441.25, 320.0, 200.0]  # fu, fv, cu, cv  (640x400)
+  distortion_coeffs: [0.0, 0.0, 0.0, 0.0]     # k1, k2, p1, p2
+  resolution: [640, 400]
+  rostopic: /oak/left/image_raw
+  timeshift_cam_imu: 0.0   # optimized online (calib_cam_timeoffset: true)
+
+cam1:
+  T_cam_imu:
+    # !!! REPLACE with values from Kalibr !!!
+    # Rough guess: identity rotation, right camera ~3.75 cm right of IMU center
+    - [ 1.0, 0.0, 0.0,  0.0375 ]
+    - [ 0.0, 1.0, 0.0,  0.0    ]
+    - [ 0.0, 0.0, 1.0,  0.0    ]
+    - [ 0.0, 0.0, 0.0,  1.0    ]
+  cam_overlaps: [0]
+  camera_model: pinhole
+  distortion_model: radtan
+  # !!! REPLACE intrinsics from: ros2 topic echo /oak/right/camera_info !!!
+  intrinsics: [441.25, 441.25, 320.0, 200.0]  # fu, fv, cu, cv  (640x400)
+  distortion_coeffs: [0.0, 0.0, 0.0, 0.0]     # k1, k2, p1, p2
+  resolution: [640, 400]
+  rostopic: /oak/right/image_raw
+  timeshift_cam_imu: 0.0

@@ -1,0 +1,68 @@
+FROM osrf/ros:jazzy-desktop
+
+# =========================================================
+# =========================================================
+
+# Are you are looking for how to use this docker file?
+#   - https://docs.openvins.com/dev-docker.html
+#   - https://docs.docker.com/get-started/
+#   - http://wiki.ros.org/docker/Tutorials/Docker
+
+# =========================================================
+# =========================================================
+
+# Dependencies we use
+RUN apt-get update && apt-get install -y \
+    libeigen3-dev \
+    nano \
+    git \
+    cmake \
+    libgoogle-glog-dev \
+    libgflags-dev \
+    libatlas-base-dev \
+    libsuitesparse-dev \
+    libceres-dev \
+    libopencv-dev \
+    libopencv-contrib-dev \
+    python3-dev \
+    python3-matplotlib \
+    python3-numpy \
+    python3-psutil \
+    python3-tk \
+    && rm -rf /var/lib/apt/lists/*
+
+# Create workspace and copy source
+WORKDIR /ros2_ws
+COPY . src/open_vins/
+
+# Install ROS2 dependencies via rosdep
+RUN apt-get update && \
+    rosdep update && \
+    . /opt/ros/jazzy/setup.sh && \
+    rosdep install --from-paths src --ignore-src -r -y && \
+    rm -rf /var/lib/apt/lists/*
+
+# Build the workspace
+RUN . /opt/ros/jazzy/setup.sh && \
+    colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE=Release
+
+# Source the built workspace in all bash sessions and in the ROS entrypoint
+RUN echo "source /ros2_ws/install/setup.bash" >> ~/.bashrc && \
+    sed -i '/exec "\$@"/i source /ros2_ws/install/setup.bash' /ros_entrypoint.sh
+
+# Install deps needed for CLion remote debugging (optional)
+# https://blog.jetbrains.com/clion/2020/01/using-docker-with-clion/
+# RUN apt-get update && apt-get install -y ssh build-essential gcc g++ \
+#     gdb clang rsync tar && apt-get clean
+# RUN ( \
+#     echo 'LogLevel DEBUG2'; \
+#     echo 'PermitRootLogin yes'; \
+#     echo 'PasswordAuthentication yes'; \
+#     echo 'Subsystem sftp /usr/lib/openssh/sftp-server'; \
+#   ) > /etc/ssh/sshd_config_test_clion \
+#   && mkdir /run/sshd
+# RUN useradd -m user && yes password | passwd user
+# RUN usermod -s /bin/bash user
+# CMD ["/usr/sbin/sshd", "-D", "-e", "-f", "/etc/ssh/sshd_config_test_clion"]
+
+CMD ["/bin/bash"]
