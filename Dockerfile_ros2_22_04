@@ -44,5 +44,20 @@ RUN ( \
 RUN useradd -m user && yes password | passwd user
 RUN usermod -s /bin/bash user
 
-CMD ["/usr/sbin/sshd", "-D", "-e", "-f", "/etc/ssh/sshd_config_test_clion"]
+# Build the ROS2 workspace
+WORKDIR /ros2_ws
+COPY . src/open_vins/
+RUN apt-get update && \
+    rosdep update && \
+    . /opt/ros/humble/setup.sh && \
+    rosdep install --from-paths src --ignore-src -r -y && \
+    rm -rf /var/lib/apt/lists/*
+RUN . /opt/ros/humble/setup.sh && \
+    MAKEFLAGS="-j2" colcon build --symlink-install --event-handlers console_direct+ --parallel-workers 1 --cmake-args -DCMAKE_BUILD_TYPE=Release
+
+# Source the built workspace in all bash sessions and in the ROS entrypoint
+RUN echo "source /ros2_ws/install/setup.bash" >> ~/.bashrc && \
+    sed -i '/exec "\$@"/i source /ros2_ws/install/setup.bash' /ros_entrypoint.sh
+
+CMD ["/bin/bash"]
 
