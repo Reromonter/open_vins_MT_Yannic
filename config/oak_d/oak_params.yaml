@@ -1,0 +1,37 @@
+# depthai-ros-driver parameters for OAK-D (ROS2 Jazzy)
+# Verify parameter names against your installed version:
+#   ros2 param list /oak_camera_node
+#
+# Note: parameter naming changed between depthai-ros v2.x and v3.x.
+# If a param has no effect, check the output of:
+#   ros2 launch depthai_ros_driver camera.launch.py --show-args
+
+oak:
+  ros__parameters:
+    # Use the STEREO pipeline (enables left/right + depth)
+    pipeline_gen.i_pipeline_type: STEREO
+    camera.i_usb_speed: SUPER_PLUS
+
+    # Left mono camera — published as /oak/left/image_raw
+    left.i_publish_topic: true
+    left.i_resolution: "THE_400_P"   # 640 x 400 pixels
+
+    # Right mono camera — published as /oak/right/image_raw
+    right.i_publish_topic: true
+    right.i_resolution: "THE_400_P"  # 640 x 400 pixels
+
+    # Stereo depth node
+    stereo.i_publish_topic: true               # /oak/stereo/image_raw (depth)
+    stereo.i_left_rect_publish_topic: false    # suppress rectified images
+    stereo.i_right_rect_publish_topic: false
+    stereo.i_publish_disparity_converged: true
+
+    # Point cloud — published as /oak/stereo/points
+    # Requires stereo.i_publish_topic: true above
+    stereo.i_enable_companding: true
+    pointcloud.i_publish_topic: true
+
+    # IMU (BNO085 on OAK-D) — published as /oak/imu/data
+    imu.i_publish_topic: true
+    imu.i_sync_method: "COPY"
+    imu.i_imu_frequency: 400

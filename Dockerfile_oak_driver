@@ -1,0 +1,34 @@
+FROM ros:jazzy-ros-base
+
+# =========================================================
+# OAK-D camera driver container (ROS2 Jazzy)
+# Publishes stereo grayscale images, point cloud, and IMU
+# =========================================================
+
+# Install depthai ROS2 driver
+# If ros-jazzy-depthai-ros is not yet in the apt mirror, add the Luxonis
+# repository first: https://docs.luxonis.com/software/ros/depthai-ros/build/
+RUN apt-get update && apt-get install -y \
+    ros-jazzy-depthai-ros \
+    && rm -rf /var/lib/apt/lists/*
+
+# Copy driver parameters
+COPY config/oak_d/oak_params.yaml /config/oak_params.yaml
+
+# Source ROS automatically in every new shell
+RUN echo "source /opt/ros/jazzy/setup.bash" >> /root/.bashrc
+
+# Entrypoint: source ROS then run the given command
+RUN printf '#!/bin/bash\nsource /opt/ros/jazzy/setup.bash\nexec "$@"\n' \
+    > /entrypoint.sh && chmod +x /entrypoint.sh
+
+ENTRYPOINT ["/entrypoint.sh"]
+
+# Launch the camera driver on container start.
+# The driver publishes:
+#   /oak/left/image_raw        — left mono grayscale (for VIO)
+#   /oak/right/image_raw       — right mono grayscale (for VIO)
+#   /oak/imu/data              — IMU at 400 Hz (for VIO)
+#   /oak/stereo/points         — point cloud (for mapping)
+CMD ["ros2", "launch", "depthai_ros_driver", "camera.launch.py", \
+     "params_file:=/config/oak_params.yaml"]
