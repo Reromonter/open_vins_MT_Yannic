@@ -1,7 +1,7 @@
 oak:
   ros__parameters:
     camera:
-      i_pipeline_type: STEREO
+      i_pipeline_type: RGBD
 
     left:
       i_publish_topic: true

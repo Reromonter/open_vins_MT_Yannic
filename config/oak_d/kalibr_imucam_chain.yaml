@@ -30,10 +30,10 @@ cam0:
     - [ 0.0, 0.0, 0.0,  1.0    ]
   cam_overlaps: [1]
   camera_model: pinhole
-  distortion_model: radtan
+  distortion_model: none
   # !!! REPLACE intrinsics from: ros2 topic echo /oak/left/camera_info !!!
   intrinsics: [441.25, 441.25, 320.0, 200.0]  # fu, fv, cu, cv  (640x400)
-  distortion_coeffs: [0.0, 0.0, 0.0, 0.0]     # k1, k2, p1, p2
+  distortion_coeffs: []
   resolution: [640, 400]
   rostopic: /oak/left/image_raw
   timeshift_cam_imu: 0.0   # optimized online (calib_cam_timeoffset: true)
@@ -48,10 +48,10 @@ cam1:
     - [ 0.0, 0.0, 0.0,  1.0    ]
   cam_overlaps: [0]
   camera_model: pinhole
-  distortion_model: radtan
+  distortion_model: none
   # !!! REPLACE intrinsics from: ros2 topic echo /oak/right/camera_info !!!
   intrinsics: [441.25, 441.25, 320.0, 200.0]  # fu, fv, cu, cv  (640x400)
-  distortion_coeffs: [0.0, 0.0, 0.0, 0.0]     # k1, k2, p1, p2
+  distortion_coeffs: []
   resolution: [640, 400]
   rostopic: /oak/right/image_raw
   timeshift_cam_imu: 0.0
