@@ -29,6 +29,6 @@ ENTRYPOINT ["/entrypoint.sh"]
 #   /oak/left/image_raw        — left mono grayscale (for VIO)
 #   /oak/right/image_raw       — right mono grayscale (for VIO)
 #   /oak/imu/data              — IMU at 400 Hz (for VIO)
-#   /oak/stereo/points         — point cloud (for mapping)
+#   /oak/points                — point cloud (for mapping)
 CMD ["ros2", "launch", "depthai_ros_driver", "camera.launch.py", \
      "params_file:=/config/oak_params.yaml"]

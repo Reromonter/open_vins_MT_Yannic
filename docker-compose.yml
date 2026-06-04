@@ -12,7 +12,7 @@ services:
   # ---------------------------------------------------------------
   # OAK-D camera driver
   # Publishes: /oak/left/image_raw, /oak/right/image_raw,
-  #            /oak/imu/data, /oak/stereo/points
+  #            /oak/imu/data, /oak/points
   # ---------------------------------------------------------------
   oak_driver:
     build:
