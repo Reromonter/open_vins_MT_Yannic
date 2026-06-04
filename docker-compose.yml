@@ -1,0 +1,50 @@
+# Docker Compose for Raspberry Pi 4
+# Runs OAK-D camera driver + OpenVINS VIO pipeline
+#
+# Usage:
+#   docker compose up --build
+#
+# To rebuild only one service after code changes:
+#   docker compose up --build openvins
+
+services:
+
+  # ---------------------------------------------------------------
+  # OAK-D camera driver
+  # Publishes: /oak/left/image_raw, /oak/right/image_raw,
+  #            /oak/imu/data, /oak/stereo/points
+  # ---------------------------------------------------------------
+  oak_driver:
+    build:
+      context: .
+      dockerfile: Dockerfile_oak_driver
+    network_mode: host          # topics are visible to other host-mode containers
+    privileged: true            # required for USB device access on Pi 4
+    volumes:
+      - /dev/bus/usb:/dev/bus/usb   # USB device access for OAK-D
+    restart: unless-stopped
+
+  # ---------------------------------------------------------------
+  # OpenVINS VIO pipeline
+  # Subscribes: /oak/left/image_raw, /oak/right/image_raw, /oak/imu/data
+  # Publishes:  /ov_msckf/odometry     — nav_msgs/Odometry (pose + covariance)
+  #             /ov_msckf/pathimu      — trajectory path
+  #             /ov_msckf/poseimu      — geometry_msgs/PoseWithCovarianceStamped
+  # ---------------------------------------------------------------
+  openvins:
+    build:
+      context: .
+      dockerfile: ${OPENVINS_DOCKERFILE:-Dockerfile_ros2_22_04}
+    network_mode: host
+    command:
+      - ros2
+      - launch
+      - ov_msckf
+      - subscribe.launch.py
+      - config:=oak_d
+      - use_stereo:=true
+      - max_cameras:=2
+      - verbosity:=INFO
+    depends_on:
+      - oak_driver
+    restart: unless-stopped
