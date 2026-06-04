@@ -18,6 +18,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile_oak_driver
+    # image: lule/oak-driver:arm64  # use pre-built arm64 image instead of building locally
     network_mode: host          # topics are visible to other host-mode containers
     privileged: true            # required for USB device access on Pi 4
     volumes:
@@ -35,6 +36,7 @@ services:
     build:
       context: .
       dockerfile: ${OPENVINS_DOCKERFILE:-Dockerfile_ros2_22_04}
+    # image: lule/openvins:arm64  # use pre-built arm64 image instead of building locally
     network_mode: host
     command:
       - ros2
