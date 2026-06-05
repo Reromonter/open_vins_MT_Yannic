@@ -1,11 +1,14 @@
 # Docker Compose for Raspberry Pi 4
-# Runs OAK-D camera driver + OpenVINS VIO pipeline
+# Runs OAK-D camera driver + OpenVINS VIO pipeline + data logger
 #
 # Usage:
-#   docker compose up --build
+#   docker compose up --build          # run everything (VIO + logging)
+#   docker compose up --build openvins # rebuild only OpenVINS
 #
-# To rebuild only one service after code changes:
-#   docker compose up --build openvins
+# Logs are written to ./logs/ on the host:
+#   logs/bags/<timestamp>/        — ros2 bag (raw sensors + estimated topics)
+#   logs/trajectories/<timestamp>.txt — estimated trajectory (TUM format, for ov_eval)
+#   logs/timing/<timestamp>.txt   — CPU/memory usage per run
 
 services:
 
@@ -38,6 +41,8 @@ services:
       dockerfile: ${OPENVINS_DOCKERFILE:-Dockerfile_ros2_22_04}
     # image: lule/openvins:arm64  # use pre-built arm64 image instead of building locally
     network_mode: host
+    environment:
+      - RUN_TIMESTAMP=${RUN_TIMESTAMP:-}   # set externally to pin all services to the same timestamp
     command:
       - ros2
       - launch
@@ -47,6 +52,55 @@ services:
       - use_stereo:=true
       - max_cameras:=2
       - verbosity:=INFO
+      - recorder_output:=/logs/trajectories/${RUN_TIMESTAMP:-latest}/estimated_trajectory.txt
+      - timing_output:=/logs/timing/${RUN_TIMESTAMP:-latest}/psutil_log.txt
+    volumes:
+      - ./logs:/logs
     depends_on:
       - oak_driver
+    restart: unless-stopped
+
+  # ---------------------------------------------------------------
+  # Data logger
+  # Records raw sensor streams + estimated topics to a ros2 bag.
+  # Bag location: ./logs/bags/<timestamp>/
+  #
+  # Topics recorded:
+  #   Sensors  — /oak/left/image_raw, /oak/right/image_raw, /oak/imu/data
+  #              /oak/left/camera_info, /oak/right/camera_info
+  #   Estimate — /ov_msckf/odometry, /ov_msckf/poseimu, /ov_msckf/pathimu
+  #
+  # To replay a bag offline:
+  #   ros2 bag play logs/bags/<timestamp>/bag
+  # ---------------------------------------------------------------
+  logger:
+    image: ros:humble-ros-base
+    network_mode: host
+    environment:
+      - RUN_TIMESTAMP=${RUN_TIMESTAMP:-}
+    command:
+      - bash
+      - -c
+      - |
+        source /opt/ros/humble/setup.bash
+        TS=$${RUN_TIMESTAMP:-$$(date +%Y%m%d_%H%M%S)}
+        BAG_DIR=/logs/bags/$$TS
+        mkdir -p $$BAG_DIR
+        echo "Logging to $$BAG_DIR — waiting 5s for topics to appear..."
+        sleep 5
+        exec ros2 bag record \
+          /oak/left/image_raw \
+          /oak/right/image_raw \
+          /oak/imu/data \
+          /oak/left/camera_info \
+          /oak/right/camera_info \
+          /ov_msckf/odometry \
+          /ov_msckf/poseimu \
+          /ov_msckf/pathimu \
+          -o $$BAG_DIR/bag
+    volumes:
+      - ./logs:/logs
+    depends_on:
+      - oak_driver
+      - openvins
     restart: unless-stopped
