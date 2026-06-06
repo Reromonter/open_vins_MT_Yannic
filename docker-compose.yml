@@ -21,7 +21,6 @@ services:
     build:
       context: .
       dockerfile: Dockerfile_oak_driver
-    # image: lule/oak-driver:arm64  # use pre-built arm64 image instead of building locally
     network_mode: host          # topics are visible to other host-mode containers
     privileged: true            # required for USB device access on Pi 4
     volumes:
@@ -39,7 +38,6 @@ services:
     build:
       context: .
       dockerfile: ${OPENVINS_DOCKERFILE:-Dockerfile_ros2_22_04}
-    # image: lule/openvins:arm64  # use pre-built arm64 image instead of building locally
     network_mode: host
     environment:
       - RUN_TIMESTAMP=${RUN_TIMESTAMP:-}   # set externally to pin all services to the same timestamp
@@ -73,6 +71,30 @@ services:
   # To replay a bag offline:
   #   ros2 bag play logs/bags/<timestamp>/bag
   # ---------------------------------------------------------------
+  # ---------------------------------------------------------------
+  # ROS 1 bag player + ROS 1 → ROS 2 bridge
+  # Plays a ROS 1 .bag file and bridges every topic to ROS 2 via
+  # ros1_bridge dynamic_bridge.
+  #
+  # Mount your bags directory and set BAG_FILE to the .bag path
+  # inside the container.  ROSBAG_ARGS controls playback flags.
+  #
+  # Example (one-off):
+  #   BAG_FILE=/bags/my_recording.bag docker compose up ros1_bag_bridge
+  # ---------------------------------------------------------------
+  ros1_bag_bridge:
+    build:
+      context: .
+      dockerfile: Dockerfile_ros1_bridge
+    network_mode: host
+    environment:
+      - BAG_FILE=${BAG_FILE:-}           # e.g. /bags/my_recording.bag
+      - ROSBAG_ARGS=${ROSBAG_ARGS:---loop}
+    volumes:
+      - ${BAG_DIR:-./datasets}:/bags:ro  # host bag folder → /bags in container
+    profiles:
+      - bag                              # opt-in: docker compose --profile bag up
+
   logger:
     image: ros:humble-ros-base
     network_mode: host

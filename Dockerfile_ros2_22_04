@@ -14,7 +14,7 @@ FROM ros:humble-ros-base
 # Dependencies we use, catkin tools is very good build system
 # Also some helper utilities for fast in terminal edits (nano etc)
 RUN apt-get update && apt-get install -y libeigen3-dev nano git libopencv-dev libopencv-contrib-dev libboost-all-dev \
-    ros-humble-cv-bridge ros-humble-image-transport ros-humble-message-filters
+    ros-humble-cv-bridge ros-humble-image-transport ros-humble-message-filters ros-humble-rosbag2-storage-mcap
 
 # Ceres solver install and setup
 RUN apt-get install -y cmake libgoogle-glog-dev libgflags-dev libatlas-base-dev libeigen3-dev libsuitesparse-dev libceres-dev
