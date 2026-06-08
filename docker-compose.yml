@@ -2,8 +2,11 @@
 # Runs OAK-D camera driver + OpenVINS VIO pipeline + data logger
 #
 # Usage:
-#   docker compose up --build          # run everything (VIO + logging)
-#   docker compose up --build openvins # rebuild only OpenVINS
+#   docker compose up --build                       # run everything (VIO + logging)
+#   docker compose up --build openvins              # rebuild only OpenVINS
+#   docker compose --profile rviz up --build rviz               # visualise live topics in RViz
+#   docker compose --profile sgbm up --build sgbm               # run StereoSGBM point-cloud node
+#   docker compose --profile stereo_proc up --build stereo_proc # run stereo_image_proc point-cloud
 #
 # Logs are written to ./logs/ on the host:
 #   logs/bags/<timestamp>/        — ros2 bag (raw sensors + estimated topics)
@@ -58,7 +61,7 @@ services:
       - config:=oak_d
       - use_stereo:=true
       - max_cameras:=2
-      - verbosity:=INFO
+      - verbosity:=DEBUG
       - recorder_output:=/logs/trajectories/${RUN_TIMESTAMP:-latest}/estimated_trajectory.txt
       - timing_output:=/logs/timing/${RUN_TIMESTAMP:-latest}/psutil_log.txt
     depends_on:
@@ -113,25 +116,30 @@ services:
     restart: unless-stopped
 
   # ---------------------------------------------------------------
-  # ROS 1 bag player + ROS 1 → ROS 2 bridge
-  # Plays a ROS 1 .bag file and bridges every topic to ROS 2 via
-  # ros1_bridge dynamic_bridge.
+  # RViz visualiser (opt-in, not started by default)
+  # Connects to the running stack via host network + shared DDS.
   #
-  # Mount your bags directory and set BAG_FILE to the .bag path
-  # inside the container.  ROSBAG_ARGS controls playback flags.
+  # Prerequisites on host:
+  #   xhost +local:docker    # allow X11 from container
   #
-  # Example (one-off):
-  #   BAG_FILE=/bags/my_recording.bag docker compose up ros1_bag_bridge
+  # Start with:
+  #   docker compose --profile rviz up --build rviz
   # ---------------------------------------------------------------
-  ros1_bag_bridge:
+  rviz:
+    profiles: [rviz]
     build:
       context: .
-      dockerfile: Dockerfile_ros1_bridge
+      dockerfile: Dockerfile_rviz
     network_mode: host
+    ipc: host
     environment:
-      - BAG_FILE=${BAG_FILE:-}           # e.g. /bags/my_recording.bag
-      - ROSBAG_ARGS=${ROSBAG_ARGS:---loop}
+      - DISPLAY=${DISPLAY}
+      - RMW_IMPLEMENTATION=rmw_fastrtps_cpp
+      - LIBGL_ALWAYS_SOFTWARE=${LIBGL_ALWAYS_SOFTWARE:-1}
     volumes:
-      - ${BAG_DIR:-./datasets}:/bags:ro  # host bag folder → /bags in container
-    profiles:
-      - bag                              # opt-in: docker compose --profile bag up
+      - /tmp/.X11-unix:/tmp/.X11-unix
+      - ./config/rviz/openvins.rviz:/config/openvins.rviz
+    devices:
+      - /dev/dri:/dev/dri
+
+ 

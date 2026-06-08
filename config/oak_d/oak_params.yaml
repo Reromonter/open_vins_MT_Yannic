@@ -5,12 +5,12 @@ oak:
 
     left:
       i_publish_topic: true
-      i_fps: 10.0
+      i_fps: 5.0
       i_resolution: 400P
 
     right:
       i_publish_topic: true
-      i_fps: 10.0
+      i_fps: 5.0
       i_resolution: 400P
 
     stereo:

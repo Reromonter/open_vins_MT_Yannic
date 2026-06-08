@@ -1,0 +1,28 @@
+FROM ros:jazzy-ros-base
+
+# =========================================================
+# RViz2 debugging container (ROS 2 Jazzy)
+# Visualises all OAK-D + OpenVINS topics live via Fast DDS.
+#
+# Requires X11 on the host (DISPLAY + /tmp/.X11-unix socket).
+# If hardware-accelerated rendering fails, set:
+#   LIBGL_ALWAYS_SOFTWARE=1
+# in the docker-compose environment section.
+# =========================================================
+
+RUN apt-get update && apt-get install -y \
+    ros-jazzy-rviz2 \
+    mesa-utils \
+    && rm -rf /var/lib/apt/lists/*
+
+# Pre-load the RViz config
+COPY config/rviz/openvins.rviz /config/openvins.rviz
+
+RUN echo "source /opt/ros/jazzy/setup.bash" >> /root/.bashrc
+
+RUN printf '#!/bin/bash\nsource /opt/ros/jazzy/setup.bash\nexec "$@"\n' \
+    > /entrypoint.sh && chmod +x /entrypoint.sh
+
+ENTRYPOINT ["/entrypoint.sh"]
+
+CMD ["ros2", "run", "rviz2", "rviz2", "-d", "/config/openvins.rviz"]
