@@ -48,7 +48,7 @@ launch_args = [
     ),
     DeclareLaunchArgument(
     name="path_gt",
-    default_value="/catkin_ws/runtime_groundtruth/construction1_full_gt.csv",
+    default_value="",
     description="Path to ground truth data file in ASL format"
     ),
 

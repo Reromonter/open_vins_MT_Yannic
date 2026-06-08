@@ -31,4 +31,4 @@ ENTRYPOINT ["/entrypoint.sh"]
 #   /oak/imu/data              — IMU at 400 Hz (for VIO)
 #   /oak/points                — point cloud (for mapping)
 CMD ["ros2", "launch", "depthai_ros_driver", "camera.launch.py", \
-     "pointcloud.enable:=true", "params_file:=/config/oak_params.yaml"]
+     "params_file:=/config/oak_params.yaml"]

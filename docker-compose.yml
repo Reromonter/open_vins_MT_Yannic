@@ -22,9 +22,13 @@ services:
       context: .
       dockerfile: Dockerfile_oak_driver
     network_mode: host          # topics are visible to other host-mode containers
+    ipc: host                   # share /dev/shm so FastDDS SHM transport works
     privileged: true            # required for USB device access on Pi 4
+    environment:
+      - RMW_IMPLEMENTATION=rmw_fastrtps_cpp
     volumes:
       - /dev/bus/usb:/dev/bus/usb   # USB device access for OAK-D
+      - ./config/oak_d/oak_params.yaml:/config/oak_params.yaml
     restart: unless-stopped
 
   # ---------------------------------------------------------------
@@ -39,8 +43,13 @@ services:
       context: .
       dockerfile: ${OPENVINS_DOCKERFILE:-Dockerfile_ros2_22_04}
     network_mode: host
+    ipc: host                   # share /dev/shm so FastDDS SHM transport works
     environment:
       - RUN_TIMESTAMP=${RUN_TIMESTAMP:-}   # set externally to pin all services to the same timestamp
+      - RMW_IMPLEMENTATION=rmw_fastrtps_cpp
+    volumes:
+      - ./logs:/logs
+      - ./config/oak_d:/ros2_ws/install/ov_msckf/share/ov_msckf/config/oak_d
     command:
       - ros2
       - launch
@@ -52,8 +61,6 @@ services:
       - verbosity:=INFO
       - recorder_output:=/logs/trajectories/${RUN_TIMESTAMP:-latest}/estimated_trajectory.txt
       - timing_output:=/logs/timing/${RUN_TIMESTAMP:-latest}/psutil_log.txt
-    volumes:
-      - ./logs:/logs
     depends_on:
       - oak_driver
     restart: unless-stopped
@@ -71,35 +78,13 @@ services:
   # To replay a bag offline:
   #   ros2 bag play logs/bags/<timestamp>/bag
   # ---------------------------------------------------------------
-  # ---------------------------------------------------------------
-  # ROS 1 bag player + ROS 1 → ROS 2 bridge
-  # Plays a ROS 1 .bag file and bridges every topic to ROS 2 via
-  # ros1_bridge dynamic_bridge.
-  #
-  # Mount your bags directory and set BAG_FILE to the .bag path
-  # inside the container.  ROSBAG_ARGS controls playback flags.
-  #
-  # Example (one-off):
-  #   BAG_FILE=/bags/my_recording.bag docker compose up ros1_bag_bridge
-  # ---------------------------------------------------------------
-  ros1_bag_bridge:
-    build:
-      context: .
-      dockerfile: Dockerfile_ros1_bridge
-    network_mode: host
-    environment:
-      - BAG_FILE=${BAG_FILE:-}           # e.g. /bags/my_recording.bag
-      - ROSBAG_ARGS=${ROSBAG_ARGS:---loop}
-    volumes:
-      - ${BAG_DIR:-./datasets}:/bags:ro  # host bag folder → /bags in container
-    profiles:
-      - bag                              # opt-in: docker compose --profile bag up
-
   logger:
     image: ros:humble-ros-base
     network_mode: host
+    ipc: host                   # share /dev/shm so FastDDS SHM transport works
     environment:
       - RUN_TIMESTAMP=${RUN_TIMESTAMP:-}
+      - RMW_IMPLEMENTATION=rmw_fastrtps_cpp
     command:
       - bash
       - -c
@@ -126,3 +111,27 @@ services:
       - oak_driver
       - openvins
     restart: unless-stopped
+
+  # ---------------------------------------------------------------
+  # ROS 1 bag player + ROS 1 → ROS 2 bridge
+  # Plays a ROS 1 .bag file and bridges every topic to ROS 2 via
+  # ros1_bridge dynamic_bridge.
+  #
+  # Mount your bags directory and set BAG_FILE to the .bag path
+  # inside the container.  ROSBAG_ARGS controls playback flags.
+  #
+  # Example (one-off):
+  #   BAG_FILE=/bags/my_recording.bag docker compose up ros1_bag_bridge
+  # ---------------------------------------------------------------
+  ros1_bag_bridge:
+    build:
+      context: .
+      dockerfile: Dockerfile_ros1_bridge
+    network_mode: host
+    environment:
+      - BAG_FILE=${BAG_FILE:-}           # e.g. /bags/my_recording.bag
+      - ROSBAG_ARGS=${ROSBAG_ARGS:---loop}
+    volumes:
+      - ${BAG_DIR:-./datasets}:/bags:ro  # host bag folder → /bags in container
+    profiles:
+      - bag                              # opt-in: docker compose --profile bag up
