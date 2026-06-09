@@ -8,6 +8,9 @@
     stereo:
       i_depth_preset: DEFAULT
       i_publish_topic: true
+      i_publish_right_rect: true
+      i_publish_left_rect: true
+      i_publish_synced_rect_pair: true
     # rgb:
     #   i_fps: 15.0
     #   i_publish_topic: false
