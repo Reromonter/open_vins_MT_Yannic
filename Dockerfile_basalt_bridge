@@ -28,7 +28,8 @@ COPY dist/depthai-*.whl /tmp/
 RUN pip3 install --break-system-packages /tmp/depthai-*.whl \
     && rm /tmp/depthai-*.whl
 
-COPY scripts/basalt_bridge.py      /scripts/basalt_bridge.py
+COPY scripts/basalt_bridge.py       /scripts/basalt_bridge.py
+COPY scripts/pointcloud_test.py     /scripts/pointcloud_test.py
 COPY scripts/fix_imu_calibration.py /scripts/fix_imu_calibration.py
 
 RUN echo "source /opt/ros/jazzy/setup.bash" >> /root/.bashrc
@@ -37,4 +38,4 @@ RUN printf '#!/bin/bash\nsource /opt/ros/jazzy/setup.bash\nexec "$@"\n' \
     > /entrypoint.sh && chmod +x /entrypoint.sh
 
 ENTRYPOINT ["/entrypoint.sh"]
-CMD ["python3", "/scripts/basalt_bridge.py"]
+CMD ["python3", "/scripts/pointcloud_test.py"]
