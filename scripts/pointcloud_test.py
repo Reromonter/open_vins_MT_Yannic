@@ -42,6 +42,10 @@ def make_pointcloud2(xyz, rgba, stamp):
     return msg
 
 
+COLOR_W, COLOR_H = 640, 400
+
+print(f"[pointcloud_test] color_resolution={COLOR_W}x{COLOR_H}  stereo=full_res  topic=/points", flush=True)
+
 pipeline = dai.Pipeline()
 
 left  = pipeline.create(dai.node.Camera).build(dai.CameraBoardSocket.CAM_B)
@@ -52,7 +56,7 @@ stereo = pipeline.create(dai.node.StereoDepth)
 left.requestFullResolutionOutput().link(stereo.left)
 right.requestFullResolutionOutput().link(stereo.right)
 
-colorOut = color.requestOutput((640, 400), type=dai.ImgFrame.Type.RGB888i,
+colorOut = color.requestOutput((COLOR_W, COLOR_H), type=dai.ImgFrame.Type.RGB888i,
                                resizeMode=dai.ImgResizeMode.CROP, enableUndistortion=True)
 
 pc = pipeline.create(dai.node.PointCloud)

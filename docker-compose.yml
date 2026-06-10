@@ -152,6 +152,7 @@ services:
       - RMW_IMPLEMENTATION=rmw_fastrtps_cpp
     volumes:
       - /dev/bus/usb:/dev/bus/usb
+      - ./scripts:/scripts
     restart: unless-stopped
 
   rviz:

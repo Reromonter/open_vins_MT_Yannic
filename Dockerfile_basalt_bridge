@@ -22,11 +22,7 @@ RUN apt-get update && apt-get install -y \
     ros-jazzy-nav-msgs \
 && rm -rf /var/lib/apt/lists/*
 
-# Install depthai Python bindings from the pre-downloaded wheel in dist/.
-# Re-run "pip3 download depthai -d dist/" on a connected machine to refresh.
-COPY dist/depthai-*.whl /tmp/
-RUN pip3 install --break-system-packages /tmp/depthai-*.whl \
-    && rm /tmp/depthai-*.whl
+RUN pip3 install --break-system-packages depthai==3.7.1
 
 COPY scripts/basalt_bridge.py          /scripts/basalt_bridge.py
 COPY scripts/pointcloud_test.py        /scripts/pointcloud_test.py
@@ -39,4 +35,4 @@ RUN printf '#!/bin/bash\nsource /opt/ros/jazzy/setup.bash\nexec "$@"\n' \
     > /entrypoint.sh && chmod +x /entrypoint.sh
 
 ENTRYPOINT ["/entrypoint.sh"]
-CMD ["python3", "/scripts/vio_pointcloud_bridge.py"]
+CMD ["python3", "/scripts/basalt_bridge.py"]

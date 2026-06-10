@@ -9,9 +9,12 @@ odom_pub = ros_node.create_publisher(Odometry, '/odom', 10)
 
 # Create pipeline
 with dai.Pipeline() as p:
-    fps = 60
-    width = 640
-    height = 400
+    fps    = 10
+    width  = 480
+    height = 270
+
+    print(f"[basalt_bridge] fps={fps}  resolution={width}x{height}  imu_rate=200 Hz  topic=/odom", flush=True)
+
     # Define sources and outputs
     left = p.create(dai.node.Camera).build(dai.CameraBoardSocket.CAM_B, sensorFps=fps)
     right = p.create(dai.node.Camera).build(dai.CameraBoardSocket.CAM_C, sensorFps=fps)

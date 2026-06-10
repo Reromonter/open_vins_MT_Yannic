@@ -48,6 +48,8 @@ fps    = 10
 width  = 480
 height = 270
 
+print(f"[vio_pointcloud_bridge] fps={fps}  resolution={width}x{height}  imu_rate=200 Hz  topics=/odom /points", flush=True)
+
 try:
     p = dai.Pipeline()
 
