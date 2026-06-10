@@ -150,6 +150,7 @@ services:
     privileged: true            # required for USB device access
     environment:
       - RMW_IMPLEMENTATION=rmw_fastrtps_cpp
+      - SCRIPT=${BASALT_SCRIPT:-/scripts/basalt_bridge.py}
     volumes:
       - /dev/bus/usb:/dev/bus/usb
       - ./scripts:/scripts
