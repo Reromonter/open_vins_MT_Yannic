@@ -125,6 +125,32 @@ services:
   # Start with:
   #   docker compose --profile rviz up --build rviz
   # ---------------------------------------------------------------
+  # ---------------------------------------------------------------
+  # BasaltVIO bridge (opt-in, conflicts with oak_driver)
+  # Uses on-device BasaltVIO via the depthai Python API.
+  # Do NOT run alongside oak_driver — both own the USB device.
+  #
+  # Publishes:
+  #   /odom    nav_msgs/Odometry
+  #   /points  sensor_msgs/PointCloud2
+  #
+  # Start with:
+  #   docker compose --profile basalt_bridge up --build basalt_bridge
+  # ---------------------------------------------------------------
+  basalt_bridge:
+    profiles: [basalt_bridge]
+    build:
+      context: .
+      dockerfile: Dockerfile_basalt_bridge
+    network_mode: host
+    ipc: host
+    privileged: true            # required for USB device access
+    environment:
+      - RMW_IMPLEMENTATION=rmw_fastrtps_cpp
+    volumes:
+      - /dev/bus/usb:/dev/bus/usb
+    restart: unless-stopped
+
   rviz:
     profiles: [rviz]
     build:
