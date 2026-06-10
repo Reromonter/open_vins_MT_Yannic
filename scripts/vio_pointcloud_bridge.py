@@ -45,52 +45,41 @@ def make_pointcloud2(xyz, rgba, stamp):
 
 
 fps    = 10
-width  = 640
-height = 400
+width  = 480
+height = 270
 
 try:
     p = dai.Pipeline()
 
     left  = p.create(dai.node.Camera).build(dai.CameraBoardSocket.CAM_B, sensorFps=fps)
     right = p.create(dai.node.Camera).build(dai.CameraBoardSocket.CAM_C, sensorFps=fps)
-    color = p.create(dai.node.Camera).build(dai.CameraBoardSocket.CAM_A)
 
     imu  = p.create(dai.node.IMU)
     odom = p.create(dai.node.BasaltVIO)
 
     stereo = p.create(dai.node.StereoDepth)
+    stereo.setSubpixel(False)
+    stereo.setLeftRightCheck(False)
 
     left_out  = left.requestOutput((width, height))
     right_out = right.requestOutput((width, height))
     left_out.link(stereo.left)
     right_out.link(stereo.right)
+    left_out.link(odom.left)
+    right_out.link(odom.right)
 
-    colorOut = color.requestOutput((640, 400), type=dai.ImgFrame.Type.RGB888i,
-                                   resizeMode=dai.ImgResizeMode.CROP, enableUndistortion=True)
+    depth_q = stereo.depth.createOutputQueue(maxSize=4, blocking=False)
 
-    pc = p.create(dai.node.PointCloud)
-    pc.initialConfig.setLengthUnit(dai.LengthUnit.METER)
-
-    platform = p.getDefaultDevice().getPlatform()
-    if platform == dai.Platform.RVC4:
-        imageAlign = p.create(dai.node.ImageAlign)
-        stereo.depth.link(imageAlign.input)
-        colorOut.link(imageAlign.inputAlignTo)
-        imageAlign.outputAligned.link(pc.inputDepth)
-    else:
-        colorOut.link(stereo.inputAlignTo)
-        stereo.depth.link(pc.inputDepth)
-
-    colorOut.link(pc.inputColor)
-
-    q = pc.outputPointCloud.createOutputQueue(maxSize=4, blocking=False)
+    calib  = p.getDefaultDevice().readCalibration()
+    K      = calib.getCameraIntrinsics(dai.CameraBoardSocket.CAM_B, width, height)
+    fx, fy = K[0][0], K[1][1]
+    cx, cy = K[0][2], K[1][2]
+    uu, vv = np.meshgrid(np.arange(width), np.arange(height))
 
     imu.enableIMUSensor([dai.IMUSensor.ACCELEROMETER_RAW, dai.IMUSensor.GYROSCOPE_RAW], 200)
     imu.setBatchReportThreshold(1)
     imu.setMaxBatchReports(10)
 
-    left.requestOutput((width, height)).link(odom.left)
-    right.requestOutput((width, height)).link(odom.right)
     imu.out.link(odom.imu)
 
     odomQ = odom.transform.createOutputQueue(maxSize=8, blocking=False)
@@ -117,19 +106,20 @@ try:
             msg.pose.pose.orientation.w = float(quat.qw)
             odom_pub.publish(msg)
 
-        pcd = q.tryGet()
-        if pcd is None:
+        depth_frame = depth_q.tryGet()
+        if depth_frame is None:
             rclpy.spin_once(ros_node, timeout_sec=0)
             continue
 
-        if pcd.isColor():
-            xyz, rgba = pcd.getPointsRGB()
-        else:
-            xyz  = pcd.getPoints()
-            rgba = np.full((len(xyz), 4), 200, dtype=np.uint8)
+        depth = depth_frame.getFrame().astype(np.float32) / 1000.0  # mm → m
+        mask  = depth > 0
+        Z = depth[mask]
+        X = (uu[mask] - cx) * Z / fx
+        Y = (vv[mask] - cy) * Z / fy
+        xyz  = np.stack([X, Y, Z], axis=1)
+        rgba = np.full((len(xyz), 4), 200, dtype=np.uint8)
 
-        print(f"Points: {len(xyz)}, {pcd.getWidth()}x{pcd.getHeight()}, "
-              f"color={pcd.isColor()}, Z=[{pcd.getMinZ():.2f}, {pcd.getMaxZ():.2f}]")
+        print(f"Points: {len(xyz)}, Z=[{Z.min():.2f}, {Z.max():.2f}]")
 
         ptc_pub.publish(make_pointcloud2(xyz, rgba, ros_node.get_clock().now().to_msg()))
 
