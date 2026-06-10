@@ -21,6 +21,7 @@ services:
   #            /oak/imu/data, /oak/points
   # ---------------------------------------------------------------
   oak_driver:
+    profiles: [openvins]
     build:
       context: .
       dockerfile: Dockerfile_oak_driver
@@ -42,6 +43,7 @@ services:
   #             /ov_msckf/poseimu      — geometry_msgs/PoseWithCovarianceStamped
   # ---------------------------------------------------------------
   openvins:
+    profiles: [openvins]
     build:
       context: .
       dockerfile: ${OPENVINS_DOCKERFILE:-Dockerfile_ros2_22_04}
@@ -82,6 +84,7 @@ services:
   #   ros2 bag play logs/bags/<timestamp>/bag
   # ---------------------------------------------------------------
   logger:
+    profiles: [openvins]
     image: ros:humble-ros-base
     network_mode: host
     ipc: host                   # share /dev/shm so FastDDS SHM transport works
@@ -167,5 +170,26 @@ services:
       - ./config/rviz/openvins.rviz:/config/openvins.rviz
     devices:
       - /dev/dri:/dev/dri
+
+  # RViz for Basalt VIO — shows /odom pose arrows and path
+  # Start with:
+  #   docker compose --profile basalt_rviz up basalt_rviz
+  basalt_rviz:
+    profiles: [basalt_rviz]
+    build:
+      context: .
+      dockerfile: Dockerfile_rviz
+    network_mode: host
+    ipc: host
+    environment:
+      - DISPLAY=${DISPLAY}
+      - RMW_IMPLEMENTATION=rmw_fastrtps_cpp
+      - LIBGL_ALWAYS_SOFTWARE=${LIBGL_ALWAYS_SOFTWARE:-1}
+    volumes:
+      - /tmp/.X11-unix:/tmp/.X11-unix
+      - ./config/rviz/basalt_vio.rviz:/config/basalt_vio.rviz
+    devices:
+      - /dev/dri:/dev/dri
+    command: ["ros2", "run", "rviz2", "rviz2", "-d", "/config/basalt_vio.rviz"]
 
  

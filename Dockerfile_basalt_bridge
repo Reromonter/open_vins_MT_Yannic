@@ -19,6 +19,7 @@ RUN apt-get update && apt-get install -y \
     python3-numpy \
     python3-pip \
     ros-jazzy-sensor-msgs-py \
+    ros-jazzy-nav-msgs \
     && rm -rf /var/lib/apt/lists/*
 
 # Install depthai Python bindings from the pre-downloaded wheel in dist/.
