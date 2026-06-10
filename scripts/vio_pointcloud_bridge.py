@@ -7,12 +7,6 @@ import rclpy
 from nav_msgs.msg import Odometry
 from sensor_msgs.msg import PointCloud2, PointField
 
-# BasaltVIO::stop() segfaults on teardown; BasaltVIO thread calls abort() on IMU
-# assertion failure — bypass all Python/depthai cleanup in every exit path.
-signal.signal(signal.SIGINT,  lambda *_: os._exit(0))
-signal.signal(signal.SIGTERM, lambda *_: os._exit(0))
-signal.signal(signal.SIGABRT, lambda *_: os._exit(1))
-
 rclpy.init()
 ros_node = rclpy.create_node('basalt_bridge')
 odom_pub = ros_node.create_publisher(Odometry, '/odom', 10)
@@ -50,7 +44,7 @@ def make_pointcloud2(xyz, rgba, stamp):
     return msg
 
 
-fps    = 60
+fps    = 10
 width  = 640
 height = 400
 
@@ -91,12 +85,9 @@ try:
 
     q = pc.outputPointCloud.createOutputQueue(maxSize=4, blocking=False)
 
-    # One reading per output message so BasaltVIO never sees out-of-order
-    # timestamps within a batch (accel/gyro packets from the same period can
-    # arrive grouped, which violates Basalt's strict data.t_ns > state.t_ns).
-    imu.enableIMUSensor([dai.IMUSensor.ACCELEROMETER_RAW, dai.IMUSensor.GYROSCOPE_RAW], 400)
+    imu.enableIMUSensor([dai.IMUSensor.ACCELEROMETER_RAW, dai.IMUSensor.GYROSCOPE_RAW], 200)
     imu.setBatchReportThreshold(1)
-    imu.setMaxBatchReports(1)
+    imu.setMaxBatchReports(10)
 
     left.requestOutput((width, height)).link(odom.left)
     right.requestOutput((width, height)).link(odom.right)
