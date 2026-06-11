@@ -9,8 +9,8 @@ from sensor_msgs.msg import PointCloud2, PointField
 
 rclpy.init()
 ros_node = rclpy.create_node('basalt')
-odom_pub = ros_node.create_publisher(Odometry, '/gazebo/odom', 10)
-ptc_pub  = ros_node.create_publisher(PointCloud2, '/depth_camera/points', 10)
+odom_pub = ros_node.create_publisher(Odometry, '/odom', 10)
+ptc_pub  = ros_node.create_publisher(PointCloud2, '/points', 10)
 
 
 def make_odometry(transform):
@@ -59,10 +59,24 @@ def make_pointcloud2(xyz, stamp):
     msg.is_dense     = True
     return msg
 
+def make_band_mask(shape, edges, ratios, rng):
+    mask = np.zeros(shape, dtype=bool)
+    for (r0, r1), ratio in zip(zip(edges[:-1], edges[1:]), ratios):
+        if ratio >= 1.0:
+            mask[r0:r1, :] = True
+        else:
+            mask[r0:r1, :] = rng.random((r1 - r0, shape[1])) < ratio
+    return mask
+
 
 fps    = 10
 width  = 240
 height = 135
+
+band_edges = [0, height  // 3, 2 * height  // 3, height ]       # top, middle, bottom
+band_ratios = [1.0, 0.6, 0.3]                                   # keep fractions per band
+
+rng = np.random.default_rng(42)
 
 print(f"[vio_pointcloud] fps={fps}  resolution={width}x{height}  imu_rate=200 Hz  topics=/odom /points", flush=True)
 
@@ -121,7 +135,10 @@ try:
             depth_frame = depth_q.tryGet()
             if depth_frame is not None:
                 depth = depth_frame.getFrame().astype(np.float32) / 1000.0  # mm → m
-                mask  = depth > 0
+
+                band_mask = make_band_mask(depth.shape, band_edges, band_ratios, rng)
+
+                mask  = (depth > 0) & band_mask
                 Z = depth[mask]
                 X = (uu[mask] - cx) * Z / fx
                 Y = (vv[mask] - cy) * Z / fy
