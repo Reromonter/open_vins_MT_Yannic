@@ -9,8 +9,8 @@ from sensor_msgs.msg import PointCloud2, PointField
 
 rclpy.init()
 ros_node = rclpy.create_node('basalt')
-odom_pub = ros_node.create_publisher(Odometry, '/odom', 10)
-ptc_pub  = ros_node.create_publisher(PointCloud2, '/points', 10)
+odom_pub = ros_node.create_publisher(Odometry, '/gazebo/odom', 10)
+ptc_pub  = ros_node.create_publisher(PointCloud2, '/depth_camera/points', 10)
 
 
 def make_odometry(transform):
@@ -61,8 +61,8 @@ def make_pointcloud2(xyz, stamp):
 
 
 fps    = 10
-width  = 480
-height = 270
+width  = 240
+height = 135
 
 print(f"[vio_pointcloud] fps={fps}  resolution={width}x{height}  imu_rate=200 Hz  topics=/odom /points", flush=True)
 
@@ -102,7 +102,7 @@ try:
 
     odomQ = odom.transform.createOutputQueue(maxSize=8, blocking=False)
 
-    # Check ~100x per frame interval — enough to catch new data without busy-waiting.
+    # Check ~100x per frame interval. Should be enough to catch new data without busy-waiting.
     idle_sleep = 1.0 / (fps * 100)
 
     def odom_loop():
