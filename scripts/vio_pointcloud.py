@@ -61,8 +61,8 @@ def make_pointcloud2(xyz, stamp):
 
 
 fps    = 10
-width  = 240
-height = 135
+width  = 80
+height = 45
 
 print(f"[vio_pointcloud] fps={fps}  resolution={width}x{height}  imu_rate=200 Hz  topics=/odom /points", flush=True)
 
