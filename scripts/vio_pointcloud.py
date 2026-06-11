@@ -89,8 +89,8 @@ def make_band_mask(shape, edges, ratios, rng):
 
 
 fps    = 10
-width  = 240
-height = 135
+width  = 160
+height = 120
 
 band_edges = [0, height  // 3, 2 * height  // 3, height ]       # top, middle, bottom
 band_ratios = [1.0, 0.6, 0.3]                                   # keep fractions per band
