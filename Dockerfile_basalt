@@ -22,7 +22,7 @@ RUN apt-get update && apt-get install -y \
     ros-humble-nav-msgs \
 && rm -rf /var/lib/apt/lists/*
 
-RUN pip3 install --break-system-packages depthai==3.7.1
+RUN pip3 install depthai==3.7.1
 
 COPY scripts/vio_pointcloud.py          /scripts/vio_pointcloud.py
 
