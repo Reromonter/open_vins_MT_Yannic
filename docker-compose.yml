@@ -175,12 +175,10 @@ services:
     devices:
       - /dev/dri:/dev/dri
 
-  # RViz for Basalt VIO
-  # Choose config with RVIZ_CONFIG env var:
-  #   RVIZ_CONFIG=basalt_vio.rviz   docker compose --profile basalt_rviz up basalt_rviz  # point cloud
-  #   RVIZ_CONFIG=basalt_odom.rviz  docker compose --profile basalt_rviz up basalt_rviz  # odometry
-  basalt_rviz:
-    profiles: [basalt_rviz]
+  # RViz — point cloud view (depth_camera_optical_frame)
+  # Start with: docker compose --profile basalt_rviz_points up basalt_rviz_points
+  basalt_rviz_points:
+    profiles: [basalt_rviz_points]
     build:
       context: .
       dockerfile: Dockerfile_rviz
@@ -190,13 +188,31 @@ services:
       - DISPLAY=${DISPLAY}
       - RMW_IMPLEMENTATION=rmw_fastrtps_cpp
       - LIBGL_ALWAYS_SOFTWARE=${LIBGL_ALWAYS_SOFTWARE:-1}
-      - RVIZ_CONFIG=${RVIZ_CONFIG:-basalt_vio.rviz}
     volumes:
       - /tmp/.X11-unix:/tmp/.X11-unix
       - ./config/rviz/basalt_vio.rviz:/config/basalt_vio.rviz
+    devices:
+      - /dev/dri:/dev/dri
+    command: ["ros2", "run", "rviz2", "rviz2", "-d", "/config/basalt_vio.rviz"]
+
+  # RViz — odometry view (odom frame)
+  # Start with: docker compose --profile basalt_rviz_odom up basalt_rviz_odom
+  basalt_rviz_odom:
+    profiles: [basalt_rviz_odom]
+    build:
+      context: .
+      dockerfile: Dockerfile_rviz
+    network_mode: host
+    ipc: host
+    environment:
+      - DISPLAY=${DISPLAY}
+      - RMW_IMPLEMENTATION=rmw_fastrtps_cpp
+      - LIBGL_ALWAYS_SOFTWARE=${LIBGL_ALWAYS_SOFTWARE:-1}
+    volumes:
+      - /tmp/.X11-unix:/tmp/.X11-unix
       - ./config/rviz/basalt_odom.rviz:/config/basalt_odom.rviz
     devices:
       - /dev/dri:/dev/dri
-    command: ["ros2", "run", "rviz2", "rviz2", "-d", "/config/${RVIZ_CONFIG:-basalt_vio.rviz}"]
+    command: ["ros2", "run", "rviz2", "rviz2", "-d", "/config/basalt_odom.rviz"]
 
  
