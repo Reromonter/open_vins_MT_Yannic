@@ -1,7 +1,7 @@
-FROM ros:jazzy-ros-base
+FROM ros:humble-ros-base
 
 # =========================================================
-# BasaltVIO container (ROS2 Jazzy)
+# BasaltVIO container (ROS2 Humble)
 #
 # On-device BasaltVIO runs on the OAK-D (RVC2).  This
 # container reads the VIO pose and depth point cloud via
@@ -18,17 +18,17 @@ FROM ros:jazzy-ros-base
 RUN apt-get update && apt-get install -y \
     python3-numpy \
     python3-pip \
-    ros-jazzy-sensor-msgs-py \
-    ros-jazzy-nav-msgs \
+    ros-humble-sensor-msgs-py \
+    ros-humble-nav-msgs \
 && rm -rf /var/lib/apt/lists/*
 
 RUN pip3 install --break-system-packages depthai==3.7.1
 
 COPY scripts/vio_pointcloud.py          /scripts/vio_pointcloud.py
 
-RUN echo "source /opt/ros/jazzy/setup.bash" >> /root/.bashrc
+RUN echo "source /opt/ros/humble/setup.bash" >> /root/.bashrc
 
-RUN printf '#!/bin/bash\nsource /opt/ros/jazzy/setup.bash\nexec "$@"\n' \
+RUN printf '#!/bin/bash\nsource /opt/ros/humble/setup.bash\nexec "$@"\n' \
     > /entrypoint.sh && chmod +x /entrypoint.sh
 
 ENV SCRIPT=/scripts/vio_pointcloud.py
