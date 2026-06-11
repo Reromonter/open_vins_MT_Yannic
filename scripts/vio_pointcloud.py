@@ -4,13 +4,16 @@ import threading
 import numpy as np
 import depthai as dai
 import rclpy
+from geometry_msgs.msg import TransformStamped
 from nav_msgs.msg import Odometry
 from sensor_msgs.msg import PointCloud2, PointField
+import tf2_ros
 
 rclpy.init()
 ros_node = rclpy.create_node('basalt')
-odom_pub = ros_node.create_publisher(Odometry, '/odom', 10)
-ptc_pub  = ros_node.create_publisher(PointCloud2, '/points', 10)
+odom_pub  = ros_node.create_publisher(Odometry, '/odom', 10)
+ptc_pub   = ros_node.create_publisher(PointCloud2, '/points', 10)
+tf_broadcaster = tf2_ros.TransformBroadcaster(ros_node)
 
 
 def make_odometry(transform):
@@ -18,8 +21,10 @@ def make_odometry(transform):
     quat = transform.getQuaternion()
     print(f"pos: x={pos.x:.3f}, y={pos.y:.3f}, z={pos.z:.3f} | "
           f"quat: qx={quat.qx:.3f}, qy={quat.qy:.3f}, qz={quat.qz:.3f}, qw={quat.qw:.3f}")
+    stamp = ros_node.get_clock().now().to_msg()
+
     msg = Odometry()
-    msg.header.stamp    = ros_node.get_clock().now().to_msg()
+    msg.header.stamp    = stamp
     msg.header.frame_id = 'odom'
     msg.child_frame_id  = 'BASE'
     msg.pose.pose.position.x    = float(pos.x)
@@ -29,6 +34,20 @@ def make_odometry(transform):
     msg.pose.pose.orientation.y = float(quat.qy)
     msg.pose.pose.orientation.z = float(quat.qz)
     msg.pose.pose.orientation.w = float(quat.qw)
+
+    tf_msg = TransformStamped()
+    tf_msg.header.stamp    = stamp
+    tf_msg.header.frame_id = 'odom'
+    tf_msg.child_frame_id  = 'BASE'
+    tf_msg.transform.translation.x = float(pos.x)
+    tf_msg.transform.translation.y = float(pos.y)
+    tf_msg.transform.translation.z = float(pos.z)
+    tf_msg.transform.rotation.x = float(quat.qx)
+    tf_msg.transform.rotation.y = float(quat.qy)
+    tf_msg.transform.rotation.z = float(quat.qz)
+    tf_msg.transform.rotation.w = float(quat.qw)
+    tf_broadcaster.sendTransform(tf_msg)
+
     return msg
 
 
