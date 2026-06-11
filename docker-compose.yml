@@ -118,6 +118,36 @@ services:
       - openvins
     restart: unless-stopped
 
+
+  # ---------------------------------------------------------------
+  # BasaltVIO(opt-in, conflicts with oak_driver)
+  # Uses on-device BasaltVIO via the depthai Python API.
+  # Do NOT run alongside oak_driver — both own the USB device.
+  #
+  # Publishes:
+  #   /odom    nav_msgs/Odometry
+  #   /points  sensor_msgs/PointCloud2
+  #
+  # Start with:
+  #   docker compose --profile basalt up --build basalt
+  # ---------------------------------------------------------------
+  basalt:
+    profiles: [basalt]
+    build:
+      context: .
+      dockerfile: Dockerfile_basalt
+    network_mode: host
+    ipc: host
+    privileged: true            # required for USB device access
+    environment:
+      - RMW_IMPLEMENTATION=rmw_fastrtps_cpp
+      - SCRIPT=${BASALT_SCRIPT:-/scripts/vio_pointcloud.py}
+    volumes:
+      - /dev/bus/usb:/dev/bus/usb
+      - ./scripts:/scripts
+    restart: unless-stopped
+
+
   # ---------------------------------------------------------------
   # RViz visualiser (opt-in, not started by default)
   # Connects to the running stack via host network + shared DDS.
@@ -128,34 +158,6 @@ services:
   # Start with:
   #   docker compose --profile rviz up --build rviz
   # ---------------------------------------------------------------
-  # ---------------------------------------------------------------
-  # BasaltVIO bridge (opt-in, conflicts with oak_driver)
-  # Uses on-device BasaltVIO via the depthai Python API.
-  # Do NOT run alongside oak_driver — both own the USB device.
-  #
-  # Publishes:
-  #   /odom    nav_msgs/Odometry
-  #   /points  sensor_msgs/PointCloud2
-  #
-  # Start with:
-  #   docker compose --profile basalt_bridge up --build basalt_bridge
-  # ---------------------------------------------------------------
-  basalt_bridge:
-    profiles: [basalt_bridge]
-    build:
-      context: .
-      dockerfile: Dockerfile_basalt_bridge
-    network_mode: host
-    ipc: host
-    privileged: true            # required for USB device access
-    environment:
-      - RMW_IMPLEMENTATION=rmw_fastrtps_cpp
-      - SCRIPT=${BASALT_SCRIPT:-/scripts/basalt_bridge.py}
-    volumes:
-      - /dev/bus/usb:/dev/bus/usb
-      - ./scripts:/scripts
-    restart: unless-stopped
-
   rviz:
     profiles: [rviz]
     build:
@@ -173,9 +175,10 @@ services:
     devices:
       - /dev/dri:/dev/dri
 
-  # RViz for Basalt VIO — shows /odom pose arrows and path
-  # Start with:
-  #   docker compose --profile basalt_rviz up basalt_rviz
+  # RViz for Basalt VIO
+  # Choose config with RVIZ_CONFIG env var:
+  #   RVIZ_CONFIG=basalt_vio.rviz   docker compose --profile basalt_rviz up basalt_rviz  # point cloud
+  #   RVIZ_CONFIG=basalt_odom.rviz  docker compose --profile basalt_rviz up basalt_rviz  # odometry
   basalt_rviz:
     profiles: [basalt_rviz]
     build:
@@ -187,11 +190,13 @@ services:
       - DISPLAY=${DISPLAY}
       - RMW_IMPLEMENTATION=rmw_fastrtps_cpp
       - LIBGL_ALWAYS_SOFTWARE=${LIBGL_ALWAYS_SOFTWARE:-1}
+      - RVIZ_CONFIG=${RVIZ_CONFIG:-basalt_vio.rviz}
     volumes:
       - /tmp/.X11-unix:/tmp/.X11-unix
       - ./config/rviz/basalt_vio.rviz:/config/basalt_vio.rviz
+      - ./config/rviz/basalt_odom.rviz:/config/basalt_odom.rviz
     devices:
       - /dev/dri:/dev/dri
-    command: ["ros2", "run", "rviz2", "rviz2", "-d", "/config/basalt_vio.rviz"]
+    command: ["ros2", "run", "rviz2", "rviz2", "-d", "/config/${RVIZ_CONFIG:-basalt_vio.rviz}"]
 
  

@@ -8,37 +8,52 @@ from nav_msgs.msg import Odometry
 from sensor_msgs.msg import PointCloud2, PointField
 
 rclpy.init()
-ros_node = rclpy.create_node('basalt_bridge')
+ros_node = rclpy.create_node('basalt')
 odom_pub = ros_node.create_publisher(Odometry, '/odom', 10)
 ptc_pub  = ros_node.create_publisher(PointCloud2, '/points', 10)
 
 
-def make_pointcloud2(xyz, rgba, stamp):
+def make_odometry(transform):
+    pos  = transform.getTranslation()
+    quat = transform.getQuaternion()
+    print(f"pos: x={pos.x:.3f}, y={pos.y:.3f}, z={pos.z:.3f} | "
+          f"quat: qx={quat.qx:.3f}, qy={quat.qy:.3f}, qz={quat.qz:.3f}, qw={quat.qw:.3f}")
+    msg = Odometry()
+    msg.header.stamp    = ros_node.get_clock().now().to_msg()
+    msg.header.frame_id = 'odom'
+    msg.child_frame_id  = 'base_link'
+    msg.pose.pose.position.x    = float(pos.x)
+    msg.pose.pose.position.y    = float(pos.y)
+    msg.pose.pose.position.z    = float(pos.z)
+    msg.pose.pose.orientation.x = float(quat.qx)
+    msg.pose.pose.orientation.y = float(quat.qy)
+    msg.pose.pose.orientation.z = float(quat.qz)
+    msg.pose.pose.orientation.w = float(quat.qw)
+    return msg
+
+
+def make_pointcloud2(xyz, stamp):
+    print(f"Points: {len(xyz)}, Z=[{Z.min():.2f}, {Z.max():.2f}]")
     n = len(xyz)
-    r = rgba[:, 0].astype(np.uint32)
-    g = rgba[:, 1].astype(np.uint32)
-    b = rgba[:, 2].astype(np.uint32)
     cloud = np.zeros(n, dtype=[
-        ('x', np.float32), ('y', np.float32), ('z', np.float32), ('rgb', np.uint32),
+        ('x', np.float32), ('y', np.float32), ('z', np.float32),
     ])
-    cloud['x']   = xyz[:, 0]
-    cloud['y']   = xyz[:, 1]
-    cloud['z']   = xyz[:, 2]
-    cloud['rgb'] = (r << 16) | (g << 8) | b
+    cloud['x'] = xyz[:, 0]
+    cloud['y'] = xyz[:, 1]
+    cloud['z'] = xyz[:, 2]
     msg = PointCloud2()
     msg.header.stamp    = stamp
-    msg.header.frame_id = 'odom'
+    msg.header.frame_id = 'depth_camera_optical_frame'
     msg.height     = 1
     msg.width      = n
     msg.fields     = [
-        PointField(name='x',   offset=0,  datatype=PointField.FLOAT32, count=1),
-        PointField(name='y',   offset=4,  datatype=PointField.FLOAT32, count=1),
-        PointField(name='z',   offset=8,  datatype=PointField.FLOAT32, count=1),
-        PointField(name='rgb', offset=12, datatype=PointField.UINT32,  count=1),
+        PointField(name='x', offset=0, datatype=PointField.FLOAT32, count=1),
+        PointField(name='y', offset=4, datatype=PointField.FLOAT32, count=1),
+        PointField(name='z', offset=8, datatype=PointField.FLOAT32, count=1),
     ]
     msg.is_bigendian = False
-    msg.point_step   = 16
-    msg.row_step     = 16 * n
+    msg.point_step   = 12
+    msg.row_step     = 12 * n
     msg.data         = cloud.tobytes()
     msg.is_dense     = True
     return msg
@@ -48,7 +63,7 @@ fps    = 10
 width  = 480
 height = 270
 
-print(f"[vio_pointcloud_bridge] fps={fps}  resolution={width}x{height}  imu_rate=200 Hz  topics=/odom /points", flush=True)
+print(f"[vio_pointcloud] fps={fps}  resolution={width}x{height}  imu_rate=200 Hz  topics=/odom /points", flush=True)
 
 try:
     p = dai.Pipeline()
@@ -90,23 +105,7 @@ try:
     while p.isRunning():
         transform = odomQ.tryGet()
         if transform is not None:
-            pos  = transform.getTranslation()
-            quat = transform.getQuaternion()
-            print(f"pos: x={pos.x:.3f}, y={pos.y:.3f}, z={pos.z:.3f} | "
-                  f"quat: qx={quat.qx:.3f}, qy={quat.qy:.3f}, qz={quat.qz:.3f}, qw={quat.qw:.3f}")
-
-            msg = Odometry()
-            msg.header.stamp    = ros_node.get_clock().now().to_msg()
-            msg.header.frame_id = 'odom'
-            msg.child_frame_id  = 'base_link'
-            msg.pose.pose.position.x    = float(pos.x)
-            msg.pose.pose.position.y    = float(pos.y)
-            msg.pose.pose.position.z    = float(pos.z)
-            msg.pose.pose.orientation.x = float(quat.qx)
-            msg.pose.pose.orientation.y = float(quat.qy)
-            msg.pose.pose.orientation.z = float(quat.qz)
-            msg.pose.pose.orientation.w = float(quat.qw)
-            odom_pub.publish(msg)
+            odom_pub.publish(make_odometry(transform))
 
         depth_frame = depth_q.tryGet()
         if depth_frame is None:
@@ -119,11 +118,9 @@ try:
         X = (uu[mask] - cx) * Z / fx
         Y = (vv[mask] - cy) * Z / fy
         xyz  = np.stack([X, Y, Z], axis=1)
-        rgba = np.full((len(xyz), 4), 200, dtype=np.uint8)
+        
 
-        print(f"Points: {len(xyz)}, Z=[{Z.min():.2f}, {Z.max():.2f}]")
-
-        ptc_pub.publish(make_pointcloud2(xyz, rgba, ros_node.get_clock().now().to_msg()))
+        ptc_pub.publish(make_pointcloud2(xyz, ros_node.get_clock().now().to_msg()))
 
         rclpy.spin_once(ros_node, timeout_sec=0)
         time.sleep(0.01)

@@ -24,10 +24,12 @@ PROJECT="open_vins_mt_yannic"
 IMG_OAK_DRIVER="${PROJECT}-oak_driver"
 IMG_OPENVINS="${PROJECT}-openvins"
 IMG_LOGGER="ros-humble-ros-base-arm64"   # pulled, not built
+IMG_BASALT="${PROJECT}-basalt"
 
 TAR_OAK_DRIVER="$BUILD_DIR/oak_driver.tar"
 TAR_OPENVINS="$BUILD_DIR/openvins.tar"
 TAR_LOGGER="$BUILD_DIR/logger.tar"
+TAR_BASALT="$BUILD_DIR/basalt.tar"
 
 # Note: build/ is owned by root (created by colcon inside Docker)
 # dist/ is used instead to avoid permission errors
@@ -98,19 +100,21 @@ echo ""
 echo "════════════════════════════════════════"
 echo "  Cross-build targets (linux/arm64)"
 echo "════════════════════════════════════════"
-echo "  [1] oak_driver   (Dockerfile_oak_driver)"
-echo "  [2] openvins     (Dockerfile_ros2_22_04)  — slow: ~40 min"
-echo "  [3] logger       (ros:humble-ros-base pull)"
-echo "  [4] All of the above"
+echo "  [1] oak_driver     (Dockerfile_oak_driver)"
+echo "  [2] openvins       (Dockerfile_ros2_22_04)    — slow: ~40 min"
+echo "  [3] logger         (ros:humble-ros-base pull)"
+echo "  [4] basalt         (Dockerfile_basalt)"
+echo "  [5] All of the above"
 echo ""
-TARGET=$(ask "Which targets to build? [1/2/3/4]:")
+TARGET=$(ask "Which targets to build? [1/2/3/4/5]:")
 
-BUILD_OAK=false; BUILD_OV=false; BUILD_LOG=false
-case "${TARGET:-4}" in
+BUILD_OAK=false; BUILD_OV=false; BUILD_LOG=false; BUILD_BASALT=false
+case "${TARGET:-5}" in
     1) BUILD_OAK=true ;;
     2) BUILD_OV=true ;;
     3) BUILD_LOG=true ;;
-    4|*) BUILD_OAK=true; BUILD_OV=true; BUILD_LOG=true ;;
+    4) BUILD_BASALT=true ;;
+    5|*) BUILD_OAK=true; BUILD_OV=true; BUILD_LOG=true; BUILD_BASALT=true ;;
 esac
 
 # ─────────────────────────────────────────────────────────────
@@ -151,6 +155,10 @@ EOF
     ok "logger image saved → $(du -sh "$TAR_LOGGER" | cut -f1)"
 fi
 
+if $BUILD_BASALT; then
+    build_image "$IMG_BASALT" "Dockerfile_basalt" "$TAR_BASALT"
+fi
+
 echo ""
 log "Build complete. Tarballs in $BUILD_DIR:"
 ls -lh "$BUILD_DIR"/*.tar 2>/dev/null || true
@@ -174,9 +182,10 @@ if confirm "Deploy images to a Raspberry Pi now?"; then
 
     # Copy tarballs
     TARS_TO_COPY=()
-    $BUILD_OAK && [[ -f "$TAR_OAK_DRIVER" ]] && TARS_TO_COPY+=("$TAR_OAK_DRIVER")
-    $BUILD_OV  && [[ -f "$TAR_OPENVINS"   ]] && TARS_TO_COPY+=("$TAR_OPENVINS")
-    $BUILD_LOG && [[ -f "$TAR_LOGGER"      ]] && TARS_TO_COPY+=("$TAR_LOGGER")
+    $BUILD_OAK    && [[ -f "$TAR_OAK_DRIVER"    ]] && TARS_TO_COPY+=("$TAR_OAK_DRIVER")
+    $BUILD_OV     && [[ -f "$TAR_OPENVINS"      ]] && TARS_TO_COPY+=("$TAR_OPENVINS")
+    $BUILD_LOG    && [[ -f "$TAR_LOGGER"         ]] && TARS_TO_COPY+=("$TAR_LOGGER")
+    $BUILD_BASALT && [[ -f "$TAR_BASALT"  ]] && TARS_TO_COPY+=("$TAR_BASALT")
 
     if [[ ${#TARS_TO_COPY[@]} -gt 0 ]]; then
         log "Copying tarballs to $SSH_TARGET:$PI_DIR  (may take a while)..."
@@ -207,7 +216,10 @@ $(if $BUILD_OV && [[ -f "$TAR_OPENVINS" ]]; then
     echo "echo '  Loading openvins...'   && docker load -i dist/arm64/openvins.tar 2>/dev/null || docker load -i openvins.tar"
 fi)
 $(if $BUILD_LOG && [[ -f "$TAR_LOGGER" ]]; then
-    echo "echo '  Loading logger...'     && docker load -i dist/arm64/logger.tar 2>/dev/null || docker load -i logger.tar"
+    echo "echo '  Loading logger...'         && docker load -i dist/arm64/logger.tar 2>/dev/null || docker load -i logger.tar"
+fi)
+$(if $BUILD_BASALT && [[ -f "$TAR_BASALT" ]]; then
+    echo "echo '  Loading basalt...'  && docker load -i dist/arm64/basalt.tar 2>/dev/null || docker load -i basalt.tar"
 fi)
 echo "  Done."
 REMOTE
@@ -225,6 +237,9 @@ $(if $BUILD_OV; then
 fi)
 $(if $BUILD_LOG; then
     echo "docker tag ${IMG_LOGGER}:latest ros:humble-ros-base 2>/dev/null || true"
+fi)
+$(if $BUILD_BASALT; then
+    echo "docker tag ${IMG_BASALT}:latest ${PROJECT}-basalt:latest 2>/dev/null || true"
 fi)
 REMOTE
     ok "Images tagged."

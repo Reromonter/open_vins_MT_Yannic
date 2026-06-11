@@ -1,9 +1,9 @@
 FROM ros:jazzy-ros-base
 
 # =========================================================
-# BasaltVIO bridge container (ROS2 Jazzy)
+# BasaltVIO container (ROS2 Jazzy)
 #
-# On-device BasaltVIO runs on the OAK-D (RVC3).  This
+# On-device BasaltVIO runs on the OAK-D (RVC2).  This
 # container reads the VIO pose and depth point cloud via
 # the depthai Python API and republishes them as ROS2 topics.
 #
@@ -24,15 +24,14 @@ RUN apt-get update && apt-get install -y \
 
 RUN pip3 install --break-system-packages depthai==3.7.1
 
-COPY scripts/basalt_bridge.py          /scripts/basalt_bridge.py
-COPY scripts/pointcloud_test.py        /scripts/pointcloud_test.py
-COPY scripts/vio_pointcloud_bridge.py  /scripts/vio_pointcloud_bridge.py
-COPY scripts/fix_imu_calibration.py    /scripts/fix_imu_calibration.py
+COPY scripts/vio_pointcloud.py          /scripts/vio_pointcloud.py
 
 RUN echo "source /opt/ros/jazzy/setup.bash" >> /root/.bashrc
 
 RUN printf '#!/bin/bash\nsource /opt/ros/jazzy/setup.bash\nexec "$@"\n' \
     > /entrypoint.sh && chmod +x /entrypoint.sh
 
+ENV SCRIPT=/scripts/vio_pointcloud.py
+
 ENTRYPOINT ["/entrypoint.sh"]
-CMD ["python3", "/scripts/basalt_bridge.py"]
+CMD ["sh", "-c", "exec python3 $SCRIPT"]

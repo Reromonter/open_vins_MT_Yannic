@@ -9,9 +9,9 @@ odom_pub = ros_node.create_publisher(Odometry, '/odom', 10)
 
 # Create pipeline
 with dai.Pipeline() as p:
-    fps    = 10
-    width  = 480
-    height = 270
+    fps = 60
+    width = 640
+    height = 400
 
     print(f"[basalt_bridge] fps={fps}  resolution={width}x{height}  imu_rate=200 Hz  topic=/odom", flush=True)
 

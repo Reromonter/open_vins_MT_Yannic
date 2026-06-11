@@ -25,7 +25,7 @@ def make_pointcloud2(xyz, rgba, stamp):
     cloud['rgb'] = (r << 16) | (g << 8) | b
     msg = PointCloud2()
     msg.header.stamp    = stamp
-    msg.header.frame_id = 'odom'
+    msg.header.frame_id = 'depth_camera_optical_frame'
     msg.height     = 1
     msg.width      = n
     msg.fields     = [
