@@ -1,25 +1,23 @@
-FROM ros:jazzy-ros-base
+FROM ros:humble-ros-base
 
 # =========================================================
-# OAK-D camera driver container (ROS2 Jazzy)
+# OAK-D camera driver container (ROS2 Humble)
 # Publishes stereo grayscale images, point cloud, and IMU
 # =========================================================
 
 # Install depthai ROS2 driver
-# If ros-jazzy-depthai-ros is not yet in the apt mirror, add the Luxonis
-# repository first: https://docs.luxonis.com/software/ros/depthai-ros/build/
 RUN apt-get update && apt-get install -y \
-    ros-jazzy-depthai-ros \
+    ros-humble-depthai-ros \
     && rm -rf /var/lib/apt/lists/*
 
 # Copy driver parameters
 COPY config/oak_d/oak_params.yaml /config/oak_params.yaml
 
 # Source ROS automatically in every new shell
-RUN echo "source /opt/ros/jazzy/setup.bash" >> /root/.bashrc
+RUN echo "source /opt/ros/humble/setup.bash" >> /root/.bashrc
 
 # Entrypoint: source ROS then run the given command
-RUN printf '#!/bin/bash\nsource /opt/ros/jazzy/setup.bash\nexec "$@"\n' \
+RUN printf '#!/bin/bash\nsource /opt/ros/humble/setup.bash\nexec "$@"\n' \
     > /entrypoint.sh && chmod +x /entrypoint.sh
 
 ENTRYPOINT ["/entrypoint.sh"]

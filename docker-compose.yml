@@ -61,7 +61,7 @@ services:
       - config:=oak_d
       - use_stereo:=true
       - max_cameras:=2
-      - verbosity:=DEBUG
+      - verbosity:=ALL
       - recorder_output:=/logs/trajectories/${RUN_TIMESTAMP:-latest}/estimated_trajectory.txt
       - timing_output:=/logs/timing/${RUN_TIMESTAMP:-latest}/psutil_log.txt
     depends_on:
