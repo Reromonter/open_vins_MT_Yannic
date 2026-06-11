@@ -1,6 +1,6 @@
 import os
-import signal
 import time
+import threading
 import numpy as np
 import depthai as dai
 import rclpy
@@ -33,6 +33,7 @@ def make_odometry(transform):
 
 
 def make_pointcloud2(xyz, stamp):
+    Z = xyz[:, 2]
     print(f"Points: {len(xyz)}, Z=[{Z.min():.2f}, {Z.max():.2f}]")
     n = len(xyz)
     cloud = np.zeros(n, dtype=[
@@ -101,29 +102,45 @@ try:
 
     odomQ = odom.transform.createOutputQueue(maxSize=8, blocking=False)
 
+    # Check ~100x per frame interval — enough to catch new data without busy-waiting.
+    idle_sleep = 1.0 / (fps * 100)
+
+    def odom_loop():
+        while p.isRunning():
+            transform = odomQ.tryGet()
+            if transform is not None:
+                odom_pub.publish(make_odometry(transform))
+            else:
+                # No transform available. Sleep so Python can run depth_loop —
+                # without this, the loop spins millions of times/sec and
+                # Python's GIL never gets a chance to switch to the other thread.
+                time.sleep(idle_sleep)
+
+    def depth_loop():
+        while p.isRunning():
+            depth_frame = depth_q.tryGet()
+            if depth_frame is not None:
+                depth = depth_frame.getFrame().astype(np.float32) / 1000.0  # mm → m
+                mask  = depth > 0
+                Z = depth[mask]
+                X = (uu[mask] - cx) * Z / fx
+                Y = (vv[mask] - cy) * Z / fy
+                xyz = np.stack([X, Y, Z], axis=1)
+
+                ptc_pub.publish(make_pointcloud2(xyz, ros_node.get_clock().now().to_msg()))
+                rclpy.spin_once(ros_node, timeout_sec=0)
+            else:
+                # Same as above: sleep so odom_loop gets CPU time while
+                # we wait for the next depth frame (which only arrives at 10 fps).
+                time.sleep(idle_sleep)
+
     p.start()
-    while p.isRunning():
-        transform = odomQ.tryGet()
-        if transform is not None:
-            odom_pub.publish(make_odometry(transform))
-
-        depth_frame = depth_q.tryGet()
-        if depth_frame is None:
-            rclpy.spin_once(ros_node, timeout_sec=0)
-            continue
-
-        depth = depth_frame.getFrame().astype(np.float32) / 1000.0  # mm → m
-        mask  = depth > 0
-        Z = depth[mask]
-        X = (uu[mask] - cx) * Z / fx
-        Y = (vv[mask] - cy) * Z / fy
-        xyz  = np.stack([X, Y, Z], axis=1)
-        
-
-        ptc_pub.publish(make_pointcloud2(xyz, ros_node.get_clock().now().to_msg()))
-
-        rclpy.spin_once(ros_node, timeout_sec=0)
-        time.sleep(0.01)
+    t_odom  = threading.Thread(target=odom_loop,  daemon=True)
+    t_depth = threading.Thread(target=depth_loop, daemon=True)
+    t_odom.start()
+    t_depth.start()
+    t_odom.join()
+    t_depth.join()
 
 except Exception as e:
     print(f"Fatal: {e}", flush=True)
