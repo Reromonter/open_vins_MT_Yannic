@@ -21,7 +21,7 @@ def make_odometry(transform):
     msg = Odometry()
     msg.header.stamp    = ros_node.get_clock().now().to_msg()
     msg.header.frame_id = 'odom'
-    msg.child_frame_id  = 'base_link'
+    msg.child_frame_id  = 'BASE'
     msg.pose.pose.position.x    = float(pos.x)
     msg.pose.pose.position.y    = float(pos.y)
     msg.pose.pose.position.z    = float(pos.z)
