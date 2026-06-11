@@ -11,8 +11,8 @@ import tf2_ros
 
 rclpy.init()
 ros_node = rclpy.create_node('basalt')
-odom_pub  = ros_node.create_publisher(Odometry, '/odom', 10)
-ptc_pub   = ros_node.create_publisher(PointCloud2, '/points', 10)
+odom_pub  = ros_node.create_publisher(Odometry, '/gazebo/odom', 10)
+ptc_pub   = ros_node.create_publisher(PointCloud2, '/depth_camera/points', 10)
 tf_broadcaster = tf2_ros.TransformBroadcaster(ros_node)
 
 
