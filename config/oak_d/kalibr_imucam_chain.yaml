@@ -16,13 +16,16 @@
 
 cam0:
   T_imu_cam: # rotation from camera to IMU R_CtoI, position of camera in IMU p_CinI
-    # !!! REPLACE with values from Kalibr !!!
-    # Rough guess: identity rotation, left camera ~3.75 cm left of IMU center
-    # T_imu_cam = inverse of T_cam_imu: for R=I, negate translation
-    - [ 1.0, 0.0, 0.0,  0.0375 ]
-    - [ 0.0, 1.0, 0.0,  0.0    ]
-    - [ 0.0, 0.0, 1.0,  0.0    ]
-    - [ 0.0, 0.0, 0.0,  1.0    ]
+    # Derived from OAK-D board_config EEPROM (units: cm → m):
+    #   BNO→CAM_A: R=[[-1,0,0],[0,-1,0],[0,0,1]], t=[0.015, 0.013662, 0] m
+    #   CAM_B(left) in CAM_A: t=[-0.0375, 0, 0] m  (chain: -0.075 + 0.0375)
+    #   T_imu_camB = inv(T_camA_imu) * T_camA_camB
+    #   R is 180° around Z (IMU X/Y axes flip relative to cameras)
+    # !!! Still replace with Kalibr output for best accuracy !!!
+    - [-1.0, 0.0, 0.0,  0.0525   ]
+    - [ 0.0,-1.0, 0.0,  0.013662 ]
+    - [ 0.0, 0.0, 1.0,  0.0      ]
+    - [ 0.0, 0.0, 0.0,  1.0      ]
   cam_overlaps: [1]
   camera_model: pinhole
   distortion_model: radtan
@@ -30,18 +33,20 @@ cam0:
   intrinsics: [441.25, 441.25, 320.0, 200.0]  # fu, fv, cu, cv  (640x400)
   distortion_coeffs: [0.0, 0.0, 0.0, 0.0]     # k1, k2, p1, p2 — replace with real values
   resolution: [640, 400]
-  rostopic: /oak/left/image_raw
+  rostopic: /oak/left/image_rect
   timeshift_cam_imu: 0.0   # optimized online (calib_cam_timeoffset: true)
 
 cam1:
   T_imu_cam: # rotation from camera to IMU R_CtoI, position of camera in IMU p_CinI
-    # !!! REPLACE with values from Kalibr !!!
-    # Rough guess: identity rotation, right camera ~3.75 cm right of IMU center
-    # T_imu_cam = inverse of T_cam_imu: for R=I, negate translation
-    - [ 1.0, 0.0, 0.0, -0.0375 ]
-    - [ 0.0, 1.0, 0.0,  0.0    ]
-    - [ 0.0, 0.0, 1.0,  0.0    ]
-    - [ 0.0, 0.0, 0.0,  1.0    ]
+    # Derived from OAK-D board_config EEPROM (units: cm → m):
+    #   BNO→CAM_A: R=[[-1,0,0],[0,-1,0],[0,0,1]], t=[0.015, 0.013662, 0] m
+    #   CAM_C(right) in CAM_A: t=[+0.0375, 0, 0] m
+    #   T_imu_camC = inv(T_camA_imu) * T_camA_camC
+    # !!! Still replace with Kalibr output for best accuracy !!!
+    - [-1.0, 0.0, 0.0, -0.0225   ]
+    - [ 0.0,-1.0, 0.0,  0.013662 ]
+    - [ 0.0, 0.0, 1.0,  0.0      ]
+    - [ 0.0, 0.0, 0.0,  1.0      ]
   cam_overlaps: [0]
   camera_model: pinhole
   distortion_model: radtan
@@ -49,5 +54,5 @@ cam1:
   intrinsics: [441.25, 441.25, 320.0, 200.0]  # fu, fv, cu, cv  (640x400)
   distortion_coeffs: [0.0, 0.0, 0.0, 0.0]     # k1, k2, p1, p2 — replace with real values
   resolution: [640, 400]
-  rostopic: /oak/right/image_raw
+  rostopic: /oak/right/image_rect
   timeshift_cam_imu: 0.0

@@ -12,13 +12,13 @@ integration: "analytical" # discrete, rk4, analytical (if rk4 or analytical used
 use_stereo: true # if we have more than 1 camera, if we should try to track stereo constraints between pairs
 max_cameras: 2 # how many cameras we have 1 = mono, 2 = stereo, >2 = binocular (all mono tracking)
 
-calib_cam_extrinsics: true # if the transform between camera and IMU should be optimized R_ItoC, p_CinI
+calib_cam_extrinsics: false # if the transform between camera and IMU should be optimized R_ItoC, p_CinI
 calib_cam_intrinsics: true # if camera intrinsics should be optimized (focal, center, distortion)
 calib_cam_timeoffset: true # if timeoffset between camera and IMU should be optimized
-calib_imu_intrinsics: true # if imu intrinsics should be calibrated (rotation and skew-scale matrix)
-calib_imu_g_sensitivity: true # if gyroscope gravity sensitivity (Tg) should be calibrated
+calib_imu_intrinsics: false # if imu intrinsics should be calibrated (rotation and skew-scale matrix)
+calib_imu_g_sensitivity: false # if gyroscope gravity sensitivity (Tg) should be calibrated
 
-max_clones: 5 # how many clones (poses of IMU) in the sliding window
+max_clones: 11 # how many clones (poses of IMU) in the sliding window
 max_slam: 50 # number of features in our state vector
 max_slam_in_update: 25 # update can be split into sequential updates of batches, how many in a batch
 max_msckf_in_update: 40 # how many MSCKF features to use in the update
@@ -26,13 +26,13 @@ dt_slam_delay: 2 # delay before initializing (helps with stability from bad init
 
 gravity_mag: 9.81 # magnitude of gravity in this location
 
-feat_rep_msckf: "GLOBAL_3D"
+feat_rep_msckf: "ANCHORED_MSCKF_INVERSE_DEPTH"
 feat_rep_slam: "ANCHORED_MSCKF_INVERSE_DEPTH"
 feat_rep_aruco: "ANCHORED_MSCKF_INVERSE_DEPTH"
 
 # zero velocity update parameters we can use
 # we support either IMU-based or disparity detection.
-try_zupt: false # true means zero motion residual added when robot judged stationary (can turn on for slow robots)
+try_zupt: true # true means zero motion residual added when robot judged stationary (can turn on for slow robots)
 zupt_chi2_multipler: 3 # set to 0 for only disp-based
 zupt_max_velocity: 1 # max velocity where the zero velocity check is not auto-rejected
 zupt_noise_multiplier: 2
@@ -42,7 +42,7 @@ zupt_only_at_beginning: false
 # ==================================================================
 # ==================================================================
 
-init_window_time: 2.0 # how many seconds to collect initialization information
+init_window_time: 1.0 # how many seconds to collect initialization information
 init_imu_thresh: 1.5 # if set to 0 force to use dynamic initialization; threshold for variance of the accelerometer to detect a "jerk" in motion
 init_max_disparity: 10.0 # max disparity to consider the platform stationary; if calculated disparity is above this fall back to static initialization (dependent on resolution)
 init_max_features: 450 # how many features to track during initialization (saves on computation)
@@ -62,7 +62,7 @@ init_dyn_inflation_ba: 100 # what to inflate the recovered bias_a covariance by
 init_dyn_min_rec_cond: 1e-12 # reciprocal condition number thresh for info inversion
 
 init_dyn_bias_g: [ 0.0, 0.0, 0.0 ] # initial gyroscope bias guess
-init_dyn_bias_a: [ 0.0, 0.0, 0.0 ] # initial accelerometer bias guess
+init_dyn_bias_a: [ -1.50, 0.0, 0.0 ] # initial accelerometer bias guess — BNO086 hardware x-axis offset
 
 # ==================================================================
 # ==================================================================
@@ -83,16 +83,16 @@ filepath_gt: "/logs/ov_groundtruth.txt"
 # our front-end feature tracking parameters
 # we have a KLT and descriptor based (KLT is better implemented...)
 use_klt: true # if true we will use KLT, otherwise use a ORB descriptor + robust matching
-num_pts: 450 # number of points (per camera) we will extract and try to track
-fast_threshold: 5 # threshold for fast extraction (warning: lower threshs can be expensive)
+num_pts: 200 # number of points (per camera) — reduced from 450 for Pi 4 performance
+fast_threshold: 10 # threshold for fast extraction — raised to reduce candidate count
 grid_x: 5 # extraction sub-grid count for horizontal direction (uniform tracking)
 grid_y: 5 # extraction sub-grid count for vertical direction (uniform tracking)
 min_px_dist: 10 # distance between features (features near each other provide less information)
 knn_ratio: 0.70 # descriptor knn threshold for the top two descriptor matches (not used if KLT; if lower means that reject more matches)
 track_frequency: 5.01 # fps of the images which will be used by the system — matches oak_params.yaml i_fps: 5.0
-downsample_cameras: false # will downsample image in half if true
-num_opencv_threads: 1 # -1: auto, 0-1: serial, >1: number of threads
-histogram_method: "CLAHE" # NONE, HISTOGRAM, CLAHE
+downsample_cameras: true # halves image to 320x200 for KLT — ~4x faster tracking; intrinsics adjusted automatically
+num_opencv_threads: 4 # use all Pi 4 cores for KLT optical flow
+histogram_method: "HISTOGRAM" # CLAHE is expensive; HISTOGRAM is faster with similar contrast benefit
 
 # aruco tag tracker for the system
 # DICT_6X6_1000 from https://chev.me/arucogen/
@@ -105,9 +105,9 @@ downsize_aruco: true
 
 # camera noises and chi-squared threshold multipliers
 up_msckf_sigma_px: 1
-up_msckf_chi2_multipler: 1
+up_msckf_chi2_multipler: 5
 up_slam_sigma_px: 1
-up_slam_chi2_multipler: 1
+up_slam_chi2_multipler: 5
 up_aruco_sigma_px: 1 # not present if not using aruco
 up_aruco_chi2_multipler: 1 # not present if not using aruco
 
