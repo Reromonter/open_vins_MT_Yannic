@@ -166,7 +166,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile_ftx_driver
-    image: hesai-driver:jazzy
+    image: open_vins_mt_yannic-ftx_driver:latest
     network_mode: host          # lets driver reach physical NIC for UDP/PTC traffic
     ipc: host                   # share /dev/shm for FastDDS SHM transport
     environment:
