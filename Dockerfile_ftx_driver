@@ -1,0 +1,35 @@
+FROM ros:jazzy-ros-base
+
+RUN apt-get update && apt-get install -y \
+    git \
+    libboost-all-dev \
+    libyaml-cpp-dev \
+    libssl-dev \
+ && rm -rf /var/lib/apt/lists/*
+
+RUN git clone --recurse-submodules \
+    https://github.com/HesaiTechnology/HesaiLidar_ROS_2.0.git \
+    /ros2_ws/src/hesai_ros_driver
+
+# Fix placeholder values in the default config that cause startup errors
+RUN sed -i \
+    -e 's|multicast_ip_address: 255.255.255.255|multicast_ip_address: ""|g' \
+    -e 's|channel_fov_filter_path: "Your channel fov filter file path"|channel_fov_filter_path: ""|g' \
+    -e 's|correction_file_path: "Your correction file path"|correction_file_path: ""|g' \
+    -e 's|firetimes_path: "Your firetime file path"|firetimes_path: ""|g' \
+    /ros2_ws/src/hesai_ros_driver/config/config.yaml
+
+WORKDIR /ros2_ws
+
+RUN . /opt/ros/jazzy/setup.sh && \
+    colcon build --symlink-install
+
+RUN printf '#!/bin/bash\nset -e\nsource /opt/ros/jazzy/setup.bash\nsource /ros2_ws/install/local_setup.bash\nexec "$@"\n' \
+    > /entrypoint.sh && chmod +x /entrypoint.sh
+
+ENTRYPOINT ["/entrypoint.sh"]
+
+# Default config lives at /ros2_ws/src/hesai_ros_driver/config/config.yaml.
+# Mount your own config.yaml there, or append:
+#   --ros-args -p config_path:=/your/path.yaml
+CMD ["ros2", "run", "hesai_ros_driver", "hesai_ros_driver_node"]

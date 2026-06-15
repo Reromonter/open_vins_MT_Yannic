@@ -149,6 +149,32 @@ services:
 
 
   # ---------------------------------------------------------------
+  # Hesai FTX LiDAR driver (opt-in)
+  # Publishes: /lidar_points  — sensor_msgs/PointCloud2
+  # The FTX sends raw UDP packets on port 2368; PTC control on port 9347.
+  # host networking lets the driver reach the physical NIC directly.
+  #
+  # Start with:
+  #   docker compose --profile ftx up --build hesai_driver
+  #
+  # To use a custom sensor config mount it over the default:
+  #   volumes:
+  #     - ./config/ftx/config.yaml:/ros2_ws/src/hesai_ros_driver/config/config.yaml
+  # ---------------------------------------------------------------
+  hesai_driver:
+    profiles: [ftx]
+    build:
+      context: .
+      dockerfile: Dockerfile_ftx_driver
+    image: hesai-driver:jazzy
+    network_mode: host          # lets driver reach physical NIC for UDP/PTC traffic
+    ipc: host                   # share /dev/shm for FastDDS SHM transport
+    environment:
+      - RMW_IMPLEMENTATION=rmw_fastrtps_cpp
+    restart: unless-stopped
+
+
+  # ---------------------------------------------------------------
   # RViz visualiser (opt-in, not started by default)
   # Connects to the running stack via host network + shared DDS.
   #
