@@ -11,8 +11,8 @@ import tf2_ros
 
 rclpy.init()
 ros_node = rclpy.create_node('basalt')
-odom_pub  = ros_node.create_publisher(Odometry, '/gazebo/odom', 10)
-ptc_pub   = ros_node.create_publisher(PointCloud2, '/depth_camera/points', 10)
+odom_pub  = ros_node.create_publisher(Odometry, '/odom', 10)
+ptc_pub   = ros_node.create_publisher(PointCloud2, '/points', 10)
 tf_broadcaster = tf2_ros.TransformBroadcaster(ros_node)
 
 
@@ -100,8 +100,8 @@ def make_band_mask(shape, edges, ratios, rng):
 
 
 fps    = 10
-width  = 160
-height = 120
+width  = 480
+height = 340
 
 band_edges = [0, height  // 3, 2 * height  // 3, height ]       # top, middle, bottom
 band_ratios = [1.0, 0.6, 0.3]                                   # keep fractions per band
