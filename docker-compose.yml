@@ -7,6 +7,7 @@
 #   docker compose --profile rviz up --build rviz               # visualise live topics in RViz
 #   docker compose --profile sgbm up --build sgbm               # run StereoSGBM point-cloud node
 #   docker compose --profile stereo_proc up --build stereo_proc # run stereo_image_proc point-cloud
+#   docker compose --profile basalt_ftx up --build              # BasaltVIO (OAK-D) + Hesai FTX LiDAR
 #
 # Logs are written to ./logs/ on the host:
 #   logs/bags/<timestamp>/        — ros2 bag (raw sensors + estimated topics)
@@ -132,7 +133,7 @@ services:
   #   docker compose --profile basalt up --build basalt
   # ---------------------------------------------------------------
   basalt:
-    profiles: [basalt]
+    profiles: [basalt, basalt_ftx]
     build:
       context: .
       dockerfile: Dockerfile_basalt
@@ -162,7 +163,7 @@ services:
   #     - ./config/ftx/config.yaml:/ros2_ws/src/hesai_ros_driver/config/config.yaml
   # ---------------------------------------------------------------
   hesai_driver:
-    profiles: [ftx]
+    profiles: [ftx, basalt_ftx]
     build:
       context: .
       dockerfile: Dockerfile_ftx_driver
