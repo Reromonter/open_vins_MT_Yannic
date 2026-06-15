@@ -171,6 +171,8 @@ services:
     ipc: host                   # share /dev/shm for FastDDS SHM transport
     environment:
       - RMW_IMPLEMENTATION=rmw_fastrtps_cpp
+    volumes:
+      - ./config/ftx/config.yaml:/ros2_ws/src/hesai_ros_driver/config/config.yaml:ro
     restart: unless-stopped
 
 
