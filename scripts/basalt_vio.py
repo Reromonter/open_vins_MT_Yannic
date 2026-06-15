@@ -1,11 +1,14 @@
 import time
 import depthai as dai
 import rclpy
+from geometry_msgs.msg import TransformStamped
 from nav_msgs.msg import Odometry
+import tf2_ros
 
 rclpy.init()
 ros_node = rclpy.create_node('basalt_bridge')
 odom_pub = ros_node.create_publisher(Odometry, '/odom', 10)
+tf_broadcaster = tf2_ros.TransformBroadcaster(ros_node)
 
 # Create pipeline
 with dai.Pipeline() as p:
@@ -38,21 +41,49 @@ with dai.Pipeline() as p:
         if transform is not None:
             pos = transform.getTranslation()
             quat = transform.getQuaternion()
-            print(f"pos: x={pos.x:.3f}, y={pos.y:.3f}, z={pos.z:.3f} | "
-                  f"quat: qx={quat.qx:.3f}, qy={quat.qy:.3f}, qz={quat.qz:.3f}, qw={quat.qw:.3f}")
+            # print(f"pos: x={pos.x:.3f}, y={pos.y:.3f}, z={pos.z:.3f} | "
+            #       f"quat: qx={quat.qx:.3f}, qy={quat.qy:.3f}, qz={quat.qz:.3f}, qw={quat.qw:.3f}")
+
+            # VIO → ROS frame correction (observed: phys +X→VIO -X, phys -Y→VIO +Z)
+            # Rotation matrix: ros_x=-vio_x, ros_y=-vio_z, ros_z=-vio_y
+            # Quaternion vector part transforms identically to the position vector.
+            rx  = -float(pos.x)
+            ry  = -float(pos.z)
+            rz  = -float(pos.y)
+            rqx =  float(quat.qx)
+            rqy =  float(quat.qz)
+            rqz =  float(quat.qy)
+            rqw =  float(quat.qw)
+            print(f"ros: x={rx:.3f}, y={ry:.3f}, z={rz:.3f} | "
+                  f"quat: qx={rqx:.3f}, qy={rqy:.3f}, qz={rqz:.3f}, qw={rqw:.3f}")
+
+            stamp = ros_node.get_clock().now().to_msg()
 
             msg = Odometry()
-            msg.header.stamp = ros_node.get_clock().now().to_msg()
+            msg.header.stamp    = stamp
             msg.header.frame_id = 'odom'
-            msg.child_frame_id = 'base_link'
-            msg.pose.pose.position.x = float(pos.x)
-            msg.pose.pose.position.y = float(pos.y)
-            msg.pose.pose.position.z = float(pos.z)
-            msg.pose.pose.orientation.x = float(quat.qx)
-            msg.pose.pose.orientation.y = float(quat.qy)
-            msg.pose.pose.orientation.z = float(quat.qz)
-            msg.pose.pose.orientation.w = float(quat.qw)
+            msg.child_frame_id  = 'base_link'
+            msg.pose.pose.position.x    = rx
+            msg.pose.pose.position.y    = ry
+            msg.pose.pose.position.z    = rz
+            msg.pose.pose.orientation.x = rqx
+            msg.pose.pose.orientation.y = rqy
+            msg.pose.pose.orientation.z = rqz
+            msg.pose.pose.orientation.w = rqw
             odom_pub.publish(msg)
+
+            tf_msg = TransformStamped()
+            tf_msg.header.stamp    = stamp
+            tf_msg.header.frame_id = 'odom'
+            tf_msg.child_frame_id  = 'base_link'
+            tf_msg.transform.translation.x = rx
+            tf_msg.transform.translation.y = ry
+            tf_msg.transform.translation.z = rz
+            tf_msg.transform.rotation.x = rqx
+            tf_msg.transform.rotation.y = rqy
+            tf_msg.transform.rotation.z = rqz
+            tf_msg.transform.rotation.w = rqw
+            tf_broadcaster.sendTransform(tf_msg)
 
         rclpy.spin_once(ros_node, timeout_sec=0)
         time.sleep(0.01)
