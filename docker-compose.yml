@@ -163,7 +163,7 @@ services:
   #     - ./config/ftx/config.yaml:/ros2_ws/src/hesai_ros_driver/config/config.yaml
   # ---------------------------------------------------------------
   hesai_driver:
-    profiles: [ftx, basalt_ftx]
+    profiles: [ftx, basalt_ftx, openvins]
     build:
       context: .
       dockerfile: Dockerfile_ftx_driver
@@ -244,4 +244,51 @@ services:
       - /dev/dri:/dev/dri
     command: ["ros2", "run", "rviz2", "rviz2", "-d", "/config/basalt_odom.rviz"]
 
- 
+
+  # ---------------------------------------------------------------
+  # VectorNav IMU driver (ROS2 Jazzy)
+  # Publishes standard IMU topics via the vectornav ROS2 package.
+  # Connects over serial (default /dev/ttyUSB0).
+  #
+  # Start with:
+  #   docker compose --profile vectornav up --build vectornav
+  #
+  # Override serial port:
+  #   VECTORNAV_PORT=/dev/ttyUSB1 docker compose --profile vectornav up vectornav
+  # ---------------------------------------------------------------
+  vectornav:
+    profiles: [vectornav]
+    build:
+      context: .
+      dockerfile: Dockerfile_vectornav
+    image: open_vins_mt_yannic-vectornav:latest
+    network_mode: host
+    ipc: host
+    devices:
+      - ${VECTORNAV_PORT:-/dev/ttyUSB0}:${VECTORNAV_PORT:-/dev/ttyUSB0}
+    group_add:
+      - dialout
+    environment:
+      - RMW_IMPLEMENTATION=rmw_fastrtps_cpp
+      - ROS_DOMAIN_ID=${ROS_DOMAIN_ID:-0}
+    restart: unless-stopped
+
+  # ---------------------------------------------------------------
+  # VectorNav IMU bridge
+  # Converts vectornav_msgs/ImuGroup -> sensor_msgs/Imu for OpenVINS.
+  # Subscribes:  /vectornav/raw/imu  (ImuGroup)
+  # Publishes:   /imu0               (sensor_msgs/Imu)
+  # ---------------------------------------------------------------
+  vn_bridge:
+    profiles: [vectornav]
+    build:
+      context: .
+      dockerfile: Dockerfile_vn_bridge
+    network_mode: host
+    ipc: host
+    environment:
+      - RMW_IMPLEMENTATION=rmw_fastrtps_cpp
+      - ROS_DOMAIN_ID=${ROS_DOMAIN_ID:-0}
+    depends_on:
+      - vectornav
+    restart: unless-stopped

@@ -1,0 +1,22 @@
+FROM ros:jazzy-ros-base
+
+ARG DEBIAN_FRONTEND=noninteractive
+
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    python3-colcon-common-extensions \
+    && rm -rf /var/lib/apt/lists/*
+
+# build vectornav_msgs so the bridge can import CommonGroup/ImuGroup
+COPY vectornav/ros2/vectornav_msgs /ws/src/vectornav_msgs
+WORKDIR /ws
+RUN /bin/bash -c "source /opt/ros/jazzy/setup.bash && \
+    colcon build --packages-select vectornav_msgs \
+      --cmake-args -DCMAKE_BUILD_TYPE=Release"
+
+COPY scripts/vn_imu_bridge.py /ws/vn_imu_bridge.py
+
+RUN echo '#!/bin/bash\nset -e\nsource /opt/ros/jazzy/setup.bash\nsource /ws/install/setup.bash\nexec "$@"' \
+    > /entrypoint.sh && chmod +x /entrypoint.sh
+
+ENTRYPOINT ["/entrypoint.sh"]
+CMD ["python3", "/ws/vn_imu_bridge.py"]
