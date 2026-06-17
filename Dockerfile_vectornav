@@ -1,0 +1,30 @@
+FROM ros:jazzy-ros-base
+
+ARG DEBIAN_FRONTEND=noninteractive
+
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    ros-jazzy-rclcpp \
+    ros-jazzy-rclcpp-action \
+    ros-jazzy-geometry-msgs \
+    ros-jazzy-sensor-msgs \
+    ros-jazzy-tf2-geometry-msgs \
+    python3-colcon-common-extensions \
+    && rm -rf /var/lib/apt/lists/*
+
+WORKDIR /ws/src/vectornav-ros2
+
+COPY vectornav/ .
+
+WORKDIR /ws
+RUN /bin/bash -c "source /opt/ros/jazzy/setup.bash && \
+    colcon build \
+      --symlink-install \
+      --packages-select vectornav_msgs vectornav \
+      --cmake-args -DCMAKE_BUILD_TYPE=Release \
+      --base-paths src/vectornav-ros2/ros2"
+
+RUN echo '#!/bin/bash\nset -e\nsource /opt/ros/jazzy/setup.bash\nsource /ws/install/setup.bash\nexec "$@"' > /docker-entrypoint.sh \
+    && chmod +x /docker-entrypoint.sh
+
+ENTRYPOINT ["/docker-entrypoint.sh"]
+CMD ["ros2", "launch", "vectornav", "vectornav.launch.py"]
